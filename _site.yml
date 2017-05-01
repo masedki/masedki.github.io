@@ -1,4 +1,8 @@
 name: "Moh-website"
+output:
+  html_document:
+    theme: readable
+    css: style.css
 output_dir: "."
 navbar:
   title: "Ma page web"
@@ -7,9 +11,5 @@ navbar:
       href: recherche.html
     - text: "About Me"
       href: about.html
-output:
-  html_document:
-    theme: flatly
-    css: style.css
-      
+    
       
