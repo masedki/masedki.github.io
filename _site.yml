@@ -10,7 +10,7 @@ navbar:
     - text: "Recherche"
       href: recherche.html
     - text: "Enseignements"
-      href: Enseignements.html
+      href: enseignements.html
     - text: "Packages et logiciels"
       href: packages.html
       
