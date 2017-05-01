@@ -8,7 +8,20 @@ navbar:
     - text: "Enseignements"
       href: enseignements.html
     - text: "Packages et logiciels"
-      href: packages.html
+      icon: fa-gear
+      menu:
+        - text: "Heading 1"
+        - text: "Page A"
+          href: VarSelLCM.html
+        - text: "Page B"
+          href: npdataclustering.html
+        - text: "---------"
+        - text: "Heading 2"
+        - text: "Page C"
+          href: SelvarMix.html
+        - text: "Page D"
+          href: MHTrajectoryR.html
+      #href: packages.html
 output:
   html_document:
     theme: journal
