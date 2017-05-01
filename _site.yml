@@ -1,0 +1,9 @@
+name: "Moh-website"
+output_dir: "."
+navbar:
+  title: "Ma page web"
+  left:
+    - text: "Recherche"
+      href: recherche.html
+    - text: "About Me"
+      href: about.html
