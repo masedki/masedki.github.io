@@ -10,17 +10,20 @@ navbar:
     - text: "Packages et logiciels"
       icon: fa-gear
       menu:
-        - text: "Heading 1"
-        - text: "Page A"
+        - text: "Model selection in model-based clustering"
+        - text: "Exact ICL optimization"
           href: VarSelLCM.html
-        - text: "Page B"
+        - text: "Model selection in mixed data clustering"
           href: npdataclustering.html
-        - text: "---------"
-        - text: "Heading 2"
-        - text: "Page C"
+        - text: "Lasso regularization"
           href: SelvarMix.html
-        - text: "Page D"
+        - text: "---------"
+        - text: "Model Selection in Binary data"
+        - text: "Logistic binary data regression"
           href: MHTrajectoryR.html
+        - text: "Modeling high-dimensional binary data"
+          href: MHTrajectoryR.html  
+        
       #href: packages.html
 output:
   html_document:
