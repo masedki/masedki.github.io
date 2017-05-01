@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>MvBinary</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/journal.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/ionicons-2.0.1/css/ionicons.min.css" rel="stylesheet" />
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { font-weight: bold; } /* Keyword */
+code > span.dt { text-decoration: underline; } /* DataType */
+code > span.co { font-style: italic; } /* Comment */
+code > span.al { font-weight: bold; } /* Alert */
+code > span.er { font-weight: bold; } /* Error */
+code > span.wa { font-style: italic; } /* Warning */
+code > span.cf { font-weight: bold; } /* ControlFlow */
+code > span.pp { font-weight: bold; } /* Preprocessor */
+code > span.do { font-style: italic; } /* Documentation */
+code > span.an { font-style: italic; } /* Annotation */
+code > span.cv { font-style: italic; } /* CommentVar */
+code > span.in { font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 61px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+
+.section h2 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h3 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h4 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h5 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h6 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Acceuil</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="recherche.html">Recherche</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="ion ion-easel"></span>
+     
+    Enseignements
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">M2R santé publique</li>
+    <li>
+      <a href="MANprobastat.html">Mise à niveau probabilité et statistiques</a>
+    </li>
+    <li>
+      <a href="MANmatrice.html">Mise à niveau Matrices</a>
+    </li>
+    <li>
+      <a href="ml.html">Modèle linéaire</a>
+    </li>
+    <li>
+      <a href="statmath.html">Statistique mathématique</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">M2 MathSV</li>
+    <li>
+      <a href="genpops.html">Modèles de génétique des populations neutre</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="ion ion-settings"></span>
+     
+    Packages et logiciels
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Model selection in model-based clustering</li>
+    <li>
+      <a href="VarSelLCM.html">Exact ICL optimization</a>
+    </li>
+    <li>
+      <a href="npdataclustering.html">Model selection in mixed data clustering</a>
+    </li>
+    <li>
+      <a href="SelvarMix.html">Lasso regularization</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Model Selection in Binary data</li>
+    <li>
+      <a href="MHTrajectoryR.html">Logistic binary data regression</a>
+    </li>
+    <li>
+      <a href="MvBinary.html">Modeling high-dimensional binary data</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">MvBinary</h1>
+
+</div>
+
+
+<p><em>Modelling binary variables with blocks of specific one factor distribution.</em></p>
+<p><strong>Description:</strong></p>
+<ul>
+<li><em>Authors</em>: <strong>Matthieu Marbac</strong> and <strong>Mohammed Sedki</strong>.</li>
+<li><em>License</em>: <a href="http://www.gnu.org/licenses/gpl-2.0.html">GPL-2</a>.</li>
+<li><em>Download MvBinary 1.1</em>: <a href="https://r-forge.r-project.org/R/?group_id=2113">link</a>.<br />
+</li>
+<li><em>Reference</em>: <a href="http://arxiv.org/abs/1511.01343">An Extended Family of One-Factor Distributions for Modelling High-Dimensional Binary Data</a>, Marbac, M. and Sedki, M., 2017, accepted for publication in <em>Computational Statistics and Data Analysis</em>.</li>
+</ul>
+<p><a id="top"></a> <strong>Site map:</strong></p>
+<ul>
+<li><a href="#intro">Introduction</a>.</li>
+<li><a href="#tutorial">Modelling the Plants dataset (overview of the MvBinary functions)</a>.</li>
+</ul>
+<p>All the experiments are used with MvBinary 1.0 <a id="intro"></a></p>
+<div id="introduction" class="section level3">
+<h3>Introduction</h3>
+<p><em>MvBinary</em> models large binary data with new family of one factor distributions per independent blocks. The model provides an explicit probability of each events, thus avoiding the numeric approximations often made by the existing methods. Its interpretation is easy since each variable is described by two continuous parameters (marginal probability and strength of dependency) and by one binary parameter (kind of the dependency). Parameter estimation is performed by the inference margin procedure where the second step is achieved by an expectation-maximization algorithm. Model selection is carrying out by a deterministic approach which strongly reduces the number of competing models. This approach uses a hierarchical ascendant classification of the variables based on the empiric Cramer’s V for selecting a narrow subset of models. More technical details <a href="???">here</a></p>
+<ul>
+<li><a href="#top">Go to the top</a></li>
+</ul>
+<p><a id="tutorial"></a></p>
+</div>
+<div id="overview-of-the-mvbinary-functions" class="section level3">
+<h3>Overview of the MvBinary functions</h3>
+<p>This section performs the modelling of the <em>Plants</em> data set. It uses all the functions implemented in the package <em>MvBinary</em> and can be used as a tutorial. Data has been extracted from the USA plants database, July 29, 2015. It describes <span class="math inline">\(35 583\)</span> plants by indicating if they occur in 69 states (USA, Canada, Puerto Rico, Virgin Islands, Greenland and St Pierre and Miquelon). The model selection is achieved by the deterministic algorithm where the Ward criterion is used for the HAC. The EM algorithm is randomly initialized 40 times and it is stopped when two successive iterations increase the log-likelihood less than 0.01.</p>
+<p><strong>Loadings</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())
+<span class="co"># Data and Package loadings</span>
+<span class="kw">require</span>(MvBinary)</code></pre></div>
+<pre><code>Loading required package: MvBinary</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(<span class="st">&quot;plants&quot;</span>)</code></pre></div>
+<p><strong>Model selection and parameter inference</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">  <span class="co"># Model selection and Parameter estimation (10 minutes) on 4 CPU cores</span>
+  results &lt;-<span class="st"> </span><span class="kw">MvBinaryEstim</span>(plants, <span class="dt">nbcores =</span> <span class="dv">8</span>)
+  <span class="co"># Summary of the resulting model</span>
+  <span class="kw">summary</span>(results)</code></pre></div>
+<pre><code>****************************************************************************************
+The model contains 10 blocks
+Its log-likelihood is -520704.9 
+Its BIC criterion value is -521428 
+The model requires 138 parameters
+
+****************************************************************************************
+The blocks are defined as follows
+Block 1 contains the following 8 variables:
+ Alabama Florida Georgia Louisiana Mississippi North Carolina South Carolina Virginia 
+
+Block 2 contains the following 8 variables:
+ Alaska Greenland Labrador Newfoundland Northwest Territories Nunavut StPierreandMiquelon Yukon 
+
+Block 3 contains the following 4 variables:
+ Alberta British Columbia Manitoba Saskatchewan 
+
+Block 4 contains the following 8 variables:
+ Arizona Colorado Idaho Montana Nevada New Mexico Utah Wyoming 
+
+Block 5 contains the following 5 variables:
+ Arkansas Kansas Missouri Oklahoma Texas 
+
+Block 6 contains the following 3 variables:
+ California Oregon Washington 
+
+Block 7 contains the following 15 variables:
+ Connecticut Delaware District of Columbia Illinois Indiana Kentucky Maryland Massachusetts New Jersey New York Ohio Pennsylvania Rhode Island Tennessee West Virginia 
+
+Block 8 contains the following 3 variables:
+ Hawaii PuertoRico VirginIslands 
+
+Block 9 contains the following 7 variables:
+ Iowa Michigan Minnesota Nebraska North Dakota South Dakota Wisconsin 
+
+Block 10 contains the following 8 variables:
+ Maine New Brunswick New Hampshire Nova Scotia Ontario Prince Edward Island Quebec Vermont 
+
+****************************************************************************************</code></pre>
+<p><strong>Relevance of the modelled dependencies</strong> We show the relevance of the dependencies detected by the estimated model. Indeed, the first figure shows the correspondence between the Cramer’s V computed with the model parameter and the empiric Cramer’s V, for each pair of dependent variables according to the estimated model. Moreover, the second figure shows that the estimated model well consider the main dependencies.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Computation of the Empiric Cramer&#39;s V</span>
+Vempiric &lt;-<span class="st"> </span><span class="kw">ComputeEmpiricCramer</span>(plants)
+<span class="co"># Computation of the model Cramer&#39;s V</span>
+Vmodel &lt;-<span class="st"> </span><span class="kw">ComputeMvBinaryCramer</span>(results)
+<span class="co"># Matrix containing both Cramer&#39;s V</span>
+Vmatrix &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">State1=</span><span class="kw">rep</span>(<span class="kw">colnames</span>(plants), <span class="dt">times =</span> <span class="kw">ncol</span>(plants)), <span class="dt">State2=</span><span class="kw">rep</span>(<span class="kw">colnames</span>(plants), <span class="dt">each =</span> <span class="kw">ncol</span>(plants)), <span class="dt">Vempiric=</span><span class="kw">as.numeric</span>(Vempiric), <span class="dt">Vmodel=</span><span class="kw">as.numeric</span>(Vmodel))
+
+<span class="co"># Comparison of the Cramer&#39;s V</span>
+<span class="kw">plot</span>(Vmatrix$Vmodel[<span class="kw">which</span>(Vmatrix$Vmodel!=<span class="dv">0</span>)], Vmatrix$Vempiric[<span class="kw">which</span>(Vmatrix$Vmodel!=<span class="dv">0</span>)], 
+     <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),
+     <span class="dt">xlab=</span><span class="st">&quot;Model Cramer&#39;s V&quot;</span>,
+     <span class="dt">ylab=</span><span class="st">&quot;Empiric Cramer&#39;s V&quot;</span>)
+<span class="kw">lines</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>),<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</code></pre></div>
+<p><img src="MvBinary_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(Vmatrix$Vempiric~<span class="kw">as.factor</span>(Vmatrix$Vmodel!=<span class="dv">0</span>), <span class="dt">xlab=</span><span class="st">&quot;Dependency considered by the model&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Empiric Cramer&#39;s V&quot;</span>)</code></pre></div>
+<p><img src="MvBinary_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><strong>Geographic coherence of the blocks</strong> The estimated model is composed by 10 blocks of dependent variable. This figure shows that this block repartition has a geographic meaning.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(maps)
+<span class="kw">library</span>(mapproj)
+<span class="kw">library</span>(mapdata)
+<span class="kw">library</span>(raster)
+<span class="kw">library</span>(sp)
+<span class="kw">library</span>(rgdal)</code></pre></div>
+<pre><code>rgdal: version: 1.2-7, (SVN revision 660)
+ Geospatial Data Abstraction Library extensions to R successfully loaded
+ Loaded GDAL runtime: GDAL 1.10.1, released 2013/08/26
+ Path to GDAL shared files: /usr/share/gdal/1.10
+ Loaded PROJ.4 runtime: Rel. 4.8.0, 6 March 2012, [PJ_VERSION: 480]
+ Path to PROJ.4 shared files: (autodetected)
+ Linking to sp version: 1.2-4 </code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(rgeos)</code></pre></div>
+<pre><code>rgeos version: 0.3-23, (SVN revision 546)
+ GEOS runtime version: 3.4.2-CAPI-1.8.2 r3921 
+ Linking to sp version: 1.2-4 
+ Polygon checking: TRUE </code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(maptools)
+## Specify a geographic extent for the map
+## by defining the top-left and bottom-right geographic coordinates
+mapExtent &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(-<span class="dv">160</span>, <span class="dv">70</span>), <span class="kw">c</span>(-<span class="dv">63</span>, <span class="dv">25</span>))
+
+## Specify the required projection using a proj4 string
+## Use http://www.spatialreference.org/ to find the required string
+## Polyconic for North America
+newProj &lt;-<span class="st"> </span><span class="kw">CRS</span>(<span class="st">&quot;+proj=poly +lat_0=0 +lon_0=-100 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs&quot;</span>)
+
+## Project other layers
+can1Pr &lt;-<span class="st"> </span><span class="kw">spTransform</span>(<span class="kw">getData</span>(<span class="st">&#39;GADM&#39;</span>, <span class="dt">country=</span><span class="st">&quot;CAN&quot;</span>, <span class="dt">level=</span><span class="dv">1</span>), newProj)
+us1Pr &lt;-<span class="st"> </span><span class="kw">spTransform</span>(<span class="kw">getData</span>(<span class="st">&#39;GADM&#39;</span>, <span class="dt">country=</span><span class="st">&quot;USA&quot;</span>, <span class="dt">level=</span><span class="dv">1</span>), newProj)
+## Plot each projected layer, beginning with the projected extent
+<span class="kw">plot</span>(<span class="kw">spTransform</span>(<span class="kw">SpatialPoints</span>(mapExtent, <span class="dt">proj4string=</span><span class="kw">CRS</span>(<span class="st">&quot;+proj=longlat&quot;</span>)), newProj), <span class="dt">pch=</span><span class="ot">NA</span>)
+
+<span class="kw">require</span>(graphics)
+colo &lt;-<span class="st"> </span><span class="kw">rainbow</span>(<span class="kw">max</span>(results@blocks))
+colo[<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">5</span>)] &lt;-<span class="st"> </span>colo[<span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">2</span>)]
+<span class="kw">palette</span>(colo)
+for (k in <span class="dv">1</span>:<span class="kw">max</span>(results@blocks)){
+  theseJurisdictions &lt;-<span class="st"> </span><span class="kw">names</span>(results@blocks)[<span class="kw">which</span>(results@blocks==k)]
+  if (<span class="kw">any</span>(can1Pr$NAME_1 %in%<span class="st"> </span>theseJurisdictions))
+    <span class="kw">plot</span>(can1Pr[can1Pr$NAME_1 %in%<span class="st"> </span>theseJurisdictions, ], <span class="dt">border=</span><span class="st">&quot;white&quot;</span>, <span class="dt">col=</span>k, <span class="dt">add=</span><span class="ot">TRUE</span>)
+  if (<span class="kw">any</span>(us1Pr$NAME_1 %in%<span class="st"> </span>theseJurisdictions))   
+    <span class="kw">plot</span>(us1Pr[us1Pr$NAME_1 %in%<span class="st"> </span>theseJurisdictions, ], <span class="dt">border=</span><span class="st">&quot;white&quot;</span>, <span class="dt">col=</span>k, <span class="dt">add=</span><span class="ot">TRUE</span>)
+}
+<span class="kw">legend</span>(<span class="st">&quot;bottomleft&quot;</span>, <span class="dt">legend=</span><span class="kw">paste</span>(<span class="st">&quot;Block&quot;</span>, <span class="dv">1</span>:<span class="kw">max</span>(results@blocks)), <span class="dt">col=</span>colo, <span class="dt">lty=</span><span class="dv">0</span>, <span class="dt">pch=</span><span class="dv">15</span>)
+<span class="kw">plot</span>(can1Pr[can1Pr$NAME_1 %in%<span class="st"> </span>can1Pr$NAME_1[<span class="dv">5</span>], ], <span class="dt">border=</span><span class="st">&quot;white&quot;</span>,
+     <span class="dt">col=</span>results@blocks[<span class="kw">which</span>(<span class="kw">names</span>(results@blocks)==<span class="st">&quot;Labrador&quot;</span>)], <span class="dt">add=</span><span class="ot">TRUE</span>)
+<span class="kw">plot</span>(<span class="kw">spTransform</span>(<span class="kw">getData</span>(<span class="st">&#39;GADM&#39;</span>, <span class="dt">country=</span><span class="st">&quot;GRL&quot;</span>, <span class="dt">level=</span><span class="dv">1</span>), newProj), <span class="dt">border=</span><span class="st">&quot;white&quot;</span>,
+     <span class="dt">col=</span>results@blocks[<span class="kw">which</span>(<span class="kw">names</span>(results@blocks)==<span class="st">&quot;Greenland&quot;</span>)], <span class="dt">add=</span><span class="ot">TRUE</span>)
+<span class="kw">plot</span>(<span class="kw">spTransform</span>(<span class="kw">getData</span>(<span class="st">&#39;GADM&#39;</span>, <span class="dt">country=</span><span class="st">&quot;VIR&quot;</span>, <span class="dt">level=</span><span class="dv">1</span>), newProj), <span class="dt">border=</span><span class="st">&quot;white&quot;</span>,
+     <span class="dt">col=</span>results@blocks[<span class="kw">which</span>(<span class="kw">names</span>(results@blocks)==<span class="st">&quot;VirginIslands&quot;</span>)], <span class="dt">add=</span><span class="ot">TRUE</span>)
+<span class="kw">plot</span>(<span class="kw">spTransform</span>(<span class="kw">getData</span>(<span class="st">&#39;GADM&#39;</span>, <span class="dt">country=</span><span class="st">&quot;SPM&quot;</span>, <span class="dt">level=</span><span class="dv">1</span>), newProj), <span class="dt">border=</span><span class="st">&quot;white&quot;</span>, 
+     <span class="dt">col=</span>results@blocks[<span class="kw">which</span>(<span class="kw">names</span>(results@blocks)==<span class="st">&quot;StPierreandMiquelon&quot;</span>)], <span class="dt">add=</span><span class="ot">TRUE</span>)</code></pre></div>
+<p><img src="MvBinary_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><strong>Model interpretation</strong> Parameters permit an easy interpretation of the whole distribution. The mean per block of the values of <span class="math inline">\(\alpha_j\)</span> and <span class="math inline">\(\varepsilon_j\)</span> are summarized by the following figure. Note that the model only detects positive dependencies since for <span class="math inline">\(j=1,\ldots,d\)</span>, <span class="math inline">\(\delta_j=1\)</span>.</p>
+<p>Each block is composed with highly dependent variables (high values of parameters <span class="math inline">\(\varepsilon_j\)</span> and <span class="math inline">\(\delta_j=1\)</span>). Therefore, the knowledge of one variables into a block provides a strong information inherent to the other variables affiliated into this block. For instance, the most dependent block is Block 10 (composed by Prince Edward Island, Nova Scotia, New Brunswick, New Hampshire, Vermont, Maine, Qu'ebec and Ontario). Thus, a plant occurs in Ontario with probability <span class="math inline">\(\alpha_{Ontario}=0.14\)</span> while it occurs with a probability <span class="math inline">\(0.83\)</span> if this plant occurs in Qu'ebec. The less dependent block is composed with tropical states (Virgin Islands, Puerto Rico and Hawaii). These weaker dependencies can be explain by a large geographic remoteness. Finally, parameters <span class="math inline">\(\alpha_j\)</span> allow to described the region by their amount of plants. Cold regions (Blocks 2, 3 and 10) obtains small values of <span class="math inline">\(\alpha_j\)</span> while the “sun-belt” obtains large values of this parameter.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A summary of the block parameters</span>
+<span class="kw">plot</span>(<span class="ot">NA</span>, <span class="dt">xlab=</span><span class="kw">expression</span>(alpha[j]), <span class="dt">ylab=</span><span class="kw">expression</span>(epsilon[j]), <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.3</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="fl">0.65</span>,<span class="dv">1</span>))
+for (b in <span class="dv">1</span>:<span class="kw">max</span>(results@blocks)){
+  <span class="kw">points</span>(<span class="kw">mean</span>(results@alpha[<span class="kw">which</span>(results@blocks==b)]), <span class="kw">mean</span>(results@epsilon[<span class="kw">which</span>(results@blocks==b)]), <span class="dt">col=</span>b, <span class="dt">pch=</span>b<span class="dv">+10</span>, <span class="dt">lwd=</span><span class="dv">4</span>)
+  <span class="kw">text</span>(<span class="kw">mean</span>(results@alpha[<span class="kw">which</span>(results@blocks==b)]), <span class="kw">mean</span>(results@epsilon[<span class="kw">which</span>(results@blocks==b)])+<span class="fl">0.02</span>, b, <span class="dt">pch=</span>b<span class="dv">+14</span>)
+}
+<span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>, <span class="dt">legend=</span><span class="kw">paste</span>(<span class="st">&quot;Block&quot;</span>, <span class="dv">1</span>:<span class="kw">max</span>(results@blocks)), <span class="dt">col=</span>colo, <span class="dt">lty=</span><span class="dv">0</span>, <span class="dt">pch=</span><span class="dv">10+1</span>:<span class="kw">max</span>(results@blocks))  </code></pre></div>
+<p><img src="MvBinary_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<ul>
+<li><a href="#top">Go to the top</a></li>
+</ul>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

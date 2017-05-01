@@ -37,7 +37,7 @@ navbar:
         - text: "Logistic binary data regression"
           href: MHTrajectoryR.html
         - text: "Modeling high-dimensional binary data"
-          href: MvBinary/MvBinary.html  
+          href: MvBinary.html  
         
       #href: packages.html
 output:
