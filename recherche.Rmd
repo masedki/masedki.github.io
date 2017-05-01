@@ -1,5 +1,10 @@
 ---
 title: "Recherche"
+output:
+  html_document:
+    theme: journal
+    highlight: monochrome
+    css: style.css
 ---
 
 décrire mes travaux de recherche ici. 

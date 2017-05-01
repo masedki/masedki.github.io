@@ -2,7 +2,8 @@
 title: "Page web de moh"
 output:
   html_document:
-    theme: readable
+    theme: journal
+    highlight: monochrome
     css: style.css
 ---
 

@@ -1,11 +1,7 @@
 name: "Moh-website"
-output:
-  html_document:
-    theme: readable
-    css: style.css
 output_dir: "."
 navbar:
-  title: "Ma page web"
+  title: "Acceuil"
   left:
     - text: "Recherche"
       href: recherche.html
@@ -13,4 +9,7 @@ navbar:
       href: enseignements.html
     - text: "Packages et logiciels"
       href: packages.html
-      
+output:
+  html_document:
+    theme: journal
+    css: style.css      
