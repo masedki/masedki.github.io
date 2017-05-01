@@ -1,9 +1,10 @@
 ---
-title: "Page web de moh"
+title: "Packages et logiciels"
 output:
   html_document:
     theme: readable
     css: style.css
 ---
 
-Hello, World!
+Décrire les packages R
+

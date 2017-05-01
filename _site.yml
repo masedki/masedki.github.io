@@ -9,7 +9,8 @@ navbar:
   left:
     - text: "Recherche"
       href: recherche.html
-    - text: "About Me"
-      href: about.html
-    
+    - text: "Enseignements"
+      href: Enseignements.html
+    - text: "Packages et logiciels"
+      href: packages.html
       
