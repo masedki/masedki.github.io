@@ -7,8 +7,23 @@ navbar:
       href: recherche.html
     - text: "Enseignements"
       href: enseignements.html
+      icon: ion-easel
+      menu:
+        - text: "M2R santé publique"
+        - text: "Mise à niveau probabilité et statistiques"
+          href: MANprobastat.html
+        - text: "Mise à niveau Matrices"
+          href: MANmatrice.html
+        - text: "Modèle linéaire"
+          href: ml.html
+        - text: "Statistique mathématique"
+          href: statmath.html 
+        - text: "---------"
+        - text: "M2 MathSV"
+        - text: "Modèles de génétique des populations neutre"
+          href: genpops.html
     - text: "Packages et logiciels"
-      icon: fa-gear
+      icon: ion-settings
       menu:
         - text: "Model selection in model-based clustering"
         - text: "Exact ICL optimization"
@@ -22,7 +37,7 @@ navbar:
         - text: "Logistic binary data regression"
           href: MHTrajectoryR.html
         - text: "Modeling high-dimensional binary data"
-          href: MHTrajectoryR.html  
+          href: MvBinary.html  
         
       #href: packages.html
 output:

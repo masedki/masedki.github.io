@@ -1,0 +1,10 @@
+---
+title: "MvBinary"
+output:
+  html_document:
+    theme: journal
+    highlight: monochrome
+    css: style.css
+---
+
+Décrire le package ici 
