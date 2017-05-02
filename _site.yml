@@ -3,8 +3,6 @@ output_dir: "."
 navbar:
   title: "Acceuil"
   left:
-    - text: "Recherche"
-      href: recherche.html
     - text: "Enseignements"
       href: enseignements.html
       icon: ion-easel
@@ -22,6 +20,8 @@ navbar:
         - text: "M2 MathSV"
         - text: "Modèles de génétique des populations neutre"
           href: genpops.html
+    - text: "Recherche"
+      href: recherche.html
     - text: "Packages et logiciels"
       icon: ion-settings
       menu:
