@@ -1,12 +1,8 @@
 ---
-title: "MvBinary"
-output:
-  html_document:
-    theme: journal
-    highlight: monochrome
-    css: style.css
+title: '**MvBinary**'
+output: html_document
+bibliography: biblio.bib
 ---
-
 *Modelling binary variables with blocks of specific one factor distribution.*
 
 **Description:**
