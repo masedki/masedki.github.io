@@ -5,7 +5,9 @@
 setwd("~/codes/webpage/")
 
 #render your sweet site. 
+
 rmarkdown::render_site()
 # actually remove the files
+
 rmarkdown::clean_site()
 
