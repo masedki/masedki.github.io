@@ -3,9 +3,10 @@ title: "Examen d'introduction à la statistique avec R"
 author: "Département de Biologie de l'ENS Paris-Saclay"
 date: "Année universitaire 2016-2017"
 output:
-  html_document: default
-  pdf_document: default
-fontsize: 12pt
+  html_document:
+    theme: journal
+    highlight: monochrome
+    css: style.css
 ---
 
 *L'examen est d'une durée de 3 heures, l'accès au contenu du MOOC est autorisé. Tout échange de script est interdit. Les réponses sont à envoyer sous

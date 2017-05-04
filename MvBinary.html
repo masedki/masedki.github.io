@@ -204,6 +204,11 @@ $(document).ready(function () {
     <li>
       <a href="genpops.html">Modèles de génétique des populations neutre</a>
     </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">MOOC d'introduction à la statistique avec R</li>
+    <li>
+      <a href="devoir.html">Devoir ENS 2016-2017</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -284,9 +289,8 @@ $(document).ready(function () {
 <p><strong>Loadings</strong></p>
 <pre class="r"><code>rm(list=ls())
 # Data and Package loadings
-require(MvBinary)</code></pre>
-<pre><code>Loading required package: MvBinary</code></pre>
-<pre class="r"><code>data(&quot;plants&quot;)</code></pre>
+require(MvBinary)
+data(&quot;plants&quot;)</code></pre>
 <p><strong>Model selection and parameter inference</strong></p>
 <pre class="r"><code>  # Model selection and Parameter estimation (10 minutes) on 4 CPU cores
   results &lt;- MvBinaryEstim(plants, nbcores = 8)
@@ -352,25 +356,12 @@ lines(c(0,1),c(0,1))</code></pre>
 <pre class="r"><code>library(maps)
 library(mapproj)
 library(mapdata)
-library(raster)</code></pre>
-<pre><code>Loading required package: sp</code></pre>
-<pre class="r"><code>library(sp)
-library(rgdal)</code></pre>
-<pre><code>rgdal: version: 1.2-4, (SVN revision 643)
- Geospatial Data Abstraction Library extensions to R successfully loaded
- Loaded GDAL runtime: GDAL 1.11.3, released 2015/09/16
- Path to GDAL shared files: /usr/share/gdal/1.11
- Loaded PROJ.4 runtime: Rel. 4.9.2, 08 September 2015, [PJ_VERSION: 492]
- Path to PROJ.4 shared files: (autodetected)
- Linking to sp version: 1.2-3 </code></pre>
-<pre class="r"><code>library(rgeos)</code></pre>
-<pre><code>rgeos version: 0.3-21, (SVN revision 540)
- GEOS runtime version: 3.5.0-CAPI-1.9.0 r4084 
- Linking to sp version: 1.2-3 
- Polygon checking: TRUE </code></pre>
-<pre class="r"><code>library(maptools)</code></pre>
-<pre><code>Checking rgeos availability: TRUE</code></pre>
-<pre class="r"><code>## Specify a geographic extent for the map
+library(raster)
+library(sp)
+library(rgdal)
+library(rgeos)
+library(maptools)
+## Specify a geographic extent for the map
 ## by defining the top-left and bottom-right geographic coordinates
 mapExtent &lt;- rbind(c(-160, 70), c(-63, 25))
 
@@ -444,7 +435,7 @@ $(document).ready(function () {
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

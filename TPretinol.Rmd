@@ -4,9 +4,10 @@ author: "Therese Stukel, Dartmouth Hitchcock Medical Center
          One Medical Center Dr. Lebanon, NH 03756"
 date: ""
 output:
-  html_document: default
-  pdf_document: default
-fontsize: 12pt
+  html_document:
+    theme: journal
+    highlight: monochrome
+    css: style.css
 ---
 
 Le jeu de données est disponible [ici](https://masedki.github.io/presentationTPretinol.csv). Voici, en résumé et en anglais, la présentation de l'étude proposée par les auteurs : 
