@@ -20,6 +20,10 @@ navbar:
         - text: "M2 MathSV"
         - text: "Modèles de génétique des populations neutre"
           href: genpops.html
+        - text: "---------"
+        - text: "MOOC d'introduction à la statistique avec R"
+        - text: "Devoir ENS 2016-2017"
+          href: devoir.html
     - text: "Recherche"
       href: recherche.html
     - text: "Packages et logiciels"
