@@ -7,4 +7,12 @@ output:
     css: style.css
 ---
 
-Décrire le contenu ici 
+-[slides de cours](http://masedki.github.io/MANprobastat.pdf)
+
+-[fiche d'exercices](http://masedki.github.io/fiche.pdf)
+
+
+
+
+
+ 
