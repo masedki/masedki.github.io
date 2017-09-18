@@ -30,10 +30,8 @@ navbar:
       icon: ion-settings
       menu:
         - text: "Model selection in model-based clustering"
-        - text: "Exact ICL optimization"
+        - text: "Model selection in mixed data clustering and ICL optimization"
           href: VarSelLCM.html
-        - text: "Model selection in mixed data clustering"
-          href: npdataclustering.html
         - text: "Lasso regularization"
           href: SelvarMix.html
         - text: "---------"
