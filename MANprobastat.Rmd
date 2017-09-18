@@ -7,9 +7,9 @@ output:
     css: style.css
 ---
 
--[slides de cours](http://masedki.github.io/MANprobastat.pdf)
+[slides de cours](http://masedki.github.io/MANprobastat.pdf)
 
--[fiche d'exercices](http://masedki.github.io/fiche.pdf)
+[fiche d'exercices](http://masedki.github.io/fiche.pdf)
 
 
 

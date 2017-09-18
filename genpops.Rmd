@@ -7,4 +7,6 @@ output:
     css: style.css
 ---
 
-Décrire le contenu ici 
+[Modèles de génétriques des populations neutres](http://masedki.github.io/articleGenPop.pdf)
+
+[Supports du cours](http://masedki.github.io/SlidesGenPop.pdf)
