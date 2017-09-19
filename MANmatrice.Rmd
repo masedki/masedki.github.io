@@ -1,4 +1,4 @@
---
+---
 title: "Mise à niveau en calcul matriciel"
 output:
   html_document:
@@ -7,4 +7,4 @@ output:
     css: style.css
 ---
 
-Décrire le contenu ici 
+[slides de cours](http://masedki.github.io/MANmatrice.pdf)

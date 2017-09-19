@@ -11,7 +11,7 @@ output:
 
 [fiche d'exercices](http://masedki.github.io/fiche.pdf)
 
-
+[corrgé de la fiche d'exercices](http://masedki.github.io/corrige.pdf)
 
 
 
