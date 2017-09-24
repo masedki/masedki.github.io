@@ -7,4 +7,5 @@ output:
     css: style.css
 ---
 
-Décrire le contenu ici 
+
+[Aide-mémoire des commandes R](http://masedki.github.io/RCarte_Commandes-R.pdf)
