@@ -12,6 +12,8 @@ navbar:
           href: MANprobastat.html
         - text: "Mise à niveau Matrices"
           href: MANmatrice.html
+        - text: "Introduction à bootstap"
+          href: bootstrap.html
         - text: "Modèle linéaire"
           href: ml.html
         - text: "Statistique mathématique"
