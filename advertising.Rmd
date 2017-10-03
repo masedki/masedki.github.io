@@ -1,0 +1,37 @@
+---
+title: "Données publicitaires"
+output:
+  html_document: default
+  html_notebook: default
+---
+
+
+
+```{r}
+setwd("~/Dropbox/enseignement/ml/Lectures/")
+advertising <- read.csv2(file="Advertising.csv", header = T, sep=",")[,2:5]
+names(advertising)
+dim(advertising)
+head(advertising)
+```
+
+
+```{r}
+sales <- as.numeric(advertising[,4])
+TV <- as.numeric(advertising[,1])
+lm.fit <- lm(sales~TV)
+summary(lm.fit)
+```
+
+```{r}
+plot(TV, sales)
+abline(lm.fit,lwd=3,col="red")
+```
+```{r}
+coef(lm.fit)
+confint(lm.fit)
+```
+
+
+
+

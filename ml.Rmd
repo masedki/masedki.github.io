@@ -7,5 +7,10 @@ output:
     css: style.css
 ---
 
+[Slides de cours](http://masedki.github.io/ML.pdf)
 
-[Aide-mémoire des commandes R](http://masedki.github.io/RCarte_Commandes-R.pdf)
+[Données de publicité](http://masedki.github.io/Advertising.csv)
+
+[Rnotebook](http://masedki.github.io/advertising.html)
+
+[Aide-mémoire des commandes R de Julien Chiquet](http://masedki.github.io/RCarte_Commandes-R.pdf)
