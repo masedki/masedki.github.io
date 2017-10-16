@@ -11,6 +11,17 @@ output:
 
 [Données de publicité](http://masedki.github.io/Advertising.csv)
 
-[Rnotebook](http://masedki.github.io/advertising.html)
+[Rnotebook 1](http://masedki.github.io/advertising.html)
+
+
+[data1.csv](http://masedki.github.io/data1.csv)
+
+[data2.csv](http://masedki.github.io/data2.csv)
+
+[data3.csv](http://masedki.github.io/data3.csv)
+
+[data4.csv](http://masedki.github.io/data4.csv)
+
+[Rnotebook 2](http://masedki.github.io/hypotheses.html)
 
 [Aide-mémoire des commandes R de Julien Chiquet](http://masedki.github.io/RCarte_Commandes-R.pdf)

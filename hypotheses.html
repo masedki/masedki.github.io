@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>4 jeux de données</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link href="site_libs/ionicons-2.0.1/css/ionicons.min.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Acceuil</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="ion ion-easel"></span>
+     
+    Enseignements
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">M2R santé publique</li>
+    <li>
+      <a href="MANprobastat.html">Mise à niveau probabilité et statistiques</a>
+    </li>
+    <li>
+      <a href="MANmatrice.html">Mise à niveau Matrices</a>
+    </li>
+    <li>
+      <a href="bootstrap.html">Introduction à bootstap</a>
+    </li>
+    <li>
+      <a href="ml.html">Modèle linéaire</a>
+    </li>
+    <li>
+      <a href="statmath.html">Statistique mathématique</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">M2 MathSV</li>
+    <li>
+      <a href="genpops.html">Modèles de génétique des populations neutre</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">MOOC d'introduction à la statistique avec R</li>
+    <li>
+      <a href="devoir.html">Devoir ENS 2016-2017</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="recherche.html">Recherche</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="ion ion-settings"></span>
+     
+    Packages et logiciels
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Model selection in model-based clustering</li>
+    <li>
+      <a href="VarSelLCM.html">Model selection in mixed data clustering and ICL optimization</a>
+    </li>
+    <li>
+      <a href="SelvarMix.html">Lasso regularization</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Model Selection in Binary data</li>
+    <li>
+      <a href="MHTrajectoryR.html">Logistic binary data regression</a>
+    </li>
+    <li>
+      <a href="MvBinary.html">Modeling high-dimensional binary data</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">4 jeux de données</h1>
+
+</div>
+
+
+<div id="les-indicateurs" class="section level3">
+<h3>Les indicateurs</h3>
+<ul>
+<li>tracer le nuage de points et la droite ajustée pour examiner la linéarité.</li>
+<li>utiliser la fonction  pour exmainer la baisse de l’autocorrélation des résidus.</li>
+<li>tracer les résidus en fonction de l’ordre de x .</li>
+<li>tracer un histogramme des résidus et vérifier qu’il est gaussien autour de <span class="math inline">\(0\)</span> et un Q-Q plot marche aussi.</li>
+</ul>
+<pre class="r"><code># creates a data frame named datum from imported csv file
+datum=read.csv(file.choose())
+# check data was imported properly
+# column headers of data file plus first 6 rows of data 
+head(datum) 
+# summary statistics for datum
+summary(datum) 
+# runs a linear regression, calls results &#39;results&#39;
+results=lm(datum[,2]~datum[,1],data=datum)  
+summary(results) # prints a summary of &#39;results&#39;</code></pre>
+</div>
+<div id="hypothese-non-verifiee-par-chaque-jeu-de-donnees" class="section level3">
+<h3>Hypothèse non-vérifiée par chaque jeu de données</h3>
+<pre><code>+ data1.csv :  problème d&#39;homoscédasticité. 
++ data2.csv :  corrélation des erreurs. 
++ data3.csv :  normalité des résidus. 
++ data4.csv :  relation linéaire. </code></pre>
+</div>
+<div id="selection-de-modele-et-prediction" class="section level2">
+<h2>Sélection de modèle et prédiction</h2>
+<p>Dans cette partie, on s’intéresse au jeu de données du cancer de la prostate disponible dans le  de . Nous avons besoin d’installer le package  et charger le jeu de données comme suit</p>
+<pre class="r"><code>install.packages(&quot;lasso2&quot;, dep=TRUE)
+require(lasso2)
+data(&quot;Prostate&quot;)
+?Prostate</code></pre>
+<p>Nous allons construire un modèle linéaire multiple pour prédire la variable  en fonction des autres variables. Le jeu de données est constitué de 97 observations. Nous allons le diviser en deux parties : un jeu de données apprentissage constitué des 70 premières observations et un jeu de données test constitué des 27 dernières observations du tableau.</p>
+<p>Sur le jeu de données apprentissage et à l’aide de la fonction  de </p>
+<ol style="list-style-type: decimal">
+<li>Mettre en oeuvre trois procédures de choix de modèle, <em>forward</em>, <em>backward</em> et dans les deux sens (<em>forward</em> et <em>backward</em>) pour sélectionner le meilleur modèle au sens du critère AIC.</li>
+</ol>
+<pre class="r"><code>require(lasso2)
+data(&quot;Prostate&quot;)
+n &lt;- nrow(Prostate)
+Prostate.train &lt;- Prostate[1:70,]
+Prostate.test &lt;- Prostate[71:97,]
+#### AIC 
+## forward 
+lm0 &lt;- lm(lcavol ~ 1, data = Prostate.train)
+lm1 &lt;- formula(lm(lcavol~ ., data = Prostate.train))
+slm.for.aic &lt;- step(lm0, direction = &quot;forward&quot;, scope=lm1)
+## backward 
+lm1 &lt;- lm(lcavol ~ ., data = Prostate.train)
+slm.back.aic &lt;- step(lm1, direction = &quot;backward&quot;)
+##both 
+slm.both.aic &lt;- step(lm1, direction = &quot;both&quot;, scope = list(lm1, lm0))</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Modifier les trois procédures précédentes pour sélectionner le meilleur modèle au sens du critère BIC.</li>
+</ol>
+<pre class="r"><code>#### BIC
+## forward 
+lm0 &lt;- lm(lcavol ~ 1, data = Prostate.train)
+lm1 &lt;- formula(lm(lcavol ~ ., data = Prostate.train))
+slm.for.bic &lt;- step(lm0, direction = &quot;forward&quot;, scope=lm1, k=log(n))
+## backward 
+lm1 &lt;- lm(lcavol ~ ., data = Prostate.train)
+slm.back.bic &lt;- step(lm1, direction = &quot;backward&quot;, k=log(n))
+
+##both 
+slm.both.bic &lt;- step(lm1, direction = &quot;both&quot;, scope = list(lm1, lm0),k=log(n))</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Quel est le modèle préférable ? Justifier.</li>
+</ol>
+<div id="reponse" class="section level3">
+<h3>réponse</h3>
+<p>On préfère le modèle correspondant au critère bic car plus parcimonieux.</p>
+<p>Nous allons maintenant comparer les erreurs de prédiction des trois modèles : le modèle sélectionné par critère AIC, le modèle sélectionné par le critère BIC et le modèle complet. Pour cela nous allons faire appel à la fonction  de . Pour calculer une erreur de prédiction, il suffit d’utiliser la quantité</p>
+<pre class="r"><code>mean((x-y)**2)</code></pre>
+<p>où  et  sont deux vecteurs de tailles égales. On peut assimiler  au vecteur des vraies valeurs observées d’une certaine variables et  les prédictions de ces différentes valeurs.</p>
+<div id="comparaison-des-erreurs-de-prediction-sur-le-jeu-de-donnees-apprentissage" class="section level4">
+<h4>Comparaison des erreurs de prédiction sur le jeu de données apprentissage</h4>
+<ul>
+<li>Calculer cette erreur pour les trois modèles (AIC, BIC et modèle complet).</li>
+</ul>
+<pre class="r"><code>mean((predict(slm.both.bic)-Prostate.train[,&quot;lcavol&quot;])**2)
+mean((predict(slm.both.aic)-Prostate.train[,&quot;lcavol&quot;])**2)
+mean((predict(lm1)-Prostate.train[,&quot;lcavol&quot;])**2)</code></pre>
+<ul>
+<li>Expliquer la hiérarchie observée ?</li>
+</ul>
+</div>
+</div>
+<div id="reponse-1" class="section level3">
+<h3>réponse</h3>
+<p>La hiérarchie observée s’explique essentiellement par le nombre de variables incluses dans le modèle.</p>
+<div id="comparaison-des-erreurs-de-prediction-sur-le-jeu-de-donnees-test" class="section level4">
+<h4>Comparaison des erreurs de prédiction sur le jeu de données test</h4>
+<ul>
+<li>Conserver les modèles sélectionnés avec le jeu de données apprentissage et calculer l’erreur de prédiction des trois modèles (AIC, BIC et modèle complet) sur le jeu de données test.</li>
+</ul>
+</div>
+</div>
+<div id="reponse-2" class="section level3">
+<h3>réponse</h3>
+<pre class="r"><code>mean((predict(slm.both.bic, newdata = Prostate.test)-Prostate.test[,&quot;lcavol&quot;])**2)
+mean((predict(slm.both.aic, newdata = Prostate.test)-Prostate.test[,&quot;lcavol&quot;])**2)
+mean((predict(lm1, newdata = Prostate.test)-Prostate.test[,&quot;lcavol&quot;])**2)</code></pre>
+<ul>
+<li>Quel modèle peut-on recommander pour une meilleure prédiction ?</li>
+</ul>
+</div>
+<div id="reponse-3" class="section level3">
+<h3>réponse</h3>
+<p>On remarque que le modèle sélectionné par le critère BIC possède la meilleure de prédiction de plus, il fait appel à un nombre minimal de covariables.</p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
