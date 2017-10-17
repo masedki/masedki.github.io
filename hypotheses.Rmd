@@ -28,7 +28,7 @@ summary(results) # prints a summary of 'results'
 ``` 
  
  
-### Hypothèse non-vérifiée par chaque jeu de données 
+### Hypothèse non-vérifiée par jeu de données 
     + data1.csv :  problème d'homoscédasticité. 
     + data2.csv :  corrélation des erreurs. 
     + data3.csv :  normalité des résidus. 
