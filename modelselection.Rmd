@@ -1,0 +1,145 @@
+---
+title: "Sélection de modèle"
+output:
+  pdf_document: default
+  html_notebook: default
+  html_document:
+    df_print: paged
+---
+
+## Sélection de modèle sur le jeu de données entier
+
+On charge le package *leaps* et le jeu de données de rétinol plasmatique
+```{r}
+require(leaps)
+retinol <- read.csv2("~/codes/presentationTPretinol.csv", header = T)
+names(retinol)
+```
+
+```{r}
+regfit.full = regsubsets(retplasma~. , retinol)
+summary(regfit.full)
+```
+
+
+On peut limiter le nombre de variables dans un modèle à tester via le paramètre *nvmax*
+
+```{r}
+regfit.full = regsubsets(retplasma~., data = retinol, nvmax=13)
+summary(regfit.full)
+reg.summary = summary(regfit.full)
+names(reg.summary)
+```
+
+
+```{r}
+par(mfrow=c(2 ,2))
+plot(reg.summary$rss , xlab =" Number of Variables " , ylab =" RSS " ,type ="l")
+plot(reg.summary$adjr2 , xlab =" Number of Variables " , ylab =" Adjusted RSq " , type ="l")
+which.max(reg.summary$adjr2)
+points(which.max(reg.summary$adjr2), reg.summary$adjr2[which.max(reg.summary$adjr2)], col =" red " , cex =2 , pch =20)
+
+plot(reg.summary$cp , xlab =" Number of Variables " , ylab =" Cp " ,type = "l")
+which.max(reg.summary$cp)
+points(which.min(reg.summary$cp), reg.summary$adjr2[which.min(reg.summary$cp)], col =" red " , cex =2 , pch =20)
+
+plot(reg.summary$bic , xlab =" Number of Variables " , ylab =" BIC " , type ="l")
+which.min(reg.summary$bic)
+points(which.min(reg.summary$bic), reg.summary$adjr2[which.min(reg.summary$bic)], col =" red " , cex =2 , pch =20)
+```
+
+Le package *leap* possède sa propre fonction *plot*
+```{r}
+#plot(regfit.full , scale ="r2")
+#plot(regfit.full , scale ="bic")
+#plot(regfit.full , scale ="adjr2")
+plot(regfit.full , scale ="Cp")
+
+```
+
+On peut accéder aux coefficient de régression du modèle à 1 variable 
+```{r}
+coef(regfit.full , 1)
+```
+
+On peut faire aussi de la recherche pas à pas en *forward* et *backward*
+```{r}
+regfit.fwd = regsubsets(retplasma~. , data = retinol , nvmax =13 , method ="forward")
+summary(regfit.fwd)
+```
+
+```{r}
+regfit.bwd = regsubsets(retplasma~. , data = retinol , nvmax =13 , method ="backward")
+summary(regfit.bwd)
+```
+
+## Sélection de modèle avec des ensembles "apprentissage-validation" et validation croisée
+
+On construit les deux ensembles *apprentissage* *validation* aléatoirement
+```{r}
+set.seed(1)
+train = sample (c(TRUE,FALSE) , nrow(retinol) , rep = TRUE)
+test=(!train)
+```
+
+```{r}
+regfit.best = regsubsets(retplasma~. , data = retinol[train,],nvmax=13)
+```
+
+On peut récupérer la matrice dite de "design" du modèle complet sur les données de *validation*
+
+```{r}
+test.mat = model.matrix(retplasma~. , data = retinol[test,])
+```
+
+On va maintenant calculer l'erreur de prédiction sur l'ensemble de validation pour chaque nombre de variables dans le modèle
+```{r}
+val.errors = rep(NA ,13)
+for( i in 1:13){
+  coefi = coef(regfit.best,  id=i)
+  pred = test.mat[ ,names(coefi)]%*%coefi
+  val.errors[i]=mean((retinol$retplasma[test] - pred)^2)
+}
+val.errors
+which.min(val.errors)
+```
+
+```{r}
+coef(regfit.full, 1)
+```
+
+On a besoin d'une fonction qui prédit à partir d'un objet *regsubset*
+```{r}
+predict.regsubsets = function(object , newdata , id ,...){
+form = as.formula(object$call[[2]])
+mat = model.matrix( form , newdata)
+coefi = coef(object , id=id)
+xvars = names(coefi)
+mat[ ,xvars]%*% coefi
+}
+```
+
+On va faire une validation croisée à  5 *folds*
+```{r}
+k=5
+set.seed(1)
+folds = sample(1:k, nrow(retinol) , replace = TRUE)
+cv.errors = matrix(NA, k, 13 ,dimnames = list(NULL , paste(1:13)))
+```
+
+```{r}
+for(j in 1:k){
+  best.fit = regsubsets(retplasma~. , data=retinol[folds!=j,] , nvmax=13)
+  for (i in 1:13){
+   pred = predict(best.fit , retinol[folds==j,] , id=i)
+   cv.errors[j,i]= mean((retinol$retplasma[folds==j]-pred) ^2)
+   }
+ }
+```
+La moyenne de l'erreur sur les 5 folds
+```{r}
+mean.cv.errors = apply (cv.errors ,2 ,mean)
+mean.cv.errors
+```
+
+
