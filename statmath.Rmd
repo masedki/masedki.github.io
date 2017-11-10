@@ -8,3 +8,7 @@ output:
 ---
 
 [Cours 1 : rappels](http://masedki.github.io/lec1.pdf)
+
+[Cours 2 : statistique et information](http://masedki.github.io/lec2.pdf)
+
+[Cours 3 : famille exponentielle](http://masedki.github.io/lec3.pdf)
