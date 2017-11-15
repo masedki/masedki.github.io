@@ -13,6 +13,10 @@ output:
 
 [Cours 3 : famille exponentielle](http://masedki.github.io/lec3.pdf)
 
+[Cours 4 : estimation ponctuelle 1](http://masedki.github.io/lec4.pdf)
+
+[Cours 3 : estimation poncutelle 2](http://masedki.github.io/lec5.pdf)
+
 [Corrigé 1](http://masedki.github.io/corrige1.pdf)
 
 [Exercices 1 et 2](http://masedki.github.io/exos2.pdf)
