@@ -12,3 +12,7 @@ output:
 [Cours 2 : statistique et information](http://masedki.github.io/lec2.pdf)
 
 [Cours 3 : famille exponentielle](http://masedki.github.io/lec3.pdf)
+
+[Corrigé 1](http://masedki.github.io/corrige1.pdf)
+
+[Exercices 1 et 2](http://masedki.github.io/exos2.pdf)
