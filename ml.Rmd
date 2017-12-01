@@ -27,4 +27,6 @@ output:
 
 [Rnotebook 3: sélection de modèle avec les données de rétinol plasmatique](http://masedki.github.io/modelselection.html)
 
+[Devoir 2017-2018](http://masedki.github.io/devoirml18.html)
+
 [Aide-mémoire des commandes R de Julien Chiquet](http://masedki.github.io/RCarte_Commandes-R.pdf)

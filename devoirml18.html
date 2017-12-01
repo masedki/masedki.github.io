@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Devoir de Modèle linéaire : 2017-2018</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/journal.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="site_libs/ionicons-2.0.1/css/ionicons.min.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 61px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+
+.section h2 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h3 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h4 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h5 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+.section h6 {
+  padding-top: 66px;
+  margin-top: -66px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Acceuil</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="ion ion-easel"></span>
+     
+    Enseignements
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">M2R santé publique</li>
+    <li>
+      <a href="MANprobastat.html">Mise à niveau probabilité et statistiques</a>
+    </li>
+    <li>
+      <a href="MANmatrice.html">Mise à niveau Matrices</a>
+    </li>
+    <li>
+      <a href="bootstrap.html">Introduction à bootstap</a>
+    </li>
+    <li>
+      <a href="ml.html">Modèle linéaire</a>
+    </li>
+    <li>
+      <a href="statmath.html">Statistique mathématique</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">M2 MathSV</li>
+    <li>
+      <a href="genpops.html">Modèles de génétique des populations neutre</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">MOOC d'introduction à la statistique avec R</li>
+    <li>
+      <a href="devoir.html">Devoir ENS 2016-2017</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="recherche.html">Recherche</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="ion ion-settings"></span>
+     
+    Packages et logiciels
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Model selection in model-based clustering</li>
+    <li>
+      <a href="VarSelLCM.html">Model selection in mixed data clustering and ICL optimization</a>
+    </li>
+    <li>
+      <a href="SelvarMix.html">Lasso regularization</a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Model Selection in Binary data</li>
+    <li>
+      <a href="MHTrajectoryR.html">Logistic binary data regression</a>
+    </li>
+    <li>
+      <a href="MvBinary.html">Modeling high-dimensional binary data</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Devoir de Modèle linéaire : 2017-2018</h1>
+
+</div>
+
+
+<div id="partie-1.-detection-des-points-aberrants-en-etudiant-la-variation-des-coefficients-de-regression" class="section level3">
+<h3>Partie 1. Détection des points aberrants en étudiant la variation des coefficients de régression</h3>
+<p>Nous allons explorer et étudier le jeu de données <a href="http://masedki.github.io/pollution.rda">pollution</a>. Ce jeu de données provient d’une ancienne étude (années 1960), qui s’intéresse à l’effet de la pollution sur le taux de mortalité dans différentes villes des États-Unis. La variable réponse (mort) dans la suite sera le taux de mortalité ajustée selon l’âge par 100 000 habitants. Les 15 variables explicatives de l’étude sont détaillées <a href="http://masedki.github.io/Pollution-names.txt">ici</a>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>À l’aide d’un graphique simple, visualiser les nuages de points donnés par le taux de mortalité en fonction de chacune des variables explicatives.</p></li>
+<li><p>Proposer une transformation qui permet de rapprocher de la linéarité les formes des nuages de points associés aux variables explicatives nox, hc et so. Penser aux fonctions usuelles. Utiliser cette transformation pour créer un nouveau jeu de données <code>polltrans</code> obtenu en appliquant la transformation précédente à ces trois variables explicatives.</p></li>
+</ol>
+<p>À l’aide d’un tirage aléatoire, on partage le jeu de données <code>polltrans</code> en deux jeux de données apprentissage <code>polltrain</code> et test <code>polltest</code> de tailles respectives sont <span class="math inline">\(40\)</span> et <span class="math inline">\(20\)</span>. Pour garantir une reproductibilité des résultats, on propose fixer le générateur à <code>119</code> comme suit</p>
+<pre class="r"><code>set.seed(119)
+ii&lt;-sort(sample(seq(1,dim(polltrans)[1]),20))
+polltest&lt;-polltrans[ii,]
+polltrain&lt;-polltrans[-ii,]</code></pre>
+<!-- Penser à fixer le générateur de nombres aléatoires pour garantir la reproductibilité des résultats.  -->
+<p>Les nuages de points visualisés précédemment sont des simples représentations deux à deux <code>(covariable, réponse)</code>. Dans cette partie, nous allons vérifier la présence/absence de points influents dans le jeu de données d’apprentissage pour la régression linéaire multiple de la variable réponse <code>mort</code> en fonction des <code>15</code> variables explicatives. Pour calculer l’influence de chaque observation du jeu de données d’apprentissage, il suffit de faire appel à la fonction <code>lm.influence()</code> comme suit</p>
+<pre class="r"><code>mm1&lt;-lm(mort~.,data=polltrain)
+lm1&lt;-lm.influence(mm1)</code></pre>
+<p>où le champ <code>lm1$hat</code> contient les <span class="math inline">\(h_{ii}\)</span>.</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>À l’aide de la fonction <code>which()</code> ou la fonction <code>identify()</code><a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>, identifier les points influents<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>.</li>
+</ol>
+<p>Selon le choix de la valeur de la graine du générateur aléatoire, on peut observer ou pas des points influents. Nous allons voir sur cet exemple que cette règle numérique règle basé sur le calcul de l’influence est défaillante. Pour cela, nous allons étudier <strong>la variation de la valeur</strong> du coefficient de régression en enlevant à chaque fois une observation de l’échantillon d’apprentissage. La fonction <code>lm.influence()</code> utilisée précédemment, le fait automatiquement et stocke ces évolutions dans la matrice <code>lm1$coeff</code> où l’élément <span class="math inline">\(ij\)</span> de cette matrice correspond à la <strong>variation de la valeur</strong> du coefficient de régression associé à la variable explicative <span class="math inline">\(j\)</span> dans la régression multiple sans l’observation numéro <span class="math inline">\(i\)</span><a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>.</p>
+<ol start="4" style="list-style-type: lower-alpha">
+<li><p>Visualiser l’évoltion la variation de chaque coefficient de régression à l’aide de la fonction <code>plot()</code> et repérer à l’aide de la fonction <code>indentify</code> les indices des observationsqui impliquent des variations extrèmes dans le coefficient de régression.</p></li>
+<li><p>Sélectionner les indices des observations qui présentes des variations extrêmes d’au moins deux coefficients de régression sur <code>16</code>.</p></li>
+<li><p>À partir d’un nouveau jeu de données <code>polltrain2</code> que nous allons créer en éliminant dans <code>polltrain</code>, les points identifiés dans la question précédente, sélectionner le meilleur modèle au sens du <span class="math inline">\(AIC\)</span>, <span class="math inline">\(BIC\)</span>, <span class="math inline">\(Cp\)</span> et <span class="math inline">\(R^2\)</span><a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>.</p></li>
+<li><p>À l’aide d’une validation croisée 2-folds, sélectionner le meilleur modèle de prédiction du jeu de données <code>polltest</code>.</p></li>
+</ol>
+</div>
+<div id="partie-2.-theoreme-de-gauss-markov-en-modele-lineaire" class="section level3">
+<h3>Partie 2. Théorème de Gauss-Markov en modèle linéaire</h3>
+<p>Rappelons que l’estimateur des moindres carrés de <span class="math inline">\(\beta_1\)</span> dans une régression linéaire simple s’écrit sous la forme <span class="math display">\[
+\hat{\beta}_1 = \sum_{i=1}^n c_i y_i \quad \text{où}  \quad c_i =  \frac{x_i - \bar{x}}{SXX}.
+\]</span> Supposons qu’il existe un autre estimateur <span class="math inline">\(\tilde{\beta}_1\)</span> de <span class="math inline">\(\beta_1\)</span> <strong>sans biais</strong> et linéaire en <span class="math inline">\(Y = (y_1, \ldots, y_1)\)</span>,<em>i.e.</em>, il existe <span class="math inline">\(\tilde{c}_1, \ldots, \tilde{c}_n\)</span> telles que <span class="math display">\[\tilde{\beta}_1 = \sum_{i = 1}^n \tilde{c}_i y_i.\]</span> a. Vérifier que <span class="math display">\[\sum_{i = 1}^n \tilde{c}_i  = 0 \quad \text{et} \quad \sum_{i = 1}^n \tilde{c}_i x_i = 1.\]</span> b. Déduire que<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a> <span class="math display">\[
+\text{Var}\big(\tilde{\beta}_1\big) \ge \text{Var}\big(\hat{\beta}_1\big).
+\]</span> c. Conclure.</p>
+<div id="bonus-gauss-markov-pour-la-regression-lineaire-multiple" class="section level4">
+<h4>Bonus : Gauss-Markov pour la régression linéaire multiple</h4>
+<p>Rappelons que l’estimateur par les moindres carrés du <strong>vecteur</strong> <span class="math inline">\(\beta\)</span> dans une régression linéaire multiple est donné par <span class="math display">\[
+\hat{\beta} = \big(X^{\prime}X\big)^{-1} X^{\prime} Y.
+\]</span> Supposons qu’il existe un autre estimateur <span class="math inline">\(\tilde{\beta}\)</span> sans biais de <span class="math inline">\(\beta\)</span> linéaire en <span class="math inline">\(Y\)</span>, c’est à dire, il existe une matrice <span class="math inline">\(A \in \mathbb{R}^{(p+1)\times n}\)</span> telle que <span class="math display">\[
+\tilde{\beta} = A Y.
+\]</span> a. Vérifier que <span class="math inline">\(A X = I_{p+1}\)</span><a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> et montrer que la différence <span class="math display">\[\text{Var}\big(\tilde{\beta}\big) - \text{Var}\big(\hat{\beta}\big)\]</span> est une matrice symétrique semi-définie positive<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>. <!-- This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code.  --></p>
+<!-- Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*.  -->
+<!-- ```{r} -->
+<!-- plot(cars) -->
+<!-- ``` -->
+<!-- Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*. -->
+<!-- When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file). -->
+<!-- The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed. -->
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Qui permet d’identifier l’indice d’un point sur une figure à l’aide du curseur<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>Ici nous allons déclarer un point comme influent si <span class="math inline">\(h_{ii} &gt; 2\times \frac{\text{nombre de coefficients de régression}}{\text{nombre d&#39;observations}}\)</span><a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>Attention, la première colonne correspond à l’intercept<a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p>La recherche du meilleur modèle sera exhaustive en utilisant le package <code>leaps</code>. Attention: le critère <span class="math inline">\(AIC\)</span> ne fait pas partie des critères calculés par le package <code>leaps</code><a href="#fnref4">↩</a></p></li>
+<li id="fn5"><p>Astuce : <span class="math inline">\(\text{Var}\big(\tilde{\beta}_1\big) = \text{Var}\big(\tilde{\beta}_1 - \hat{\beta}_1 + \hat{\beta}_1\big)\)</span>.<a href="#fnref5">↩</a></p></li>
+<li id="fn6"><p>Rappel : Si <span class="math inline">\(M\in \mathbb{R}^{n \times m}\)</span> est une matrice et <span class="math inline">\(X \in\mathbb{R}^m\)</span> est un vecteur aléatoire, alors <span class="math inline">\(\mathbb{E}\big(A X\big) = A \mathbb{E}\big(X\big)\)</span> et <span class="math inline">\(\text{Var}\big(AX\big) = A\text{Var}\big(X\big)A^\prime\)</span>.<a href="#fnref6">↩</a></p></li>
+<li id="fn7"><p>Une matrice <span class="math inline">\(M\in \mathbb{R}^{n \times n}\)</span> symétrique est dite semi-définie positive si <span class="math inline">\(x^\prime M x \ge 0\)</span> pour tout vecteur <span class="math inline">\(x \in \mathbb{R}^n\)</span>.<a href="#fnref7">↩</a></p></li>
+</ol>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

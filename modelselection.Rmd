@@ -12,7 +12,7 @@ output:
 On charge le package *leaps* et le jeu de données de rétinol plasmatique
 ```{r}
 require(leaps)
-retinol <- read.csv2("~/codes/presentationTPretinol.csv", header = T)
+retinol <- read.csv2("~/recherche/codes/masedki/presentationTPretinol.csv", header = T)
 names(retinol)
 ```
 
@@ -40,8 +40,8 @@ which.max(reg.summary$adjr2)
 points(which.max(reg.summary$adjr2), reg.summary$adjr2[which.max(reg.summary$adjr2)], col =" red " , cex =2 , pch =20)
 
 plot(reg.summary$cp , xlab =" Number of Variables " , ylab =" Cp " ,type = "l")
-which.max(reg.summary$cp)
-points(which.min(reg.summary$cp), reg.summary$adjr2[which.min(reg.summary$cp)], col =" red " , cex =2 , pch =20)
+which.min(reg.summary$cp)
+points(which.min(reg.summary$cp), reg.summary$cp[which.min(reg.summary$cp)], col =" red " , cex =2 , pch =20)
 
 plot(reg.summary$bic , xlab =" Number of Variables " , ylab =" BIC " , type ="l")
 which.min(reg.summary$bic)
