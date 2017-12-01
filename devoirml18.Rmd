@@ -7,7 +7,7 @@ output:
   pdf_document: default
 ---
 
-### Partie 1. Détection des points aberrants en étudiant la variation des coefficients de régression
+### Partie 1. Détection des points aberrants à l'aide de la variation des coefficients de régression
 
 Nous allons explorer et étudier le jeu de données [pollution](http://masedki.github.io/pollution.rda). 
 Ce jeu de données provient d'une ancienne étude  (années 1960), qui s'intéresse à l'effet de la pollution 
@@ -18,21 +18,20 @@ Les 15 variables explicatives de l'étude sont détaillées [ici](http://masedki
 a. À l'aide d'un graphique simple, visualiser les nuages de points donnés par le taux de mortalité en fonction de chacune des variables explicatives.  
 
 
-b. Proposer une transformation qui permet de rapprocher de la linéarité les formes des nuages de points associés aux variables explicatives nox, hc et so. Penser aux fonctions usuelles.  Utiliser cette transformation pour créer un nouveau jeu de données `polltrans` obtenu en appliquant la transformation précédente  à ces trois variables explicatives. 
+b. Proposer une transformation qui permet de rapprocher de la linéarité les formes des nuages de points associés aux variables explicatives nox, hc et so^[Penser aux fonctions usuelles.]. Utiliser cette transformation pour créer un nouveau jeu de données `polltrans` obtenu en appliquant la transformation précédente  à ces trois variables explicatives. 
 
 
 À l'aide d'un tirage aléatoire, on partage le jeu de données `polltrans` en deux jeux de données apprentissage 
-`polltrain` et test `polltest` de tailles respectives sont $40$ et $20$. Pour garantir une reproductibilité 
-des résultats, on propose fixer le générateur à `119` comme suit 
+`polltrain` et test `polltest` de tailles respectives $40$ et $20$. Pour garantir une reproductibilité 
+des résultats, on propose de fixer le générateur à `119` comme suit 
 ```{r, eval=FALSE}
 set.seed(119)
 ii<-sort(sample(seq(1,dim(polltrans)[1]),20))
 polltest<-polltrans[ii,]
 polltrain<-polltrans[-ii,]
 ```
-<!-- Penser à fixer le générateur de nombres aléatoires pour garantir la reproductibilité des résultats.  -->
 
-Les nuages de points visualisés précédemment sont des simples représentations deux à deux `(covariable, réponse)`. 
+Les nuages de points visualisés précédemment sont des simples représentations deux à deux `(variable explicative, réponse)`. 
 Dans cette partie, nous allons vérifier la présence/absence de points influents dans le jeu de données d'apprentissage 
 pour la régression linéaire multiple de la variable réponse `mort` en fonction des `15` variables explicatives. 
 Pour calculer l'influence de chaque observation du jeu de données d'apprentissage, il suffit de faire appel
@@ -53,15 +52,14 @@ du coefficient de régression en enlevant à chaque fois une observation de l'é
 La fonction `lm.influence()` utilisée précédemment, le fait automatiquement et stocke ces évolutions dans la matrice `lm1$coeff` où l'élément
 $ij$ de cette matrice correspond à la **variation de la valeur** du coefficient de régression associé à la variable explicative $j$ dans la régression multiple sans l'observation numéro $i$^[Attention, la première colonne correspond à l'intercept]. 
 
-d. Visualiser l'évoltion la variation de chaque coefficient de régression à l'aide de la fonction `plot()` et repérer à l'aide de la fonction
-`indentify` les indices des observationsqui impliquent des variations extrèmes dans le coefficient de régression.
+d. Visualiser l’évolution la variation de chaque coefficient de régression à l'aide de la fonction `plot()` et repérer à l'aide de la fonction
+`identify` les indices des observations qui impliquent des variations extrêmes dans les coefficients de régression.
 
 e. Sélectionner les indices des observations qui présentes des variations extrêmes d'au moins deux coefficients de régression sur `16`. 
 
-f. À partir d'un nouveau jeu de données `polltrain2` que nous allons créer en éliminant dans `polltrain`, les points identifiés dans la question précédente, sélectionner le meilleur modèle au sens du $AIC$, $BIC$, $Cp$ et 
-$R^2$^[La recherche du meilleur modèle sera exhaustive en utilisant le package `leaps`. Attention: le critère $AIC$ ne fait pas partie des critères calculés par le package `leaps`].
+f. À partir d'un nouveau jeu de données `polltrain2` que nous allons créer en éliminant dans `polltrain`, les points identifiés dans la question précédente, sélectionner le meilleur modèle au sens du $AIC$, $BIC$ et $Cp$^[La recherche du meilleur modèle sera exhaustive en utilisant le package `leaps`. Attention: le critère $AIC$ ne fait pas partie des critères calculés par le package `leaps`]. Conclure. 
 
-g. À l'aide d'une validation croisée 2-folds, sélectionner le meilleur modèle de prédiction du jeu de données `polltest`.
+g. Mettre en place une validation croisée 2-folds pour sélectionner le meilleur modèle de prédiction du jeu de données `polltest`.
 
 
 ### Partie 2. Théorème de Gauss-Markov en modèle linéaire
@@ -98,16 +96,3 @@ $\mathbb{E}\big(A X\big) = A \mathbb{E}\big(X\big)$  et $\text{Var}\big(AX\big) 
 et montrer que  la différence 
 $$\text{Var}\big(\tilde{\beta}\big) - \text{Var}\big(\hat{\beta}\big)$$
 est une matrice symétrique semi-définie positive^[Une matrice $M\in \mathbb{R}^{n \times n}$ symétrique est dite semi-définie positive si $x^\prime M x \ge 0$ pour tout vecteur $x \in \mathbb{R}^n$.].
-<!-- This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code.  -->
-
-<!-- Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*.  -->
-
-<!-- ```{r} -->
-<!-- plot(cars) -->
-<!-- ``` -->
-
-<!-- Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*. -->
-
-<!-- When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file). -->
-
-<!-- The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed. -->
