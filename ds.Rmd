@@ -8,3 +8,5 @@ output:
 ---
 
 [Slides de cours](http://masedki.github.io/ds.pdf)
+
+[Devoir](http://masedki.github.io/ds2017.pdf)
