@@ -1,0 +1,10 @@
+---
+title: "Démarche statistique"
+output:
+  html_document:
+    theme: journal
+    highlight: monochrome
+    css: style.css
+---
+
+[Slides de cours](http://masedki.github.io/ds.pdf)
