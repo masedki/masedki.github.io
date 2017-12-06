@@ -9,6 +9,8 @@ output:
 
 [Slides de cours](http://masedki.github.io/ds.pdf)
 
-[Devoir](http://masedki.github.io/ds2017.pdf)
+[Devoir](http://masedki.github.io/ds2017.pdf) 
+
+[article 1985](http://masedki.github.io/article1985.pdf) [article 1986](http://masedki.github.io/article1986.pdf) [article 1989](http://masedki.github.io/article1989.pdf) [article 1995](http://masedki.github.io/article1995.pdf)
 
 [Quelques indications pour amorcer la partie A du devoir](http://masedki.github.io/indications.pdf)
