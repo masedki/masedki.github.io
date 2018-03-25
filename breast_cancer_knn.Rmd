@@ -1,0 +1,119 @@
+---
+title: "Diagnostic cytologique par les knn"
+output: html_document
+bibliography: biblio.bib
+---
+
+### Résumé 
+
+Il s’agit de prévoir la gravité d’un cancer  sur le jeu de données (Wisconsin Breast Cancer Database) à l'aide de la méthode des k plus proches voisins.
+
+### Données  
+Elles proviennent initialement de l'hopital de l'Université du Wisconsin à
+Madison et ont été collectées par [@wolberg90]
+. Elles ont été complétées puis intégrées à la bibliothèque \textsf{mlbench} de \textsf{R}. Sur ces données concernant le cancer du sein, il s’agit de prévoir la nature maligne ou bénigne de la tumeur à partir des variables biologiques.
+Les variables considérées sont :
+
+- **Cl.thickness** Clump Thickness
+- **Cell.size** Uniformity of Cell Size
+- **Cell.shape** Uniformity of Cell Shape
+- **Marg.adhesion** Marginal Adhesion
+- **Epith.c.size** Single Epithelial Cell Size
+- **Bare.nuclei** Bare Nuclei
+- **Bl.cromatin** Bland Chromatin
+- **Normal.nucleoli** Normal Nucleoli
+- **Mitoses** Mitoses
+- **Class** "benign" et "malignant".
+
+```{r,eval=FALSE}
+library(mlbench)
+data(BreastCancer) # Déclaration des données
+summary(BreastCancer) # résumé des données
+```
+
+- Remarquer les différents types de variables, variables inutiles et données manquantes. 
+
+```{r,eval=FALSE}
+# retirer la colonne des identificateurs
+data=BreastCancer[,-1]
+# retirer les 16 valeurs manquantes
+data=data[!is.na(data[,"Bare.nuclei"]),]
+summary(data)
+```
+
+
+- Constitution des jeux de données apprentissage et test 
+
+```{r,eval=FALSE}
+set.seed(111) # initialisation du générateur
+# Extraction des échantillons
+test.ratio=.2 # part de l’échantillon test
+npop=nrow(data) # nombre de lignes dans les données
+nvar=ncol(data) # nombre de colonnes
+# taille de l’échantillon test
+ntest=ceiling(npop*test.ratio)
+# indices de l’échantillon test
+testi=sample(1:npop,ntest)
+# indices de l’échantillon d’apprentissage
+appri=setdiff(1:npop,testi)
+
+# construction de l’échantillon d’apprentissage
+datapq=data[appri,]
+# construction de l’échantillon test
+datestq=data[testi,]
+summary(datapq) # vérifications
+summary(datestq)
+```
+
+Les données (variables explicatives) se présentent sous la forme de variables
+ordinales. On se propose de "tricher" en considérant les variables ordinales comme quantitatives entières. C’est à dire qu’elles sont associées à des "scores" évalués par le biologiste sur une échelle. Ceci nécessite de transformer les données pour en changer le type. A l’exception de la 10ème qui est la variable binaire à prévoir, les colonnes de type facteur sont transformées en un vecteur d’entiers puis en une matrice et enfin à nouveau en un "data frame". Les noms des variables sont conservées.
+```{r,eval=FALSE}
+datar=data.frame(matrix(as.integer(as.matrix(data[,1:9])),ncol=9,
+                        dimnames=dimnames(data[,1:9])),Class=data[,10])
+```
+Vérification 
+```{r,eval=FALSE}
+# construction de l’échantillon d’apprentissage
+datapr=datar[appri,]
+# construction de l’échantillon test
+datestr=datar[testi,]
+summary(datapr) # vérifications
+summary(datestr)
+```
+
+### Knn avec 10 plus proches voisins
+
+```{r,eval=FALSE}
+#Pour faire des knn rien de plus simple 
+require(class)
+pred.knn <- knn(train = datapr[,-10], test = datestr[,-10], cl = datapr[,10], k = 10)
+summary(pred.knn)
+table(pred.knn, datestr[,10])
+1-mean(pred.knn!=datestr[,10])
+```
+
+### Choix du nombre de voisins
+
+- Calculer l'erreur de prédiction sur l'échantillon test pour $k$ allant de $1$ à $60$
+
+- Mettre en place une procédure de validation croisée à $5$ folds pour choisir le nombre voisins optimal.
+
+```{r,eval=FALSE}
+require(caret)
+?train
+```
+- Résumer la prédiction du jeu de données test via la fonction _confusionMatrix_ du package _caret_.
+
+- Si le temps le permet, on pourra s'intéresser au jeu de données 
+
+```{r,eval=FALSE}
+library(MASS)
+data("Pima.te")
+data("Pima.tr")
+?Pima.tr
+summary(Pima.tr)
+summary(Pima.te)
+```
+
+
+

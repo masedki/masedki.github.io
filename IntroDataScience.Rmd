@@ -1,0 +1,17 @@
+---
+title: "Introduction aux data science pour la recherche biomédicale"
+output:
+  html_document:
+    theme: journal
+    highlight: monochrome
+    css: style.css
+---
+[Supports (évolutifs)](http://masedki.github.io/formationinserm.pdf)
+
+[Jeu de données : cancer de la prostate](http://masedki.github.io/prostate.rda) 
+
+[Notebook : surajustement et prise en main du logiciel  R](http://masedki.github.io/overfit.html) 
+
+[Notebook : Diagnostic cytologique par les knn](http://masedki.github.io/breast_cancer_knn.html) 
+
+[Notebook : cancer de la prostate (sélection de variables par la méthode stepwise)](http://masedki.github.io/prostate_stepwise.html) 
