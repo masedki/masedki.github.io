@@ -1,0 +1,75 @@
+---
+title: 'Régression logistique : sélection de modèle par régularisation '
+output:
+  html_document:
+    df_print: paged
+---
+
+## Jeu de données Golub 
+
+- Lecture du jeu de données golub, pour cela il faut installer le package spikeslab
+
+```{r, eval=FALSE}
+rm(list=ls())
+require(glmnet)
+data(leukemia, package = "spikeslab") ## penser à installer le package
+n <- nrow(leukemia)
+train_rows <- sample(1:n, .66*n)
+x.train <- as.matrix(leukemia[train_rows, -1])
+y.train <- as.factor(leukemia[train_rows, 1])
+x.test <-  as.matrix(leukemia[-train_rows, -1])
+y.test <-  as.factor(leukemia[-train_rows, 1])
+```
+
+
+
+
+Le but dans ce notebook est de faire sélection de modèle par ridge, lasso et elasticnet 
+et de comparer les modèle en terme d'erreur de classification sur le jeu de données test. 
+Pour chaque type de pénalité, ridge, lasso et elasticnet, nous allons mettre en place 
+une validation croisée à 5 folds. Nous pouvons nous inspirer du code que nous avons développé
+dans le notebook de sélection de modèle par régularisation dans le jeu de données du cancer de la 
+prostate en adaptant les paramètres 
+
+- family = "binomial"
+- type.measure="class"
+
+de la fonction cv.glmnet. 
+
+Ici l'erreur de prédiction est le taux de mauvais classement dans la prédiction du jeu de données test.
+
+
+## Jeu de données nki
+
+- Lecture du jeu de données nki et préparation de la partition train/test
+
+```{r,eval=FALSE}
+##L’objet (eset) nki est désormais disponible. 
+##Il contient les profils de 337 patientes atteintes
+##du cancer du sein. Chaque profil comprend les niveaux 
+##d’expression de 24481 gênes. Commencer par extraire 
+##des données de l’objet nki, supprimer les gênes avec
+##valeurs manquantes, centrer les expressions des gênes autour de zéro
+
+
+rm(list=ls())
+#commandes pour installer le package
+#source("http://www.bioconductor.org/biocLite.R")
+#biocLite("breastCancerNKI")
+require(breastCancerNKI)
+data(nki)
+X <- exprs(nki)
+dim(X)
+X <- X[-which(rowSums(is.na(X)) > 0),]
+X <- apply(X, 1, function(X) X - mean(X))
+Y <- pData(nki)[,8]
+
+n <- nrow(X)
+train_rows <- sample(1:n, .66*n)
+x.train <- as.matrix(X[train_rows,])
+y.train <- as.factor(Y[train_rows])
+x.test <-  as.matrix(X[-train_rows,])
+y.test <-  as.factor(Y[-train_rows])
+```
+
+- Sélectionner le meilleur modèle qui minimise le taux de mauvais classement dans le jeu de données test.

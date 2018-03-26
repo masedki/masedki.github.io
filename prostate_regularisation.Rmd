@@ -1,0 +1,65 @@
+---
+title: 'Cancer de la prostate: sélection de modèle par régularisation '
+output:
+  html_document:
+    df_print: paged
+---
+
+- Lecture des données du cancer de la prostate 
+
+```{r, eval=FALSE}
+rm(list=ls())
+require(glmnet)
+load("prostate.rda")
+## on normalise pour avoir des variances comparables comme la dernière fois
+prostate.train <- subset(prostate, train==TRUE, -train)
+prostate.train[, 1:8] <- scale(prostate.train[, 1:8], FALSE, TRUE)
+prostate.test <- subset(prostate, train==FALSE, -train)
+prostate.test[, 1:8] <- scale(prostate.test[, 1:8], FALSE, TRUE)
+```
+
+- On prépare les données pour la librairie _glmnet_ 
+
+```{r,eval=FALSE}
+x.train = as.matrix(prostate.train[,-9])
+y.train = as.matrix(prostate.train[,9])
+x.test = as.matrix(prostate.test[,-9])
+y.test = as.matrix(prostate.test[,9])
+```
+
+- Régression ridge
+
+```{r,eval=FALSE}
+?glmnet
+out.ridge  = glmnet(x.train,y.train, alpha = 0)
+l=length(out.ridge$lambda)
+b=coef(out.ridge)[-1,1:l]
+
+# chemin de régularisation du régression ridge
+matplot(t(as.matrix(out.ridge$beta)),type="l", ylab="coefficients",
+        col=1:10,lty=1:3)
+legend("topleft",legend=colnames(x.train),
+       col=1:10,lty=1:3)
+
+names(out.ridge)
+out.ridge$lambda
+```
+
+- Illustrer l'évolution des paramètre de régression en fonction du paramètre
+de régularisation dans le cas d'une pénalité lasso 
+
+```{r,eval=FALSE}
+?cv.glmnet
+```
+
+
+- Illustrer l'évolution des coefficients de régression en fonction du paramètre
+de régularisation dans le cas d'une pénalité elasticnet pour alpha = 0.5 (penser à tester
+différentes valeurs de alpha).
+
+- Mettre en place une procédure de calibration du paramètre de régularisation par validation croisée à 5 folds pour la régression ridge 
+
+- Calculer l'erreur de prédiction du modèle sélectionné sur jeu de données test
+
+- Faire en place la procédure pour une régression lasso et elasticnet et comparer 
+l'erreur de prédiction des trois modèles sélectionnés sur le jeu de données test. 

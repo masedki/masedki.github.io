@@ -15,3 +15,7 @@ output:
 [Notebook : Diagnostic cytologique par les knn](http://masedki.github.io/breast_cancer_knn.html) 
 
 [Notebook : cancer de la prostate (sélection de variables par la méthode stepwise)](http://masedki.github.io/prostate_stepwise.html) 
+
+[Notebook : cancer de la prostate (sélection de variables par régularisations ridge, lasso et elasticnet)](http://masedki.github.io/prostate_regularisation.html) 
+
+[Notebook : expressions de gênes (sélection de variables en régression logistique en grande dimension par régularisation ridge, lasso et elasticnet)](http://masedki.github.io/logistic_regularization_golub_nki.html) 

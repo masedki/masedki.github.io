@@ -11,7 +11,7 @@
 
 
 
-<title>Introduction aux datasciences pour la recherche biomédicale</title>
+<title>Régression logistique : sélection de modèle par régularisation</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,8 +20,27 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 <link href="site_libs/ionicons-2.0.1/css/ionicons.min.css" rel="stylesheet" />
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
 
 
 
@@ -247,18 +266,68 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Introduction aux datasciences pour la recherche biomédicale</h1>
+<h1 class="title toc-ignore">Régression logistique : sélection de modèle par régularisation</h1>
 
 </div>
 
 
-<p><a href="http://masedki.github.io/formationinserm.pdf">Supports (évolutifs)</a></p>
-<p><a href="http://masedki.github.io/prostate.rda">Jeu de données : cancer de la prostate</a></p>
-<p><a href="http://masedki.github.io/overfit.html">Notebook : surajustement et prise en main du logiciel R</a></p>
-<p><a href="http://masedki.github.io/breast_cancer_knn.html">Notebook : Diagnostic cytologique par les knn</a></p>
-<p><a href="http://masedki.github.io/prostate_stepwise.html">Notebook : cancer de la prostate (sélection de variables par la méthode stepwise)</a></p>
-<p><a href="http://masedki.github.io/prostate_regularisation.html">Notebook : cancer de la prostate (sélection de variables par régularisations ridge, lasso et elasticnet)</a></p>
-<p><a href="http://masedki.github.io/logistic_regularization_golub_nki.html">Notebook : expressions de gênes (sélection de variables en régression logistique en grande dimension par régularisation ridge, lasso et elasticnet)</a></p>
+<div id="jeu-de-donnees-golub" class="section level2">
+<h2>Jeu de données Golub</h2>
+<ul>
+<li>Lecture du jeu de données golub, pour cela il faut installer le package spikeslab</li>
+</ul>
+<pre class="r"><code>rm(list=ls())
+require(glmnet)
+data(leukemia, package = &quot;spikeslab&quot;) ## penser à installer le package
+n &lt;- nrow(leukemia)
+train_rows &lt;- sample(1:n, .66*n)
+x.train &lt;- as.matrix(leukemia[train_rows, -1])
+y.train &lt;- as.factor(leukemia[train_rows, 1])
+x.test &lt;-  as.matrix(leukemia[-train_rows, -1])
+y.test &lt;-  as.factor(leukemia[-train_rows, 1])</code></pre>
+<p>Le but dans ce notebook est de faire sélection de modèle par ridge, lasso et elasticnet et de comparer les modèle en terme d’erreur de classification sur le jeu de données test. Pour chaque type de pénalité, ridge, lasso et elasticnet, nous allons mettre en place une validation croisée à 5 folds. Nous pouvons nous inspirer du code que nous avons développé dans le notebook de sélection de modèle par régularisation dans le jeu de données du cancer de la prostate en adaptant les paramètres</p>
+<ul>
+<li>family = “binomial”</li>
+<li>type.measure=“class”</li>
+</ul>
+<p>de la fonction cv.glmnet.</p>
+<p>Ici l’erreur de prédiction est le taux de mauvais classement dans la prédiction du jeu de données test.</p>
+</div>
+<div id="jeu-de-donnees-nki" class="section level2">
+<h2>Jeu de données nki</h2>
+<ul>
+<li>Lecture du jeu de données nki et préparation de la partition train/test</li>
+</ul>
+<pre class="r"><code>##L’objet (eset) nki est désormais disponible. 
+##Il contient les profils de 337 patientes atteintes
+##du cancer du sein. Chaque profil comprend les niveaux 
+##d’expression de 24481 gênes. Commencer par extraire 
+##des données de l’objet nki, supprimer les gênes avec
+##valeurs manquantes, centrer les expressions des gênes autour de zéro
+
+
+rm(list=ls())
+#commandes pour installer le package
+#source(&quot;http://www.bioconductor.org/biocLite.R&quot;)
+#biocLite(&quot;breastCancerNKI&quot;)
+require(breastCancerNKI)
+data(nki)
+X &lt;- exprs(nki)
+dim(X)
+X &lt;- X[-which(rowSums(is.na(X)) &gt; 0),]
+X &lt;- apply(X, 1, function(X) X - mean(X))
+Y &lt;- pData(nki)[,8]
+
+n &lt;- nrow(X)
+train_rows &lt;- sample(1:n, .66*n)
+x.train &lt;- as.matrix(X[train_rows,])
+y.train &lt;- as.factor(Y[train_rows])
+x.test &lt;-  as.matrix(X[-train_rows,])
+y.test &lt;-  as.factor(Y[-train_rows])</code></pre>
+<ul>
+<li>Sélectionner le meilleur modèle qui minimise le taux de mauvais classement dans le jeu de données test.</li>
+</ul>
+</div>
 
 
 

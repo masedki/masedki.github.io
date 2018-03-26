@@ -11,7 +11,7 @@
 
 
 
-<title>Introduction aux datasciences pour la recherche biomédicale</title>
+<title>Cancer de la prostate: sélection de modèle par régularisation</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,8 +20,27 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 <link href="site_libs/ionicons-2.0.1/css/ionicons.min.css" rel="stylesheet" />
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
 
 
 
@@ -247,18 +266,55 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Introduction aux datasciences pour la recherche biomédicale</h1>
+<h1 class="title toc-ignore">Cancer de la prostate: sélection de modèle par régularisation</h1>
 
 </div>
 
 
-<p><a href="http://masedki.github.io/formationinserm.pdf">Supports (évolutifs)</a></p>
-<p><a href="http://masedki.github.io/prostate.rda">Jeu de données : cancer de la prostate</a></p>
-<p><a href="http://masedki.github.io/overfit.html">Notebook : surajustement et prise en main du logiciel R</a></p>
-<p><a href="http://masedki.github.io/breast_cancer_knn.html">Notebook : Diagnostic cytologique par les knn</a></p>
-<p><a href="http://masedki.github.io/prostate_stepwise.html">Notebook : cancer de la prostate (sélection de variables par la méthode stepwise)</a></p>
-<p><a href="http://masedki.github.io/prostate_regularisation.html">Notebook : cancer de la prostate (sélection de variables par régularisations ridge, lasso et elasticnet)</a></p>
-<p><a href="http://masedki.github.io/logistic_regularization_golub_nki.html">Notebook : expressions de gênes (sélection de variables en régression logistique en grande dimension par régularisation ridge, lasso et elasticnet)</a></p>
+<ul>
+<li>Lecture des données du cancer de la prostate</li>
+</ul>
+<pre class="r"><code>rm(list=ls())
+require(glmnet)
+load(&quot;prostate.rda&quot;)
+## on normalise pour avoir des variances comparables comme la dernière fois
+prostate.train &lt;- subset(prostate, train==TRUE, -train)
+prostate.train[, 1:8] &lt;- scale(prostate.train[, 1:8], FALSE, TRUE)
+prostate.test &lt;- subset(prostate, train==FALSE, -train)
+prostate.test[, 1:8] &lt;- scale(prostate.test[, 1:8], FALSE, TRUE)</code></pre>
+<ul>
+<li>On prépare les données pour la librairie <em>glmnet</em></li>
+</ul>
+<pre class="r"><code>x.train = as.matrix(prostate.train[,-9])
+y.train = as.matrix(prostate.train[,9])
+x.test = as.matrix(prostate.test[,-9])
+y.test = as.matrix(prostate.test[,9])</code></pre>
+<ul>
+<li>Régression ridge</li>
+</ul>
+<pre class="r"><code>?glmnet
+out.ridge  = glmnet(x.train,y.train, alpha = 0)
+l=length(out.ridge$lambda)
+b=coef(out.ridge)[-1,1:l]
+
+# chemin de régularisation du régression ridge
+matplot(t(as.matrix(out.ridge$beta)),type=&quot;l&quot;, ylab=&quot;coefficients&quot;,
+        col=1:10,lty=1:3)
+legend(&quot;topleft&quot;,legend=colnames(x.train),
+       col=1:10,lty=1:3)
+
+names(out.ridge)
+out.ridge$lambda</code></pre>
+<ul>
+<li>Illustrer l’évolution des paramètre de régression en fonction du paramètre de régularisation dans le cas d’une pénalité lasso</li>
+</ul>
+<pre class="r"><code>?cv.glmnet</code></pre>
+<ul>
+<li><p>Illustrer l’évolution des coefficients de régression en fonction du paramètre de régularisation dans le cas d’une pénalité elasticnet pour alpha = 0.5 (penser à tester différentes valeurs de alpha).</p></li>
+<li><p>Mettre en place une procédure de calibration du paramètre de régularisation par validation croisée à 5 folds pour la régression ridge</p></li>
+<li><p>Calculer l’erreur de prédiction du modèle sélectionné sur jeu de données test</p></li>
+<li><p>Faire en place la procédure pour une régression lasso et elasticnet et comparer l’erreur de prédiction des trois modèles sélectionnés sur le jeu de données test.</p></li>
+</ul>
 
 
 
