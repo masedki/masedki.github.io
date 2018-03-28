@@ -1,0 +1,117 @@
+---
+title: 'Arbres et svm sur les données Pima'
+output:
+  html_document:
+    df_print: paged
+---
+Nous allons traiter les données pima.
+```{r, eval=FALSE}
+require(MASS)
+require(rpart)
+require(rpart.plot)
+require(caret)
+require(e1071)
+require(gbm)
+require(randomForest)
+data("Pima.te")
+data("Pima.tr")
+```
+
+## Algorithme CART
+
+- Construction avec la fonction rpart de la bibliothèque rpart
+
+```{r,eval=FALSE}
+model.cart <- rpart(type ~ .,data=Pima.tr)
+rpart.plot(model.cart)
+```
+
+
+- Élagage
+
+
+```{r,eval=FALSE}
+printcp(model.cart)
+cv.cart <- train(type~.,data=Pima.tr,method="rpart",
+	metric="Accuracy",trControl=trainControl(method="repeatedcv",
+		repeats=50,number=10),tuneGrid=data.frame(cp=seq(0.01,0.2,length=30)))
+plot(cv.cart)
+model.cart <- prune(model.cart,cp=as.numeric(cv.cart$best))
+rpart.plot(model.cart)
+```
+
+- Prédiction
+
+```{r,eval=FALSE}
+pred.cart <- predict(model.cart,Pima.te,type="class")
+mean(Pima.te$type!=pred.cart)
+```
+
+## Fôrets aléatoires 
+
+- Construction avec la fonction randomForest de la bibliothèque randomForest
+
+```{r, eval=FALSE}
+model.rf <- randomForest(type~.,data=Pima.tr,ntree=500)
+plot(model.rf)
+varImpPlot(model.rf)
+```
+
+- Prédiction
+
+```{r, eval=FALSE}
+pred.rf <- predict(model.rf,Pima.te,type="class")
+mean(Pima.te$type!=pred.rf)
+```
+
+## Boosting
+
+```{r,eval=FALSE}
+control <- trainControl(method="repeatedcv", number=10, repeats=3)
+gbmGrid <-  expand.grid(interaction.depth = c(1, 2, 3, 4),
+                        n.trees = (1:5)*50, 
+                        shrinkage = seq(.0005, .05,.0005),
+                        n.minobsinnode = 10)
+
+
+modelGbm <- train(type~., data=Pima.tr, method="gbm", 
+                  trControl=control, 
+                  tuneGrid=gbmGrid,
+                  verbose=FALSE)
+plot(modelGbm)
+print(modelGbm)
+modelGbm.pred <- predict(modelGbm, newdata=Pima.te)
+mean(modelGbm.pred!=Pima.te$type)
+```
+
+
+## SVM
+
+- Construction avec la fonction svm de la bibliothéque e1071
+
+```{r, eval=FALSE}
+calibration <- tune.svm(type~.,data=Pima.tr,gamma=seq(0.001,1,by=0.01))
+model.svm <- svm(type~.,data=Pima.tr,gamma=calibration$best.parameters)
+```
+
+- Prédiction
+
+```{r, eval=FALSE}
+pred.svm <- predict(model.svm,Pima.te)
+mean(Pima.te$type!=pred.svm)
+```
+
+- Essayons de faire les choses avec caret
+```{r,eval=FALSE}
+control <- trainControl(method="repeatedcv", number=10, repeats=3)
+modelSvm <- train(type~., data=Pima.tr, 
+                  method="svmRadial", 
+                  metric="Accuracy",
+                  trControl=control,
+                  tuneGrid=data.frame(sigma=seq(0.001,0.2,length=50),C=seq(0.1,2,length=50)))
+plot(modelSvm)
+print(modelSvm)
+modelSvm.pred <- predict(modelSvm, newdata=Pima.te)
+mean(modelSvm.pred!=Pima.te$type)
+```
+
