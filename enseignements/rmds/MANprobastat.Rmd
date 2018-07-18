@@ -1,0 +1,18 @@
+---
+title: "Mise à niveau en probabilité et statistique"
+output:
+  html_document:
+    theme: journal
+    highlight: monochrome
+    css: style.css
+---
+
+[slides de cours](http://masedki.github.io/enseignements/pdfs/MANprobastat.pdf)
+
+[fiche d'exercices](http://masedki.github.io/enseignements/pdfs/fiche.pdf)
+
+[corrgé de la fiche d'exercices](http://masedki.github.io/enseignements/pdfs/corrige.pdf)
+
+
+
+ 

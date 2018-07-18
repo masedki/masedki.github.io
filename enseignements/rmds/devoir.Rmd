@@ -1,0 +1,33 @@
+---
+title: "Examen d'introduction à la statistique avec R"
+author: "Département de Biologie de l'ENS Paris-Saclay"
+date: "Année universitaire 2016-2017"
+output:
+  html_document:
+    theme: journal
+    highlight: monochrome
+    css: style.css
+---
+
+*L'examen est d'une durée de 3 heures, l'accès au contenu du MOOC est autorisé. Tout échange de script est interdit. Les réponses sont à envoyer sous
+forme de script R à l'adresse mail mohammed.sedki@u-psud.fr. Les sorties doivent être interprétées.*
+
+## Modélisation de la concentration du rétinol plasmatique
+À partir du fichier de données [TPretinol](http://masedki.github.io/enseignements/TPretinol.html), vous pouvez rechercher les relations existant entre la concentration en rétinol plasmatique d'une part et, d'autres part, l'âge, le sexe, le BMI (indice d'obésité), le tabagisme, la consommation alimentaire de vitamines, de cholestérol, d'alcool et de rétinol.
+
+
+- Dans un premier temps décrivez les 9 variables.
+
+- Effectuez ensuite une régression linéaire où la variable à expliquer sera la concentration en rétinol plasmatique, les 8 autres variables étant explicatives.
+
+
+## Régression logisitique 
+- Transformez la variable "rétinol plasmatique" en une variable binaire (en la coupant en deux au niveau de la médiane). 
+
+- Refaites les calculs précédents en ayant recours cette fois à une régression logistique.
+
+## Questions subsidiaires 
+
+- Refaire la régression logistique précédente en incluant les interactions entre les paires de variables explicatives.
+
+- Étudiez les relations existant entre toutes les paires possibles de variables.

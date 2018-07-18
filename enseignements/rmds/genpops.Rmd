@@ -1,0 +1,12 @@
+---
+title: "Modèles de génétique des populations neutre"
+output:
+  html_document:
+    theme: journal
+    highlight: monochrome
+    css: style.css
+---
+
+[Modèles de génétriques des populations neutres](http://masedki.github.io/enseignements/pdfs/articleGenPop.pdf)
+
+[Supports du cours](http://masedki.github.io/enseignements/pdfs/SlidesGenPop.pdf)

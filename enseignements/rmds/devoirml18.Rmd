@@ -1,0 +1,98 @@
+---
+title: "Devoir de Modèle linéaire : 2017-2018"
+output:
+  html_document:
+    df_print: paged
+  html_notebook: default
+  pdf_document: default
+---
+
+### Partie 1. Détection des points aberrants à l'aide de la variation des coefficients de régression
+
+Nous allons explorer et étudier le jeu de données [pollution](http://masedki.github.io/enseignements/datasets/pollution.rda). 
+Ce jeu de données provient d'une ancienne étude  (années 1960), qui s'intéresse à l'effet de la pollution 
+sur le taux de mortalité dans différentes villes des États-Unis. La variable réponse (mort) dans 
+la suite sera le taux de mortalité ajustée selon l'âge par 100 000 habitants. 
+Les 15 variables explicatives de l'étude sont détaillées [ici](http://masedki.github.io/enseignements/datasets/Pollution-names.txt).
+
+a. À l'aide d'un graphique simple, visualiser les nuages de points donnés par le taux de mortalité en fonction de chacune des variables explicatives.  
+
+
+b. Proposer une transformation qui permet de rapprocher de la linéarité les formes des nuages de points associés aux variables explicatives nox, hc et so^[Penser aux fonctions usuelles.]. Utiliser cette transformation pour créer un nouveau jeu de données `polltrans` obtenu en appliquant la transformation précédente  à ces trois variables explicatives. 
+
+
+À l'aide d'un tirage aléatoire, on partage le jeu de données `polltrans` en deux jeux de données apprentissage 
+`polltrain` et test `polltest` de tailles respectives $40$ et $20$. Pour garantir une reproductibilité 
+des résultats, on propose de fixer le générateur à `119` comme suit 
+```{r, eval=FALSE}
+set.seed(119)
+ii<-sort(sample(seq(1,dim(polltrans)[1]),20))
+polltest<-polltrans[ii,]
+polltrain<-polltrans[-ii,]
+```
+
+Les nuages de points visualisés précédemment sont des simples représentations deux à deux `(variable explicative, réponse)`. 
+Dans cette partie, nous allons vérifier la présence/absence de points influents dans le jeu de données d'apprentissage 
+pour la régression linéaire multiple de la variable réponse `mort` en fonction des `15` variables explicatives. 
+Pour calculer l'influence de chaque observation du jeu de données d'apprentissage, il suffit de faire appel
+à la fonction `lm.influence()` comme suit 
+```{r, eval=FALSE}
+mm1<-lm(mort~.,data=polltrain)
+lm1<-lm.influence(mm1)
+```
+où le champ `lm1$hat` contient les $h_{ii}$. 
+
+c. À l'aide de la fonction `which()` ou la fonction `identify()`^[Qui permet d'identifier l'indice d'un point sur une figure à l'aide du curseur], 
+identifier les points influents^[Ici nous allons déclarer un point comme influent 
+si $h_{ii} > 2\times \frac{\text{nombre de coefficients de régression}}{\text{nombre d'observations}}$]. 
+
+Selon le choix de la valeur de la graine du générateur aléatoire, on peut observer ou pas des points influents. Nous allons voir sur 
+cet exemple que cette règle numérique règle basé sur le calcul de l'influence est défaillante. Pour cela, nous allons étudier **la variation de la valeur** 
+du coefficient de régression en enlevant à chaque fois une observation de l'échantillon d'apprentissage. 
+La fonction `lm.influence()` utilisée précédemment, le fait automatiquement et stocke ces évolutions dans la matrice `lm1$coeff` où l'élément
+$ij$ de cette matrice correspond à la **variation de la valeur** du coefficient de régression associé à la variable explicative $j$ dans la régression multiple sans l'observation numéro $i$^[Attention, la première colonne correspond à l'intercept]. 
+
+d. Visualiser l’évolution la variation de chaque coefficient de régression à l'aide de la fonction `plot()` et repérer à l'aide de la fonction
+`identify` les indices des observations qui impliquent des variations extrêmes dans les coefficients de régression.
+
+e. Sélectionner les indices des observations qui présentes des variations extrêmes d'au moins deux coefficients de régression sur `16`. 
+
+f. À partir d'un nouveau jeu de données `polltrain2` que nous allons créer en éliminant dans `polltrain`, les points identifiés dans la question précédente, sélectionner le meilleur modèle au sens du $AIC$, $BIC$ et $Cp$^[La recherche du meilleur modèle sera exhaustive en utilisant le package `leaps`. Attention: le critère $AIC$ ne fait pas partie des critères calculés par le package `leaps`]. Conclure. 
+
+g. Mettre en place une validation croisée 2-folds pour sélectionner le meilleur modèle de prédiction du jeu de données `polltest`.
+
+
+### Partie 2. Théorème de Gauss-Markov en modèle linéaire
+
+Rappelons que l’estimateur des moindres carrés de $\beta_1$ dans une régression linéaire simple s'écrit sous la forme
+$$
+\hat{\beta}_1 = \sum_{i=1}^n c_i y_i \quad \text{où}  \quad c_i =  \frac{x_i - \bar{x}}{SXX}.
+$$
+Supposons qu'il existe un autre estimateur $\tilde{\beta}_1$ de $\beta_1$ **sans biais** et linéaire en $Y = (y_1, \ldots, y_1)$,*i.e.*,
+il existe $\tilde{c}_1, \ldots, \tilde{c}_n$ telles que 
+$$\tilde{\beta}_1 = \sum_{i = 1}^n \tilde{c}_i y_i.$$
+a. Vérifier que
+$$\sum_{i = 1}^n \tilde{c}_i  = 0 \quad \text{et} \quad \sum_{i = 1}^n \tilde{c}_i x_i = 1.$$
+b. Déduire que^[Astuce : $\text{Var}\big(\tilde{\beta}_1\big) = \text{Var}\big(\tilde{\beta}_1 - \hat{\beta}_1 + \hat{\beta}_1\big)$.] 
+$$
+\text{Var}\big(\tilde{\beta}_1\big) \ge \text{Var}\big(\hat{\beta}_1\big).
+$$
+c. Conclure.
+
+
+#### Bonus : Gauss-Markov pour la régression linéaire multiple 
+
+Rappelons que l'estimateur par les moindres carrés du  **vecteur** $\beta$  dans une régression linéaire multiple est donné par 
+$$
+\hat{\beta} = \big(X^{\prime}X\big)^{-1} X^{\prime} Y.
+$$
+Supposons qu'il existe un autre estimateur $\tilde{\beta}$ sans biais de $\beta$ linéaire en $Y$, c'est à dire, il existe une matrice 
+$A \in \mathbb{R}^{(p+1)\times n}$ telle que 
+$$
+\tilde{\beta} = A Y.
+$$
+a.  Vérifier que $A X = I_{p+1}$^[Rappel :  Si $M\in \mathbb{R}^{n \times m}$  est une matrice et $X \in\mathbb{R}^m$ est un vecteur aléatoire, alors 
+$\mathbb{E}\big(A X\big) = A \mathbb{E}\big(X\big)$  et $\text{Var}\big(AX\big) = A\text{Var}\big(X\big)A^\prime$.] 
+et montrer que  la différence 
+$$\text{Var}\big(\tilde{\beta}\big) - \text{Var}\big(\hat{\beta}\big)$$
+est une matrice symétrique semi-définie positive^[Une matrice $M\in \mathbb{R}^{n \times n}$ symétrique est dite semi-définie positive si $x^\prime M x \ge 0$ pour tout vecteur $x \in \mathbb{R}^n$.].
