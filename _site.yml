@@ -4,33 +4,33 @@ navbar:
   title: "Acceuil"
   left:
     - text: "Enseignements"
-      href: enseingements/enseignements.html
+      href: enseignements/enseignements.html
       icon: ion-easel
       menu:
         - text: "M2R santé publique"
         - text: "Mise à niveau probabilité et statistiques"
-          href: enseingements/MANprobastat.html
+          href: enseignements/MANprobastat.html
         - text: "Mise à niveau Matrices"
-          href: enseingements/MANmatrice.html
+          href: enseignements/MANmatrice.html
         - text: "Introduction à bootstap"
-          href: enseingements/bootstrap.html
+          href: enseignements/bootstrap.html
         - text: "Démarche Statistique"
-          href: enseingements/ds.html
+          href: enseignements/ds.html
         - text: "Modèle linéaire"
-          href: enseingements/ml.html
+          href: enseignements/ml.html
         - text: "Statistique mathématique"
-          href: enseingements/statmath.html 
+          href: enseignements/statmath.html 
         - text: "---------"
         - text: "M2 MathSV"
         - text: "Modèles de génétique des populations neutre"
-          href: enseingements/genpops.html
+          href: enseignements/genpops.html
         - text: "---------"
         - text: "MOOC d'introduction à la statistique avec R"
         - text: "Devoir ENS 2016-2017"
-          href: enseingements/devoir.html
+          href: enseignements/devoir.html
         - text: "Inserm"
         - text: "Introduction aux datasciences pour la recherche biomédicale"
-          href: enseingements/IntroDataScience.html
+          href: enseignements/IntroDataScience.html
     - text: "Recherche"
       href: recherche/recherche.html
     - text: "Packages et logiciels"
