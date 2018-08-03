@@ -44,7 +44,7 @@ navbar:
         - text: "---------"
         - text: "Model Selection in Binary data"
         - text: "Logistic binary data regression"
-          href: packages/MHTrajectoryR.html
+          href: "https://CRAN.R-project.org/package=MHTrajectoryR"
         - text: "Modeling high-dimensional binary data"
           href: packages/MvBinary.html  
         

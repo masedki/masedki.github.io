@@ -10,10 +10,8 @@ bibliography: biblio.bib
 
 * *Authors*: **Gilles Celeux** and **Cathy Maugis-Rabusseau** and **Mohammed A. Sedki**.
 * *License*: [GPL-2](http://www.gnu.org/licenses/gpl-2.0.html).
-* *Download SelvarMix 1.2 (beta version)*: [link](http://r-forge.r-project.org/R/?group_id=2044). 
-
-*  *Download SelvarMix 1.1 (cran version)*: [link](http://cran.r-project.org/web/packages/SelvarMix/).
-* *Reference*: [SelvarMix: A R package for variable selection in model-based clustering and discriminant analysis with a regularization approach](https://hal.archives-ouvertes.fr/hal-01053784/), Celeux, G., and Maugis-Rabusseau, C. and Sedki, M. 2016, preprint.
+* *Download SelvarMix 1.1 (cran version)*: [link](https://cran.r-project.org/package=SelvarMix).
+* *[@Celeux2018]* : [link](https://doi.org/10.1007/s11634-018-0322-5)
 
 
 <a id="top"></a>
@@ -28,7 +26,7 @@ All the experiments are implemented with SelvarMix 1.2
 <a id="intro"></a>
 
 ### Introduction
-*SelvarMix* package carries out a regularization approach of variable selection in the model-based clustering and classification 
+*SelvarMix*[@Celeux2018] package carries out a regularization approach of variable selection in the model-based clustering and classification 
 frameworks. First, the
 variables are ranked with a lasso-like procedure. Second, the method
 of [@Maugis2009b; @Maugis2011] is adapted to define the role of variables in the
@@ -63,7 +61,8 @@ selection and choosing the number of clusters.  The chosen model is described in
  The last three variables $W = \{12, 13, 14\}$ are independent. More details are given in [@Maugis2009b].
 
 <a id="tutorial"></a>
-```{r, comment=""}
+```{r, comment="", eval=FALSE}
+require(SelvarMix)
 set.seed(123)
 n <- 2000; p <- 14
 x <- matrix(0,n, p)
@@ -89,7 +88,7 @@ x[,12] <- x[,12] + 3.2; x[,13] <- x[,13] + 3.6; x[,13] <- x[,13] + 4
 
 <a id="clust"></a>
 **Variable selection and selection of the number of clusters in the clustering framework**
-```{r, comment=""}
+```{r, comment="", eval=FALSE}
 # Cluster analysis with variable selection with parallel computing (8 cores) 
 # The last two input arguments are optional
 require(SelvarMix)
@@ -98,7 +97,7 @@ obj <- SelvarClustLasso(x=x, nbcluster=3:5, models=mixmodGaussianModel(family = 
 
 **Model Summary**
 
-```{r, comment=""}
+```{r, comment="", eval=FALSE}
 # Summary of the selected model
 summary(obj)
 ```
@@ -106,7 +105,7 @@ summary(obj)
 * <a href="#top">Go to the top</a>
 
 **Result print**
-```{r, comment=""}
+```{r, comment="", eval=FALSE}
 # print clustering and regression parameters 
 print(obj)
 ```
@@ -114,7 +113,7 @@ print(obj)
 
 <a id="discrim"></a>
 **Variable selection in classification**
-```{r, comment=""}
+```{r, comment="", eval=FALSE}
 # Discriminant analysis with learning and testing data
 # Variable selection with parallel computing (8 cores)
 xl <- x[1:1900,]; xt <- x[1901:2000,] 
@@ -123,14 +122,14 @@ obj <- SelvarLearnLasso(x=xl, z=zl, models=mixmodGaussianModel(family = "spheric
 ```
 **Model Summary**
 
-```{r, comment=""}
+```{r, comment="", eval=FALSE}
 # Summary of the selected model
 summary(obj)
 ```
 * <a href="#top">Go to the top</a>
 
 **Result print**
-```{r, comment=""}
+```{r, comment="", eval=FALSE}
 # print clustering and regression parameters 
 print(obj)
 ```
