@@ -1,10 +1,27 @@
 ---
-title: "Recherche"
-output:
-  html_document:
-    theme: journal
-    highlight: monochrome
-    css: style.css
+title: '**Publications **'
+output: html_document
+bibliography: biblio.bib
 ---
+* **Pudlo, P and Sedki, M** [Simulation of stochastic models of structured
+population in population genetics under neutrality](http://masedki.github.io/recherche/pdfs/pudlo_sedki_genpop.pdf)  *Journal de la SFDS* to appear
 
-ben je cherche 
+* **Marin, J-M and Pudlo, P and Sedki, M** [Consistency of Adaptive Importance Sampling and Recycling Schemes](https://www.e-publications.org/ims/submission/BEJ/user/submissionFile/30757?confirm=0a7a502b) *Bernoulli Journal*, to appear
+
+* **Marbac, M and Patin, E and Sedki, M** [Variable selection for mixed data clustering: Application in human population genomics](https://arxiv.org/abs/1703.02293), *Journal of Classification*, to appear
+
+* **Marbac M; Sedki, M; Boutron-Ruault, M-C; Dumas, O** [Patterns of cleaning product exposures using a novel clustering approach for data with correlated variables](https://doi.org/10.1016/j.annepidem.2018.05.004) *Annals of Epidemiology*, Volume:28, Issue:8, August 2018, pp:563-569 
+
+* **Celeux, G and Maugis-Rabusseau, C and Sedki, M** [Variable selection in model-based clustering and discriminant analysis with a regularization approach](https://doi.org/10.1007/s11634-018-0322-5) *Advances in Data Analysis and Classification*, First Online: 11 April 2018, pp:1-20
+
+* **Marbac M and Sedki, M** [A family of block-wise one-factor distributions for modeling high-dimensional binary data](https://doi.org/10.1016/j.csda.2017.04.010) *Computational Statistics and Data Analysis*,  Volume:114, October 2017, pp:130-145
+
+* **Marbac M and Sedki, M** [Variable selection for model-based clustering using the integrated complete-data likelihood](https://doi.org/10.1007/s11222-016-9670-1) *Statistics and Computing*,  Volume:27, Issue:4, July 2017, pp:1049–1063 
+
+* **Marbac, M and Tubert-Bitter, P and Sedki, M** [Bayesian model selection in logistic regression for the detection of adverse drug reactions](https://doi.org/10.1002/bimj.201500098) *Biometrical Journal*, Volume:58, Issue:6, November 2016, pp:1376-1389 
+
+* **Ribatet, M and Sedki, M** [Extreme value copulas and max-stable processes](http://journal-sfds.math.cnrs.fr/index.php/J-SFdS/article/view/160)  Vol. 154 No 1 (2013): Numéro spécial sur les copules du *Journal de la SFDS* 
+
+* **Andrieu, C; Barthelme, S; Chopin, N; Cornebise, J; Doucet, A; Girolami, M; Kosmidis, I; Jasra, A; Lee, A; Marin, J-M; Pudlo, P; Robert, CP; Sedki, M; Singh, SS** [Some discussions of D. Fearnhead and D. Prangle's Read Paper" Constructing summary statistics for approximate Bayesian computation: semi-automatic approximate Bayesian computation"](https://doi.org/10.1111/j.1467-9868.2011.01010.x) *Journal of the Royal Statistical Society (series B)*, Volume:74, Issue:3, June 2012, pp:419-474
+
+* **Marin, J-M and Pudlo, P and Sedki, M** [Optimal parallelization of a sequential approximate Bayesian computation algorithm](https://doi.org/10.1109/WSC.2012.6465244) *Proceedings of the Winter Simulation Conference*,9-12 Dec. 2012
