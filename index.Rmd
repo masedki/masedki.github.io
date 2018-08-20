@@ -1,5 +1,5 @@
 ---
-title: "Mohammed A. Sedki"
+title: "Mohammed  Sedki"
 output:
   html_document:
     theme: journal
