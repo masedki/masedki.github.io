@@ -15,6 +15,6 @@ Bâtiment Inserm 15/16 hôpital Paul Brousse
 94807 Villejuif
 France
 Tel: +33 1 45 59 52 14 
-Email : prénom.nomATu-psud.fr 
+Email : prénom.nomATu-psud.fr (à modifier)
 
 ![](http://masedki.github.io/Under_Construction.jpg)
