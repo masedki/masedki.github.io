@@ -1,9 +1,10 @@
 /* Whole document: */
 body{
-  font-family: Babas;
-  font-size: 12pt;
+  font-family: serif;
+  font-size: 10pt;
 }
 /* Headers */
 h1,h2,h3,h4,h5,h6{
-  font-size: 24pt;
+  font-family: serif;
+  font-size: 20pt;
 }
