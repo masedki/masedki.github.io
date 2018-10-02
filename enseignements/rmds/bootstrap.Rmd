@@ -9,5 +9,5 @@ output:
 
 [slides de cours](http://masedki.github.io/enseignements/pdfs/bootstrap.pdf)
 
-[Aide mémoire de Julien Chiquet](http://masedki.github.io/enseignements/RCarte_Commandes-R.pdf)
+[Aide mémoire de Julien Chiquet](http://masedki.github.io/enseignements/pdfs/RCarte_Commandes-R.pdf)
 
