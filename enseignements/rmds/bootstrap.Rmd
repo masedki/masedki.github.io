@@ -7,7 +7,9 @@ output:
     css: style.css
 ---
 
-[slides de cours](http://masedki.github.io/enseignements/pdfs/bootstrap.pdf)
+[Slides de cours](http://masedki.github.io/enseignements/pdfs/bootstrap.pdf)
+
+[Jeu de données coronary](http://masedki.github.io/enseignements/datasets/coronary.rda)
 
 [Aide mémoire de Julien Chiquet](http://masedki.github.io/enseignements/pdfs/RCarte_Commandes-R.pdf)
 
