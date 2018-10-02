@@ -9,24 +9,24 @@ output:
 
 [Slides de cours](http://masedki.github.io/enseignements/pdfs/ML.pdf)
 
-[Données de publicité](http://masedki.github.io/enseignements/datasets/Advertising.csv)
+[Données cancer de la prostate](http://masedki.github.io/enseignements/datasets/prostate.rda)
 
-[Rnotebook 1](http://masedki.github.io/enseignements/advertising.html)
-
-
-[data1.csv](http://masedki.github.io/enseignements/datasets/data1.csv)
-
-[data2.csv](http://masedki.github.io/enseignements/datasets/data2.csv)
-
-[data3.csv](http://masedki.github.io/enseignements/datasets/data3.csv)
-
-[data4.csv](http://masedki.github.io/enseignements/datasets/data4.csv)
-
-[Rnotebook 2](http://masedki.github.io/enseignements/hypotheses.html)
+[notebook 1](http://masedki.github.io/enseignements/prostate.html)
 
 
-[Rnotebook 3: sélection de modèle avec les données de rétinol plasmatique](http://masedki.github.io/enseignements/modelselection.html)
+<!-- [data1.csv](http://masedki.github.io/enseignements/datasets/data1.csv) -->
 
-[Devoir 2017-2018](http://masedki.github.io/enseignements/devoirml18.html)
+<!-- [data2.csv](http://masedki.github.io/enseignements/datasets/data2.csv) -->
+
+<!-- [data3.csv](http://masedki.github.io/enseignements/datasets/data3.csv) -->
+
+<!-- [data4.csv](http://masedki.github.io/enseignements/datasets/data4.csv) -->
+
+<!-- [Rnotebook 2](http://masedki.github.io/enseignements/hypotheses.html) -->
+
+
+<!-- [Rnotebook 3: sélection de modèle avec les données de rétinol plasmatique](http://masedki.github.io/enseignements/modelselection.html) -->
+
+<!-- [Devoir 2017-2018](http://masedki.github.io/enseignements/devoirml18.html) -->
 
 [Aide-mémoire des commandes R de Julien Chiquet](http://masedki.github.io/enseignements/pdfs/RCarte_Commandes-R.pdf)

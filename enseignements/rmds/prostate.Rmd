@@ -1,0 +1,28 @@
+---
+title: "Données cancer de la prostate"
+output: html_document
+---
+
+```{r}
+load("~/Dropbox/enseignement/ml/Lectures/rmds/prostate.rda")
+names(prostate)
+head(prostate)
+dim(prostate)
+```
+
+```{r}
+lm.fit <- lm(lpsa~lcavol, data=prostate)
+summary(lm.fit)
+```
+
+
+
+```{r}
+attach(prostate)
+plot(lcavol, lpsa, col="red")
+abline(lm.fit, lwd=3, col="blue")
+```
+```{r}
+coef(lm.fit)
+confint(lm.fit)
+```
