@@ -7,15 +7,15 @@ output:
     css: style.css
 ---
 
-[Cours 1 : rappels](http://masedki.github.io/enseignements/pdfs/lec1.pdf)
+[rappels](http://masedki.github.io/enseignements/pdfs/lec1.pdf)
 
-<!-- [Cours 2 : statistique et information](http://masedki.github.io/enseignements/pdfs/lec2.pdf) -->
+[statistique et information](http://masedki.github.io/enseignements/pdfs/lec2.pdf)
 
 <!-- [Cours 3 : famille exponentielle](http://masedki.github.io/enseignements/pdfs/lec3.pdf) -->
 
-[Cours: estimation ponctuelle 1](http://masedki.github.io/enseignements/pdfs/lec4.pdf)
+[estimation ponctuelle 1](http://masedki.github.io/enseignements/pdfs/lec4.pdf)
 
-[Cours: estimation poncutelle 2](http://masedki.github.io/enseignements/pdfs/lec5.pdf)
+[estimation poncutelle 2](http://masedki.github.io/enseignements/pdfs/lec5.pdf)
 
 <!-- [Corrigé 1](http://masedki.github.io/enseignements/pdfs/corrige1.pdf) -->
 
