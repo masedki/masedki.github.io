@@ -14,18 +14,18 @@ output:
 [notebook 1](http://masedki.github.io/enseignements/prostate.html)
 
 
-<!-- [data1.csv](http://masedki.github.io/enseignements/datasets/data1.csv) -->
+[data1.csv](http://masedki.github.io/enseignements/datasets/data1.csv) 
 
-<!-- [data2.csv](http://masedki.github.io/enseignements/datasets/data2.csv) -->
+[data2.csv](http://masedki.github.io/enseignements/datasets/data2.csv)
 
-<!-- [data3.csv](http://masedki.github.io/enseignements/datasets/data3.csv) -->
+[data3.csv](http://masedki.github.io/enseignements/datasets/data3.csv)
 
-<!-- [data4.csv](http://masedki.github.io/enseignements/datasets/data4.csv) -->
+[data4.csv](http://masedki.github.io/enseignements/datasets/data4.csv)
 
-<!-- [Rnotebook 2](http://masedki.github.io/enseignements/hypotheses.html) -->
+[Rnotebook 2](http://masedki.github.io/enseignements/hypotheses.html)
 
 
-<!-- [Rnotebook 3: sélection de modèle avec les données de rétinol plasmatique](http://masedki.github.io/enseignements/modelselection.html) -->
+[Rnotebook 3: sélection de modèle avec les données de rétinol plasmatique](http://masedki.github.io/enseignements/modelselection.html)
 
 <!-- [Devoir 2017-2018](http://masedki.github.io/enseignements/devoirml18.html) -->
 
