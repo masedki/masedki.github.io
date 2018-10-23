@@ -1,0 +1,13 @@
+---
+title: "Méthodes non-superviées pour la génétique des populations"
+output:
+  html_document:
+    theme: journal
+    highlight: monochrome
+    css: style.css
+---
+
+[slides de cours ACP](http://masedki.github.io/enseignements/pdfs/ACP.pdf)
+
+
+[notebook ACP sur les données iris](http://masedki.github.io/enseignements/pca.html)

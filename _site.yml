@@ -14,6 +14,8 @@ navbar:
           href: enseignements/MANmatrice.html
         - text: "Introduction à bootstap"
           href: enseignements/bootstrap.html
+        - text: "GenClust"
+          href: enseignements/GenClust.html  
         - text: "Démarche Statistique"
           href: enseignements/ds.html
         - text: "Modèle linéaire"
