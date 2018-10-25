@@ -12,20 +12,15 @@ output:
 On charge le package *leaps* et le jeu de données de rétinol plasmatique
 ```{r}
 require(leaps)
-retinol <- read.csv2("~/recherche/codes/masedki/enseignements/datasets/presentationTPretinol.csv", header = T)
-names(retinol)
-```
-
-```{r}
-regfit.full = regsubsets(retplasma~. , retinol)
-summary(regfit.full)
+load("~/Dropbox/enseignement/ml/Lectures/rmds/prostate.rda")
+names(prostate)
 ```
 
 
 On peut limiter le nombre de variables dans un modèle à tester via le paramètre *nvmax*
 
 ```{r}
-regfit.full = regsubsets(retplasma~., data = retinol, nvmax=13)
+regfit.full = regsubsets(lcavol~., data = prostate)
 summary(regfit.full)
 reg.summary = summary(regfit.full)
 names(reg.summary)
@@ -45,7 +40,7 @@ points(which.min(reg.summary$cp), reg.summary$cp[which.min(reg.summary$cp)], col
 
 plot(reg.summary$bic , xlab =" Number of Variables " , ylab =" BIC " , type ="l")
 which.min(reg.summary$bic)
-points(which.min(reg.summary$bic), reg.summary$adjr2[which.min(reg.summary$bic)], col =" red " , cex =2 , pch =20)
+points(which.min(reg.summary$bic), reg.summary$bic[which.min(reg.summary$bic)], col =" red " , cex =2 , pch =20)
 ```
 
 Le package *leap* possède sa propre fonction *plot*
@@ -64,12 +59,13 @@ coef(regfit.full , 1)
 
 On peut faire aussi de la recherche pas à pas en *forward* et *backward*
 ```{r}
-regfit.fwd = regsubsets(retplasma~. , data = retinol , nvmax =13 , method ="forward")
+regfit.fwd = regsubsets(lcavol~. , data = prostate, method ="forward")
 summary(regfit.fwd)
+plot(regfit.fwd, scale="bic")
 ```
 
 ```{r}
-regfit.bwd = regsubsets(retplasma~. , data = retinol , nvmax =13 , method ="backward")
+regfit.bwd = regsubsets(lcavol~. , data = prostate, method ="backward")
 summary(regfit.bwd)
 ```
 
@@ -78,27 +74,27 @@ summary(regfit.bwd)
 On construit les deux ensembles *apprentissage* *validation* aléatoirement
 ```{r}
 set.seed(1)
-train = sample (c(TRUE,FALSE) , nrow(retinol) , rep = TRUE)
+train = sample (c(TRUE,FALSE) , nrow(prostate), prob=c(2/3,1/3) , rep = TRUE)
 test=(!train)
 ```
 
 ```{r}
-regfit.best = regsubsets(retplasma~. , data = retinol[train,],nvmax=13)
+regfit.best = regsubsets(lcavol~. , data = prostate[train,])
 ```
 
 On peut récupérer la matrice dite de "design" du modèle complet sur les données de *validation*
 
 ```{r}
-test.mat = model.matrix(retplasma~. , data = retinol[test,])
+test.mat = model.matrix(lcavol~. , data = prostate[test,])
 ```
 
 On va maintenant calculer l'erreur de prédiction sur l'ensemble de validation pour chaque nombre de variables dans le modèle
 ```{r}
-val.errors = rep(NA ,13)
-for( i in 1:13){
+val.errors = rep(NA ,8)
+for( i in 1:8){
   coefi = coef(regfit.best,  id=i)
   pred = test.mat[ ,names(coefi)]%*%coefi
-  val.errors[i]=mean((retinol$retplasma[test] - pred)^2)
+  val.errors[i]=mean((prostate$lcavol[test] - pred)^2)
 }
 val.errors
 which.min(val.errors)
@@ -123,23 +119,23 @@ On va faire une validation croisée à  5 *folds*
 ```{r}
 k=5
 set.seed(1)
-folds = sample(1:k, nrow(retinol) , replace = TRUE)
-cv.errors = matrix(NA, k, 13 ,dimnames = list(NULL , paste(1:13)))
+folds = sample(1:k, nrow(prostate) , replace = TRUE)
+cv.errors = matrix(NA, k, 8 ,dimnames = list(NULL , paste(1:8)))
 ```
 
 ```{r}
 for(j in 1:k){
-  best.fit = regsubsets(retplasma~. , data=retinol[folds!=j,] , nvmax=13)
-  for (i in 1:13){
-   pred = predict(best.fit , retinol[folds==j,] , id=i)
-   cv.errors[j,i]= mean((retinol$retplasma[folds==j]-pred) ^2)
+  best.fit = regsubsets(lcavol~. , data=prostate[folds!=j,] , nvmax=13)
+  for (i in 1:8){
+   pred = predict(best.fit , prostate[folds==j,] , id=i)
+   cv.errors[j,i]= mean((prostate$lcavol[folds==j]-pred) ^2)
    }
  }
 ```
 La moyenne de l'erreur sur les 5 folds
 ```{r}
 mean.cv.errors = apply (cv.errors ,2 ,mean)
-mean.cv.errors
+which.min(mean.cv.errors)
 ```
 
 

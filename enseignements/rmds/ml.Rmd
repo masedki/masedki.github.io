@@ -25,7 +25,7 @@ output:
 [Rnotebook 2](http://masedki.github.io/enseignements/hypotheses.html)
 
 
-[Rnotebook 3: sélection de modèle avec les données de rétinol plasmatique](http://masedki.github.io/enseignements/modelselection.html)
+[Rnotebook 3: sélection de modèle avec les données du cancer de la prostate](http://masedki.github.io/enseignements/modelselection.html)
 
 <!-- [Devoir 2017-2018](http://masedki.github.io/enseignements/devoirml18.html) -->
 
