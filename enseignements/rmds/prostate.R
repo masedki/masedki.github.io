@@ -51,3 +51,5 @@ for( i in 1:8){
   pred = test.mat[ ,names(coefi)]%*%coefi
   val.errors[i]=mean((prostate$lcavol[test] - pred)^2)
 }
+val.errors
+which.min(val.errors)
