@@ -1,15 +1,14 @@
 ---
 title: '**Publications **'
 output: html_document
-bibliography: biblio.bib
 ---
 
 * **Pudlo, P and Sedki, M** [Simulation of stochastic models of structured
-population in population genetics under neutrality](http://masedki.github.io/recherche/pdfs/pudlo_sedki_genpop.pdf)  *Journal de la SFDS* to appear
+population in population genetics under neutrality](http://journal-sfds.fr/article/view/707)  *Journal de la SFDS : Special Issue on Models and Inference in Population Genetics*, First Online : December 13, 2018
 
 * **Marin, J-M and Pudlo, P and Sedki, M** [Consistency of Adaptive Importance Sampling and Recycling Schemes](https://www.e-publications.org/ims/submission/BEJ/user/submissionFile/30757?confirm=0a7a502b) *Bernoulli Journal*, to appear
 
-* **Marbac, M and Sedki, M** [VarSelLCM: an R/C ++ package for variable selection in model-based clustering of mixed-data with missing values](https://doi.org/10.1093/bioinformatics/bty786), *Bioinformatics*, First Online: 05 September 2018 
+* **Marbac, M and Sedki, M** [VarSelLCM: an R/C ++ package for variable selection in model-based clustering of mixed-data with missing values](https://doi.org/10.1093/bioinformatics/bty786), *Bioinformatics*, First Online: September 05, 2018 
 
 * **Marbac, M and Patin, E and Sedki, M** [Variable selection for mixed data clustering: Application in human population genomics](https://arxiv.org/abs/1703.02293), *Journal of Classification*, to appear
 

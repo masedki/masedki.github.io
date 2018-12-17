@@ -96,6 +96,9 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
@@ -103,14 +106,74 @@ button.code-folding-btn:focus {
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -126,9 +189,9 @@ $(document).ready(function () {
 
 
 <ul>
-<li><p><strong>Pudlo, P and Sedki, M</strong> <a href="http://masedki.github.io/recherche/pdfs/pudlo_sedki_genpop.pdf">Simulation of stochastic models of structured population in population genetics under neutrality</a> <em>Journal de la SFDS</em> to appear</p></li>
+<li><p><strong>Pudlo, P and Sedki, M</strong> <a href="http://journal-sfds.fr/article/view/707">Simulation of stochastic models of structured population in population genetics under neutrality</a> <em>Journal de la SFDS : Special Issue on Models and Inference in Population Genetics</em>, First Online : December 13, 2018</p></li>
 <li><p><strong>Marin, J-M and Pudlo, P and Sedki, M</strong> <a href="https://www.e-publications.org/ims/submission/BEJ/user/submissionFile/30757?confirm=0a7a502b">Consistency of Adaptive Importance Sampling and Recycling Schemes</a> <em>Bernoulli Journal</em>, to appear</p></li>
-<li><p><strong>Marbac, M and Sedki, M</strong> <a href="https://doi.org/10.1093/bioinformatics/bty786">VarSelLCM: an R/C ++ package for variable selection in model-based clustering of mixed-data with missing values</a>, <em>Bioinformatics</em>, First Online: 05 September 2018</p></li>
+<li><p><strong>Marbac, M and Sedki, M</strong> <a href="https://doi.org/10.1093/bioinformatics/bty786">VarSelLCM: an R/C ++ package for variable selection in model-based clustering of mixed-data with missing values</a>, <em>Bioinformatics</em>, First Online: September 05, 2018</p></li>
 <li><p><strong>Marbac, M and Patin, E and Sedki, M</strong> <a href="https://arxiv.org/abs/1703.02293">Variable selection for mixed data clustering: Application in human population genomics</a>, <em>Journal of Classification</em>, to appear</p></li>
 <li><p><strong>Marbac M; Sedki, M; Boutron-Ruault, M-C; Dumas, O</strong> <a href="https://doi.org/10.1016/j.annepidem.2018.05.004">Patterns of cleaning product exposures using a novel clustering approach for data with correlated variables</a> <em>Annals of Epidemiology</em>, Volume:28, Issue:8, August 2018, pp:563-569</p></li>
 <li><p><strong>Celeux, G and Maugis-Rabusseau, C and Sedki, M</strong> <a href="https://doi.org/10.1007/s11634-018-0322-5">Variable selection in model-based clustering and discriminant analysis with a regularization approach</a> <em>Advances in Data Analysis and Classification</em>, First Online: 11 April 2018, pp:1-20</p></li>
