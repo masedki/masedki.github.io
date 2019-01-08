@@ -1,0 +1,17 @@
+---
+title: "Méthodes d'apprentissage et agrégation de modèles"
+output:
+  html_document:
+    theme: journal
+    highlight: monochrome
+    css: style.css
+---
+
+[Slides de cours](http://masedki.github.io/enseignements/pdfs/cours.pdf)
+
+[Jeu de données bes](http://masedki.github.io/enseignements/datasets/bes.dta)
+
+[Jeu de données crédit](http://masedki.github.io/enseignements/datasets/credit.rda)
+
+[Jeu de données spams](http://masedki.github.io/enseignements/datasets/dataspam.rda)
+

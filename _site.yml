@@ -33,6 +33,8 @@ navbar:
         - text: "Inserm"
         - text: "Introduction aux datasciences pour la recherche biomédicale"
           href: enseignements/IntroDataScience.html
+        - text: "ENSAI : apprentissage et agrégation de modèles"
+          href: enseignements/agreg.html  
     - text: "Recherche"
       href: recherche/recherche.html
     - text: "Packages et logiciels"
