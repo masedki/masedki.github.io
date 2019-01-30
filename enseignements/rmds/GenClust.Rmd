@@ -11,3 +11,5 @@ output:
 
 
 [notebook ACP sur les données iris](http://masedki.github.io/enseignements/pca.html)
+
+[examen 2018/2019](http://masedki.github.io/enseignements/pdfs/genclust1819.pdf)

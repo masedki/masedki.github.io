@@ -20,3 +20,4 @@ output:
 <!-- [Corrigé 1](http://masedki.github.io/enseignements/pdfs/corrige1.pdf) -->
 
 <!-- [Exercices 1 et 2](http://masedki.github.io/enseignements/pdfs/exos2.pdf) -->
+[examen 2018/2019](http://masedki.github.io/enseignements/pdfs/devoirStatMath1819.pdf)
