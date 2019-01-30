@@ -1,1 +1,0 @@
-# masedki.github.io

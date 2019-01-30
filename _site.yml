@@ -30,11 +30,18 @@ navbar:
         - text: "MOOC d'introduction à la statistique avec R"
         - text: "Devoir ENS 2016-2017"
           href: enseignements/devoir.html
+        - text: "---------"  
         - text: "Inserm"
         - text: "Introduction aux datasciences pour la recherche biomédicale"
           href: enseignements/IntroDataScience.html
-        - text: "ENSAI : apprentissage et agrégation de modèles"
+        - text: "---------"  
+        - text: "ENSAI"
+        - text: "Apprentissage et agrégation de modèles"
           href: enseignements/agreg.html  
+        - text: "---------"  
+        - text: "M1 santé publique"
+        - text: "Introduction aux datascience"
+          href: enseignements/introDSM1.html  
     - text: "Recherche"
       href: recherche/recherche.html
     - text: "Packages et logiciels"

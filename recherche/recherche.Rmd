@@ -1,6 +1,8 @@
 ---
 title: '**Publications **'
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
 
 * **Pudlo, P and Sedki, M** [Simulation of stochastic models of structured
