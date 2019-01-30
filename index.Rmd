@@ -7,12 +7,11 @@ output:
     css: style.css
 ---
 Maître de conférence à l'université Paris-Sud
+<!-- Inserm U1181: Biostatistics, Biomathematics, Pharmacoepidemiology and Infectious diseases (B2PHI)  -->
 
-Inserm U1181: Biostatistics, Biomathematics, Pharmacoepidemiology and Infectious diseases (B2PHI) 
+CESP-Inserm U1018: Pôle méthodologies et statistique 
 
-Inserm U1018: Centre de Recherche en Épidémiologie et Santé des Populations (CESP) 
-
-Bâtiment Inserm 15/16 hôpital Paul Brousse 
+Bureau 123, étage 1 du bâtiment Inserm 15/16 hôpital Paul Brousse 
 
 16, avenue Paul Vaillant-Couturier
 
