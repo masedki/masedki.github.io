@@ -10,10 +10,14 @@ output:
 ### Introduction au logiciel R 
 
 
-- Pour une prise en main en R, le support [ici](http://masedki.github.io/enseignements/pdfs/Introduction_to_R.pdf) initialement conçu par Jean-Michel Marin et mis à jour par les deux autres auteurs. Il est fortement conseillé de traiter le poly en entier. 
+- Pour une prise en main en R, je vous conseille vivement de travailler l'ensemble des exemples et exercices traités dans le [support](http://masedki.github.io/enseignements/pdfs/Introduction_to_R.pdf), initialement rédigé par Jean-Michel Marin et 
+mis à jour par les deux autres auteurs. 
 
-- Pour ceux qui ont besoin d'indications ponctuelles, vous pouvez consulter [l'aide mémoire](http://masedki.github.io/enseignements/pdfs/RCarte_Commandes-R.pdf) de Julien Chiquet. Je tiens à remercier Julien et Jean-Michel pour leurs accords.  
+- Pour ceux qui ont besoin d'indications ponctuelles, vous pouvez consulter [l'aide mémoire](http://masedki.github.io/enseignements/pdfs/RCarte_Commandes-R.pdf) de Julien Chiquet.  
 
+- Pour gagner en autonomie en programmation, la plateforme [stackoverflow](https://stackoverflow.com/) est indispensable^[Personnellement je consulte énormément cette plateforme où je trouve des réponses à mes questions.].
+
+- Évidemment je reste à votre disposition pour d'éventuelles questions donc n'hésitez pas à m'envoyer un mail. 
 
 <!-- [Jeu de données bes](http://masedki.github.io/enseignements/datasets/bes.dta) -->
 
