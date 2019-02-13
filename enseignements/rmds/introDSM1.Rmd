@@ -7,7 +7,7 @@ output:
     css: style.css
 ---
 
-### Introduction au logiciel R 
+# Logiciel R 
 
 
 - Pour une prise en main en R, je vous conseille vivement de travailler l'ensemble des exemples et exercices traités dans le [support](http://masedki.github.io/enseignements/pdfs/Introduction_to_R.pdf), initialement rédigé par Jean-Michel Marin et 
@@ -17,7 +17,9 @@ mis à jour par les deux autres auteurs.
 
 - Pour gagner en autonomie en programmation, la plateforme [stackoverflow](https://stackoverflow.com/) est indispensable^[Personnellement je consulte énormément cette plateforme où je trouve des réponses à mes questions.].
 
-- Évidemment je reste à votre disposition pour d'éventuelles questions donc n'hésitez pas à m'envoyer un mail. 
+# Introduction : régression, classification et phénomène de sur-apprentissage
+
+- [Support](http://masedki.github.io/enseignements/pdfs/M1DSintro.pdf) (évolutif) à lire. Traiter les exemples qu'on corrigera lors de la séance de cours de vendredi 15/02/2019. 
 
 <!-- [Jeu de données bes](http://masedki.github.io/enseignements/datasets/bes.dta) -->
 
