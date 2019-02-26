@@ -16,3 +16,5 @@ output:
 [Jeu de données spams](http://masedki.github.io/enseignements/datasets/dataspam.rda)
 
 [Projet pour le parcours MSP/ES](http://masedki.github.io/enseignements/pdfs/mspes.pdf)
+
+[Jeu de données minst](http://masedki.github.io/enseignements/datasets/mnist.rdata)
