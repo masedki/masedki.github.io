@@ -18,3 +18,5 @@ output:
 [Projet pour le parcours MSP/ES](http://masedki.github.io/enseignements/pdfs/mspes.pdf)
 
 [Jeu de données minst](http://masedki.github.io/enseignements/datasets/mnist.rdata)
+
+[Jeu de données NKI](http://masedki.github.io/enseignements/datasets/nki.rda)
