@@ -17,14 +17,18 @@ mis à jour par les deux autres auteurs.
 
 - Pour gagner en autonomie en programmation, la plateforme [stackoverflow](https://stackoverflow.com/) est indispensable^[Personnellement je consulte énormément cette plateforme où je trouve des réponses à mes questions.].
 
-# Introduction : régression, classification et phénomène de sur-apprentissage
-
 - [Support](http://masedki.github.io/enseignements/pdfs/notes.pdf) (évolutif) à lire. 
 - Le chapitre 5 du [livre](http://masedki.github.io/enseignements/pdfs/ISLR.pdf) est indispensable et s'applique à chaque partie
  (méthode d'apprentissage) de ce cours. 
-- Séance du vendredi 15/02/2019: traiter les exemples qu'on corrigera lors de la séance de cours. [Codes R](http://masedki.github.io/enseignements/rcode/code_intro.R) issu de la première séance. Les détails de chaque instruction sont données en commentaires
+
+# Introduction : régression, classification et phénomène de sur-apprentissage
+
+- **Séance du vendredi 15/02/2019:** traiter les exemples qu'on corrigera lors de la séance de cours. [Codes R](http://masedki.github.io/enseignements/rcode/code_intro.R) issu de la première séance. Les détails de chaque instruction sont données en commentaires
 précédés par un #. 
-- Séance du vendredi 08/03/2019 : lire la partie régression et traiter la partie 4.2 qu'on corrigera en cours. Attention la partie régression de ces notes ne peut constituer un cours de modèle linéaire classique. Les parties 3.1 et 3.2 du [livre](http://masedki.github.io/enseignements/pdfs/ISLR.pdf) sont indispensables pour l'assimilation des fondements des modèles linéaires.
+
+# Régression : moindres carrés pour l'estimation des paramètres et choix de modèles
+
+- **Séance du vendredi 08/03/2019:** lire la partie régression des [notes](http://masedki.github.io/enseignements/pdfs/notes.pdf) et traiter la partie 4.2 qu'on corrigera en cours. Attention la partie régression de ces notes ne peut constituer un cours de modèle linéaire classique. Les parties 3.1 et 3.2 du [livre](http://masedki.github.io/enseignements/pdfs/ISLR.pdf) sont indispensables pour l'assimilation des fondements des modèles linéaires et en particulier la partie inférence statistique^[Pour l'inférence statistique, penser aux tests et intervalles de confiance pour les paramètres de régression.].
 
 <!-- [Jeu de données bes](http://masedki.github.io/enseignements/datasets/bes.dta) -->
 
