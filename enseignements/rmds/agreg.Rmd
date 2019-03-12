@@ -20,3 +20,5 @@ output:
 [Jeu de données minst](http://masedki.github.io/enseignements/datasets/mnist.rdata)
 
 [Jeu de données NKI](http://masedki.github.io/enseignements/datasets/nki.rda)
+
+[Projet pour les parcours SID, Com et Mark](http://masedki.github.io/enseignements/pdfs/learning.pdf)
