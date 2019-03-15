@@ -28,7 +28,7 @@ précédés par un #.
 
 # Régression : moindres carrés pour l'estimation des paramètres et choix de modèles
 
-- **Séance du vendredi 08/03/2019:** lire la partie régression des [notes](http://masedki.github.io/enseignements/pdfs/notes.pdf) et traiter la partie 4.2 qu'on corrigera en cours. Attention la partie régression de ces notes ne peut constituer un cours de modèle linéaire classique. Les parties 3.1 et 3.2 du [livre](http://masedki.github.io/enseignements/pdfs/ISLR.pdf) sont indispensables pour l'assimilation des fondements des modèles linéaires et en particulier la partie inférence statistique^[Pour l'inférence statistique, penser aux tests et intervalles de confiance pour les paramètres de régression.]. [Code R](http://masedki.github.io/enseignements/rcode/code_reg_poly.R)
+- **Séance du vendredi 08/03/2019:** lire la partie régression des [notes](http://masedki.github.io/enseignements/pdfs/notes.pdf) et traiter la partie 4.2 qu'on corrigera en cours. Attention la partie régression de ces notes ne peut constituer un cours de modèle linéaire classique. Les parties 3.1 et 3.2 du [livre](http://masedki.github.io/enseignements/pdfs/ISLR.pdf) sont indispensables pour l'assimilation des fondements des modèles linéaires et en particulier la partie inférence statistique^[Pour l'inférence statistique, penser aux tests et intervalles de confiance pour les paramètres de régression.]. [Code R](http://masedki.github.io/enseignements/rcode/code_reg_poly.R) : détails des exemples traités.
 
 
 # Méthodes de régularisation : ridge, lasso et elasticnet
