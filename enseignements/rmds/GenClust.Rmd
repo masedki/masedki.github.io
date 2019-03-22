@@ -1,5 +1,5 @@
 ---
-title: "Méthodes non-superviées pour la génétique des populations"
+title: "Méthodes non-superviées en génétique des populations"
 output:
   html_document:
     theme: journal
@@ -12,4 +12,7 @@ output:
 
 [notebook ACP sur les données iris](http://masedki.github.io/enseignements/pca.html)
 
-[examen 2018/2019](http://masedki.github.io/enseignements/pdfs/genclust1819.pdf)
+<!-- [examen 2018/2019](http://masedki.github.io/enseignements/pdfs/genclust1819.pdf) -->
+[TP MathSV](http://masedki.github.io/enseignements/pdfs/TPGenClust.pdf)
+
+[Article AOAS](http://masedki.github.io/enseignements/pdfs/aoasGenClust.pdf)
