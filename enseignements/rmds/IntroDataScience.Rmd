@@ -10,7 +10,7 @@ output:
 
 [Notes d'introduction](http://masedki.github.io/enseignements/pdfs/notes.pdf)
 
-[Agrégation de modèles et SVM](http://masedki.github.io/enseignements/pdfs/formationinserm.pdf)
+[Agrégation de modèles et SVM](http://masedki.github.io/enseignements/pdfs/cours.pdf)
 
 
 <!-- [Jeu de données : cancer de la prostate](http://masedki.github.io/enseignements/datasets/prostate.rda)  -->
