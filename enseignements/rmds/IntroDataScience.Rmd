@@ -6,18 +6,23 @@ output:
     highlight: monochrome
     css: style.css
 ---
-[Supports (évolutifs)](http://masedki.github.io/enseignements/pdfs/formationinserm.pdf)
+[Supports des sessions précédentes](http://masedki.github.io/enseignements/pdfs/formationinserm.pdf)
 
-[Jeu de données : cancer de la prostate](http://masedki.github.io/enseignements/datasets/prostate.rda) 
+[Notes d'introduction](http://masedki.github.io/enseignements/pdfs/notes.pdf)
 
-[Notebook : surajustement et prise en main du logiciel  R](http://masedki.github.io/enseignements/overfit.html) 
+[Agrégation de modèles et SVM](http://masedki.github.io/enseignements/pdfs/formationinserm.pdf)
 
-[Notebook : Diagnostic cytologique par les knn](http://masedki.github.io/enseignements/breast_cancer_knn.html) 
 
-[Notebook : cancer de la prostate (sélection de variables par la méthode stepwise)](http://masedki.github.io/enseignements/prostate_stepwise.html) 
+<!-- [Jeu de données : cancer de la prostate](http://masedki.github.io/enseignements/datasets/prostate.rda)  -->
 
-[Notebook : cancer de la prostate (sélection de variables par régularisations ridge, lasso et elasticnet)](http://masedki.github.io/enseignements/prostate_regularisation.html) 
+<!-- [Notebook : surajustement et prise en main du logiciel  R](http://masedki.github.io/enseignements/overfit.html)  -->
 
-[Notebook : expressions de gênes (sélection de variables en régression logistique en grande dimension par régularisation ridge, lasso et elasticnet)](http://masedki.github.io/enseignements/logistic_regularization_golub_nki.html) 
+<!-- [Notebook : Diagnostic cytologique par les knn](http://masedki.github.io/enseignements/breast_cancer_knn.html)  -->
 
-[Notebook : arbres et svm sur les données pima](http://masedki.github.io/enseignements/arbres_svm.html) 
+<!-- [Notebook : cancer de la prostate (sélection de variables par la méthode stepwise)](http://masedki.github.io/enseignements/prostate_stepwise.html)  -->
+
+<!-- [Notebook : cancer de la prostate (sélection de variables par régularisations ridge, lasso et elasticnet)](http://masedki.github.io/enseignements/prostate_regularisation.html)  -->
+
+<!-- [Notebook : expressions de gênes (sélection de variables en régression logistique en grande dimension par régularisation ridge, lasso et elasticnet)](http://masedki.github.io/enseignements/logistic_regularization_golub_nki.html)  -->
+
+<!-- [Notebook : arbres et svm sur les données pima](http://masedki.github.io/enseignements/arbres_svm.html)  -->
