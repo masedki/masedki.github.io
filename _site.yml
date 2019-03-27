@@ -1,7 +1,7 @@
 name: "Moh-website"
 output_dir: "."
 navbar:
-  title: "Acceuil"
+  title: "Accueil"
   left:
     - text: "Enseignements"
       href: enseignements/enseignements.html
@@ -12,7 +12,7 @@ navbar:
           href: enseignements/MANprobastat.html
         - text: "Mise à niveau Matrices"
           href: enseignements/MANmatrice.html
-        - text: "Introduction à bootstap"
+        - text: "Introduction à bootstrap"
           href: enseignements/bootstrap.html
         - text: "GenClust"
           href: enseignements/GenClust.html  
