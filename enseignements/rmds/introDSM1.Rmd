@@ -35,6 +35,15 @@ précédés par un #.
 
 - **Séance du vendredi 15/03/2019:** lire les parties régularisation ridge, lasso et
 elasticnet. Traiter les exemples autour du jeu de données du cancer de la prostate. [Code R](http://masedki.github.io/enseignements/rcode/code_reg_poly.R): ridge, lasso et elasticnet sur le jeu de données Prostate
+
+- **Séance du vendredi 12/04/2019:**  Méthodes de régularisation en régression logistique.  Traiter l'exemple  *Sélection de variables en régression logistique : jeu de données Breast Cancer* page 33.
+
+# Projet  : Utilisation de la librairie caret (sixième partie des notes)  
+
+À rendre au plus tard le dimanche 2 juin à 23h par mail avec un fichier .R ou .rmd contenant le code et les réponses en commentaire. Mettre les affichages de vos résultats en commentaire
+dans votre script. Les affichages des résultats me permettront de comprendre les conclusions et les réponses.  
+
+
 <!-- [Jeu de données bes](http://masedki.github.io/enseignements/datasets/bes.dta) -->
 
 <!-- [Jeu de données crédit](http://masedki.github.io/enseignements/datasets/credit.rda) -->
