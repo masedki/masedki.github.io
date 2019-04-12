@@ -43,8 +43,9 @@ elasticnet. Traiter les exemples autour du jeu de données du cancer de la prost
 À rendre au plus tard le dimanche 2 juin à 23h par mail avec un fichier .R ou .rmd contenant le code et les réponses en commentaire. Mettre les affichages de vos résultats en commentaire
 dans votre script. Les affichages des résultats me permettront de comprendre les conclusions et les réponses.  
 
+[Jeu de données mnist](http://masedki.github.io/enseignements/datasets/mnist.rdata)
 
-<!-- [Jeu de données bes](http://masedki.github.io/enseignements/datasets/bes.dta) -->
+[Jeu de données mnist aplati !](http://masedki.github.io/enseignements/datasets/mnist_flatten.rda)
 
 <!-- [Jeu de données crédit](http://masedki.github.io/enseignements/datasets/credit.rda) -->
 
