@@ -34,7 +34,7 @@ précédés par un #.
 # Méthodes de régularisation : ridge, lasso et elasticnet
 
 - **Séance du vendredi 15/03/2019:** lire les parties régularisation ridge, lasso et
-elasticnet. Traiter les exemples autour du jeu de données du cancer de la prostate. [Code R](http://masedki.github.io/enseignements/rcode/code_reg_poly.R): ridge, lasso et elasticnet sur le jeu de données Prostate
+elasticnet. Traiter les exemples autour du jeu de données du cancer de la prostate. [Code R](http://masedki.github.io/enseignements/rcode/code_reg_ridge_lasso_enet.R): ridge, lasso et elasticnet sur le jeu de données Prostate
 
 - **Séance du vendredi 12/04/2019:**  Méthodes de régularisation en régression logistique.  Traiter l'exemple  *Sélection de variables en régression logistique : jeu de données Breast Cancer* page 33.
 
