@@ -59,6 +59,8 @@ dans votre script. Les affichages des résultats me permettront de comprendre le
 
 [Jeu de données mnist aplati !](http://masedki.github.io/enseignements/datasets/mnist_flatten.rda)
 
+[Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda)
+
 <!-- [Jeu de données crédit](http://masedki.github.io/enseignements/datasets/credit.rda) -->
 
 <!-- [Jeu de données spams](http://masedki.github.io/enseignements/datasets/dataspam.rda) -->
