@@ -1,5 +1,5 @@
 ---
-title: "Introduction aux datasciences pour la recherche biomédicale"
+title: "Introduction aux datasciences"
 output:
   html_document:
     theme: journal

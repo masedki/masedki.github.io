@@ -31,8 +31,8 @@ navbar:
         - text: "Devoir ENS 2016-2017"
           href: enseignements/devoir.html
         - text: "---------"  
-        - text: "Inserm"
-        - text: "Introduction aux datasciences pour la recherche biomédicale"
+        - text: "Formation"
+        - text: "Introduction aux datasciences"
           href: enseignements/IntroDataScience.html
         - text: "---------"  
         - text: "ENSAI"
