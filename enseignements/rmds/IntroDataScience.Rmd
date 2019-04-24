@@ -13,6 +13,7 @@ output:
 [Agrégation de modèles et SVM](http://masedki.github.io/enseignements/pdfs/cours.pdf)
 
 
+[Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda)
 <!-- [Jeu de données : cancer de la prostate](http://masedki.github.io/enseignements/datasets/prostate.rda)  -->
 
 <!-- [Notebook : surajustement et prise en main du logiciel  R](http://masedki.github.io/enseignements/overfit.html)  -->
