@@ -6,7 +6,7 @@ output:
     highlight: monochrome
     css: style.css
 ---
-[Supports des sessions précédentes](http://masedki.github.io/enseignements/pdfs/formationinserm.pdf)
+[Supports des sessions précédentes](http://masedki.github.io/enseignements/pdfs/formation.pdf)
 
 [Notes d'introduction](http://masedki.github.io/enseignements/pdfs/notes.pdf)
 
