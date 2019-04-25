@@ -12,6 +12,11 @@ output:
 
 [Agrégation de modèles et SVM](http://masedki.github.io/enseignements/pdfs/cours.pdf)
 
+[Introduction aux réseaux de neurones](http://masedki.github.io/enseignements/pdfs/mnist.pdf)
+
+- [Une couche de type convolutif](http://cs231n.github.io/convolutional-networks/#conv)
+
+- [Une étape de max-pooling](http://cs231n.github.io/convolutional-networks/#pool)
 
 [Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda)
 <!-- [Jeu de données : cancer de la prostate](http://masedki.github.io/enseignements/datasets/prostate.rda)  -->
