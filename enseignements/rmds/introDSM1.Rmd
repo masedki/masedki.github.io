@@ -45,9 +45,13 @@ elasticnet. Traiter les exemples autour du jeu de données du cancer de la prost
 
 # Arbres de décision : régression
 
-- **Séance du vendredi 19/04/2019:**  Arbres de décision unique : slides de cours disponibles [ici](http://masedki.github.io/enseignements/pdfs/arbres.pdf)
+- **Séance du vendredi 19/04/2019:**  Arbres de décision unique : supports de cours disponibles [ici](http://masedki.github.io/enseignements/pdfs/arbres.pdf)
 
+[Code R](http://masedki.github.io/enseignements/rcode/rpart_insurance.R): Code pour la régression par arbre de décision avant et après élagage et comparaison avec le régression avec régularisation elasticnet. Attention : présence de données catégorielles donc traitement particulier pour l'elasticnet (voir lignes 40 et 41 du code). 
 
+# Arbres de décision : classification 
+
+- **Séance du vendredi 10/05/2019:** classification par arbre de décision. Supports de cours disponibles [ici](http://masedki.github.io/enseignements/pdfs/arbres.pdf)
 
 
 # Projet  : Utilisation de la librairie caret (sixième partie des notes)  
@@ -55,9 +59,9 @@ elasticnet. Traiter les exemples autour du jeu de données du cancer de la prost
 À rendre au plus tard le dimanche 2 juin à 23h par mail avec un fichier .R ou .rmd contenant le code et les réponses en commentaire. Mettre les affichages de vos résultats en commentaire
 dans votre script. Les affichages des résultats me permettront de comprendre les conclusions et les réponses.  
 
-[Jeu de données mnist](http://masedki.github.io/enseignements/datasets/mnist.rdata)
+<!-- [Jeu de données mnist](http://masedki.github.io/enseignements/datasets/mnist.rdata) -->
 
-[Jeu de données mnist aplati !](http://masedki.github.io/enseignements/datasets/mnist_flatten.rda)
+<!-- [Jeu de données mnist aplati !](http://masedki.github.io/enseignements/datasets/mnist_flatten.rda) -->
 
 [Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda)
 
