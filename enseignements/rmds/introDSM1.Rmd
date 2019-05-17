@@ -43,15 +43,19 @@ elasticnet. Traiter les exemples autour du jeu de données du cancer de la prost
 [Code R 2](http://masedki.github.io/enseignements/rcode/classif_image_logit_enet.R): Code pour la régression logistique avec régularisation elasticnet pour la classifiction d'images. (attention le code est très lent donc je vais déposer les résultats rapidement après calcul sur un serveur). 
 
 
-# Arbres de décision : régression
+# Arbres de décision : régression 
+- **Séance du vendredi 19/04/2019:**  Arbres de décision unique : supports de cours disponibles [ici](http://masedki.github.io/enseignements/pdfs/arbres.pdf). Lecture de la partie 8.1 du livre *An Introduction to Statistical Learning*.
 
-- **Séance du vendredi 19/04/2019:**  Arbres de décision unique : supports de cours disponibles [ici](http://masedki.github.io/enseignements/pdfs/arbres.pdf)
 
-[Code R](http://masedki.github.io/enseignements/rcode/rpart_insurance.R): Code pour la régression par arbre de décision avant et après élagage et comparaison avec le régression avec régularisation elasticnet. Attention : présence de données catégorielles donc traitement particulier pour l'elasticnet (voir lignes 40 et 41 du code). 
+[Code R](http://masedki.github.io/enseignements/rcode/rpart_insurance.R): Code pour la régression par arbre de décision avant et après élagage et comparaison avec le régression avec régularisation elasticnet. Attention : présence de données catégorielles donc traitement particulier pour l'elasticnet (voir lignes 40 et 41 du code). Lab de la partie 8.3.1 du livre *An Introduction to Statistical Learning*.
+
 
 # Arbres de décision : classification 
 
-- **Séance du vendredi 10/05/2019:** classification par arbre de décision. Supports de cours disponibles [ici](http://masedki.github.io/enseignements/pdfs/arbres.pdf)
+- **Séance du vendredi 10/05/2019:** classification par arbre de décision. Supports de cours disponibles [ici](http://masedki.github.io/enseignements/pdfs/arbres.pdf). Lecture de la partie 8.1 du livre *An Introduction to Statistical Learning*.
+
+[Code R](http://masedki.github.io/enseignements/rcode/rpart_pima.R): Code pour la classification par arbre de décision avant et après élagage et comparaison avec le régression logistique avec régularisation elasticnet. Lab de la partie 8.3.2 du livre *An Introduction to Statistical Learning*.
+ 
 
 
 # Projet  : Utilisation de la librairie caret (sixième partie des notes)  
