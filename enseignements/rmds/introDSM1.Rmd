@@ -7,7 +7,7 @@ output:
     css: style.css
 ---
 
-# Logiciel R 
+# Logiciel R, notes de cours et livre 
 
 
 - Pour une prise en main en R, je vous conseille vivement de travailler l'ensemble des exemples et exercices traités dans le [support](http://masedki.github.io/enseignements/pdfs/Introduction_to_R.pdf), initialement rédigé par Jean-Michel Marin et 
@@ -18,43 +18,60 @@ mis à jour par les deux autres auteurs.
 - Pour gagner en autonomie en programmation, la plateforme [stackoverflow](https://stackoverflow.com/) est indispensable^[Personnellement je consulte énormément cette plateforme où je trouve des réponses à mes questions.].
 
 - [Support](http://masedki.github.io/enseignements/pdfs/notes.pdf) (évolutif) à lire. 
-- Le chapitre 5 du [livre](http://masedki.github.io/enseignements/pdfs/ISLR.pdf) est indispensable et s'applique à chaque partie
- (méthode d'apprentissage) de ce cours. 
+
+- La troisième partie des [slides](http://masedki.github.io/enseignements/pdfs/arbres.pdf) servent de supports des séances de cours sur les arbres de décision. 
+
+- Le [livre](http://masedki.github.io/enseignements/pdfs/ISLR.pdf)  *An Introduction to Statistical Learning* est indispensable pour ceux qui suivent le cours à distance. 
 
 # Introduction : régression, classification et phénomène de sur-apprentissage
 
 - **Séance du vendredi 15/02/2019:** traiter les exemples qu'on corrigera lors de la séance de cours. [Codes R](http://masedki.github.io/enseignements/rcode/code_intro.R) issu de la première séance. Les détails de chaque instruction sont données en commentaires
 précédés par un #. 
 
+Lecture conseillée : Le chapitre 5 du [livre](http://masedki.github.io/enseignements/pdfs/ISLR.pdf)  *An Introduction to Statistical Learning* est indispensable et s'applique à chaque partie
+ (méthode d'apprentissage) de ce cours. 
+
+
+
 # Régression : moindres carrés pour l'estimation des paramètres et choix de modèles
 
-- **Séance du vendredi 08/03/2019:** lire la partie régression des [notes](http://masedki.github.io/enseignements/pdfs/notes.pdf) et traiter la partie 4.2 qu'on corrigera en cours. Attention la partie régression de ces notes ne peut constituer un cours de modèle linéaire classique. Les parties 3.1 et 3.2 du [livre](http://masedki.github.io/enseignements/pdfs/ISLR.pdf) sont indispensables pour l'assimilation des fondements des modèles linéaires et en particulier la partie inférence statistique^[Pour l'inférence statistique, penser aux tests et intervalles de confiance pour les paramètres de régression.]. [Code R](http://masedki.github.io/enseignements/rcode/code_reg_ridge_lasso_enet.R) : détails des exemples traités.
+- **Séance du vendredi 08/03/2019:** lire la partie régression des [notes](http://masedki.github.io/enseignements/pdfs/notes.pdf) et traiter la partie 4.2 qu'on corrigera en cours. Attention la partie régression de ces notes ne peut constituer un cours de modèle linéaire classique. [Code R](http://masedki.github.io/enseignements/rcode/code_reg_ridge_lasso_enet.R) : détails des exemples traités.
 
+Lecture conseillée : Les parties 3.1 et 3.2 du [livre](http://masedki.github.io/enseignements/pdfs/ISLR.pdf)   *An Introduction to Statistical Learning* sont indispensables pour l'assimilation des fondements des modèles linéaires et en particulier la partie inférence statistique.^[Pour l'inférence statistique, penser aux tests et intervalles de confiance pour les paramètres de régression.]
 
 # Méthodes de régularisation : ridge, lasso et elasticnet
 
 - **Séance du vendredi 15/03/2019:** lire les parties régularisation ridge, lasso et
-elasticnet. Traiter les exemples autour du jeu de données du cancer de la prostate. [Code R](http://masedki.github.io/enseignements/rcode/code_reg_ridge_lasso_enet.R): ridge, lasso et elasticnet sur le jeu de données Prostate
+elasticnet. Traiter les exemples autour du jeu de données du cancer de la prostate. [Code R](http://masedki.github.io/enseignements/rcode/code_reg_ridge_lasso_enet.R): ridge, lasso et elasticnet sur le jeu de données Prostate.
+
+
+Lecture fortement conseillée : chapitre 6. du livre *An Introduction to Statistical Learning*.
 
 - **Séance du vendredi 12/04/2019:**  Méthodes de régularisation en régression logistique.  Traiter l'exemple  *Sélection de variables en régression logistique : jeu de données Breast Cancer* page 33. 
 
 [Code R 1](http://masedki.github.io/enseignements/rcode/code_logit_enet.R): Code pour la régression logistique et régression logistique avec régularisation elasticnet. 
 
-[Code R 2](http://masedki.github.io/enseignements/rcode/classif_image_logit_enet.R): Code pour la régression logistique avec régularisation elasticnet pour la classifiction d'images. (attention le code est très lent donc je vais déposer les résultats rapidement après calcul sur un serveur). 
+
+
+<!-- [Code R 2](http://masedki.github.io/enseignements/rcode/classif_image_logit_enet.R): Code pour la régression logistique avec régularisation elasticnet pour la classifiction d'images. (attention le code est très lent donc je vais déposer les résultats rapidement après calcul sur un serveur).  -->
 
 
 # Arbres de décision : régression 
-- **Séance du vendredi 19/04/2019:**  Arbres de décision unique : supports de cours disponibles [ici](http://masedki.github.io/enseignements/pdfs/arbres.pdf). Lecture de la partie 8.1 du livre *An Introduction to Statistical Learning*.
+- **Séance du vendredi 19/04/2019:**  Arbres de décision unique : supports de cours disponibles [ici](http://masedki.github.io/enseignements/pdfs/arbres.pdf). 
 
 
-[Code R](http://masedki.github.io/enseignements/rcode/rpart_insurance.R): Code pour la régression par arbre de décision avant et après élagage et comparaison avec le régression avec régularisation elasticnet. Attention : présence de données catégorielles donc traitement particulier pour l'elasticnet (voir lignes 40 et 41 du code). Lab de la partie 8.3.1 du livre *An Introduction to Statistical Learning*.
+[Code R](http://masedki.github.io/enseignements/rcode/rpart_insurance.R): Code pour la régression par arbre de décision avant et après élagage et comparaison avec le régression avec régularisation elasticnet. Attention : présence de données catégorielles donc traitement particulier pour l'elasticnet (voir lignes 40 et 41 du code). 
+
+Lecture conseillée : Lecture de la partie 8.1 et Lab de la partie 8.3.1 du livre *An Introduction to Statistical Learning*.
 
 
 # Arbres de décision : classification 
 
-- **Séance du vendredi 10/05/2019:** classification par arbre de décision. Supports de cours disponibles [ici](http://masedki.github.io/enseignements/pdfs/arbres.pdf). Lecture de la partie 8.1 du livre *An Introduction to Statistical Learning*.
+- **Séance du vendredi 10/05/2019:** classification par arbre de décision. Supports de cours disponibles [ici](http://masedki.github.io/enseignements/pdfs/arbres.pdf).
 
-[Code R](http://masedki.github.io/enseignements/rcode/rpart_pima.R): Code pour la classification par arbre de décision avant et après élagage et comparaison avec le régression logistique avec régularisation elasticnet. Lab de la partie 8.3.2 du livre *An Introduction to Statistical Learning*.
+[Code R](http://masedki.github.io/enseignements/rcode/rpart_pima.R): Code pour la classification par arbre de décision avant et après élagage et comparaison avec le régression logistique avec régularisation elasticnet.
+
+Lecture conseillée : Lecture de la partie 8.1 et  Lab de la partie 8.3.2 du livre *An Introduction to Statistical Learning*.
  
 
 
