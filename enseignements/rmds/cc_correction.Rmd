@@ -1,0 +1,125 @@
+---
+title: 'Correction du projet : introduction aux data science'
+author: "Master 1 de Santé publique - université Paris-Sud"
+output: html_document
+---
+
+
+```{r setup, eval=FALSE}
+rm(list=ls())
+require(glmnet)
+require(SIS)
+data("prostate.train")
+data("prostate.test")
+y = c(prostate.train[, 12601], prostate.test[, 12601])
+x = rbind(as.matrix(prostate.train[, -12601]), as.matrix(prostate.test[, -12601]))
+set.seed(123)
+train  = sample(nrow(x), nrow(x)*0.66)
+xtrain = x[train,]
+xtest = x[-train,]
+ytrain  =  factor(y[train])
+ytest = factor(y[-train])
+fit_full = glmnet(xtrain, ytrain, family = "binomial")
+plot(fit_full)
+```
+
+##### 1.  Quelle est la valeur optimale $\alpha^\ast$ ? (*3 points*)
+
+```{r, eval =FALSE}
+errcv = rep(NA, 11)
+for(i in 0:10)
+{
+  fit=cv.glmnet(xtrain, ytrain, 
+                type.measure="class", 
+                family = "binomial", 
+                nfolds = 3,
+                parallel = FALSE,
+                alpha = i/10) 
+  assign(paste("fit", i, sep="."), fit)  
+  errcv[i+1] = min(fit$cvm) 
+}
+## affichage du meilleur alpha
+print(paste("best alpha : ", (which.min(errcv) - 1)/10, sep="")) 
+```
+
+
+
+##### 2. Comparer les deux modèles issus des deux valeurs \textsf{lambda.min} et \textsf{lambda.1se} en terme d'erreur de test  (*3 points*) ?
+
+
+```{r, eval=FALSE}
+#meilleur modèle qui correspond au meilleur alpha et et au meilleur lambda
+bestfit  = get(paste("fit", (which.min(errcv) - 1), sep="."))
+
+## affichage des deux valeurs lambda.min et lambda.1se
+print(paste("lambda min  = ", round(bestfit$lambda.min, 3), sep=""))
+
+
+pred.min = predict(bestfit, newx = xtest, s = bestfit$lambda.min, type="class") 
+mean(pred.min != ytest)
+
+
+print(paste("lambda 1se  = ", round(bestfit$lambda.1se, 3), sep=""))
+
+pred.1se = predict(bestfit, newx = xtest, s = bestfit$lambda.1se, type="class") 
+mean(pred.1se != ytest)
+```
+
+
+
+##### 3. Expliquer la différence entre  *lambda.min* et *lambda.1se*. (*3 points*) 
+ - *lambda.min* correspond à la valeur du paramètre de régularisation minimisant l'erreur de validation croisée
+  
+ - *lambda.1se* correspond à la valeur de lambda réalisant l'erreur minimale + un écart-type de l'erreur de validation croisée correspondant à *lambda.min*.   
+
+##### 4.  Afficher le nombre de variables (expressions de gènes) sélectionnées par les modèles correspondants à *lambda.min* et à *lambda.1se* respectivement. Conclure. (*2 points*) 
+
+```{r, eval=FALSE}
+betamin = bestfit$glmnet.fit$beta[, which(bestfit$lambda == bestfit$lambda.min)]
+sum(betamin > 0)
+
+beta1se = bestfit$glmnet.fit$beta[, which(bestfit$lambda == bestfit$lambda.1se)]
+sum(beta1se > 0)
+```
+
+
+##### 5.  À l'aide du package *caret*, mettre en place une procédure de validation-croisée à $3$ folds répétée $10$ fois avec la grille de paramètres spécifiée ci-dessus.  Afficher les valeurs optimales des deux paramètres.  (*5 points*)
+
+```{r, eval=FALSE}
+
+## avec caret
+require(caret)
+require(doMC)
+registerDoMC(7)
+ctrl = trainControl(method = "repeatedcv", number = 3, repeats = 10)
+grille = expand.grid(alpha = (0:10)/10, lambda = fit_full$lambda)
+tune_glmnet <- train(xtrain, ytrain,
+                     method = "glmnet",
+                     metric = "Accuracy",
+                     trControl = ctrl,
+                     tuneGrid = grille)
+plot(tune_glmnet)
+# paramètres optimaux 
+paramopt = tune_glmnet$bestTune
+print(paramopt)
+```
+
+
+##### 6. Quelle est l'erreur de test du modèle sélectionné. (*2 points*)
+```{r, eval=FALSE}
+pred_caret = predict(tune_glmnet, xtest, type="raw")
+mean(pred_caret!= ytest)
+```
+
+
+##### 7. Utiliser la fonction *glmnet* avec les valeurs optimales des paramètres pour afficher le nombre de variables sélectionnées par le modèle sélectionné. (*2 points*)
+
+```{r, eval=FALSE}
+# je repasse la fonction glmnet avec les valeurs optimales des paramètres
+fit = glmnet(xtrain, ytrain, family = "binomial", lambda = paramopt[2], alpha = paramopt[1])
+sum(fit$beta > 0)
+# petite vérification
+pred_fit = predict(fit, xtest, type="class") 
+mean(pred_fit!=ytest)
+```
+

@@ -78,7 +78,8 @@ Lecture conseillée : Lecture de la partie 8.1 et  Lab de la partie 8.3.2 du liv
 # Projet  : Utilisation de la librairie caret (sixième partie des notes)  
 
 À rendre au plus tard le dimanche 2 juin à 23h par mail avec un fichier .R ou .rmd contenant le code et les réponses en commentaire. Mettre les affichages de vos résultats en commentaire
-dans votre script. Les affichages des résultats me permettront de comprendre les conclusions et les réponses.  
+dans votre script. Les affichages des résultats me permettront de comprendre les conclusions et les réponses.
+[corrigé](http://masedki.github.io/enseignements/cc_correction.html)
 
 <!-- [Jeu de données mnist](http://masedki.github.io/enseignements/datasets/mnist.rdata) -->
 
