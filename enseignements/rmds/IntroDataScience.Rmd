@@ -12,7 +12,10 @@ output:
 
 [Agrégation de modèles et SVM](http://masedki.github.io/enseignements/pdfs/cours.pdf)
 
-[Introduction aux réseaux de neurones](http://masedki.github.io/enseignements/pdfs/mnist.pdf)
+[Introduction aux réseaux de neurones](http://masedki.github.io/enseignements/pdfs/st-m-app-rn.pdf)
+
+[Problème de classification par réseaux de neurones](http://masedki.github.io/enseignements/pdfs/mnist.pdf)
+
 
 - [Une couche de type convolutif](http://cs231n.github.io/convolutional-networks/#conv)
 
