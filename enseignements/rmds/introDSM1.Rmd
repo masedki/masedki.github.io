@@ -81,11 +81,12 @@ Lecture conseillée : Lecture de la partie 8.1 et  Lab de la partie 8.3.2 du liv
 dans votre script. Les affichages des résultats me permettront de comprendre les conclusions et les réponses.
 [corrigé](http://masedki.github.io/enseignements/cc_correction.html)
 
-<!-- [Jeu de données mnist](http://masedki.github.io/enseignements/datasets/mnist.rdata) -->
+
+# [Examen  + corrigé](http://masedki.github.io/enseignements/pdfs/cs19.pdf) du 12 juin 2019
 
 <!-- [Jeu de données mnist aplati !](http://masedki.github.io/enseignements/datasets/mnist_flatten.rda) -->
 
-[Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda)
+<!-- [Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda) -->
 
 <!-- [Jeu de données crédit](http://masedki.github.io/enseignements/datasets/credit.rda) -->
 
