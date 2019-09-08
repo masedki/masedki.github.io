@@ -5,14 +5,14 @@ output:
   pdf_document: default
 ---
 
-* **Pudlo, P and Sedki, M** [Simulation of stochastic models of structured
-population in population genetics under neutrality](http://journal-sfds.fr/article/view/707)  *Journal de la SFDS : Special Issue on Models and Inference in Population Genetics*, First Online : December 13, 2018
+* **Marin, J-M and Pudlo, P and Sedki, M** [Consistency of Adaptive Importance Sampling and Recycling Schemes](https://projecteuclid.org/euclid.bj/1560326434) *Bernoulli*, Volume 25, Number 3 (2019), 1977-1998
 
-* **Marin, J-M and Pudlo, P and Sedki, M** [Consistency of Adaptive Importance Sampling and Recycling Schemes](https://www.e-publications.org/ims/submission/BEJ/user/submissionFile/30757?confirm=0a7a502b) *Bernoulli Journal*, to appear
+* **Marbac, M and Patin, E and Sedki, M** [Variable selection for mixed data clustering: Application in human population genomics](https://link.springer.com/article/10.1007/s00357-018-9301-y), *Journal of Classification* 
+
+* **Pudlo, P and Sedki, M** [Simulation of stochastic models of structured
+population in population genetics under neutrality](http://journal-sfds.fr/article/view/707)  *Journal de la SFDS*, Special Issue on Models and Inference in Population Genetics, Vol. 159 No 3 (2018) 
 
 * **Marbac, M and Sedki, M** [VarSelLCM: an R/C ++ package for variable selection in model-based clustering of mixed-data with missing values](https://doi.org/10.1093/bioinformatics/bty786), *Bioinformatics*, First Online: September 05, 2018 
-
-* **Marbac, M and Patin, E and Sedki, M** [Variable selection for mixed data clustering: Application in human population genomics](https://arxiv.org/abs/1703.02293), *Journal of Classification*, to appear
 
 * **Marbac M; Sedki, M; Boutron-Ruault, M-C; Dumas, O** [Patterns of cleaning product exposures using a novel clustering approach for data with correlated variables](https://doi.org/10.1016/j.annepidem.2018.05.004) *Annals of Epidemiology*, Volume:28, Issue:8, August 2018, pp:563-569 
 
