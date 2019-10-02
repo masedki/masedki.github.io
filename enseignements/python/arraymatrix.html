@@ -13084,13 +13084,13 @@ div#notebook {
 <ul>
 <li><p>Les opérations arithmétiques sur les tableaux se font élément-par-élément. Le cas des matrices fait exception où la multiplication <code>*</code> suit les règles de l'algèbre linéaire.  Les tableaux de dimension 2 peuvent être multipliés suivants les règles de l'algèbre linéaire en utilisant la fonction <code>dot</code>, et si on utilise Python 3.5 (ou plus), les tableaux peuvent être multipliés à l'aide du symbole <code>@</code>. De manière similaire, la fonction <code>multiply</code> peut être utilisée pour multiplier deux matrices élément-par-élément.</p>
 </li>
-<li><p>Les tableaux sont plus courants que les matrices et toutes les fonctions sont minutieusement testées sur les tableaux. Les mêmes fonctions devraient également fonctionner avec les matrices, mais il y a une chance accrue d'un bug rare lors de l'utilisation des matrices.</p>
+<li><p>Les tableaux sont plus courants que les matrices et toutes les fonctions sont minutieusement testées sur les tableaux. Les mêmes fonctions devraient également fonctionner avec les matrices, mais un bug rare lors de l'utilisation des matrices n'est pas écarté.</p>
 </li>
 </ul>
 <ul>
 <li>Les tableaux peuvent être traités comme des matrices à l'aide des fonctions <code>asmatrix</code> ou <code>mat</code> sans copier les données sous-jacentes.</li>
 </ul>
-<p>Les meilleures pratiques consistent à utiliser le format tableau en utilisant le symbole <code>@</code> pour la multiplication matricielle. La fonction <code>asmatrix</code> peut être utilisée lors l'écriture de code d'algèbre linéaire.  Il est important de personnaliser et tester les fonctions sur des exemples.</p>
+<p>Les meilleures pratiques consistent à utiliser le format tableau en utilisant le symbole <code>@</code> pour la multiplication matricielle. La fonction <code>asmatrix</code> peut être utilisée lors l'écriture de code d'algèbre linéaire.</p>
 
 </div>
 </div>
@@ -13098,7 +13098,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.1-Array">3.1 Array<a class="anchor-link" href="#3.1-Array">&#182;</a></h2><p>Les tableaux constituent le type de données de base dans la librairie NumPy. Ils sont similaires aux listes ou aux tuples car ils contiennent tous deux des collections d'éléments. Cette section est axée sur les tableaux de données numériques, c’est-à-dire un tableau où tous les éléments ont le même type numérique. De plus, les tableaux, contrairement aux listes, sont toujours rectangulaires, de sorte que toutes les dimensions ont le même nombre d'éléments.</p>
+<h2 id="3.1-Array">3.1 Array<a class="anchor-link" href="#3.1-Array">&#182;</a></h2><p>Les tableaux constituent le type de données de base dans la librairie NumPy. Ils sont similaires aux listes ou aux tuples car ils contiennent tous les deux des collections d'éléments. Cette section est axée sur les tableaux de données numériques, c’est-à-dire un tableau où tous les éléments ont le même type numérique. De plus, les tableaux, contrairement aux listes, sont toujours rectangulaires, de sorte que toutes les dimensions ont le même nombre d'éléments.</p>
 
 </div>
 </div>
@@ -13154,7 +13154,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.1.1-Array-dtypes">3.1.1 Array dtypes<a class="anchor-link" href="#3.1.1-Array-dtypes">&#182;</a></h3><p>Les tableaux homogènes peuvent contenir divers types de données numériques. Le type de données le plus courant est <code>float64</code> (ou double), ce qui correspond au type de données flottant intégré à python (et double en C/C++). Par défaut, les appels à <code>array</code> préservent le type d'entrée, si possible. Si une entrée contient tous les entiers, elle aura le type <code>int32</code> (similaire au type de données intégré <code>int</code>). Si une entrée contient des entiers, des flottants ou un mélange des deux, le type de données du tableau sera <code>float64</code>. Si l'entrée contient un mélange d'entiers, de flottants et de types complexes, le tableau sera initialisé pour contenir des données complexes.</p>
+<h3 id="3.1.1-Array-dtypes">3.1.1 Array dtypes<a class="anchor-link" href="#3.1.1-Array-dtypes">&#182;</a></h3><p>Les tableaux homogènes peuvent contenir divers types de données numériques. Le type de données le plus courant est <code>float64</code> (ou double), ce qui correspond au type de données flottant intégré à python (et double en C/C++). Par défaut, les appels à <code>array</code> préservent le type d'entrée, si possible. Si une entrée contient tous les entiers, elle aura le type <code>int32</code> (similaire au type de données <code>int</code>). Si une entrée contient des entiers, des flottants ou un mélange des deux, le type de données du tableau sera <code>float64</code>. Si l'entrée contient un mélange d'entiers, de flottants et de types complexes, le tableau sera initialisé pour contenir des données complexes.</p>
 
 </div>
 </div>
@@ -13401,6 +13401,24 @@ Des tableaux multidimensionnels ($N$ dimensions) sont disponibles pour $N$ allan
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">x</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">y</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13458,7 +13476,7 @@ Des tableaux multidimensionnels ($N$ dimensions) sont disponibles pour $N$ allan
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.7-Acc&#233;der-aux-&#233;l&#233;ments-d'un-tableau">3.7 Acc&#233;der aux &#233;l&#233;ments d'un tableau<a class="anchor-link" href="#3.7-Acc&#233;der-aux-&#233;l&#233;ments-d'un-tableau">&#182;</a></h2><p>Quatre méthodes sont possibles pour accéder aux éléments d'un tableau: la sélection scalaire, l'opération de slicing, l'indexation numérique et l'indexation logique (ou booléenne). La sélection scalaire et le slicing sont les plus simples et sont donc présentés en premier.</p>
+<h2 id="3.7-Acc&#233;der-aux-&#233;l&#233;ments-d'un-tableau">3.7 Acc&#233;der aux &#233;l&#233;ments d'un tableau<a class="anchor-link" href="#3.7-Acc&#233;der-aux-&#233;l&#233;ments-d'un-tableau">&#182;</a></h2><p>Plusieurs méthodes sont possibles pour accéder aux éléments d'un tableau: la sélection scalaire, l'opération de slicing et l'indexation logique (ou booléenne). La sélection scalaire et le slicing sont les plus simples et sont donc présentés en premier.</p>
 
 </div>
 </div>
