@@ -1,0 +1,16 @@
+---
+title: "Python"
+output:
+  html_document:
+    theme: journal
+    highlight: monochrome
+    css: style.css
+---
+
+[introduction](http://masedki.github.io/enseignements/python/introduction.html)
+
+[types de données de base](http://masedki.github.io/enseignements/python/typesdonnees.html)
+
+[tableaux et matrices](http://masedki.github.io/enseignements/python/arraymatrix.html)
+
+[module math de base](http://masedki.github.io/enseignements/python/basicmath.html)

@@ -7,6 +7,9 @@ navbar:
       href: enseignements/enseignements.html
       icon: ion-easel
       menu:
+        - text: "M2 SDS"
+        - text: "Python"
+          href: enseignements/python.html
         - text: "M2R santé publique"
         - text: "Mise à niveau probabilité et statistiques"
           href: enseignements/MANprobastat.html
