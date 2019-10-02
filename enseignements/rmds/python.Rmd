@@ -14,3 +14,9 @@ output:
 [tableaux et matrices](http://masedki.github.io/enseignements/python/arraymatrix.html)
 
 [module math de base](http://masedki.github.io/enseignements/python/basicmath.html)
+
+
+### Instruction pour lancer jupyter notebook sur un environnement virtuel 
+
+
+`python -m ipykernel install --user --name=myenv`
