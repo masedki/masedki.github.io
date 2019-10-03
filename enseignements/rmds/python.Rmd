@@ -15,6 +15,11 @@ output:
 
 [module math de base](http://masedki.github.io/enseignements/python/basicmath.html)
 
+[Contrôle de flux et boucles](http://masedki.github.io/enseignements/python/loopflowcontrol.html)
+
+[Fonctions](http://masedki.github.io/enseignements/python/functions.html)
+
+
 
 ### Instruction pour lancer jupyter notebook sur un environnement virtuel 
 
