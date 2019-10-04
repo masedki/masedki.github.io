@@ -13501,7 +13501,62 @@ mot clé <code>return</code>. Considérons une fonction simple qui renvoie le ca
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="k">def</span> <span class="nf">lp_norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">p</span> <span class="o">=</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="sa">r</span><span class="sd">&quot;&quot;&quot; Compute the distance between vectors.</span>
+<span class="sd">    </span>
+<span class="sd">    The Lp normed distance is sum(abs(x-y)**p)**(1/p)</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    </span>
+<span class="sd">    x : ndarray</span>
+<span class="sd">        First argument</span>
+<span class="sd">        </span>
+<span class="sd">    y : ndarray</span>
+<span class="sd">        Second argument</span>
+<span class="sd">    </span>
+<span class="sd">    p : float, optional</span>
+<span class="sd">        Power used in distance calculation, &gt;=0</span>
+<span class="sd">        </span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    output : scalar</span>
+<span class="sd">        Returns the Lp normed distance between x and y</span>
+<span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    </span>
+<span class="sd">    For p&gt;=1, returns the Lp norm described above. For 0&lt;=p&lt;1,</span>
+<span class="sd">    </span>
+<span class="sd">    returns sum(abs(x-y)**p).</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    </span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; x=[0,1,2]</span>
+<span class="sd">    &gt;&gt;&gt; y=[1,2,3]</span>
+<span class="sd">    </span>
+<span class="sd">    L2 norm is the default</span>
+<span class="sd">    &gt;&gt;&gt; lp_norm(x,y)</span>
+
+<span class="sd">    Lp can be computed using the optional third input</span>
+<span class="sd">    &gt;&gt;&gt; lp_norm(x,y,1)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+   
+
+    <span class="k">if</span> <span class="n">p</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span> <span class="n">p</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span>
+
+    <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">d</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">**</span><span class="n">p</span><span class="p">)</span>
+    
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">**</span><span class="n">p</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">p</span><span class="p">)</span>
 </pre></div>
 
     </div>
