@@ -19,6 +19,7 @@ output:
 
 [Fonctions](http://masedki.github.io/enseignements/python/functions.html)
 
+[Graphiques](http://masedki.github.io/enseignements/python/graphics.html)
 
 
 ### Instruction pour lancer jupyter notebook sur un environnement virtuel 
