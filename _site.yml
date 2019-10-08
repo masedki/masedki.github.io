@@ -10,21 +10,15 @@ navbar:
         - text: "M2 SDS"
         - text: "Python"
           href: enseignements/python.html
+        - text: "Apprentissage"
+          href: enseignements/apprentissage.html  
         - text: "M2R santé publique"
-        - text: "Mise à niveau probabilité et statistiques"
-          href: enseignements/MANprobastat.html
         - text: "Mise à niveau Matrices"
           href: enseignements/MANmatrice.html
         - text: "Introduction à bootstrap"
           href: enseignements/bootstrap.html
-        - text: "GenClust"
-          href: enseignements/GenClust.html  
         - text: "Démarche Statistique"
           href: enseignements/ds.html
-        - text: "Modèle linéaire"
-          href: enseignements/ml.html
-        - text: "Statistique mathématique"
-          href: enseignements/statmath.html 
         - text: "---------"
         - text: "M2 MathSV"
         - text: "Modèles de génétique des populations neutre"
@@ -33,14 +27,6 @@ navbar:
         - text: "MOOC d'introduction à la statistique avec R"
         - text: "Devoir ENS 2016-2017"
           href: enseignements/devoir.html
-        - text: "---------"  
-        - text: "Formation"
-        - text: "Introduction aux datasciences"
-          href: enseignements/IntroDataScience.html
-        - text: "---------"  
-        - text: "ENSAI"
-        - text: "Apprentissage et agrégation de modèles"
-          href: enseignements/agreg.html  
         - text: "---------"  
         - text: "M1 santé publique"
         - text: "Introduction aux datascience"

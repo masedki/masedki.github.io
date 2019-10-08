@@ -1,0 +1,16 @@
+---
+title: "Apprentissage"
+output:
+  html_document:
+    theme: journal
+    highlight: monochrome
+    css: style.css
+---
+
+[supports](http://masedki.github.io/enseignements/pdfs/apprentissage.pdf)
+
+
+[dataset mixture.txt](http://masedki.github.io/enseignements/datasets/mixture.txt)
+
+
+[notebook mixture](http://masedki.github.io/enseignements/apprentissage/mixture.html)
