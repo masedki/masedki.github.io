@@ -14,3 +14,8 @@ output:
 
 
 [notebook mixture](http://masedki.github.io/enseignements/apprentissage/mixture.html)
+
+[dataset Prostate_Cancer.txt](http://masedki.github.io/enseignements/datasets/Prostate_Cancer.txt)
+
+
+[notebook Régression](http://masedki.github.io/enseignements/apprentissage/Regression.html)
