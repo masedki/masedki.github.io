@@ -21,8 +21,17 @@ output:
 
 [Graphiques](http://masedki.github.io/enseignements/python/graphics.html)
 
+[Probabilités et statistiques](http://masedki.github.io/enseignements/python/probasstats.html)
+
+[TP d'introduction à bootstrap](http://masedki.github.io/enseignements/python/bootstrap.html)
+
+
 
 ### Instruction pour lancer jupyter notebook sur un environnement virtuel 
 
 
 `python -m ipykernel install --user --name=myenv`
+
+### Jeux de données 
+
+[Jeu de données coronary](http://masedki.github.io/enseignements/datasets/coronary.csv)
