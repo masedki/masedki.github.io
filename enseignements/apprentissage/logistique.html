@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>Regression</title>
+<title>logistique</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13116,7 +13116,8 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Chargement-des-librairies-et-des-donn&#233;es">Chargement des librairies et des donn&#233;es<a class="anchor-link" href="#Chargement-des-librairies-et-des-donn&#233;es">&#182;</a></h1>
+<h1 id="Jeu-de-donn&#233;es-de-l'&#233;tude-Framingham-Heart">Jeu de donn&#233;es de l'&#233;tude <em>Framingham Heart</em><a class="anchor-link" href="#Jeu-de-donn&#233;es-de-l'&#233;tude-Framingham-Heart">&#182;</a></h1><p>Identifier les facteurs de risque les plus pertinents/de risque de maladie cardiaque.</p>
+
 </div>
 </div>
 </div>
@@ -13125,15 +13126,22 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import necessary modules and set options</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">itertools</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LinearRegression</span><span class="p">,</span> <span class="n">Ridge</span><span class="p">,</span> <span class="n">Lasso</span><span class="p">,</span> <span class="n">ElasticNet</span><span class="p">,</span> <span class="n">RidgeCV</span><span class="p">,</span> <span class="n">LassoCV</span><span class="p">,</span> <span class="n">ElasticNetCV</span><span class="p">,</span> <span class="n">LarsCV</span><span class="p">,</span> <span class="n">lars_path</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tools</span> <span class="k">import</span> <span class="n">add_constant</span> <span class="k">as</span> <span class="n">add_constant</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">st</span>
+<span class="kn">import</span> <span class="nn">sklearn</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">accuracy_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">SGDClassifier</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">GridSearchCV</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">mean_squared_error</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">StandardScaler</span>
+<span class="c1">#import matplotlib.pyplot as plt</span>
+<span class="c1">#import seaborn as sn</span>
+<span class="c1">#import matplotlib.mlab as mlab</span>
+<span class="c1">#%matplotlib inline</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 </pre></div>
@@ -13143,39 +13151,22 @@ div#notebook {
 </div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">prostate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/Prostate_Cancer.txt&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Lecture-du-jeu-de-donn&#233;es">Lecture du jeu de donn&#233;es<a class="anchor-link" href="#Lecture-du-jeu-de-donn&#233;es">&#182;</a></h2><p>Le jeu de données est disponible publiquement sur le site Web de Kaggle et provient d’une étude cardiovasculaire en cours sur les résidents de la ville de Framingham, dans le Massachusetts. L’objectif de la classification est de prédire si le patient présente un risque de maladie coronarienne future (CHD) sur 10 ans. Le jeu de données fournit les informations relatives au patient. Il comprend plus de 4 000 enregistrements et 15 variables.</p>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">prostate</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-
-    </div>
 </div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">prostate</span> <span class="o">=</span> <span class="n">prostate</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">prostate</span><span class="o">.</span><span class="n">shape</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">heart_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/framingham.csv&quot;</span><span class="p">)</span>
+<span class="n">heart_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;education&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">heart_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13186,7 +13177,69 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Jeux-de-donn&#233;es-apprentissage-et-test">Jeux de donn&#233;es apprentissage et test<a class="anchor-link" href="#Jeux-de-donn&#233;es-apprentissage-et-test">&#182;</a></h2>
+<h3 id="Les-variables">Les variables<a class="anchor-link" href="#Les-variables">&#182;</a></h3><p>Chaque variable est un facteur de risque potentiel. Il existe à la fois des facteurs de risque démographiques, comportementaux et médicaux.</p>
+<ul>
+<li><p>Démographique: sexe: homme ou femme (binaire)</p>
+<ul>
+<li>âge: âge du patient; (continue - Bien que les âges enregistrés aient été tronqués en nombres entiers, la notion d'âge est continue)</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Comportementale:</p>
+<ul>
+<li><p>currentSmoker: que le patient fume ou non (binaire)</p>
+</li>
+<li><p>cigsPerDay: le nombre de cigarettes que la personne a fumé en moyenne par jour (peut être considéré comme continu car on peut avoir n'importe quel nombre de cigarettes, même une demi-cigarette).</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Antécédents médicaux:</p>
+<ul>
+<li><p>BPMeds: que le patient prenne ou non un traitement contre la tension artérielle (binaire)</p>
+</li>
+<li><p>prevalentStroke: si le patient a déjà eu un accident vasculaire cérébral ou non (binaire)</p>
+</li>
+<li><p>prevalentHyp: si le patient était hypertendu (binaire)</p>
+</li>
+<li><p>diabetes: si le patient était diabétique ou non (binaire)</p>
+</li>
+</ul>
+</li>
+<li><p>Médical (actuel):</p>
+<ul>
+<li><p>totChol: taux de cholestérol total (continu)</p>
+</li>
+<li><p>sysBP: pression artérielle systolique (continue)</p>
+</li>
+<li><p>diaBP: pression artérielle diastolique (continue)</p>
+</li>
+<li><p>BMI : Indice de masse corporelle (continu)</p>
+</li>
+<li><p>heartRate: fréquence cardiaque (Continu - des variables telles que la fréquence cardiaque sont discrètes, mais sont considérées comme continues en raison du grand nombre de valeurs possibles.)</p>
+</li>
+<li><p>glucose: niveau de glucose (continu)</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>Variable cible :</p>
+<ul>
+<li>Risque de maladie coronarienne CHD sur 10 ans (binaire: «1» signifie «Oui», «0» signifie «Non»)  </li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Donn&#233;es-manquantes-:">Donn&#233;es manquantes :<a class="anchor-link" href="#Donn&#233;es-manquantes-:">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13195,11 +13248,38 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Train-test split</span>
-<span class="n">y_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">prostate</span><span class="p">[</span><span class="n">prostate</span><span class="o">.</span><span class="n">train</span> <span class="o">==</span> <span class="s2">&quot;T&quot;</span><span class="p">][</span><span class="s1">&#39;lpsa&#39;</span><span class="p">])</span>
-<span class="n">y_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">prostate</span><span class="p">[</span><span class="n">prostate</span><span class="o">.</span><span class="n">train</span> <span class="o">==</span> <span class="s2">&quot;F&quot;</span><span class="p">][</span><span class="s1">&#39;lpsa&#39;</span><span class="p">])</span>
-<span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">prostate</span><span class="p">[</span><span class="n">prostate</span><span class="o">.</span><span class="n">train</span> <span class="o">==</span> <span class="s2">&quot;T&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;lpsa&#39;</span><span class="p">,</span> <span class="s1">&#39;train&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">X_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">prostate</span><span class="p">[</span><span class="n">prostate</span><span class="o">.</span><span class="n">train</span> <span class="o">==</span> <span class="s2">&quot;F&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;lpsa&#39;</span><span class="p">,</span> <span class="s1">&#39;train&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">heart_df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">count</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">heart_df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="n">count</span><span class="o">=</span><span class="n">count</span><span class="o">+</span><span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total de données manquantes &#39;</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Seulement&#39;</span><span class="p">,</span><span class="nb">round</span><span class="p">((</span><span class="n">count</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">heart_df</span><span class="o">.</span><span class="n">index</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span><span class="p">),</span> <span class="s1">&#39;</span><span class="si">% d</span><span class="s1">u jeu de données qui sera éliminé.&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">heart_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13210,7 +13290,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Baseline-:-r&#233;gression-lin&#233;aire-classique">Baseline : r&#233;gression lin&#233;aire classique<a class="anchor-link" href="#Baseline-:-r&#233;gression-lin&#233;aire-classique">&#182;</a></h1>
+<h3 id="Les-deux-classes-de-la-variables-r&#233;ponse">Les deux classes de la variables r&#233;ponse<a class="anchor-link" href="#Les-deux-classes-de-la-variables-r&#233;ponse">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13219,18 +13299,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">linreg_model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="n">linreg_prediction</span> <span class="o">=</span> <span class="n">linreg_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="n">linreg_mse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">y_test</span> <span class="o">-</span> <span class="n">linreg_prediction</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">linreg_coefs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-    <span class="nb">zip</span><span class="p">([</span><span class="s1">&#39;Intercept&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">prostate</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> 
-        <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">linreg_model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="n">linreg_model</span><span class="o">.</span><span class="n">coef_</span><span class="p">),</span> 
-        <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span> <span class="mi">3</span><span class="p">))</span>
-<span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Linear Regression MSE: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">linreg_mse</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Linear Regression coefficients:&#39;</span><span class="p">)</span>
-<span class="n">linreg_coefs</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">heart_df</span><span class="o">.</span><span class="n">TenYearCHD</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13241,8 +13310,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>On est habitué à ça</p>
-
+<h3 id="Statistique-descriptives">Statistique descriptives<a class="anchor-link" href="#Statistique-descriptives">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13251,10 +13319,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X1_train</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span> <span class="c1"># adding a constant</span>
-<span class="n">mod</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">X1_train</span><span class="p">)</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">heart_df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13265,8 +13330,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Sous-ensemble-optimal">Sous-ensemble optimal<a class="anchor-link" href="#Sous-ensemble-optimal">&#182;</a></h1><p>Une approche simple pour choisir un sous-ensemble de variables pour la régression linéaire consiste à essayer toutes les combinaisons possibles et à en choisir une qui minimise un critère certain. C'est ce que vise la recherche du meilleur sous-ensemble de variables pour la régression. Pour chaque $k \in \{1, 2, \ldots, p\}$, où $p$ est le nombre total de variables disponibles, il sélectionne le sous-ensemble de taille $k$ qui donne la plus petite somme résiduelle de carrés. Cependant, la somme des carrés ne peut pas être utilisée comme critère pour déterminer $k$ elle-même, car elle diminue nécessairement avec $k$: plus le nombre de variables incluses dans le modèle est grand, plus ses résidus sont petits. Cela ne garantit toutefois pas de meilleures performances prédictives. C’est pourquoi un autre critère devrait être utilisé pour sélectionner le modèle final. Pour les modèles axés sur la prédiction, une erreur (éventuellement croisée) sur les données de test est un choix courant. Comme la recherche du meilleur sous-ensemble de régression n'est implémentée dans aucun package Python, nous devons effectuer une boucle sur $k$ et tous les sous-ensembles de taille $k$ manuellement. Le bout de code suivant implémente la méthode :</p>
-
+<h2 id="R&#233;gression-logistique">R&#233;gression logistique<a class="anchor-link" href="#R&#233;gression-logistique">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13275,34 +13339,24 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;num_features&#39;</span><span class="p">,</span> <span class="s1">&#39;features&#39;</span><span class="p">,</span> <span class="s1">&#39;MSE&#39;</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">heart_df_constant</span> <span class="o">=</span> <span class="n">add_constant</span><span class="p">(</span><span class="n">heart_df</span><span class="p">)</span>
+<span class="n">heart_df_constant</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
 
-<span class="c1"># Loop over all possible numbers of features to be included</span>
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-    <span class="c1"># Loop over all possible subsets of size k</span>
-    <span class="k">for</span> <span class="n">subset</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">combinations</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">k</span><span class="p">):</span>
-        <span class="n">subset</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">subset</span><span class="p">)</span>
-        <span class="n">linreg_model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:,</span> <span class="n">subset</span><span class="p">],</span> <span class="n">y_train</span><span class="p">)</span>
-        <span class="n">linreg_prediction</span> <span class="o">=</span> <span class="n">linreg_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">[:,</span> <span class="n">subset</span><span class="p">])</span>
-        <span class="n">linreg_mse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">y_test</span> <span class="o">-</span> <span class="n">linreg_prediction</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-        <span class="n">results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([{</span><span class="s1">&#39;num_features&#39;</span><span class="p">:</span> <span class="n">k</span><span class="p">,</span>
-                                                <span class="s1">&#39;features&#39;</span><span class="p">:</span> <span class="n">subset</span><span class="p">,</span>
-                                                <span class="s1">&#39;MSE&#39;</span><span class="p">:</span> <span class="n">linreg_mse</span><span class="p">}]))</span>
+    </div>
+</div>
+</div>
 
-<span class="c1"># Inspect best combinations</span>
-<span class="n">results</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;MSE&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-
-<span class="c1"># Fit best model</span>
-<span class="n">best_subset_model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">[:,</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;features&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]],</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="n">best_subset_coefs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-    <span class="nb">zip</span><span class="p">([</span><span class="s1">&#39;Intercept&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">prostate</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> 
-        <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">best_subset_model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="n">best_subset_model</span><span class="o">.</span><span class="n">coef_</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span> <span class="mi">3</span><span class="p">))</span>
-<span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Best Subset Regression MSE: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;MSE&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="mi">4</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Best Subset Regression coefficients:&#39;</span><span class="p">)</span>
-<span class="n">best_subset_coefs</span>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cols</span><span class="o">=</span><span class="n">heart_df_constant</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">model</span><span class="o">=</span><span class="n">sm</span><span class="o">.</span><span class="n">Logit</span><span class="p">(</span><span class="n">heart_df</span><span class="o">.</span><span class="n">TenYearCHD</span><span class="p">,</span><span class="n">heart_df_constant</span><span class="p">[</span><span class="n">cols</span><span class="p">])</span>
+<span class="n">result</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">result</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13313,7 +13367,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="R&#233;gression-Ridge">R&#233;gression Ridge<a class="anchor-link" href="#R&#233;gression-Ridge">&#182;</a></h2>
+<h2 id="Quelques-calculs-classiques">Quelques calculs classiques<a class="anchor-link" href="#Quelques-calculs-classiques">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13322,39 +13376,13 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">n_alphas</span> <span class="o">=</span> <span class="mi">300</span>
-<span class="n">alphas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">n_alphas</span><span class="p">)</span>
-<span class="n">coefs</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">alphas</span><span class="p">:</span>
-    <span class="n">ridge</span> <span class="o">=</span>  <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">fit_intercept</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">ridge</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-    <span class="n">coefs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ridge</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
-
-<span class="c1"># #############################################################################</span>
-<span class="c1"># Display results</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alphas</span><span class="p">,</span> <span class="n">coefs</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">()[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># reverse axis</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;alpha&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;weights&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Ridge coefficients as a function of the regularization&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="n">ridge_cv</span> <span class="o">=</span> <span class="n">RidgeCV</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alphas</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">n_alphas</span><span class="p">),</span> <span class="n">store_cv_values</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">ridge_model</span> <span class="o">=</span> <span class="n">ridge_cv</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="n">ridge_prediction</span> <span class="o">=</span> <span class="n">ridge_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="n">ridge_mse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">y_test</span> <span class="o">-</span> <span class="n">ridge_prediction</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">ridge_coefs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-    <span class="nb">zip</span><span class="p">([</span><span class="s1">&#39;Intercept&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">prostate</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> 
-        <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">ridge_model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="n">ridge_model</span><span class="o">.</span><span class="n">coef_</span><span class="p">),</span> 
-                                <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span> <span class="mi">3</span><span class="p">))</span>
-<span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ridge Regression MSE: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">ridge_mse</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Ridge Regression coefficients:&#39;</span><span class="p">)</span>
-<span class="n">ridge_coefs</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<span class="n">conf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">conf_int</span><span class="p">())</span>
+<span class="n">conf</span><span class="p">[</span><span class="s1">&#39;OR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">params</span>
+<span class="n">pvalue</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">pvalues</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">conf</span><span class="p">[</span><span class="s1">&#39;pvalue&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">pvalue</span>
+<span class="n">conf</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CI 95%(2.5%)&#39;</span><span class="p">,</span> <span class="s1">&#39;CI 95%(97.5%)&#39;</span><span class="p">,</span> <span class="s1">&#39;Odds Ratio&#39;</span><span class="p">,</span><span class="s1">&#39;pvalue&#39;</span><span class="p">]</span>
+<span class="nb">print</span> <span class="p">((</span><span class="n">conf</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -13365,7 +13393,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Erreur-&#233;valu&#233;e-par-validation-crois&#233;e-en-fonction-de-$\alpha$">Erreur &#233;valu&#233;e par validation crois&#233;e en fonction de $\alpha$<a class="anchor-link" href="#Erreur-&#233;valu&#233;e-par-validation-crois&#233;e-en-fonction-de-$\alpha$">&#182;</a></h3>
+<h3 id="Jeux-de-donn&#233;es-test-et-apprentissage">Jeux de donn&#233;es test et apprentissage<a class="anchor-link" href="#Jeux-de-donn&#233;es-test-et-apprentissage">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13374,14 +13402,70 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">errors</span> <span class="o">=</span> <span class="n">ridge_cv</span><span class="o">.</span><span class="n">cv_values_</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alphas</span><span class="p">,</span> <span class="n">errors</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;alpha&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="n">heart_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">y</span><span class="o">=</span><span class="n">heart_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">x_train</span><span class="p">,</span><span class="n">x_test</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_test</span><span class="o">=</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">test_size</span><span class="o">=.</span><span class="mi">25</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">logreg</span><span class="o">=</span><span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">logreg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred</span><span class="o">=</span><span class="n">logreg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cm</span><span class="o">=</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)</span>
+<span class="n">conf_matrix</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">cm</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Predicted:0&#39;</span><span class="p">,</span><span class="s1">&#39;Predicted:1&#39;</span><span class="p">],</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Actual:0&#39;</span><span class="p">,</span><span class="s1">&#39;Actual:1&#39;</span><span class="p">])</span>
+<span class="n">conf_matrix</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">TN</span><span class="o">=</span><span class="n">cm</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">TP</span><span class="o">=</span><span class="n">cm</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">FN</span><span class="o">=</span><span class="n">cm</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">FP</span><span class="o">=</span><span class="n">cm</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">sensitivity</span><span class="o">=</span><span class="n">TP</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">TP</span><span class="o">+</span><span class="n">FN</span><span class="p">)</span>
+<span class="n">specificity</span><span class="o">=</span><span class="n">TN</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">TN</span><span class="o">+</span><span class="n">FP</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13392,7 +13476,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="R&#233;gression-Lasso">R&#233;gression Lasso<a class="anchor-link" href="#R&#233;gression-Lasso">&#182;</a></h2>
+<h2 id="Quelques-statistiques-d'&#233;valuation">Quelques statistiques d'&#233;valuation<a class="anchor-link" href="#Quelques-statistiques-d'&#233;valuation">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13401,33 +13485,21 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Computing regularization path using the LARS ...&quot;</span><span class="p">)</span>
-<span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">coefs</span> <span class="o">=</span> <span class="n">lars_path</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;lasso&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The acuuracy of the model = TP+TN/(TP+TN+FP+FN) = &#39;</span><span class="p">,(</span><span class="n">TP</span><span class="o">+</span><span class="n">TN</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">TP</span><span class="o">+</span><span class="n">TN</span><span class="o">+</span><span class="n">FP</span><span class="o">+</span><span class="n">FN</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
 
-<span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">coefs</span><span class="o">.</span><span class="n">T</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">xx</span> <span class="o">/=</span> <span class="n">xx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="s1">&#39;The Missclassification = 1-Accuracy = &#39;</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="p">((</span><span class="n">TP</span><span class="o">+</span><span class="n">TN</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">TP</span><span class="o">+</span><span class="n">TN</span><span class="o">+</span><span class="n">FP</span><span class="o">+</span><span class="n">FN</span><span class="p">)),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">coefs</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-<span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;|coef| / max|coef|&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Coefficients&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;LASSO Path&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="s1">&#39;Sensitivity or True Positive Rate = TP/(TP+FN) = &#39;</span><span class="p">,</span><span class="n">TP</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">TP</span><span class="o">+</span><span class="n">FN</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
 
-<span class="n">lasso_cv</span> <span class="o">=</span> <span class="n">LassoCV</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alphas</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">n_alphas</span><span class="p">))</span>
-<span class="n">lasso_model</span> <span class="o">=</span> <span class="n">lasso_cv</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="n">lasso_prediction</span> <span class="o">=</span> <span class="n">lasso_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="n">lasso_mse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">y_test</span> <span class="o">-</span> <span class="n">lasso_prediction</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">lasso_coefs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-    <span class="nb">zip</span><span class="p">([</span><span class="s1">&#39;Intercept&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">prostate</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> 
-        <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">lasso_model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> <span class="n">lasso_model</span><span class="o">.</span><span class="n">coef_</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span> <span class="mi">3</span><span class="p">))</span>
-<span class="p">)</span>
+<span class="s1">&#39;Specificity or True Negative Rate = TN/(TN+FP) = &#39;</span><span class="p">,</span><span class="n">TN</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">TN</span><span class="o">+</span><span class="n">FP</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LASSO MSE: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">lasso_mse</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LASSO coefficients:&#39;</span><span class="p">)</span>
-<span class="n">lasso_coefs</span>
+<span class="s1">&#39;Positive Predictive value = TP/(TP+FP) = &#39;</span><span class="p">,</span><span class="n">TP</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">TP</span><span class="o">+</span><span class="n">FP</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;Negative predictive Value = TN/(TN+FN) = &#39;</span><span class="p">,</span><span class="n">TN</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">TN</span><span class="o">+</span><span class="n">FN</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;Positive Likelihood Ratio = Sensitivity/(1-Specificity) = &#39;</span><span class="p">,</span><span class="n">sensitivity</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">specificity</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;Negative likelihood Ratio = (1-Sensitivity)/Specificity = &#39;</span><span class="p">,(</span><span class="mi">1</span><span class="o">-</span><span class="n">sensitivity</span><span class="p">)</span><span class="o">/</span><span class="n">specificity</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13438,7 +13510,8 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Erreur quadratique moyenne calculée par validation croisée en fonction de la valeur de alpha</p>
+<p>Les statistiques ci-dessus montrent clairement que le modèle est très spécifique plutôt que sensible. Les valeurs négatives sont prédites plus précisément que les positives.</p>
+<p>Probabilités prédites de 0 (pas de maladie coronarienne) et de 1 (maladie coronarienne: Oui) pour les données de test avec un seuil de classification par défaut de 0,5</p>
 
 </div>
 </div>
@@ -13448,14 +13521,9 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">errors</span> <span class="o">=</span> <span class="n">lasso_cv</span><span class="o">.</span><span class="n">mse_path_</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alphas</span><span class="p">,</span> <span class="n">errors</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;alpha&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y_pred_prob</span><span class="o">=</span><span class="n">logreg</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">x_test</span><span class="p">)[:,:]</span>
+<span class="n">y_pred_prob_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">y_pred_prob</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Prob absence de maladie (0)&#39;</span><span class="p">,</span><span class="s1">&#39;Prob de maladie (1)&#39;</span><span class="p">])</span>
+<span class="n">y_pred_prob_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13466,61 +13534,15 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="R&#233;gression-Elasticnet">R&#233;gression Elasticnet<a class="anchor-link" href="#R&#233;gression-Elasticnet">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">elastic_net_cv</span> <span class="o">=</span> <span class="n">ElasticNetCV</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">alphas</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span> 
-                              <span class="n">l1_ratio</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">elastic_net_model</span> <span class="o">=</span> <span class="n">elastic_net_cv</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="n">elastic_net_prediction</span> <span class="o">=</span> <span class="n">elastic_net_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="n">elastic_net_mse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">y_test</span> <span class="o">-</span> <span class="n">elastic_net_prediction</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">elastic_net_coefs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-    <span class="nb">zip</span><span class="p">([</span><span class="s1">&#39;Intercept&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">prostate</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> 
-        <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">elastic_net_model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> 
-                                 <span class="n">elastic_net_model</span><span class="o">.</span><span class="n">coef_</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span> <span class="mi">3</span><span class="p">))</span>
-<span class="p">)</span>
-</pre></div>
+<h2 id="R&#233;flexe-classique-:-baisser-le-seuil-?">R&#233;flexe classique : baisser le seuil ?<a class="anchor-link" href="#R&#233;flexe-classique-:-baisser-le-seuil-?">&#182;</a></h2><p>Étant donné que le modèle prédit une maladie cardiaque, un trop grand nombre d'erreurs de type II n'est pas conseillé. Un faux négatif (ignorer la probabilité de maladie lorsqu'il en existe une) est plus dangereux qu'un faux positif dans ce cas. Par conséquent, pour augmenter la sensibilité, le seuil peut être abaissé.</p>
 
-    </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Affichage-des-r&#233;sultats">Affichage des r&#233;sultats<a class="anchor-link" href="#Affichage-des-r&#233;sultats">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Best alpha : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">elastic_net_model</span><span class="o">.</span><span class="n">alpha_</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Best l1_ratio : </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">elastic_net_model</span><span class="o">.</span><span class="n">l1_ratio_</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Elastic Net MSE: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">elastic_net_mse</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Elastic Net coefficients:&#39;</span><span class="p">)</span>
-<span class="n">elastic_net_coefs</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Utilisation-de-la-fonction-GridSearchCV">Utilisation de la fonction <code>GridSearchCV</code><a class="anchor-link" href="#Utilisation-de-la-fonction-GridSearchCV">&#182;</a></h3>
+<h2 id="Elasticnet">Elasticnet<a class="anchor-link" href="#Elasticnet">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13530,50 +13552,39 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create the hyperparameter grid</span>
-<span class="n">alphas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">n_alphas</span><span class="p">)</span>
-<span class="n">l1_space</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">alphas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+<span class="n">l1_space</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;l1_ratio&#39;</span><span class="p">:</span> <span class="n">l1_space</span><span class="p">,</span> <span class="s1">&#39;alpha&#39;</span><span class="p">:</span><span class="n">alphas</span><span class="p">}</span>
 
 <span class="c1"># Instantiate the ElasticNet regressor: elastic_net</span>
-<span class="n">elastic_net</span> <span class="o">=</span> <span class="n">ElasticNet</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">elastic_net</span> <span class="o">=</span> <span class="n">SGDClassifier</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;elasticnet&#39;</span><span class="p">)</span>
 
 <span class="c1"># Setup the GridSearchCV object: gm_cv</span>
-<span class="n">gm_cv</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">elastic_net</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="c1">## attention n_jobs=-1 va utiliser tous les CPUs </span>
+<span class="n">sgd_cv</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">elastic_net</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="c1">## attention n_jobs=-1 va utiliser tous les CPUs </span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Maintenant-on-lance-la-recherche-des-hyper-param&#232;tres-optimaux-par-validation-crois&#233;e">Maintenant on lance la recherche des hyper-param&#232;tres optimaux par validation-crois&#233;e<a class="anchor-link" href="#Maintenant-on-lance-la-recherche-des-hyper-param&#232;tres-optimaux-par-validation-crois&#233;e">&#182;</a></h4>
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Fit it to the training data</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
-<span class="n">gm_cv</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># normalisation des données </span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">)))</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+<span class="n">sgd_cv</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Affichage-des-r&#233;sultats">Affichage des r&#233;sultats<a class="anchor-link" href="#Affichage-des-r&#233;sultats">&#182;</a></h4>
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -13581,12 +13592,46 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Predict on the test set and compute metrics</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">gm_cv</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="n">r2</span> <span class="o">=</span> <span class="n">gm_cv</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tuned ElasticNet alpha and l1 ratio: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gm_cv</span><span class="o">.</span><span class="n">best_params_</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tuned ElasticNet R squared: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r2</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tuned ElasticNet MSE: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mse</span><span class="p">))</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">sgd_cv</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">acc</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tuned ElasticNet alpha and l1 ratio: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sgd_cv</span><span class="o">.</span><span class="n">best_params_</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tuned ElasticNet accuracy: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">acc</span><span class="p">))</span>
+<span class="n">cm</span><span class="o">=</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)</span>
+<span class="n">conf_matrix</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">cm</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Predicted:0&#39;</span><span class="p">,</span><span class="s1">&#39;Predicted:1&#39;</span><span class="p">],</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Actual:0&#39;</span><span class="p">,</span><span class="s1">&#39;Actual:1&#39;</span><span class="p">])</span>
+<span class="n">conf_matrix</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">TN</span><span class="o">=</span><span class="n">cm</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">TP</span><span class="o">=</span><span class="n">cm</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">FN</span><span class="o">=</span><span class="n">cm</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">FP</span><span class="o">=</span><span class="n">cm</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">sensitivity</span><span class="o">=</span><span class="n">TP</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">TP</span><span class="o">+</span><span class="n">FN</span><span class="p">)</span>
+<span class="n">specificity</span><span class="o">=</span><span class="n">TN</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">TN</span><span class="o">+</span><span class="n">FP</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The acuuracy of the model = TP+TN/(TP+TN+FP+FN) = &#39;</span><span class="p">,(</span><span class="n">TP</span><span class="o">+</span><span class="n">TN</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">TP</span><span class="o">+</span><span class="n">TN</span><span class="o">+</span><span class="n">FP</span><span class="o">+</span><span class="n">FN</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;The Missclassification = 1-Accuracy = &#39;</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="p">((</span><span class="n">TP</span><span class="o">+</span><span class="n">TN</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">TP</span><span class="o">+</span><span class="n">TN</span><span class="o">+</span><span class="n">FP</span><span class="o">+</span><span class="n">FN</span><span class="p">)),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;Sensitivity or True Positive Rate = TP/(TP+FN) = &#39;</span><span class="p">,</span><span class="n">TP</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">TP</span><span class="o">+</span><span class="n">FN</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;Specificity or True Negative Rate = TN/(TN+FP) = &#39;</span><span class="p">,</span><span class="n">TN</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">TN</span><span class="o">+</span><span class="n">FP</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;Positive Predictive value = TP/(TP+FP) = &#39;</span><span class="p">,</span><span class="n">TP</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">TP</span><span class="o">+</span><span class="n">FP</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;Negative predictive Value = TN/(TN+FN) = &#39;</span><span class="p">,</span><span class="n">TN</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">TN</span><span class="o">+</span><span class="n">FN</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;Positive Likelihood Ratio = Sensitivity/(1-Specificity) = &#39;</span><span class="p">,</span><span class="n">sensitivity</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">specificity</span><span class="p">),</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
+
+<span class="s1">&#39;Negative likelihood Ratio = (1-Sensitivity)/Specificity = &#39;</span><span class="p">,(</span><span class="mi">1</span><span class="o">-</span><span class="n">sensitivity</span><span class="p">)</span><span class="o">/</span><span class="n">specificity</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13597,7 +13642,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Affichage-du-meilleur-mod&#232;le">Affichage du meilleur mod&#232;le<a class="anchor-link" href="#Affichage-du-meilleur-mod&#232;le">&#182;</a></h4>
+<h2 id="Affichage-du-meilleur-mod&#232;le">Affichage du meilleur mod&#232;le<a class="anchor-link" href="#Affichage-du-meilleur-mod&#232;le">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13606,11 +13651,24 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">best_coefs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="s1">&#39;Intercept&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">prostate</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> 
-        <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">gm_cv</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> 
-                                 <span class="n">gm_cv</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">coef_</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span> <span class="mi">3</span><span class="p">)))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">best_coefs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="s1">&#39;Intercept&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">heart_df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> 
+        <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">sgd_cv</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">intercept_</span><span class="p">,</span> 
+                                 <span class="n">sgd_cv</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">coef_</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span> <span class="mi">3</span><span class="p">)))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best model:&quot;</span><span class="p">)</span>
 <span class="n">best_coefs</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
     </div>

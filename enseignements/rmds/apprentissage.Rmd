@@ -9,13 +9,17 @@ output:
 
 [supports](http://masedki.github.io/enseignements/pdfs/apprentissage.pdf)
 
+[notebook mixture](http://masedki.github.io/enseignements/apprentissage/mixture.html)
+
+[notebook Régression linéaire](http://masedki.github.io/enseignements/apprentissage/Regression.html)
+
+[notebook Régression logistique](http://masedki.github.io/enseignements/apprentissage/logistique.html)
+
+
+### Jeux de données 
 
 [dataset mixture.txt](http://masedki.github.io/enseignements/datasets/mixture.txt)
 
-
-[notebook mixture](http://masedki.github.io/enseignements/apprentissage/mixture.html)
-
 [dataset Prostate_Cancer.txt](http://masedki.github.io/enseignements/datasets/Prostate_Cancer.txt)
 
-
-[notebook Régression](http://masedki.github.io/enseignements/apprentissage/Regression.html)
+[dataset Framingham](http://masedki.github.io/enseignements/datasets/framingham.csv)
