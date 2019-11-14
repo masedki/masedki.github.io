@@ -7,7 +7,10 @@ output:
     css: style.css
 ---
 
-[supports](http://masedki.github.io/enseignements/pdfs/apprentissage.pdf)
+[supports : introduction et méthodes de régularisation](http://masedki.github.io/enseignements/pdfs/apprentissage/apprentissage.pdf)
+
+[supports :  arbres et agrégation de modèles](http://masedki.github.io/enseignements/pdfs/apprentissage/arbres.pdf)
+
 
 [notebook mixture](http://masedki.github.io/enseignements/apprentissage/mixture.html)
 
@@ -20,6 +23,10 @@ output:
 
 [dataset mixture.txt](http://masedki.github.io/enseignements/datasets/mixture.txt)
 
+
 [dataset Prostate_Cancer.txt](http://masedki.github.io/enseignements/datasets/Prostate_Cancer.txt)
 
 [dataset Framingham](http://masedki.github.io/enseignements/datasets/framingham.csv)
+
+[dataset assurance (si besoin)](http://masedki.github.io/enseignements/datasets/insurance.rda)
+
