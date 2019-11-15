@@ -12,6 +12,7 @@ navbar:
           href: enseignements/python.html
         - text: "Apprentissage"
           href: enseignements/apprentissage.html  
+        - text: "---------"  
         - text: "M2R santé publique"
         - text: "Mise à niveau Matrices"
           href: enseignements/MANmatrice.html

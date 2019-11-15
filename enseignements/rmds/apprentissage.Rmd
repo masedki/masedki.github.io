@@ -6,11 +6,13 @@ output:
     highlight: monochrome
     css: style.css
 ---
+### supports
 
 [supports : introduction et méthodes de régularisation](http://masedki.github.io/enseignements/pdfs/apprentissage/apprentissage.pdf)
 
 [supports :  arbres et agrégation de modèles](http://masedki.github.io/enseignements/pdfs/apprentissage/arbres.pdf)
 
+### notebooks python 
 
 [notebook mixture](http://masedki.github.io/enseignements/apprentissage/mixture.html)
 
@@ -18,6 +20,12 @@ output:
 
 [notebook Régression logistique](http://masedki.github.io/enseignements/apprentissage/logistique.html)
 
+
+### scripts
+
+[code R : rpart prostate](http://masedki.github.io/enseignements/rcode/apprentissage/rpart_prostate.R)
+
+[code R : rpart pima](http://masedki.github.io/enseignements/rcode/apprentissage/rpart_pima.R)
 
 ### Jeux de données 
 
