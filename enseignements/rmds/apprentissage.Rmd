@@ -27,6 +27,10 @@ output:
 
 [code R : rpart pima](http://masedki.github.io/enseignements/rcode/apprentissage/rpart_pima.R)
 
+[code R : rf prostate](http://masedki.github.io/enseignements/rcode/apprentissage/rf_reg.R)
+
+[code R : rf pima](http://masedki.github.io/enseignements/rcode/apprentissage/rf_classif.R)
+
 ### Jeux de données 
 
 [dataset mixture.txt](http://masedki.github.io/enseignements/datasets/mixture.txt)
