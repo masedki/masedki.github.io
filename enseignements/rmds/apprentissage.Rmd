@@ -31,6 +31,8 @@ output:
 
 [code R : rf pima](http://masedki.github.io/enseignements/rcode/apprentissage/rf_classif.R)
 
+[caret : modèles disponibles](https://topepo.github.io/caret/available-models.html)
+
 ### Jeux de données 
 
 [dataset mixture.txt](http://masedki.github.io/enseignements/datasets/mixture.txt)
