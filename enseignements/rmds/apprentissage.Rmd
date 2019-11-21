@@ -31,6 +31,15 @@ output:
 
 [code R : rf pima](http://masedki.github.io/enseignements/rcode/apprentissage/rf_classif.R)
 
+[code R : rf prostate](http://masedki.github.io/enseignements/rcode/apprentissage/rf_reg.R)
+
+[code R : rf pima](http://masedki.github.io/enseignements/rcode/apprentissage/rf_classif.R)
+
+[code R : boost prostate](http://masedki.github.io/enseignements/rcode/apprentissage/boost_reg.R)
+
+[code R : boost pima](http://masedki.github.io/enseignements/rcode/apprentissage/boost_classif.R)
+
+
 [caret : modèles disponibles](https://topepo.github.io/caret/available-models.html)
 
 ### Jeux de données 
