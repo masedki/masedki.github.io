@@ -16,9 +16,15 @@ output:
 
 [notebook mixture](http://masedki.github.io/enseignements/apprentissage/mixture.html)
 
-[notebook Régression linéaire](http://masedki.github.io/enseignements/apprentissage/Regression.html)
+[notebook régression linéaire](http://masedki.github.io/enseignements/apprentissage/Regression.html)
 
-[notebook Régression logistique](http://masedki.github.io/enseignements/apprentissage/logistique.html)
+[notebook régression logistique](http://masedki.github.io/enseignements/apprentissage/logistique.html)
+
+[notebook rf régression](http://masedki.github.io/enseignements/apprentissage/rf_reg.html)
+
+[notebook rf classif](http://masedki.github.io/enseignements/apprentissage/rf_classif.html)
+
+[notebook boost classif](http://masedki.github.io/enseignements/apprentissage/boost_classif.html)
 
 
 ### scripts
@@ -46,10 +52,12 @@ output:
 
 [dataset mixture.txt](http://masedki.github.io/enseignements/datasets/mixture.txt)
 
-
 [dataset Prostate_Cancer.txt](http://masedki.github.io/enseignements/datasets/Prostate_Cancer.txt)
 
 [dataset Framingham](http://masedki.github.io/enseignements/datasets/framingham.csv)
 
 [dataset assurance (si besoin)](http://masedki.github.io/enseignements/datasets/insurance.rda)
 
+[dataset Pima_tr](http://masedki.github.io/enseignements/datasets/Pima_tr.csv)
+
+[dataset Pima_te](http://masedki.github.io/enseignements/datasets/Pima_te.csv)
