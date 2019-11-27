@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>rf_classif</title>
+<title>boot_reg</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13081,9 +13081,9 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1"># pour importer le jeu de données</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  <span class="c1"># pour les simple manips de base</span>
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="k">import</span> <span class="n">RandomForestClassifier</span> <span class="c1"># pour faire des RF</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="k">import</span> <span class="n">GradientBoostingRegressor</span> <span class="c1"># pour faire des RF</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">mean_squared_error</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">GridSearchCV</span> <span class="c1"># pour faire de la validation croisée</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">accuracy_score</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># faire une figure ou deux </span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
@@ -13098,220 +13098,15 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pima_tr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/Pima_tr.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="n">decimal</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span><span class="p">)</span>
-<span class="n">pima_te</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/Pima_te.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="n">decimal</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span><span class="p">)</span>
-<span class="n">pima_tr</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[3]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>npreg</th>
-      <th>glu</th>
-      <th>bp</th>
-      <th>skin</th>
-      <th>bmi</th>
-      <th>ped</th>
-      <th>age</th>
-      <th>type</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>5</td>
-      <td>86</td>
-      <td>68</td>
-      <td>28</td>
-      <td>30.2</td>
-      <td>0.364</td>
-      <td>24</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>7</td>
-      <td>195</td>
-      <td>70</td>
-      <td>33</td>
-      <td>25.1</td>
-      <td>0.163</td>
-      <td>55</td>
-      <td>Yes</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>5</td>
-      <td>77</td>
-      <td>82</td>
-      <td>41</td>
-      <td>35.8</td>
-      <td>0.156</td>
-      <td>35</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0</td>
-      <td>165</td>
-      <td>76</td>
-      <td>43</td>
-      <td>47.9</td>
-      <td>0.259</td>
-      <td>26</td>
-      <td>No</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0</td>
-      <td>107</td>
-      <td>60</td>
-      <td>25</td>
-      <td>26.4</td>
-      <td>0.133</td>
-      <td>23</td>
-      <td>No</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Train-test split</span>
-<span class="n">y_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pima_tr</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">])</span>
-<span class="n">y_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pima_te</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">])</span>
-<span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pima_tr</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;type&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">X_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pima_te</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;type&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">forest</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> 
-   <span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-   <span class="n">min_samples_split</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
-   <span class="n">max_features</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">max_leaf_nodes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-   <span class="n">bootstrap</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">oob_score</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="c1"># apprentissage</span>
-<span class="n">rfFit</span> <span class="o">=</span> <span class="n">forest</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="c1">## affichage du taux de mauvais classement </span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">rfFit</span><span class="o">.</span><span class="n">oob_score_</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>0.28500000000000003
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## erreur de prédiction du jeu de données test</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">rfFit</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>0.2319277108433735
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">param</span><span class="o">=</span><span class="p">[{</span><span class="s2">&quot;max_features&quot;</span><span class="p">:</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">))}]</span>
-<span class="n">rf</span><span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">500</span><span class="p">),</span>
-        <span class="n">param</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">rfOpt</span><span class="o">=</span><span class="n">rf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="c1"># paramètre optimal</span>
-<span class="n">rfOpt</span><span class="o">.</span><span class="n">best_params_</span><span class="p">[</span><span class="s1">&#39;max_features&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">prostate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/Prostate_Cancer.txt&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="c1"># binariser gleason </span>
+<span class="n">prostate</span><span class="p">[</span><span class="s1">&#39;gleason&#39;</span><span class="p">][</span><span class="n">prostate</span><span class="p">[</span><span class="s1">&#39;gleason&#39;</span><span class="p">]</span><span class="o">==</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">prostate</span><span class="p">[</span><span class="s1">&#39;gleason&#39;</span><span class="p">][</span><span class="n">prostate</span><span class="p">[</span><span class="s1">&#39;gleason&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="c1"># Train-test split</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">prostate</span><span class="p">[</span><span class="n">prostate</span><span class="o">.</span><span class="n">train</span> <span class="o">==</span> <span class="s2">&quot;T&quot;</span><span class="p">][</span><span class="s1">&#39;lpsa&#39;</span><span class="p">])</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">prostate</span><span class="p">[</span><span class="n">prostate</span><span class="o">.</span><span class="n">train</span> <span class="o">==</span> <span class="s2">&quot;F&quot;</span><span class="p">][</span><span class="s1">&#39;lpsa&#39;</span><span class="p">])</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">prostate</span><span class="p">[</span><span class="n">prostate</span><span class="o">.</span><span class="n">train</span> <span class="o">==</span> <span class="s2">&quot;T&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;lpsa&#39;</span><span class="p">,</span> <span class="s1">&#39;train&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">prostate</span><span class="p">[</span><span class="n">prostate</span><span class="o">.</span><span class="n">train</span> <span class="o">==</span> <span class="s2">&quot;F&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;lpsa&#39;</span><span class="p">,</span> <span class="s1">&#39;train&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -13328,23 +13123,18 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/home/sedki/anaconda3/lib/python3.7/site-packages/sklearn/model_selection/_search.py:813: DeprecationWarning: The default of the `iid` parameter will change from True to False in version 0.22 and will be removed in 0.24. This will change numeric results when test-set sizes are unequal.
-  DeprecationWarning)
+<pre>/home/sedki/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:3: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+  This is separate from the ipykernel package so we can avoid doing imports until
+/home/sedki/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py:4: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+  after removing the cwd from sys.path.
 </pre>
 </div>
-</div>
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[16]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>6</pre>
-</div>
-
 </div>
 
 </div>
@@ -13353,19 +13143,17 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nb_var</span><span class="o">=</span><span class="n">rfOpt</span><span class="o">.</span><span class="n">best_params_</span><span class="p">[</span><span class="s1">&#39;max_features&#39;</span><span class="p">]</span>
-<span class="n">rf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
-   <span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-   <span class="n">min_samples_split</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
-   <span class="n">max_features</span><span class="o">=</span><span class="n">nb_var</span><span class="p">,</span><span class="n">max_leaf_nodes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-   <span class="n">bootstrap</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">oob_score</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="c1"># apprentissage</span>
-<span class="n">rfFit</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
-<span class="c1"># erreur de prévision sur le test</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">rfFit</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Fit classif model</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span> <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;min_samples_split&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+          <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span> <span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="s1">&#39;ls&#39;</span><span class="p">}</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">GradientBoostingRegressor</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span>
+
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RMSE: </span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">rmse</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13382,7 +13170,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>0.24698795180722888
+<pre>RMSE: 0.1670
 </pre>
 </div>
 </div>
@@ -13393,14 +13181,38 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Importance décroissante des variables</span>
-<span class="n">importances</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">feature_importances_</span>
-<span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">importances</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">pima_tr</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">indices</span><span class="p">[</span><span class="n">f</span><span class="p">]],</span> <span class="n">importances</span><span class="p">[</span><span class="n">indices</span><span class="p">[</span><span class="n">f</span><span class="p">]])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">param</span><span class="o">=</span><span class="p">[{</span><span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">250</span><span class="p">,</span><span class="mi">5</span><span class="p">)),</span>
+        <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span>
+        <span class="s1">&#39;min_samples_split&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span>
+        <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">([</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">])}]</span>
+
+<span class="n">gboost</span><span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">GradientBoostingRegressor</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">&quot;ls&quot;</span><span class="p">),</span>
+                     <span class="n">param</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">gboostOptim</span><span class="o">=</span><span class="n">gboost</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">gboostOptim</span><span class="o">.</span><span class="n">best_params_</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Fit best model</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;min_samples_split&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+          <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="s1">&#39;ls&#39;</span><span class="p">}</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">GradientBoostingRegressor</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span>
+
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RMSE: </span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">rmse</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13417,56 +13229,9 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>glu 0.2972967767648795
-ped 0.17031903873281914
-age 0.15138171180978932
-bmi 0.1434182701547072
-skin 0.08539659943365831
-bp 0.07832789116491452
-npreg 0.07385971193923198
+<pre>RMSE: 0.2420
 </pre>
 </div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Graphe des importances</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Importances des variables&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">importances</span><span class="p">[</span><span class="n">indices</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">indices</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-"
->
-</div>
-
 </div>
 
 </div>

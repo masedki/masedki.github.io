@@ -12,6 +12,9 @@ output:
 
 [supports :  arbres et agrégation de modèles](http://masedki.github.io/enseignements/pdfs/apprentissage/arbres.pdf)
 
+[supports :  svm](http://masedki.github.io/enseignements/pdfs/apprentissage/svm.pdf)
+
+
 ### notebooks python 
 
 [notebook mixture](http://masedki.github.io/enseignements/apprentissage/mixture.html)
@@ -24,10 +27,12 @@ output:
 
 [notebook rf classif](http://masedki.github.io/enseignements/apprentissage/rf_classif.html)
 
+[notebook boost régression](http://masedki.github.io/enseignements/apprentissage/boost_reg.html)
+
 [notebook boost classif](http://masedki.github.io/enseignements/apprentissage/boost_classif.html)
 
 
-### scripts
+### scripts R
 
 [code R : rpart prostate](http://masedki.github.io/enseignements/rcode/apprentissage/rpart_prostate.R)
 
@@ -44,6 +49,10 @@ output:
 [code R : boost prostate](http://masedki.github.io/enseignements/rcode/apprentissage/boost_reg.R)
 
 [code R : boost pima](http://masedki.github.io/enseignements/rcode/apprentissage/boost_classif.R)
+
+[code R : svr prostate](http://masedki.github.io/enseignements/rcode/apprentissage/svr_reg.R)
+
+[code R : svm pima](http://masedki.github.io/enseignements/rcode/apprentissage/svm_classif.R)
 
 
 [caret : modèles disponibles](https://topepo.github.io/caret/available-models.html)
