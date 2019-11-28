@@ -19,7 +19,7 @@ output:
 [supports :  Apprentissage non-supervisé](http://masedki.github.io/enseignements/pdfs/apprentissage/unsupervised.pdf)
 
 
-### notebooks python 
+### notebooks python et R 
 
 [notebook mixture](http://masedki.github.io/enseignements/apprentissage/mixture.html)
 
@@ -34,6 +34,10 @@ output:
 [notebook boost régression](http://masedki.github.io/enseignements/apprentissage/boost_reg.html)
 
 [notebook boost classif](http://masedki.github.io/enseignements/apprentissage/boost_classif.html)
+
+[notebook kmeans et CAH](http://masedki.github.io/enseignements/apprentissage/clustering.html)
+
+[notebook Génétique des populations](http://masedki.github.io/enseignements/apprentissage/GenPopTP.html)
 
 
 ### scripts R
@@ -74,3 +78,7 @@ output:
 [dataset Pima_tr](http://masedki.github.io/enseignements/datasets/Pima_tr.csv)
 
 [dataset Pima_te](http://masedki.github.io/enseignements/datasets/Pima_te.csv)
+
+[dataset NCI60](http://masedki.github.io/enseignements/datasets/nci_data.csv)
+
+[labels NCI60](http://masedki.github.io/enseignements/datasets/nci_label.txt)
