@@ -14,6 +14,10 @@ output:
 
 [supports :  svm](http://masedki.github.io/enseignements/pdfs/apprentissage/svm.pdf)
 
+[supports :  lda, qda et Bayes naïf](http://masedki.github.io/enseignements/pdfs/apprentissage/lda_qda_bayes.pdf)
+
+[supports :  Apprentissage non-supervisé](http://masedki.github.io/enseignements/pdfs/apprentissage/unsupervised.pdf)
+
 
 ### notebooks python 
 
