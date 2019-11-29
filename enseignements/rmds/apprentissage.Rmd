@@ -62,6 +62,8 @@ output:
 
 [code R : svm pima](http://masedki.github.io/enseignements/rcode/apprentissage/svm_classif.R)
 
+[code R : clustering spectral sur spirals ](http://masedki.github.io/enseignements/rcode/apprentissage/spirals.R)
+
 
 [caret : modèles disponibles](https://topepo.github.io/caret/available-models.html)
 
