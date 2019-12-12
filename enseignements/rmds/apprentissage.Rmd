@@ -18,6 +18,10 @@ output:
 
 [supports :  Apprentissage non-supervisé](http://masedki.github.io/enseignements/pdfs/apprentissage/unsupervised.pdf)
 
+[supports :  réseaux de neurones](http://masedki.github.io/enseignements/pdfs/apprentissage/nn.pdf)
+
+[TP :  classification d'images mnist](http://masedki.github.io/enseignements/pdfs/apprentissage/m2sds_mnist.pdf)
+
 
 ### notebooks python et R 
 
