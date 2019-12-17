@@ -11,6 +11,7 @@ output:
 
 [Problème](http://masedki.github.io/enseignements/ds_pb.html) 
 
+[Correction du problème](http://masedki.github.io/enseignements/pdfs/corr_pb_ds.pdf) 
 <!-- [article 1985](http://masedki.github.io/enseignements/pdfs/article1985.pdf) [article 1986](http://masedki.github.io/enseignements/pdfs/article1986.pdf) [article 1989](http://masedki.github.io/enseignements/pdfs/article1989.pdf) [article 1995](http://masedki.github.io/enseignements/pdfs/article1995.pdf) -->
 
 <!-- [Quelques indications pour amorcer la partie A du devoir](http://masedki.github.io/enseignements/pdfs/indications.pdf) -->
