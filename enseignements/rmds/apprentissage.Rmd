@@ -22,6 +22,7 @@ output:
 
 [TP :  classification d'images mnist](http://masedki.github.io/enseignements/pdfs/apprentissage/m2sds_mnist.pdf)
 
+[Projet : apprentissage par transfert](http://masedki.github.io/enseignements/apprentissage/Projet1920.html)
 
 ### notebooks python et R 
 
