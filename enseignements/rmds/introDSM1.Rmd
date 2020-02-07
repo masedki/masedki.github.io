@@ -40,8 +40,7 @@ mis à jour par les deux autres auteurs.
 
 # Introduction : régression, classification et phénomène de sur-apprentissage
 
-- **Séance du vendredi 07/02/2020:** traiter les exemples qu'on corrigera lors de la séance de cours. [Codes R](http://masedki.github.io/enseignements/rcode/code_intro.R) issu de la première séance. Les détails de chaque instruction sont données en commentaires
-précédés par un #. 
+- **Séance du vendredi 07/02/2020:** traiter les exemples qu'on corrigera lors de la séance de cours. [Codes R](http://masedki.github.io/enseignements/rcode/code_intro.R) à traiter. Les détails de chaque instruction sont données en commentaires précédés par un #. 
 
 Lecture conseillée : Le chapitre 5 du [livre](http://masedki.github.io/enseignements/pdfs/ISLR.pdf)  *An Introduction to Statistical Learning* est indispensable et s'applique à chaque partie
  (méthode d'apprentissage) de ce cours. 
