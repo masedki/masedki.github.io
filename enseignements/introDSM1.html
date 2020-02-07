@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -67,7 +67,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -129,6 +128,7 @@ summary {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -140,18 +140,6 @@ summary {
   display: none;
 }
 </style>
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
 
 <!-- code folding -->
 
@@ -180,65 +168,44 @@ $(document).ready(function () {
 <div id="logiciel-r-notes-de-cours-et-livre" class="section level1">
 <h1>Logiciel R, notes de cours et livre</h1>
 <ul>
-<li><p>Pour une prise en main en R, je vous conseille vivement de travailler l’ensemble des exemples et exercices traités dans le <a href="http://masedki.github.io/enseignements/pdfs/Introduction_to_R.pdf">support</a>, initialement rédigé par Jean-Michel Marin et mis à jour par les deux autres auteurs.</p></li>
-<li><p>Pour ceux qui ont besoin d’indications ponctuelles, vous pouvez consulter <a href="http://masedki.github.io/enseignements/pdfs/RCarte_Commandes-R.pdf">l’aide mémoire</a> de Julien Chiquet.</p></li>
+<li><p>Pour une prise en main du logiciel R, je vous conseille vivement de travailler l’ensemble des exemples et exercices traités dans le <a href="http://masedki.github.io/enseignements/pdfs/Introduction_to_R.pdf">support</a>, initialement rédigé par Jean-Michel Marin et mis à jour par les deux autres auteurs.</p></li>
+<li><p>Pour ceux qui ont besoin d’indications, vous pouvez consulter <a href="http://masedki.github.io/enseignements/pdfs/RCarte_Commandes-R.pdf">l’aide mémoire</a> de Julien Chiquet.</p></li>
 <li><p>Pour gagner en autonomie en programmation, la plateforme <a href="https://stackoverflow.com/">stackoverflow</a> est indispensable<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p></li>
-<li><p><a href="http://masedki.github.io/enseignements/pdfs/notes.pdf">Support</a> (évolutif) à lire.</p></li>
+<li><p><a href="http://masedki.github.io/enseignements/pdfs/notes.pdf">Support de cours</a> (évolutif) à lire.</p></li>
 <li><p>La troisième partie des <a href="http://masedki.github.io/enseignements/pdfs/arbres.pdf">slides</a> servent de supports des séances de cours sur les arbres de décision.</p></li>
 <li><p>Le <a href="http://masedki.github.io/enseignements/pdfs/ISLR.pdf">livre</a> <em>An Introduction to Statistical Learning</em> est indispensable pour ceux qui suivent le cours à distance.</p></li>
 </ul>
 </div>
-<div id="introduction-regression-classification-et-phenomene-de-sur-apprentissage" class="section level1">
+<div id="introduction-régression-classification-et-phénomène-de-sur-apprentissage" class="section level1">
 <h1>Introduction : régression, classification et phénomène de sur-apprentissage</h1>
 <ul>
-<li><strong>Séance du vendredi 15/02/2019:</strong> traiter les exemples qu’on corrigera lors de la séance de cours. <a href="http://masedki.github.io/enseignements/rcode/code_intro.R">Codes R</a> issu de la première séance. Les détails de chaque instruction sont données en commentaires précédés par un #.</li>
+<li><strong>Séance du vendredi 07/02/2020:</strong> traiter les exemples qu’on corrigera lors de la séance de cours. <a href="http://masedki.github.io/enseignements/rcode/code_intro.R">Codes R</a> issu de la première séance. Les détails de chaque instruction sont données en commentaires précédés par un #.</li>
 </ul>
 <p>Lecture conseillée : Le chapitre 5 du <a href="http://masedki.github.io/enseignements/pdfs/ISLR.pdf">livre</a> <em>An Introduction to Statistical Learning</em> est indispensable et s’applique à chaque partie (méthode d’apprentissage) de ce cours.</p>
-</div>
-<div id="regression-moindres-carres-pour-lestimation-des-parametres-et-choix-de-modeles" class="section level1">
-<h1>Régression : moindres carrés pour l’estimation des paramètres et choix de modèles</h1>
-<ul>
-<li><strong>Séance du vendredi 08/03/2019:</strong> lire la partie régression des <a href="http://masedki.github.io/enseignements/pdfs/notes.pdf">notes</a> et traiter la partie 4.2 qu’on corrigera en cours. Attention la partie régression de ces notes ne peut constituer un cours de modèle linéaire classique. <a href="http://masedki.github.io/enseignements/rcode/code_reg_ridge_lasso_enet.R">Code R</a> : détails des exemples traités.</li>
-</ul>
-<p>Lecture conseillée : Les parties 3.1 et 3.2 du <a href="http://masedki.github.io/enseignements/pdfs/ISLR.pdf">livre</a> <em>An Introduction to Statistical Learning</em> sont indispensables pour l’assimilation des fondements des modèles linéaires et en particulier la partie inférence statistique.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
-</div>
-<div id="methodes-de-regularisation-ridge-lasso-et-elasticnet" class="section level1">
-<h1>Méthodes de régularisation : ridge, lasso et elasticnet</h1>
-<ul>
-<li><strong>Séance du vendredi 15/03/2019:</strong> lire les parties régularisation ridge, lasso et elasticnet. Traiter les exemples autour du jeu de données du cancer de la prostate. <a href="http://masedki.github.io/enseignements/rcode/code_reg_ridge_lasso_enet.R">Code R</a>: ridge, lasso et elasticnet sur le jeu de données Prostate.</li>
-</ul>
-<p>Lecture fortement conseillée : chapitre 6. du livre <em>An Introduction to Statistical Learning</em>.</p>
-<ul>
-<li><strong>Séance du vendredi 12/04/2019:</strong> Méthodes de régularisation en régression logistique. Traiter l’exemple <em>Sélection de variables en régression logistique : jeu de données Breast Cancer</em> page 33.</li>
-</ul>
-<p><a href="http://masedki.github.io/enseignements/rcode/code_logit_enet.R">Code R 1</a>: Code pour la régression logistique et régression logistique avec régularisation elasticnet.</p>
+<!-- # Régression : moindres carrés pour l'estimation des paramètres et choix de modèles -->
+<!-- - **Séance du vendredi 08/03/2019:** lire la partie régression des [notes](http://masedki.github.io/enseignements/pdfs/notes.pdf) et traiter la partie 4.2 qu'on corrigera en cours. Attention la partie régression de ces notes ne peut constituer un cours de modèle linéaire classique. [Code R](http://masedki.github.io/enseignements/rcode/code_reg_ridge_lasso_enet.R) : détails des exemples traités. -->
+<!-- Lecture conseillée : Les parties 3.1 et 3.2 du [livre](http://masedki.github.io/enseignements/pdfs/ISLR.pdf)   *An Introduction to Statistical Learning* sont indispensables pour l'assimilation des fondements des modèles linéaires et en particulier la partie inférence statistique.^[Pour l'inférence statistique, penser aux tests et intervalles de confiance pour les paramètres de régression.] -->
+<!-- # Méthodes de régularisation : ridge, lasso et elasticnet -->
+<!-- - **Séance du vendredi 15/03/2019:** lire les parties régularisation ridge, lasso et -->
+<!-- elasticnet. Traiter les exemples autour du jeu de données du cancer de la prostate. [Code R](http://masedki.github.io/enseignements/rcode/code_reg_ridge_lasso_enet.R): ridge, lasso et elasticnet sur le jeu de données Prostate. -->
+<!-- Lecture fortement conseillée : chapitre 6. du livre *An Introduction to Statistical Learning*. -->
+<!-- - **Séance du vendredi 12/04/2019:**  Méthodes de régularisation en régression logistique.  Traiter l'exemple  *Sélection de variables en régression logistique : jeu de données Breast Cancer* page 33.  -->
+<!-- [Code R 1](http://masedki.github.io/enseignements/rcode/code_logit_enet.R): Code pour la régression logistique et régression logistique avec régularisation elasticnet.  -->
 <!-- [Code R 2](http://masedki.github.io/enseignements/rcode/classif_image_logit_enet.R): Code pour la régression logistique avec régularisation elasticnet pour la classifiction d'images. (attention le code est très lent donc je vais déposer les résultats rapidement après calcul sur un serveur).  -->
-</div>
-<div id="arbres-de-decision-regression" class="section level1">
-<h1>Arbres de décision : régression</h1>
-<ul>
-<li><strong>Séance du vendredi 19/04/2019:</strong> Arbres de décision unique : supports de cours disponibles <a href="http://masedki.github.io/enseignements/pdfs/arbres.pdf">ici</a>.</li>
-</ul>
-<p><a href="http://masedki.github.io/enseignements/rcode/rpart_insurance.R">Code R</a>: Code pour la régression par arbre de décision avant et après élagage et comparaison avec le régression avec régularisation elasticnet. Attention : présence de données catégorielles donc traitement particulier pour l’elasticnet (voir lignes 40 et 41 du code).</p>
-<p>Lecture conseillée : Lecture de la partie 8.1 et Lab de la partie 8.3.1 du livre <em>An Introduction to Statistical Learning</em>.</p>
-</div>
-<div id="arbres-de-decision-classification" class="section level1">
-<h1>Arbres de décision : classification</h1>
-<ul>
-<li><strong>Séance du vendredi 10/05/2019:</strong> classification par arbre de décision. Supports de cours disponibles <a href="http://masedki.github.io/enseignements/pdfs/arbres.pdf">ici</a>.</li>
-</ul>
-<p><a href="http://masedki.github.io/enseignements/rcode/rpart_pima.R">Code R</a>: Code pour la classification par arbre de décision avant et après élagage et comparaison avec le régression logistique avec régularisation elasticnet.</p>
-<p>Lecture conseillée : Lecture de la partie 8.1 et Lab de la partie 8.3.2 du livre <em>An Introduction to Statistical Learning</em>.</p>
-</div>
-<div id="projet-utilisation-de-la-librairie-caret-sixieme-partie-des-notes" class="section level1">
-<h1>Projet : Utilisation de la librairie caret (sixième partie des notes)</h1>
-<p>À rendre au plus tard le dimanche 2 juin à 23h par mail avec un fichier .R ou .rmd contenant le code et les réponses en commentaire. Mettre les affichages de vos résultats en commentaire dans votre script. Les affichages des résultats me permettront de comprendre les conclusions et les réponses. <a href="http://masedki.github.io/enseignements/cc_correction.html">corrigé</a></p>
-</div>
-<div id="examen-corrige-du-12-juin-2019" class="section level1">
-<h1><a href="http://masedki.github.io/enseignements/pdfs/cs19.pdf">Examen + corrigé</a> du 12 juin 2019</h1>
-</div>
-<div id="projet-pour-la-seconde-session-a-rendre-au-plus-tard-le-03092019-a-23h." class="section level1">
-<h1><a href="http://masedki.github.io/enseignements/pdfs/cc2.pdf">Projet pour la seconde session</a> à rendre au plus tard le 03/09/2019 à 23h.</h1>
+<!-- # Arbres de décision : régression  -->
+<!-- - **Séance du vendredi 19/04/2019:**  Arbres de décision unique : supports de cours disponibles [ici](http://masedki.github.io/enseignements/pdfs/arbres.pdf).  -->
+<!-- [Code R](http://masedki.github.io/enseignements/rcode/rpart_insurance.R): Code pour la régression par arbre de décision avant et après élagage et comparaison avec le régression avec régularisation elasticnet. Attention : présence de données catégorielles donc traitement particulier pour l'elasticnet (voir lignes 40 et 41 du code).  -->
+<!-- Lecture conseillée : Lecture de la partie 8.1 et Lab de la partie 8.3.1 du livre *An Introduction to Statistical Learning*. -->
+<!-- # Arbres de décision : classification  -->
+<!-- - **Séance du vendredi 10/05/2019:** classification par arbre de décision. Supports de cours disponibles [ici](http://masedki.github.io/enseignements/pdfs/arbres.pdf). -->
+<!-- [Code R](http://masedki.github.io/enseignements/rcode/rpart_pima.R): Code pour la classification par arbre de décision avant et après élagage et comparaison avec le régression logistique avec régularisation elasticnet. -->
+<!-- Lecture conseillée : Lecture de la partie 8.1 et  Lab de la partie 8.3.2 du livre *An Introduction to Statistical Learning*. -->
+<!-- # Projet  : Utilisation de la librairie caret (sixième partie des notes)   -->
+<!-- À rendre au plus tard le dimanche 2 juin à 23h par mail avec un fichier .R ou .rmd contenant le code et les réponses en commentaire. Mettre les affichages de vos résultats en commentaire -->
+<!-- dans votre script. Les affichages des résultats me permettront de comprendre les conclusions et les réponses. -->
+<!-- [corrigé](http://masedki.github.io/enseignements/cc_correction.html) -->
+<!-- # [Examen  + corrigé](http://masedki.github.io/enseignements/pdfs/cs19.pdf) du 12 juin 2019 -->
+<!-- # [Projet pour la seconde session](http://masedki.github.io/enseignements/pdfs/cc2.pdf) à rendre au plus tard le 03/09/2019 à 23h.  -->
 <!-- [Jeu de données mnist aplati !](http://masedki.github.io/enseignements/datasets/mnist_flatten.rda) -->
 <!-- [Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda) -->
 <!-- [Jeu de données crédit](http://masedki.github.io/enseignements/datasets/credit.rda) -->
@@ -249,7 +216,6 @@ $(document).ready(function () {
 <hr />
 <ol>
 <li id="fn1"><p>Personnellement je consulte énormément cette plateforme où je trouve des réponses à mes questions.<a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p>Pour l’inférence statistique, penser aux tests et intervalles de confiance pour les paramètres de régression.<a href="#fnref2">↩</a></p></li>
 </ol>
 </div>
 
@@ -270,6 +236,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
