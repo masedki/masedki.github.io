@@ -101,6 +101,8 @@ Lecture fortement conseillée : chapitre 6. du livre *An Introduction to Statist
 
 <!-- # [Projet pour la seconde session](http://masedki.github.io/enseignements/pdfs/cc2.pdf) à rendre au plus tard le 03/09/2019 à 23h.  -->
 
+[Jeu de données : concentration plasmatique en rétinol](https://masedki.github.io/enseignements/datasets/presentationTPretinol.csv)
+
 <!-- [Jeu de données mnist aplati !](http://masedki.github.io/enseignements/datasets/mnist_flatten.rda) -->
 
 <!-- [Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda) -->
