@@ -48,19 +48,18 @@ Lecture conseillée : Le chapitre 5 du [livre](http://masedki.github.io/enseigne
 
 Le package R [ElemStatLearn](http://masedki.github.io/enseignements/rcode/ElemStatLearn_2015.6.26.2.tar.gz)
 
-<!-- # Régression : moindres carrés pour l'estimation des paramètres et choix de modèles -->
+# Régression : moindres carrés pour l'estimation des paramètres et choix de modèles
 
-<!-- - **Séance du vendredi 08/03/2019:** lire la partie régression des [notes](http://masedki.github.io/enseignements/pdfs/notes.pdf) et traiter la partie 4.2 qu'on corrigera en cours. Attention la partie régression de ces notes ne peut constituer un cours de modèle linéaire classique. [Code R](http://masedki.github.io/enseignements/rcode/code_reg_ridge_lasso_enet.R) : détails des exemples traités. -->
+- **Séance du vendredi 14/02/2020:** lire la partie régression des [notes](http://masedki.github.io/enseignements/pdfs/notes.pdf) et traiter la partie 4.2 qu'on corrigera en cours. Attention la partie régression de ces notes ne peut constituer un cours abouti de modèle linéaire. [Code R](http://masedki.github.io/enseignements/rcode/code_reg_ridge_lasso_enet.R) : détails des exemples traités.
 
-<!-- Lecture conseillée : Les parties 3.1 et 3.2 du [livre](http://masedki.github.io/enseignements/pdfs/ISLR.pdf)   *An Introduction to Statistical Learning* sont indispensables pour l'assimilation des fondements des modèles linéaires et en particulier la partie inférence statistique.^[Pour l'inférence statistique, penser aux tests et intervalles de confiance pour les paramètres de régression.] -->
+Lecture conseillée : Les parties 3.1 et 3.2 du [livre](http://masedki.github.io/enseignements/pdfs/ISLR.pdf)   *An Introduction to Statistical Learning* sont indispensables pour l'assimilation des fondements des modèles linéaires et en particulier la partie inférence statistique.^[Pour l'inférence statistique, penser aux tests et intervalles de confiance pour les paramètres de régression.]
 
-<!-- # Méthodes de régularisation : ridge, lasso et elasticnet -->
+# Méthodes de régularisation : ridge, lasso et elasticnet
 
-<!-- - **Séance du vendredi 15/03/2019:** lire les parties régularisation ridge, lasso et -->
-<!-- elasticnet. Traiter les exemples autour du jeu de données du cancer de la prostate. [Code R](http://masedki.github.io/enseignements/rcode/code_reg_ridge_lasso_enet.R): ridge, lasso et elasticnet sur le jeu de données Prostate. -->
+- **Séance du vendredi 14/02/2020:** lire les parties régularisation ridge, lasso et
+elasticnet. Traiter les exemples autour du jeu de données du cancer de la prostate. [Code R](http://masedki.github.io/enseignements/rcode/code_reg_ridge_lasso_enet.R): ridge, lasso et elasticnet sur le jeu de données Prostate.
 
-
-<!-- Lecture fortement conseillée : chapitre 6. du livre *An Introduction to Statistical Learning*. -->
+Lecture fortement conseillée : chapitre 6. du livre *An Introduction to Statistical Learning*.
 
 <!-- - **Séance du vendredi 12/04/2019:**  Méthodes de régularisation en régression logistique.  Traiter l'exemple  *Sélection de variables en régression logistique : jeu de données Breast Cancer* page 33.  -->
 
