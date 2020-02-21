@@ -61,9 +61,9 @@ elasticnet. Traiter les exemples autour du jeu de données du cancer de la prost
 
 Lecture fortement conseillée : chapitre 6. du livre *An Introduction to Statistical Learning*.
 
-<!-- - **Séance du vendredi 12/04/2019:**  Méthodes de régularisation en régression logistique.  Traiter l'exemple  *Sélection de variables en régression logistique : jeu de données Breast Cancer* page 33.  -->
+- **Séance du vendredi 21/02/2020: (si le temps le permet)**   Méthodes de régularisation en régression logistique.  Traiter l'exemple  *Sélection de variables en régression logistique : jeu de données Breast Cancer* page 33.
 
-<!-- [Code R 1](http://masedki.github.io/enseignements/rcode/code_logit_enet.R): Code pour la régression logistique et régression logistique avec régularisation elasticnet.  -->
+[Code R 1](http://masedki.github.io/enseignements/rcode/code_logit_enet.R): Code pour la régression logistique et régression logistique avec régularisation elasticnet.
 
 
 
