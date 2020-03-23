@@ -11,3 +11,4 @@ output:
 
 [Introduction : TP](http://masedki.github.io/enseignements/sta212/tp_intro.pdf)
 
+[Jeu de données : mixture.example](http://masedki.github.io/enseignements/datasets/mixture_example.rda)
