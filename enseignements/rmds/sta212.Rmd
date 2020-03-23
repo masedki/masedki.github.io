@@ -1,0 +1,13 @@
+---
+title: "M1 Paris-Sud-ENSTA : STA212"
+output:
+  html_document:
+    theme: journal
+    highlight: monochrome
+    css: style.css
+---
+
+[Introduction : supports](http://masedki.github.io/enseignements/sta212/intro_slides.pdf)
+
+[Introduction : TP](http://masedki.github.io/enseignements/sta212/tp_intro.pdf)
+

@@ -7,6 +7,9 @@ navbar:
       href: enseignements/enseignements.html
       icon: ion-easel
       menu:
+        - text: "M1 mathématiques appliquées Paris-Sud-ENSTA"
+        - text: "STA212"
+          href: enseignements/sta212.html
         - text: "M2 SDS"
         - text: "Python"
           href: enseignements/python.html
