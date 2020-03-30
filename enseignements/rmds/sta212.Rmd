@@ -9,6 +9,6 @@ output:
 
 [Introduction : supports](http://masedki.github.io/enseignements/sta212/intro_slides.pdf)
 
-[Introduction : TP](http://masedki.github.io/enseignements/sta212/tp_intro.pdf)
+[Introduction : TP](http://masedki.github.io/enseignements/sta212/tp_intro.pdf) [Corrigé](http://masedki.github.io/enseignements/sta212/tp_intro.R)
 
 [Jeu de données : mixture.example](http://masedki.github.io/enseignements/datasets/mixture_example.rda)
