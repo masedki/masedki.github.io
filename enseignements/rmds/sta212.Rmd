@@ -9,6 +9,11 @@ output:
 
 [Introduction : supports](http://masedki.github.io/enseignements/sta212/intro_slides.pdf)
 
-[Introduction : TP](http://masedki.github.io/enseignements/sta212/tp_intro.pdf) [Corrigé](http://masedki.github.io/enseignements/sta212/tp_intro.R)
+[Arbres de décision uniques](http://masedki.github.io/enseignements/pdfs/arbres.pdf)
+
+[Introduction : TP](http://masedki.github.io/enseignements/sta212/tp_intro.pdf) 
+[Corrigé](http://masedki.github.io/enseignements/sta212/tp_intro.R)
 
 [Jeu de données : mixture.example](http://masedki.github.io/enseignements/datasets/mixture_example.rda)
+
+[Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda)
