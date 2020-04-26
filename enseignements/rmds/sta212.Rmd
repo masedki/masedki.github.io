@@ -9,10 +9,14 @@ output:
 
 [Introduction : supports](http://masedki.github.io/enseignements/sta212/intro_slides.pdf)
 
-[Arbres de décision uniques](http://masedki.github.io/enseignements/pdfs/arbres.pdf)
+[Arbres de décision uniques et agrégation de modèles](http://masedki.github.io/enseignements/pdfs/arbres_agregation.pdf)
 
 [Introduction : TP](http://masedki.github.io/enseignements/sta212/tp_intro.pdf) 
 [Corrigé](http://masedki.github.io/enseignements/sta212/tp_intro.R)
+
+[Code : arbres de décision  pour la régression](http://masedki.github.io/enseignements/rcode/rpart_insurance.R)
+
+[Code : arbres de décision  pour la classification et fôrets aléatoires](http://masedki.github.io/enseignements/rcode/rpart_pima.R)
 
 [Jeu de données : mixture.example](http://masedki.github.io/enseignements/datasets/mixture_example.rda)
 

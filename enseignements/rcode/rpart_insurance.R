@@ -3,6 +3,9 @@ rm(list=ls())
 load("insurance.rda")
 require(rpart)
 require(rpart.plot)
+require(caret)
+require(randomForest)
+require(doParallel)
 # lecture du jeu de données
 
 summary(insurance)
@@ -31,6 +34,32 @@ cart.pruned <- prune(cart.0, cp = cart.0$cptable[which.min(cart.0$cptable[,"xerr
 rpart.plot(cart.pruned)
 pred.pruned <- predict(cart.pruned, insurance.te)
 sqrt(mean((insurance.te$charges - pred.pruned)**2))
+
+
+## Random forest 
+cl <- makePSOCKcluster(5)
+registerDoParallel(cl)
+control <- trainControl(method="repeatedcv", number=5, repeats=5)
+rfGrid <-  expand.grid(mtry = 1:7)
+RFmodel <- train(charges~., data=insurance.tr, method="rf", 
+                 trControl=control,
+                 ntree=500, 
+                 tuneGrid = rfGrid,
+                 verbose=FALSE)
+stopCluster(cl)
+plot(RFmodel)
+pred.rf.caret <- predict(RFmodel, insurance.te)
+sqrt(mean((insurance.te$charges - pred.rf.caret)**2))
+
+
+
+
+
+
+
+
+
+
 
 
 ## comparaison avec glmnet
