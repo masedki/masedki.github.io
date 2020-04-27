@@ -18,6 +18,8 @@ output:
 
 [Code : arbres de décision  pour la classification et fôrets aléatoires](http://masedki.github.io/enseignements/rcode/rpart_pima.R)
 
+[Code de la séance du 27/05/2020](http://masedki.github.io/enseignements/rcode/xgboost.R)
+
 [Jeu de données : mixture.example](http://masedki.github.io/enseignements/datasets/mixture_example.rda)
 
 [Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda)
