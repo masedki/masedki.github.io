@@ -21,6 +21,7 @@ output:
 [Code de la séance du 27/04/2020](http://masedki.github.io/enseignements/rcode/xgboost.R)
 
 [TP : classification d'images](http://masedki.github.io/enseignements/sta212/mnist.pdf)
+[Corrigé : séance du 04/05/2020](http://masedki.github.io/enseignements/rcode/tp_mnist.R)
 
 [supports :  réseaux de neurones](http://masedki.github.io/enseignements/pdfs/apprentissage/nn.pdf)
 
