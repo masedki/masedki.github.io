@@ -1641,7 +1641,7 @@ summary {
 
 <div id="jeu-de-données" class="section level3">
 <h3>1. Jeu de données</h3>
-<p>Dans ce projet, nous allons faire appel au jeu de données de maladies cardiovasculaires disponible sur le <a href="https://archive.ics.uci.edu/ml/datasets/heart+Disease">site</a>. Il est fortement recommandé de visiter le site et de parcourir le descriptif du jeu de données. Comme vous pouvez le constater, le dossier de données contient différents fichiers. Nous utilisons pour ce projet le fichier <strong>processed.cleveland.data</strong>. Commençons par le lecture du jeu de données comme suit</p>
+<p>Dans ce projet, nous allons faire appel au jeu de données de maladies cardiovasculaires disponible sur le <a href="https://archive.ics.uci.edu/ml/datasets/heart+Disease">site</a>. Il est fortement recommandé de visiter le site et de parcourir le descriptif du jeu de données. Comme vous pouvez le constater, le dossier de données contient différents fichiers. Pour ce projet, nous allons utiliser le fichier <strong>processed.cleveland.data</strong>. Commençons par la lecture du jeu de données comme suit</p>
 <pre class="r"><code>cardio &lt;- read.csv(&quot;processed.cleveland.data&quot;, header = FALSE, na.strings = &#39;?&#39;)
 names(cardio) &lt;- c( &quot;age&quot;, &quot;sex&quot;, &quot;cp&quot;, &quot;trestbps&quot;, &quot;chol&quot;,
                     &quot;fbs&quot;, &quot;restecg&quot;, &quot;thalach&quot;,&quot;exang&quot;, 
