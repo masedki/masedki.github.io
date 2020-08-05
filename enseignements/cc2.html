@@ -1646,8 +1646,8 @@ summary {
 names(cardio) &lt;- c( &quot;age&quot;, &quot;sex&quot;, &quot;cp&quot;, &quot;trestbps&quot;, &quot;chol&quot;,
                     &quot;fbs&quot;, &quot;restecg&quot;, &quot;thalach&quot;,&quot;exang&quot;, 
                     &quot;oldpeak&quot;,&quot;slope&quot;, &quot;ca&quot;, &quot;thal&quot;, &quot;status&quot;)</code></pre>
-<p>Nous souhaitons ajuster un modèle d’arbre de décision pour prédire les valeurs sous le statut de variable réponse présente à la <span class="math inline">\(14\)</span>ième colonne du jeu de données, le <strong>statut de maladie angiographique</strong> qui identifie ou classe chaque patient comme “ayant une maladie cardiaque” ou &quot;n’ayant pas de maladie cardiaque. Intuitivement, nous nous attendons à ce que certaines (ou toutes) les autres <span class="math inline">\(13\)</span> variables nous aident à prédire la variable réponse.</p>
-<p>Commençons par nous familiariser avec les données. Pour cela:</p>
+<p>Nous souhaitons ajuster un modèle d’arbre de décision pour prédire les valeurs de la variable de la variable réponse <strong>status</strong> présente à la <span class="math inline">\(14\)</span>ième colonne du jeu de données, le <strong>statut de maladie angiographique</strong> qui identifie ou classe chaque patient comme <em>atteint d’une maladie cardiovasculaire</em> ou <em>absence d’une maladie cardiovasculaire</em>. Intuitivement, nous nous attendons à ce que les autres <span class="math inline">\(13\)</span> variables nous aident à prédire la variable réponse.</p>
+<p>Commençons par nous familiariser avec le jeu de données. Pour cela:</p>
 <ol style="list-style-type: decimal">
 <li><p>Appliquer la fonction <strong>str</strong> au data frame <strong>cardio</strong>. Les formats des variables du jeu de données sont-ils satisfaisants ? (1 point)</p></li>
 <li><p>À l’aide de la fonction <strong>factor</strong>, transformer les variables qualitatives du jeu de données. Vérifier que les variables sont aux bons formats. (2 points)</p></li>
