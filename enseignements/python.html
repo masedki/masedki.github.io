@@ -200,6 +200,22 @@ window.buildTabsets = function(tocID) {
 };
 
 </script>
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
 
 
 
@@ -353,7 +369,8 @@ summary {
 </div>
 
 
-<p><a href="http://masedki.github.io/enseignements/python/introduction.html">introduction</a></p>
+<p><a href="http://masedki.github.io/enseignements/python/Nb1-IntroPython.html">introduction</a></p>
+<p><a href="http://masedki.github.io/enseignements/python/Nb1-PythonPandas.html">trafic de données avec pandas</a></p>
 <p><a href="http://masedki.github.io/enseignements/python/typesdonnees.html">types de données de base</a></p>
 <p><a href="http://masedki.github.io/enseignements/python/arraymatrix.html">tableaux et matrices</a></p>
 <p><a href="http://masedki.github.io/enseignements/python/basicmath.html">module math de base</a></p>
@@ -362,14 +379,15 @@ summary {
 <p><a href="http://masedki.github.io/enseignements/python/graphics.html">Graphiques</a></p>
 <p><a href="http://masedki.github.io/enseignements/python/probasstats.html">Probabilités et statistiques</a></p>
 <p><a href="http://masedki.github.io/enseignements/python/bootstrap.html">TP d’introduction à bootstrap</a></p>
-<p><a href="http://masedki.github.io/enseignements/python/examen1920.html">Projet</a></p>
-<div id="instruction-pour-lancer-jupyter-notebook-sur-un-environnement-virtuel" class="section level3">
-<h3>Instruction pour lancer jupyter notebook sur un environnement virtuel</h3>
+<!-- [Projet](http://masedki.github.io/enseignements/python/examen1920.html) -->
+<div id="instruction-pour-lancer-jupyter-notebook-sur-un-environnement-virtuel-en-ligne-de-commande" class="section level3">
+<h3>Instruction pour lancer jupyter notebook sur un environnement virtuel en ligne de commande</h3>
 <p><code>python -m ipykernel install --user --name=myenv</code></p>
 </div>
 <div id="jeux-de-données" class="section level3">
 <h3>Jeux de données</h3>
 <p><a href="http://masedki.github.io/enseignements/datasets/coronary.csv">Jeu de données coronary</a></p>
+<p><a href="http://masedki.github.io/enseignements/datasets/titanic-train.csv">Jeu de données Titanic</a></p>
 </div>
 
 
