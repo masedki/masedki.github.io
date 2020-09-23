@@ -7,7 +7,10 @@ output:
     css: style.css
 ---
 
-[introduction](http://masedki.github.io/enseignements/python/introduction.html)
+[introduction](http://masedki.github.io/enseignements/python/Nb1-IntroPython.html)
+
+[trafic de données avec pandas](http://masedki.github.io/enseignements/python/Nb1-PythonPandas.html)
+
 
 [types de données de base](http://masedki.github.io/enseignements/python/typesdonnees.html)
 
@@ -25,10 +28,10 @@ output:
 
 [TP d'introduction à bootstrap](http://masedki.github.io/enseignements/python/bootstrap.html)
 
-[Projet](http://masedki.github.io/enseignements/python/examen1920.html)
+<!-- [Projet](http://masedki.github.io/enseignements/python/examen1920.html) -->
 
 
-### Instruction pour lancer jupyter notebook sur un environnement virtuel 
+### Instruction pour lancer jupyter notebook sur un environnement virtuel en ligne de commande
 
 
 `python -m ipykernel install --user --name=myenv`
@@ -36,3 +39,5 @@ output:
 ### Jeux de données 
 
 [Jeu de données coronary](http://masedki.github.io/enseignements/datasets/coronary.csv)
+
+[Jeu de données Titanic](http://masedki.github.io/enseignements/datasets/titanic-train.csv)
