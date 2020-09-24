@@ -200,6 +200,22 @@ window.buildTabsets = function(tocID) {
 };
 
 </script>
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
 
 
 
@@ -353,16 +369,18 @@ summary {
 </div>
 
 
-<p><a href="http://masedki.github.io/enseignements/sta212/intro_slides.pdf">Introduction : supports</a></p>
-<p><a href="http://masedki.github.io/enseignements/pdfs/arbres_agregation.pdf">Arbres de décision uniques et agrégation de modèles</a></p>
-<p><a href="http://masedki.github.io/enseignements/sta212/tp_intro.pdf">Introduction : TP</a> <a href="http://masedki.github.io/enseignements/sta212/tp_intro.R">Corrigé</a></p>
-<p><a href="http://masedki.github.io/enseignements/rcode/rpart_insurance.R">Code : arbres de décision pour la régression</a></p>
-<p><a href="http://masedki.github.io/enseignements/rcode/rpart_pima.R">Code : arbres de décision pour la classification et fôrets aléatoires</a></p>
-<p><a href="http://masedki.github.io/enseignements/rcode/xgboost.R">Code de la séance du 27/04/2020</a></p>
-<p><a href="http://masedki.github.io/enseignements/sta212/mnist.pdf">TP : classification d’images</a> <a href="http://masedki.github.io/enseignements/rcode/tp_mnist.R">Corrigé : séance du 04/05/2020</a></p>
-<p><a href="http://masedki.github.io/enseignements/pdfs/apprentissage/nn.pdf">supports : réseaux de neurones</a></p>
-<p><a href="http://masedki.github.io/enseignements/datasets/mixture_example.rda">Jeu de données : mixture.example</a></p>
-<p><a href="http://masedki.github.io/enseignements/datasets/insurance.rda">Jeu de données coûts de soins</a></p>
+<!-- [Introduction : supports](http://masedki.github.io/enseignements/sta212/intro_slides.pdf) -->
+<!-- [Arbres de décision uniques et agrégation de modèles](http://masedki.github.io/enseignements/pdfs/arbres_agregation.pdf) -->
+<!-- [Introduction : TP](http://masedki.github.io/enseignements/sta212/tp_intro.pdf)  -->
+<!-- [Corrigé](http://masedki.github.io/enseignements/sta212/tp_intro.R) -->
+<!-- [Code : arbres de décision  pour la régression](http://masedki.github.io/enseignements/rcode/rpart_insurance.R) -->
+<!-- [Code : arbres de décision  pour la classification et fôrets aléatoires](http://masedki.github.io/enseignements/rcode/rpart_pima.R) -->
+<!-- [Code de la séance du 27/04/2020](http://masedki.github.io/enseignements/rcode/xgboost.R) -->
+<!-- [TP : classification d'images](http://masedki.github.io/enseignements/sta212/mnist.pdf) -->
+<!-- [Corrigé : séance du 04/05/2020](http://masedki.github.io/enseignements/rcode/tp_mnist.R) -->
+<!-- [supports :  réseaux de neurones](http://masedki.github.io/enseignements/pdfs/apprentissage/nn.pdf) -->
+<!-- [Jeu de données : mixture.example](http://masedki.github.io/enseignements/datasets/mixture_example.rda) -->
+<!-- [Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda) -->
 
 
 

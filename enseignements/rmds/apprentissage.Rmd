@@ -8,86 +8,91 @@ output:
 ---
 ### supports
 
-[supports : introduction et méthodes de régularisation](http://masedki.github.io/enseignements/pdfs/apprentissage/apprentissage.pdf)
-
-[supports :  arbres et agrégation de modèles](http://masedki.github.io/enseignements/pdfs/apprentissage/arbres.pdf)
-
-[supports :  svm](http://masedki.github.io/enseignements/pdfs/apprentissage/svm.pdf)
-
-[supports :  lda, qda et Bayes naïf](http://masedki.github.io/enseignements/pdfs/apprentissage/lda_qda_bayes.pdf)
-
-[supports :  Apprentissage non-supervisé](http://masedki.github.io/enseignements/pdfs/apprentissage/unsupervised.pdf)
-
-[supports :  réseaux de neurones](http://masedki.github.io/enseignements/pdfs/apprentissage/nn.pdf)
-
-[TP :  classification d'images mnist](http://masedki.github.io/enseignements/pdfs/apprentissage/m2sds_mnist.pdf)
-
-[Projet : apprentissage par transfert](http://masedki.github.io/enseignements/apprentissage/Projet1920.html)
-
-### notebooks python et R 
-
-[notebook mixture](http://masedki.github.io/enseignements/apprentissage/mixture.html)
-
-[notebook régression linéaire](http://masedki.github.io/enseignements/apprentissage/Regression.html)
-
-[notebook régression logistique](http://masedki.github.io/enseignements/apprentissage/logistique.html)
-
-[notebook rf régression](http://masedki.github.io/enseignements/apprentissage/rf_reg.html)
-
-[notebook rf classif](http://masedki.github.io/enseignements/apprentissage/rf_classif.html)
-
-[notebook boost régression](http://masedki.github.io/enseignements/apprentissage/boost_reg.html)
-
-[notebook boost classif](http://masedki.github.io/enseignements/apprentissage/boost_classif.html)
-
-[notebook kmeans et CAH](http://masedki.github.io/enseignements/apprentissage/clustering.html)
-
-[notebook Génétique des populations](http://masedki.github.io/enseignements/apprentissage/GenPopTP.html)
+[supports](http://masedki.github.io/enseignements/pdfs/apprentissage/apprentissage.pdf)
 
 
-### scripts R
+### notebooks, TP et projets 
+[Introduction : TP](http://masedki.github.io/enseignements/pdfs/apprentissage/tp_intro.pdf)
+<!-- [supports :  arbres et agrégation de modèles](http://masedki.github.io/enseignements/pdfs/apprentissage/arbres.pdf) -->
 
-[code R : rpart prostate](http://masedki.github.io/enseignements/rcode/apprentissage/rpart_prostate.R)
+<!-- [supports :  svm](http://masedki.github.io/enseignements/pdfs/apprentissage/svm.pdf) -->
 
-[code R : rpart pima](http://masedki.github.io/enseignements/rcode/apprentissage/rpart_pima.R)
+<!-- [supports :  lda, qda et Bayes naïf](http://masedki.github.io/enseignements/pdfs/apprentissage/lda_qda_bayes.pdf) -->
 
-[code R : rf prostate](http://masedki.github.io/enseignements/rcode/apprentissage/rf_reg.R)
+<!-- [supports :  Apprentissage non-supervisé](http://masedki.github.io/enseignements/pdfs/apprentissage/unsupervised.pdf) -->
 
-[code R : rf pima](http://masedki.github.io/enseignements/rcode/apprentissage/rf_classif.R)
+<!-- [supports :  réseaux de neurones](http://masedki.github.io/enseignements/pdfs/apprentissage/nn.pdf) -->
 
-[code R : rf prostate](http://masedki.github.io/enseignements/rcode/apprentissage/rf_reg.R)
+<!-- [TP :  classification d'images mnist](http://masedki.github.io/enseignements/pdfs/apprentissage/m2sds_mnist.pdf) -->
 
-[code R : rf pima](http://masedki.github.io/enseignements/rcode/apprentissage/rf_classif.R)
+<!-- [Projet : apprentissage par transfert](http://masedki.github.io/enseignements/apprentissage/Projet1920.html) -->
 
-[code R : boost prostate](http://masedki.github.io/enseignements/rcode/apprentissage/boost_reg.R)
+<!-- ### notebooks python et R  -->
 
-[code R : boost pima](http://masedki.github.io/enseignements/rcode/apprentissage/boost_classif.R)
+<!-- [notebook mixture](http://masedki.github.io/enseignements/apprentissage/mixture.html) -->
 
-[code R : svr prostate](http://masedki.github.io/enseignements/rcode/apprentissage/svr_reg.R)
+<!-- [notebook régression linéaire](http://masedki.github.io/enseignements/apprentissage/Regression.html) -->
 
-[code R : svm pima](http://masedki.github.io/enseignements/rcode/apprentissage/svm_classif.R)
+<!-- [notebook régression logistique](http://masedki.github.io/enseignements/apprentissage/logistique.html) -->
 
-[code R : clustering spectral sur spirals ](http://masedki.github.io/enseignements/rcode/apprentissage/spirals.R)
+<!-- [notebook rf régression](http://masedki.github.io/enseignements/apprentissage/rf_reg.html) -->
+
+<!-- [notebook rf classif](http://masedki.github.io/enseignements/apprentissage/rf_classif.html) -->
+
+<!-- [notebook boost régression](http://masedki.github.io/enseignements/apprentissage/boost_reg.html) -->
+
+<!-- [notebook boost classif](http://masedki.github.io/enseignements/apprentissage/boost_classif.html) -->
+
+<!-- [notebook kmeans et CAH](http://masedki.github.io/enseignements/apprentissage/clustering.html) -->
+
+<!-- [notebook Génétique des populations](http://masedki.github.io/enseignements/apprentissage/GenPopTP.html) -->
 
 
-[caret : modèles disponibles](https://topepo.github.io/caret/available-models.html)
+<!-- ### scripts R -->
+
+<!-- [code R : rpart prostate](http://masedki.github.io/enseignements/rcode/apprentissage/rpart_prostate.R) -->
+
+<!-- [code R : rpart pima](http://masedki.github.io/enseignements/rcode/apprentissage/rpart_pima.R) -->
+
+<!-- [code R : rf prostate](http://masedki.github.io/enseignements/rcode/apprentissage/rf_reg.R) -->
+
+<!-- [code R : rf pima](http://masedki.github.io/enseignements/rcode/apprentissage/rf_classif.R) -->
+
+<!-- [code R : rf prostate](http://masedki.github.io/enseignements/rcode/apprentissage/rf_reg.R) -->
+
+<!-- [code R : rf pima](http://masedki.github.io/enseignements/rcode/apprentissage/rf_classif.R) -->
+
+<!-- [code R : boost prostate](http://masedki.github.io/enseignements/rcode/apprentissage/boost_reg.R) -->
+
+<!-- [code R : boost pima](http://masedki.github.io/enseignements/rcode/apprentissage/boost_classif.R) -->
+
+<!-- [code R : svr prostate](http://masedki.github.io/enseignements/rcode/apprentissage/svr_reg.R) -->
+
+<!-- [code R : svm pima](http://masedki.github.io/enseignements/rcode/apprentissage/svm_classif.R) -->
+
+<!-- [code R : clustering spectral sur spirals ](http://masedki.github.io/enseignements/rcode/apprentissage/spirals.R) -->
+
+
+<!-- [caret : modèles disponibles](https://topepo.github.io/caret/available-models.html) -->
 
 ### Jeux de données 
 
-[dataset mixture.txt](http://masedki.github.io/enseignements/datasets/mixture.txt)
+[Jeu de données : mixture.example](http://masedki.github.io/enseignements/datasets/mixture_example.rda)
 
-[dataset Prostate_Cancer.txt](http://masedki.github.io/enseignements/datasets/Prostate_Cancer.txt)
+<!-- [dataset mixture.txt](http://masedki.github.io/enseignements/datasets/mixture.txt) -->
 
-[dataset Framingham](http://masedki.github.io/enseignements/datasets/framingham.csv)
+<!-- [dataset Prostate_Cancer.txt](http://masedki.github.io/enseignements/datasets/Prostate_Cancer.txt) -->
 
-[dataset assurance (si besoin)](http://masedki.github.io/enseignements/datasets/insurance.rda)
+<!-- [dataset Framingham](http://masedki.github.io/enseignements/datasets/framingham.csv) -->
 
-[dataset Pima_tr](http://masedki.github.io/enseignements/datasets/Pima_tr.csv)
+<!-- [dataset assurance (si besoin)](http://masedki.github.io/enseignements/datasets/insurance.rda) -->
 
-[dataset Pima_te](http://masedki.github.io/enseignements/datasets/Pima_te.csv)
+<!-- [dataset Pima_tr](http://masedki.github.io/enseignements/datasets/Pima_tr.csv) -->
 
-[dataset NCI60](http://masedki.github.io/enseignements/datasets/nci_data.csv)
+<!-- [dataset Pima_te](http://masedki.github.io/enseignements/datasets/Pima_te.csv) -->
 
-[labels NCI60](http://masedki.github.io/enseignements/datasets/nci_label.txt)
+<!-- [dataset NCI60](http://masedki.github.io/enseignements/datasets/nci_data.csv) -->
 
-[dataset leukemia](https://web.stanford.edu/~hastie/CASI_files/DATA/leukemia.html)
+<!-- [labels NCI60](http://masedki.github.io/enseignements/datasets/nci_label.txt) -->
+
+<!-- [dataset leukemia](https://web.stanford.edu/~hastie/CASI_files/DATA/leukemia.html) -->

@@ -7,24 +7,24 @@ output:
     css: style.css
 ---
 
-[Introduction : supports](http://masedki.github.io/enseignements/sta212/intro_slides.pdf)
+<!-- [Introduction : supports](http://masedki.github.io/enseignements/sta212/intro_slides.pdf) -->
 
-[Arbres de décision uniques et agrégation de modèles](http://masedki.github.io/enseignements/pdfs/arbres_agregation.pdf)
+<!-- [Arbres de décision uniques et agrégation de modèles](http://masedki.github.io/enseignements/pdfs/arbres_agregation.pdf) -->
 
-[Introduction : TP](http://masedki.github.io/enseignements/sta212/tp_intro.pdf) 
-[Corrigé](http://masedki.github.io/enseignements/sta212/tp_intro.R)
+<!-- [Introduction : TP](http://masedki.github.io/enseignements/sta212/tp_intro.pdf)  -->
+<!-- [Corrigé](http://masedki.github.io/enseignements/sta212/tp_intro.R) -->
 
-[Code : arbres de décision  pour la régression](http://masedki.github.io/enseignements/rcode/rpart_insurance.R)
+<!-- [Code : arbres de décision  pour la régression](http://masedki.github.io/enseignements/rcode/rpart_insurance.R) -->
 
-[Code : arbres de décision  pour la classification et fôrets aléatoires](http://masedki.github.io/enseignements/rcode/rpart_pima.R)
+<!-- [Code : arbres de décision  pour la classification et fôrets aléatoires](http://masedki.github.io/enseignements/rcode/rpart_pima.R) -->
 
-[Code de la séance du 27/04/2020](http://masedki.github.io/enseignements/rcode/xgboost.R)
+<!-- [Code de la séance du 27/04/2020](http://masedki.github.io/enseignements/rcode/xgboost.R) -->
 
-[TP : classification d'images](http://masedki.github.io/enseignements/sta212/mnist.pdf)
-[Corrigé : séance du 04/05/2020](http://masedki.github.io/enseignements/rcode/tp_mnist.R)
+<!-- [TP : classification d'images](http://masedki.github.io/enseignements/sta212/mnist.pdf) -->
+<!-- [Corrigé : séance du 04/05/2020](http://masedki.github.io/enseignements/rcode/tp_mnist.R) -->
 
-[supports :  réseaux de neurones](http://masedki.github.io/enseignements/pdfs/apprentissage/nn.pdf)
+<!-- [supports :  réseaux de neurones](http://masedki.github.io/enseignements/pdfs/apprentissage/nn.pdf) -->
 
-[Jeu de données : mixture.example](http://masedki.github.io/enseignements/datasets/mixture_example.rda)
+<!-- [Jeu de données : mixture.example](http://masedki.github.io/enseignements/datasets/mixture_example.rda) -->
 
-[Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda)
+<!-- [Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda) -->
