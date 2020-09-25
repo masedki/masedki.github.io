@@ -11,25 +11,27 @@ output:
 
 [trafic de données avec pandas](http://masedki.github.io/enseignements/python/Nb1-PythonPandas.html)
 
-
 [types de données de base](http://masedki.github.io/enseignements/python/typesdonnees.html)
 
 [tableaux et matrices](http://masedki.github.io/enseignements/python/arraymatrix.html)
 
 [module math de base](http://masedki.github.io/enseignements/python/basicmath.html)
 
-[Contrôle de flux et boucles](http://masedki.github.io/enseignements/python/loopflowcontrol.html)
+[contrôle de flux et boucles](http://masedki.github.io/enseignements/python/loopflowcontrol.html)
 
-[Fonctions](http://masedki.github.io/enseignements/python/functions.html)
+[fonctions](http://masedki.github.io/enseignements/python/functions.html)
 
-[Graphiques](http://masedki.github.io/enseignements/python/graphics.html)
+[graphiques](http://masedki.github.io/enseignements/python/graphics.html)
 
-[Probabilités et statistiques](http://masedki.github.io/enseignements/python/probasstats.html)
+[probabilités et statistiques](http://masedki.github.io/enseignements/python/probasstats.html)
 
-[TP d'introduction à bootstrap](http://masedki.github.io/enseignements/python/bootstrap.html)
+[tp d'introduction à bootstrap](http://masedki.github.io/enseignements/python/bootstrap.html)
 
 <!-- [Projet](http://masedki.github.io/enseignements/python/examen1920.html) -->
 
+### TP d'apprentissage
+
+[classification par les knn avec Python](http://masedki.github.io/enseignements/python/knn_mixture.html)
 
 ### Instruction pour lancer jupyter notebook sur un environnement virtuel en ligne de commande
 
@@ -38,6 +40,8 @@ output:
 
 ### Jeux de données 
 
-[Jeu de données coronary](http://masedki.github.io/enseignements/datasets/coronary.csv)
+[jeu de données coronary](http://masedki.github.io/enseignements/datasets/coronary.csv)
 
-[Jeu de données Titanic](http://masedki.github.io/enseignements/datasets/titanic-train.csv)
+[jeu de données Titanic](http://masedki.github.io/enseignements/datasets/titanic-train.csv)
+
+[jeu de données mixture](http://masedki.github.io/enseignements/datasets/mixture.txt)
