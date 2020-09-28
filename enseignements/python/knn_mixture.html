@@ -13189,6 +13189,7 @@ Bien entendu, la règle de classification ne doit pas être basée sur la connai
 <span class="kn">from</span> <span class="nn">sklearn.mixture.gaussian_mixture</span> <span class="k">import</span> <span class="n">_compute_precision_cholesky</span>
 <span class="c1"># on a besoin de pandas pour gérer des structures de données comme les dataframe, la lecture de fichiers etc ...</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
 </pre></div>
 
     </div>
@@ -13203,6 +13204,8 @@ Bien entendu, la règle de classification ne doit pas être basée sur la connai
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># charger le jeu de données du cours </span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;mixture.txt&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">X_train</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span> <span class="s1">&#39;x2&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
 <span class="n">y_train</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">values</span>
 </pre></div>
@@ -13240,6 +13243,30 @@ Bien entendu, la règle de classification ne doit pas être basée sur la connai
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># création des trois matrices </span>
+<span class="n">blue_means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.25343316</span><span class="p">,</span> <span class="mf">1.7414788</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.26669318</span><span class="p">,</span> <span class="mf">0.3712341</span><span class="p">],</span>
+                       <span class="p">[</span><span class="mf">2.09646921</span><span class="p">,</span> <span class="mf">1.2333642</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.06127272</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2086791</span><span class="p">],</span>
+                       <span class="p">[</span><span class="mf">2.70354085</span><span class="p">,</span> <span class="mf">0.5968283</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.37721198</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.1864147</span><span class="p">],</span>
+                       <span class="p">[</span><span class="mf">1.05690759</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6838939</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.57888354</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0683458</span><span class="p">],</span>
+                       <span class="p">[</span><span class="mf">0.62425213</span><span class="p">,</span> <span class="mf">0.5987384</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.67335495</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2893159</span><span class="p">]])</span>
+<span class="n">orange_means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.19936869</span><span class="p">,</span> <span class="mf">0.2484086</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.30256110</span><span class="p">,</span> <span class="mf">0.9454190</span><span class="p">],</span>
+                         <span class="p">[</span><span class="mf">0.05727232</span><span class="p">,</span> <span class="mf">2.4197271</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.32932203</span><span class="p">,</span> <span class="mf">0.8192260</span><span class="p">],</span>
+                         <span class="p">[</span><span class="o">-</span><span class="mf">0.07938424</span><span class="p">,</span> <span class="mf">1.6138017</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.50792673</span><span class="p">,</span> <span class="mf">1.0529863</span><span class="p">],</span>
+                         <span class="p">[</span><span class="mf">1.61392290</span><span class="p">,</span> <span class="mf">0.6717378</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.00753570</span><span class="p">,</span> <span class="mf">1.3683071</span><span class="p">],</span>
+                         <span class="p">[</span><span class="o">-</span><span class="mf">0.45462141</span><span class="p">,</span> <span class="mf">1.0860697</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.79801805</span><span class="p">,</span> <span class="mf">1.9297806</span><span class="p">]])</span>
+<span class="n">all_means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">blue_means</span><span class="p">,</span> <span class="n">orange_means</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Nous allons déclarer la fonction la plus obscure à ce niveau de cours (avant d&#39;avoir fait les lois gaussiennes multivariées)</span>
 <span class="c1"># même si nous connaissons déjà les moyennes et les covariances, nous devons</span>
 <span class="c1"># faire un &quot;faux fit&quot;, sinon le modèle GaussianMixture ne fonctionnera pas (c&#39;est python !!)</span>
@@ -13271,6 +13298,28 @@ Bien entendu, la règle de classification ne doit pas être basée sur la connai
 <li><p>Transformer <code>y_test</code> en variable binaire.</p>
 </li>
 </ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">gaussian_mixture_model</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="n">y_test</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="n">y_test</span><span class="o">&gt;=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="R&#232;gle-de-Bayes">R&#232;gle de Bayes<a class="anchor-link" href="#R&#232;gle-de-Bayes">&#182;</a></h2><p>Puisque nous connaissons la distribution à partir de laquelle nos données ont été échantillonnées, nous pouvons construire la règle Bayes optimale et calculer le taux d'erreur optimal appelé <em>erreur de Bayes</em>.</p>
 <ol>
 <li>À l'aide de la fonction <code>predict_proba</code> de la classe <code>gaussian_mixture_model</code>, écrire une fonction <code>optimal_bayes_predict</code> de classification qui prend des échantillons en entrée et produit un vecteur de classes prédites. Calculer l'erreur de Bayes comme suit </li>
@@ -13284,7 +13333,15 @@ Bien entendu, la règle de classification ne doit pas être basée sur la connai
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">bayes_error_rate</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">optimal_bayes_predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">optimal_bayes_predict</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="n">components_proba</span> <span class="o">=</span> <span class="n">gaussian_mixture_model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="c1"># first 10 components are BLEU(0), and others are ORANGE(1)</span>
+    <span class="n">blue_proba</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">components_proba</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">10</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">orange_proba</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">components_proba</span><span class="p">[:,</span> <span class="mi">10</span><span class="p">:],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">y_hat</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="n">blue_proba</span> <span class="o">&lt;</span> <span class="n">orange_proba</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">y_hat</span>
+
+<span class="n">bayes_error_rate</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">optimal_bayes_predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Erreur optimale de Bayes = </span><span class="si">{bayes_error_rate}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 
@@ -13447,7 +13504,23 @@ Bien entendu, la règle de classification ne doit pas être basée sur la connai
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># ajuster le modèle</span>
 <span class="n">neighbors15_classifier</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 <span class="c1"># tracer ses performances</span>
-<span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">plot_model_stat</span><span class="p">(</span><span class="n">neighbors15_classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">,</span> <span class="s1">&#39;15-plus proches voisin&#39;</span><span class="p">)</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">plot_model_stat</span><span class="p">(</span><span class="n">neighbors15_classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">,</span> <span class="s1">&#39;15-plus proches voisins&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># ajuster le modèle</span>
+<span class="n">neighbors1_classifier</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="c1"># tracer ses performances</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">plot_model_stat</span><span class="p">(</span><span class="n">neighbors1_classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">,</span> <span class="s1">&#39;1-plus proches voisins&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13474,6 +13547,16 @@ Bien entendu, la règle de classification ne doit pas être basée sur la connai
 <span class="n">ks</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
 <span class="n">train_errors</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
 <span class="n">test_errors</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">ks</span><span class="p">:</span>
+    <span class="n">neighbors_k_classifier</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+    <span class="n">neighbors_k_classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">train_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">neighbors_k_classifier</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+    <span class="n">test_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">neighbors_k_classifier</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+    
+    
+<span class="n">i_k_optim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">test_errors</span><span class="p">)</span>
+<span class="n">k_optim</span> <span class="o">=</span> <span class="n">ks</span><span class="p">[</span><span class="n">i_k_optim</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nombre de voisin optimal : </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">k_optim</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13534,19 +13617,6 @@ Bien entendu, la règle de classification ne doit pas être basée sur la connai
     <span class="n">cv</span><span class="o">=</span><span class="mi">5</span>
 <span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 <span class="n">k_neighbors_grid_search</span><span class="o">.</span><span class="n">best_params_</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
     </div>

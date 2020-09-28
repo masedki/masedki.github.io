@@ -31,7 +31,7 @@ output:
 
 ### TP d'apprentissage
 
-[classification par les knn avec Python](http://masedki.github.io/enseignements/python/knn_mixture.html)
+[classification par les knn (corrigé)](http://masedki.github.io/enseignements/python/knn_mixture.html)
 
 ### Instruction pour lancer jupyter notebook sur un environnement virtuel en ligne de commande
 
