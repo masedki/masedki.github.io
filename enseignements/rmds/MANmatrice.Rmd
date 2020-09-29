@@ -8,3 +8,5 @@ output:
 ---
 
 [slides de cours](http://masedki.github.io/enseignements/pdfs/MANmatrice.pdf)
+
+[notebook R](http://masedki.github.io/enseignements/manmatrice/rnb_matrices.html)
