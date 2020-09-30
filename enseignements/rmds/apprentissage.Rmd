@@ -48,11 +48,11 @@ output:
 <!-- [notebook Génétique des populations](http://masedki.github.io/enseignements/apprentissage/GenPopTP.html) -->
 
 
-<!-- ### scripts R -->
+### scripts R 
 
-<!-- [code R : rpart prostate](http://masedki.github.io/enseignements/rcode/apprentissage/rpart_prostate.R) -->
+[code R : rpart prostate](http://masedki.github.io/enseignements/rcode/apprentissage/rpart_prostate.R)
 
-<!-- [code R : rpart pima](http://masedki.github.io/enseignements/rcode/apprentissage/rpart_pima.R) -->
+[code R : rpart pima](http://masedki.github.io/enseignements/rcode/apprentissage/rpart_pima.R) 
 
 <!-- [code R : rf prostate](http://masedki.github.io/enseignements/rcode/apprentissage/rf_reg.R) -->
 
@@ -81,15 +81,15 @@ output:
 
 <!-- [dataset mixture.txt](http://masedki.github.io/enseignements/datasets/mixture.txt) -->
 
-<!-- [dataset Prostate_Cancer.txt](http://masedki.github.io/enseignements/datasets/Prostate_Cancer.txt) -->
+[dataset Prostate_Cancer.txt](http://masedki.github.io/enseignements/datasets/Prostate_Cancer.txt)
 
 <!-- [dataset Framingham](http://masedki.github.io/enseignements/datasets/framingham.csv) -->
 
-<!-- [dataset assurance (si besoin)](http://masedki.github.io/enseignements/datasets/insurance.rda) -->
+[dataset assurance (si besoin)](http://masedki.github.io/enseignements/datasets/insurance.rda)
 
-<!-- [dataset Pima_tr](http://masedki.github.io/enseignements/datasets/Pima_tr.csv) -->
+[dataset Pima_tr](http://masedki.github.io/enseignements/datasets/Pima_tr.csv) 
 
-<!-- [dataset Pima_te](http://masedki.github.io/enseignements/datasets/Pima_te.csv) -->
+[dataset Pima_te](http://masedki.github.io/enseignements/datasets/Pima_te.csv)
 
 <!-- [dataset NCI60](http://masedki.github.io/enseignements/datasets/nci_data.csv) -->
 
