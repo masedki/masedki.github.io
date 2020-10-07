@@ -9,6 +9,8 @@ output:
 
 [Slides de cours](http://masedki.github.io/enseignements/pdfs/ds.pdf)
 
+[Exemples et exercices](http://masedki.github.io/enseignements/pdfs/notes_ds.pdf)
+
 [Problème](http://masedki.github.io/enseignements/ds_pb.html) 
 
 [Correction du problème](http://masedki.github.io/enseignements/pdfs/corr_pb_ds.pdf) 
