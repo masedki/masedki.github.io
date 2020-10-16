@@ -13,7 +13,9 @@ output:
 
 [Problème](http://masedki.github.io/enseignements/ds_pb.html) 
 
-[Correction du problème](http://masedki.github.io/enseignements/pdfs/corr_pb_ds.pdf) 
+<!-- [Correction du problème](http://masedki.github.io/enseignements/pdfs/corr_pb_ds.pdf)  -->
+
+[vidéo de la séance 2 du 13/10/2020](https://youtu.be/hHuu7UPAFho)
 
 <!-- [Devoir 2019-2020](http://masedki.github.io/enseignements/pdfs/dev1920.pdf)  -->
 <!-- [Référence](http://masedki.github.io/enseignements/pdfs/UrnModel_StatMed.pdf)  -->
