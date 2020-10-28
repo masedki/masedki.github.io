@@ -17,6 +17,7 @@ output:
 
 [vidéo de la séance 2 du 13/10/2020](https://youtu.be/hHuu7UPAFho)
 
+[vidéo de la séance 3 du 21/10/2020 (partie 1)](https://youtu.be/ErvKbghy2Is)
 <!-- [Devoir 2019-2020](http://masedki.github.io/enseignements/pdfs/dev1920.pdf)  -->
 <!-- [Référence](http://masedki.github.io/enseignements/pdfs/UrnModel_StatMed.pdf)  -->
 <!-- [article 1985](http://masedki.github.io/enseignements/pdfs/article1985.pdf) [article 1986](http://masedki.github.io/enseignements/pdfs/article1986.pdf) [article 1989](http://masedki.github.io/enseignements/pdfs/article1989.pdf) [article 1995](http://masedki.github.io/enseignements/pdfs/article1995.pdf) -->
