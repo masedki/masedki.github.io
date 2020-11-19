@@ -27,6 +27,7 @@ output:
 
 [tp d'introduction à bootstrap](http://masedki.github.io/enseignements/python/bootstrap.html)
 
+[Design orienté-object](http://masedki.github.io/enseignements/python/Object_oriented_design.html)
 <!-- [Projet](http://masedki.github.io/enseignements/python/examen1920.html) -->
 
 ### TP d'apprentissage
