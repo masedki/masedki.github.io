@@ -15,9 +15,19 @@ output:
 
 <!-- [Correction du problème](http://masedki.github.io/enseignements/pdfs/corr_pb_ds.pdf)  -->
 
+[vidéo de la séance 1 (partie 1 : vidéo du cours du master 2 SDS)](http://genostats.ovh/SDS/Stats4-1.webm)
+
+[vidéo de la séance 1 (partie 2 :vidéo du cours du master 2 SDS)](http://genostats.ovh/SDS/Stats4-2.webm)
+
 [vidéo de la séance 2 du 13/10/2020](https://youtu.be/hHuu7UPAFho)
 
 [vidéo de la séance 3 du 21/10/2020 (partie 1)](https://youtu.be/ErvKbghy2Is)
+
+[vidéo de la séance 3 du 21/10/2020 (partie 2 : vidéo du cours du M2 SDS)](http://genostats.ovh/SDS/Stats6-2.webm)
+
+[vidéo de la séance 4 du 21/10/2020 (partie 1)](https://youtu.be/MGU7xe6b_Fc)
+
+[vidéo de la séance 4 du 21/10/2020 (partie 2)](https://youtu.be/HX3Mu2uAqTY)
 
 [Devoir 2019-2020 à rendre le 13/12/2020 sous format pdf en un seul fichier](http://masedki.github.io/enseignements/pdfs/dev2021.pdf)
 
