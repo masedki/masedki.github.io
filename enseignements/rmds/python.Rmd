@@ -31,6 +31,7 @@ output:
 
 [Compilé versus interprété](http://masedki.github.io/enseignements/python/Compiled_and_interpreted.html)
 
+[Apprentissage avec python : sklearn](http://masedki.github.io/enseignements/python/Apprentissage_sklearn.html)
 
 <!-- [Projet](http://masedki.github.io/enseignements/python/examen1920.html) -->
 
