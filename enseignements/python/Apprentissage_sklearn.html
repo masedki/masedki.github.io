@@ -13084,7 +13084,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Résumé</strong>: Ce notebook introduit l'utilisation de la librairie <code>scikit-learn</code> pour la modélisation et l'apprentissage. Pourquoi utiliser <code>scikit-learn</code> ? Ou non ? Liste des fonctionnalités, quelques exemples de mise en oeuvre de modélisation <code>régression logistique</code>, $k$-<code>plus proches voisins</code>, <code>arbres de décision</code>, <code>forêts aléatoires</code>. Optimisation des paramètres (complexité) des modèles par <code>validation croisée</code>. Fontions de chaînage (<em>pipeline</em>) de transformations et estimations. La librairie <code>Scikit-learn</code> offre un grand nombre d'autre fonctionnalités.</p>
+<p><strong>Résumé</strong>: Ce notebook introduit l'utilisation de la librairie <code>scikit-learn</code> pour la modélisation et l'apprentissage. Pourquoi utiliser <code>scikit-learn</code> ? Ou non ? Liste des fonctionnalités, quelques exemples de mise en oeuvre de modélisation <code>régression logistique</code>, $k$-<code>plus proches voisins</code>, <code>arbres de décision</code>, <code>forêts aléatoires</code>. Optimisation des paramètres (complexité) des modèles par <code>validation croisée</code>. Fonctions de chaînage (<em>pipeline</em>) de transformations et estimations. La librairie <code>Scikit-learn</code> offre un grand nombre d'autres fonctionnalités.</p>
 
 </div>
 </div>
@@ -13103,8 +13103,7 @@ div#notebook {
 <li><p>R offre beaucoup plus de possibilités pour la comparaison de modèles statistiques et leur interprétation.</p>
 </li>
 </ul>
-<p>En conséquences:</p>
-<ul>
+<h3 id="R-vs-Python-:">R vs Python :<a class="anchor-link" href="#R-vs-Python-:">&#182;</a></h3><ul>
 <li><p>Préférer R et ses librairies si la présentation des résultats et surtout leur interprétation (modèles) est prioritaire, si  l'utilisation et / ou la comparaison de beaucoup de méthodes est recherchée.</p>
 </li>
 <li><p>Préférer Python et <code>scikit-learn</code> pour mettre au point une chaîne de traitements (<em>pipe line</em>) opérationnelle de l'extraction à une analyse privilégiant la prévision brute à l'interprétation et pour des données quantitatives ou rendues quantitatives ("vectorisation" de corpus de textes).</p>
@@ -13133,7 +13132,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2-Extraction-des-&#233;chantillons">2 Extraction des &#233;chantillons<a class="anchor-link" href="#2-Extraction-des-&#233;chantillons">&#182;</a></h2><p>Le travail préliminaire consiste à séparer les échantillons en une partie <em>apprentissage</em> et une autre de <em>test</em> pour estimer l'erreur de prédiction de chaque modèle. L'optimisation (biais-variance) de la complexité des modèles est réalisée en minimisant l'erreur estimée par <em>K-fold</em>.</p>
+<h2 id="2-Extraction-des-&#233;chantillons">2 Extraction des &#233;chantillons<a class="anchor-link" href="#2-Extraction-des-&#233;chantillons">&#182;</a></h2><p>Le travail préliminaire consiste à séparer les échantillons en une partie <em>apprentissage</em> et une autre de <em>test</em> pour estimer l'erreur de prédiction de chaque modèle. L'optimisation (biais-variance) de la complexité des modèles est réalisée en minimisant l'erreur estimée par validation croisée <em>K-fold</em>.</p>
 <h3 id="2.1-Donn&#233;es-&quot;Caract&#232;res&quot;">2.1 Donn&#233;es "Caract&#232;res"<a class="anchor-link" href="#2.1-Donn&#233;es-&quot;Caract&#232;res&quot;">&#182;</a></h3><p>Elles sont disponibles dans la librairie <code>Scikit-learn</code>.</p>
 
 </div>
