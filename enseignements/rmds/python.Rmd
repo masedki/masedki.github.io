@@ -40,7 +40,7 @@ output:
 [Le fichier .ipynb : à utiliser avec google colab](http://masedki.github.io/enseignements/python/nn_conv.ipynb)
 
 
-<!-- [Projet](http://masedki.github.io/enseignements/python/examen1920.html) -->
+[Projet 2021](http://masedki.github.io/enseignements/python/examen_ML_Python_2021.html)
 
 ### TP d'apprentissage
 
