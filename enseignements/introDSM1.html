@@ -216,6 +216,54 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
+<style type="text/css">
+a.anchor-section {margin-left: 10px; visibility: hidden; color: inherit;}
+a.anchor-section::before {content: '#';}
+.hasAnchor:hover a.anchor-section {visibility: visible;}
+</style>
+<script>// Anchor sections v1.0 written by Atsushi Yasumoto on Oct 3rd, 2020.
+document.addEventListener('DOMContentLoaded', function() {
+  // Do nothing if AnchorJS is used
+  if (typeof window.anchors === 'object' && anchors.hasOwnProperty('hasAnchorJSLink')) {
+    return;
+  }
+
+  const h = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+
+  // Do nothing if sections are already anchored
+  if (Array.from(h).some(x => x.classList.contains('hasAnchor'))) {
+    return null;
+  }
+
+  // Use section id when pandoc runs with --section-divs
+  const section_id = function(x) {
+    return ((x.classList.contains('section') || (x.tagName === 'SECTION'))
+            ? x.id : '');
+  };
+
+  // Add anchors
+  h.forEach(function(x) {
+    const id = x.id || section_id(x.parentElement);
+    if (id === '') {
+      return null;
+    }
+    let anchor = document.createElement('a');
+    anchor.href = '#' + id;
+    anchor.classList = ['anchor-section'];
+    x.classList.add('hasAnchor');
+    x.appendChild(anchor);
+  });
+});
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 
 
@@ -369,26 +417,35 @@ summary {
 </div>
 
 
-<!-- # Logiciel R, notes de cours et livre  -->
-<!-- - Pour une prise en main du logiciel R, je vous conseille vivement de travailler l'ensemble des exemples et exercices traités dans le [support](http://masedki.github.io/enseignements/pdfs/Introduction_to_R.pdf), initialement rédigé par Jean-Michel Marin et  -->
-<!-- mis à jour par les deux autres auteurs.  -->
-<!-- - Pour ceux qui ont besoin d'indications, vous pouvez consulter [l'aide mémoire](http://masedki.github.io/enseignements/pdfs/RCarte_Commandes-R.pdf) de Julien Chiquet.   -->
-<!-- - Pour gagner en autonomie en programmation, la plateforme [stackoverflow](https://stackoverflow.com/) est indispensable^[Personnellement je consulte énormément cette plateforme où je trouve des réponses à mes questions.]. -->
-<!-- - [Support de cours](http://masedki.github.io/enseignements/pdfs/notes.pdf) (évolutif) à lire. Ce support couvre  -->
-<!--     - Introduction aux deux problèmes d'apprentissage : classification et régression  -->
-<!--     - Phénomène de sur-apprentissage  -->
-<!--     - Régression linéaire et régularisation  -->
-<!--     - Régression logistique et régularisation -->
-<!-- - La troisième partie des [slides](http://masedki.github.io/enseignements/pdfs/arbres.pdf) servent de supports des séances de cours sur les arbres de décision. Les slides couvrent  -->
-<!--     - Arbre de décision unique pour la régression  -->
-<!--     - Procédure d'élagage  -->
-<!--     - Arbre de décision unique pour la classification  -->
-<!-- - Le [livre](http://masedki.github.io/enseignements/pdfs/ISLR.pdf)  *An Introduction to Statistical Learning* est indispensable pour ceux qui suivent le cours à distance.  -->
-<!-- # Introduction : régression, classification et phénomène de sur-apprentissage -->
-<!-- - **Séance du vendredi 07/02/2020:** traiter les exemples qu'on corrigera lors de la séance de cours. [Codes R](http://masedki.github.io/enseignements/rcode/code_intro.R) à traiter. Les détails de chaque instruction sont données en commentaires précédés par un #.  -->
-<!-- Lecture conseillée : Le chapitre 5 du [livre](http://masedki.github.io/enseignements/pdfs/ISLR.pdf)  *An Introduction to Statistical Learning* est indispensable et s'applique à chaque partie -->
-<!--  (méthode d'apprentissage) de ce cours.  -->
-<!-- Le package R [ElemStatLearn](http://masedki.github.io/enseignements/rcode/ElemStatLearn_2015.6.26.2.tar.gz) -->
+<div id="logiciel-r-notes-de-cours-et-livre" class="section level1">
+<h1>Logiciel R, notes de cours et livre</h1>
+<ul>
+<li><p>Pour une prise en main du logiciel R, je vous conseille vivement de travailler l’ensemble des exemples et exercices traités dans le <a href="http://masedki.github.io/enseignements/pdfs/Introduction_to_R.pdf">support</a>, initialement rédigé par Jean-Michel Marin et mis à jour par les deux autres auteurs.</p></li>
+<li><p>Pour ceux qui ont besoin d’indications, vous pouvez consulter <a href="http://masedki.github.io/enseignements/pdfs/RCarte_Commandes-R.pdf">l’aide mémoire</a> de Julien Chiquet.</p></li>
+<li><p>Pour gagner en autonomie en programmation, la plateforme <a href="https://stackoverflow.com/">stackoverflow</a> est indispensable<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p></li>
+<li><p><a href="http://masedki.github.io/enseignements/pdfs/notes.pdf">Support de cours</a> (évolutif) à lire. Ce support couvre</p>
+<ul>
+<li><p>Introduction aux deux problèmes d’apprentissage : classification et régression</p></li>
+<li><p>Phénomène de sur-apprentissage</p></li>
+<li><p>Régression linéaire et régularisation</p></li>
+<li><p>Régression logistique et régularisation</p></li>
+</ul></li>
+<li><p>La troisième partie des <a href="http://masedki.github.io/enseignements/pdfs/arbres.pdf">slides</a> servent de supports des séances de cours sur les arbres de décision. Les slides couvrent</p>
+<ul>
+<li><p>Arbre de décision unique pour la régression</p></li>
+<li><p>Procédure d’élagage</p></li>
+<li><p>Arbre de décision unique pour la classification</p></li>
+</ul></li>
+<li><p>Le <a href="http://masedki.github.io/enseignements/pdfs/ISLR.pdf">livre</a> <em>An Introduction to Statistical Learning</em> est indispensable pour ceux qui suivent le cours à distance.</p></li>
+</ul>
+</div>
+<div id="introduction-régression-classification-et-phénomène-de-sur-apprentissage" class="section level1">
+<h1>Introduction : régression, classification et phénomène de sur-apprentissage</h1>
+<ul>
+<li><strong>Séance du vendredi 05/02/2021:</strong> traiter les exemples qu’on corrigera lors de la séance de cours. <a href="http://masedki.github.io/enseignements/rcode/code_intro.R">Codes R</a> à traiter. Les détails de chaque instruction sont données en commentaires précédés par un #.</li>
+</ul>
+<p>Lecture conseillée : Le chapitre 5 du <a href="http://masedki.github.io/enseignements/pdfs/ISLR.pdf">livre</a> <em>An Introduction to Statistical Learning</em> est indispensable et s’applique à chaque partie (méthode d’apprentissage) de ce cours.</p>
+<p>Le package R <a href="http://masedki.github.io/enseignements/rcode/ElemStatLearn_2015.6.26.2.tar.gz">ElemStatLearn</a></p>
 <!-- # Régression : moindres carrés pour l'estimation des paramètres et choix de modèles -->
 <!-- - **Séance du vendredi 14/02/2020:** lire la partie régression des [notes](http://masedki.github.io/enseignements/pdfs/notes.pdf) et traiter la partie 4.2 qu'on corrigera en cours. Attention la partie régression de ces notes ne peut constituer un cours abouti de modèle linéaire. [Code R](http://masedki.github.io/enseignements/rcode/code_reg_ridge_lasso_enet.R) : détails des exemples traités. -->
 <!-- Lecture conseillée : Les parties 3.1 et 3.2 du [livre](http://masedki.github.io/enseignements/pdfs/ISLR.pdf)   *An Introduction to Statistical Learning* sont indispensables pour l'assimilation des fondements des modèles linéaires et en particulier la partie inférence statistique.^[Pour l'inférence statistique, penser aux tests et intervalles de confiance pour les paramètres de régression.] -->
@@ -421,6 +478,13 @@ summary {
 <!-- [Jeu de données crédit](http://masedki.github.io/enseignements/datasets/credit.rda) -->
 <!-- [Jeu de données spams](http://masedki.github.io/enseignements/datasets/dataspam.rda) -->
 <!-- [Projet pour le parcours MSP/ES](http://masedki.github.io/enseignements/pdfs/mspes.pdf) -->
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Personnellement je consulte énormément cette plateforme où je trouve des réponses à mes questions.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
 
 
 
@@ -431,7 +495,7 @@ summary {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();

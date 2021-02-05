@@ -7,46 +7,46 @@ output:
     css: style.css
 ---
 
-<!-- # Logiciel R, notes de cours et livre  -->
+# Logiciel R, notes de cours et livre
 
 
-<!-- - Pour une prise en main du logiciel R, je vous conseille vivement de travailler l'ensemble des exemples et exercices traités dans le [support](http://masedki.github.io/enseignements/pdfs/Introduction_to_R.pdf), initialement rédigé par Jean-Michel Marin et  -->
-<!-- mis à jour par les deux autres auteurs.  -->
+- Pour une prise en main du logiciel R, je vous conseille vivement de travailler l'ensemble des exemples et exercices traités dans le [support](http://masedki.github.io/enseignements/pdfs/Introduction_to_R.pdf), initialement rédigé par Jean-Michel Marin et
+mis à jour par les deux autres auteurs.
 
-<!-- - Pour ceux qui ont besoin d'indications, vous pouvez consulter [l'aide mémoire](http://masedki.github.io/enseignements/pdfs/RCarte_Commandes-R.pdf) de Julien Chiquet.   -->
+- Pour ceux qui ont besoin d'indications, vous pouvez consulter [l'aide mémoire](http://masedki.github.io/enseignements/pdfs/RCarte_Commandes-R.pdf) de Julien Chiquet.
 
-<!-- - Pour gagner en autonomie en programmation, la plateforme [stackoverflow](https://stackoverflow.com/) est indispensable^[Personnellement je consulte énormément cette plateforme où je trouve des réponses à mes questions.]. -->
+- Pour gagner en autonomie en programmation, la plateforme [stackoverflow](https://stackoverflow.com/) est indispensable^[Personnellement je consulte énormément cette plateforme où je trouve des réponses à mes questions.].
 
-<!-- - [Support de cours](http://masedki.github.io/enseignements/pdfs/notes.pdf) (évolutif) à lire. Ce support couvre  -->
+- [Support de cours](http://masedki.github.io/enseignements/pdfs/notes.pdf) (évolutif) à lire. Ce support couvre
 
-<!--     - Introduction aux deux problèmes d'apprentissage : classification et régression  -->
+    - Introduction aux deux problèmes d'apprentissage : classification et régression
 
-<!--     - Phénomène de sur-apprentissage  -->
+    - Phénomène de sur-apprentissage
 
-<!--     - Régression linéaire et régularisation  -->
+    - Régression linéaire et régularisation
 
-<!--     - Régression logistique et régularisation -->
-
-
-<!-- - La troisième partie des [slides](http://masedki.github.io/enseignements/pdfs/arbres.pdf) servent de supports des séances de cours sur les arbres de décision. Les slides couvrent  -->
-
-<!--     - Arbre de décision unique pour la régression  -->
-
-<!--     - Procédure d'élagage  -->
-
-<!--     - Arbre de décision unique pour la classification  -->
-
-<!-- - Le [livre](http://masedki.github.io/enseignements/pdfs/ISLR.pdf)  *An Introduction to Statistical Learning* est indispensable pour ceux qui suivent le cours à distance.  -->
-
-<!-- # Introduction : régression, classification et phénomène de sur-apprentissage -->
-
-<!-- - **Séance du vendredi 07/02/2020:** traiter les exemples qu'on corrigera lors de la séance de cours. [Codes R](http://masedki.github.io/enseignements/rcode/code_intro.R) à traiter. Les détails de chaque instruction sont données en commentaires précédés par un #.  -->
-
-<!-- Lecture conseillée : Le chapitre 5 du [livre](http://masedki.github.io/enseignements/pdfs/ISLR.pdf)  *An Introduction to Statistical Learning* est indispensable et s'applique à chaque partie -->
-<!--  (méthode d'apprentissage) de ce cours.  -->
+    - Régression logistique et régularisation
 
 
-<!-- Le package R [ElemStatLearn](http://masedki.github.io/enseignements/rcode/ElemStatLearn_2015.6.26.2.tar.gz) -->
+- La troisième partie des [slides](http://masedki.github.io/enseignements/pdfs/arbres.pdf) servent de supports des séances de cours sur les arbres de décision. Les slides couvrent
+
+    - Arbre de décision unique pour la régression
+
+    - Procédure d'élagage
+
+    - Arbre de décision unique pour la classification
+
+- Le [livre](http://masedki.github.io/enseignements/pdfs/ISLR.pdf)  *An Introduction to Statistical Learning* est indispensable pour ceux qui suivent le cours à distance.
+
+# Introduction : régression, classification et phénomène de sur-apprentissage
+
+- **Séance du vendredi 05/02/2021:** traiter les exemples qu'on corrigera lors de la séance de cours. [Codes R](http://masedki.github.io/enseignements/rcode/code_intro.R) à traiter. Les détails de chaque instruction sont données en commentaires précédés par un #.
+
+Lecture conseillée : Le chapitre 5 du [livre](http://masedki.github.io/enseignements/pdfs/ISLR.pdf)  *An Introduction to Statistical Learning* est indispensable et s'applique à chaque partie
+ (méthode d'apprentissage) de ce cours.
+
+
+Le package R [ElemStatLearn](http://masedki.github.io/enseignements/rcode/ElemStatLearn_2015.6.26.2.tar.gz)
 
 <!-- # Régression : moindres carrés pour l'estimation des paramètres et choix de modèles -->
 
