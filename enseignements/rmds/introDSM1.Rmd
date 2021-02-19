@@ -67,16 +67,16 @@ Le package R [ElemStatLearn](http://masedki.github.io/enseignements/rcode/ElemSt
 
 
 
-<!-- <!-- [Code R 2](http://masedki.github.io/enseignements/rcode/classif_image_logit_enet.R): Code pour la régression logistique avec régularisation elasticnet pour la classifiction d'images. (attention le code est très lent donc je vais déposer les résultats rapidement après calcul sur un serveur).  -->  -->
+<!-- [Code R 2](http://masedki.github.io/enseignements/rcode/classif_image_logit_enet.R): Code pour la régression logistique avec régularisation elasticnet pour la classifiction d'images. (attention le code est très lent donc je vais déposer les résultats rapidement après calcul sur un serveur).  -->
 
 
-<!-- # Arbres de décision : régression -->
-<!-- - **Séance du vendredi 13/03/2020:**  Arbres de décision unique : supports de cours disponibles [ici](http://masedki.github.io/enseignements/pdfs/arbres.pdf). -->
+# Arbres de décision : régression
+- **Séance du vendredi 19/02/2021:**  Arbres de décision unique : supports de cours disponibles [ici](http://masedki.github.io/enseignements/pdfs/arbres_agregation_m1.pdf).
 
 
-<!-- [Code R](http://masedki.github.io/enseignements/rcode/rpart_insurance.R): Code pour la régression par arbre de décision avant et après élagage et comparaison avec le régression avec régularisation elasticnet. Attention : présence de données catégorielles donc traitement particulier pour l'elasticnet (voir lignes 40 et 41 du code). -->
+[Code R](http://masedki.github.io/enseignements/rcode/rpart_insurance.R): Code pour la régression par arbre de décision avant et après élagage et comparaison avec le régression avec régularisation elasticnet. Attention : présence de données catégorielles donc traitement particulier pour l'elasticnet (voir lignes 40 et 41 du code).
 
-<!-- Lecture conseillée : Lecture de la partie 8.1 et Lab de la partie 8.3.1 du livre *An Introduction to Statistical Learning*. -->
+Lecture conseillée : Lecture de la partie 8.1 et Lab de la partie 8.3.1 du livre *An Introduction to Statistical Learning*.
 
 
 <!-- # Arbres de décision : classification  -->
@@ -107,7 +107,7 @@ Le package R [ElemStatLearn](http://masedki.github.io/enseignements/rcode/ElemSt
 
 <!-- [Jeu de données mnist aplati !](http://masedki.github.io/enseignements/datasets/mnist_flatten.rda) -->
 
-<!-- [Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda) -->
+[Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda)
 
 <!-- [Jeu de données crédit](http://masedki.github.io/enseignements/datasets/credit.rda) -->
 
