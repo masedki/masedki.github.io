@@ -79,13 +79,13 @@ Le package R [ElemStatLearn](http://masedki.github.io/enseignements/rcode/ElemSt
 Lecture conseillée : Lecture de la partie 8.1 et Lab de la partie 8.3.1 du livre *An Introduction to Statistical Learning*.
 
 
-<!-- # Arbres de décision : classification  -->
+# Arbres de décision : classification
 
-<!-- **Séance du mercredi 15/04/2020:** classification par arbre de décision. -->
+**Séance du mercredi 26/02/2021:** classification par arbre de décision.
 
-<!-- [Code R](http://masedki.github.io/enseignements/rcode/rpart_pima.R): Code pour la classification par arbre de décision avant et après élagage et comparaison avec le régression logistique avec régularisation elasticnet. -->
+[Code R](http://masedki.github.io/enseignements/rcode/rpart_pima.R): Code pour la classification par arbre de décision avant et après élagage et comparaison avec le régression logistique avec régularisation elasticnet.
 
-<!-- Lecture conseillée : Lecture de la partie 8.1 et  Lab de la partie 8.3.2 du livre *An Introduction to Statistical Learning*. -->
+Lecture conseillée : Lecture de la partie 8.1 et  Lab de la partie 8.3.2 du livre *An Introduction to Statistical Learning*.
 
 
 
