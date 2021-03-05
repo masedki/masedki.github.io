@@ -89,6 +89,13 @@ Lecture conseillée : Lecture de la partie 8.1 et  Lab de la partie 8.3.2 du liv
 
 
 
+
+# Méthodes de régularisation : ridge, lasso et elasticnet
+
+**Séance du vendredi 05/03/2021:** lire les parties régularisation ridge, lasso et
+elasticnet. Traiter les exemples autour du jeu de données du cancer de la prostate. [Code R](http://masedki.github.io/enseignements/rcode/code_reg_ridge_lasso_enet.R): ridge, lasso et elasticnet sur le jeu de données Prostate. 
+
+
 <!-- # [Examen de seconde session à rendre avant le 07/09/2020](http://masedki.github.io/enseignements/cc2.html)  -->
 
 <!-- # Projet  : Utilisation de la librairie caret (sixième partie des notes)   -->
