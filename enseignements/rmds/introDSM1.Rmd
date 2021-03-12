@@ -96,6 +96,11 @@ Lecture conseillée : Lecture de la partie 8.1 et  Lab de la partie 8.3.2 du liv
 elasticnet. Traiter les exemples autour du jeu de données du cancer de la prostate. [Code R](http://masedki.github.io/enseignements/rcode/code_reg_ridge_lasso_enet.R): ridge, lasso et elasticnet sur le jeu de données Prostate. 
 
 
+**Séance du vendredi 12/03/2021:**   Méthodes de régularisation en régression logistique.  Traiter l'exemple  *Sélection de variables en régression logistique : jeu de données Breast Cancer* page 33.
+
+[Code R](http://masedki.github.io/enseignements/rcode/code_logit_enet.R): Code pour la régression logistique et régression logistique avec régularisation elasticnet.
+
+
 <!-- # [Examen de seconde session à rendre avant le 07/09/2020](http://masedki.github.io/enseignements/cc2.html)  -->
 
 <!-- # Projet  : Utilisation de la librairie caret (sixième partie des notes)   -->
