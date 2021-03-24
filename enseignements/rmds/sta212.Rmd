@@ -25,6 +25,6 @@ output:
 
 <!-- [supports :  réseaux de neurones](http://masedki.github.io/enseignements/pdfs/apprentissage/nn.pdf) -->
 
-<!-- [Jeu de données : mixture.example](http://masedki.github.io/enseignements/datasets/mixture_example.rda) -->
+[Jeu de données : mixture.example](http://masedki.github.io/enseignements/datasets/mixture_example.rda)
 
 <!-- [Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda) -->
