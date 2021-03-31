@@ -7,12 +7,22 @@ output:
     css: style.css
 ---
 
+### Supports de cours
+
 [Introduction : supports](http://masedki.github.io/enseignements/sta212/intro_slides.pdf)
 
 [Arbres de décision uniques et agrégation de modèles](http://masedki.github.io/enseignements/sta212/arbres_agregation.pdf)
 
+
+### TP et codes R
+
 [Introduction : TP](http://masedki.github.io/enseignements/sta212/tp_intro.pdf)
 [Corrigé](http://masedki.github.io/enseignements/sta212/tp_intro.R)
+
+[Validation croisée avec caret et knn](http://masedki.github.io/enseignements/sta212/crossvalidation_knn.R)
+
+[Arbre de décision avec rpart en régression](http://masedki.github.io/enseignements/sta212/rpart_insurance.R)
+
 
 <!-- [Code : arbres de décision  pour la régression](http://masedki.github.io/enseignements/rcode/rpart_insurance.R) -->
 
@@ -24,6 +34,8 @@ output:
 <!-- [Corrigé : séance du 04/05/2020](http://masedki.github.io/enseignements/rcode/tp_mnist.R) -->
 
 <!-- [supports :  réseaux de neurones](http://masedki.github.io/enseignements/pdfs/apprentissage/nn.pdf) -->
+
+### Jeux de données
 
 [Jeu de données : mixture.example](http://masedki.github.io/enseignements/datasets/mixture_example.rda)
 
