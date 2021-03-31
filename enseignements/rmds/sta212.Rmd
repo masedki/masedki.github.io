@@ -27,4 +27,4 @@ output:
 
 [Jeu de données : mixture.example](http://masedki.github.io/enseignements/datasets/mixture_example.rda)
 
-<!-- [Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda) -->
+[Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda) 
