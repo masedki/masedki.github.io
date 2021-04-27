@@ -24,6 +24,8 @@ output:
 [Arbre de décision avec rpart en régression](http://masedki.github.io/enseignements/sta212/rpart_insurance.R)
 
 
+[TP1 : quelques aspects pratiques](http://masedki.github.io/enseignements/sta212/tp1.pdf)
+
 <!-- [Code : arbres de décision  pour la régression](http://masedki.github.io/enseignements/rcode/rpart_insurance.R) -->
 
 <!-- [Code : arbres de décision  pour la classification et fôrets aléatoires](http://masedki.github.io/enseignements/rcode/rpart_pima.R) -->
@@ -40,3 +42,7 @@ output:
 [Jeu de données : mixture.example](http://masedki.github.io/enseignements/datasets/mixture_example.rda)
 
 [Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda) 
+
+[Jeu de données Orange Juice](http://masedki.github.io/enseignements/sta212/oj.csv)
+
+[Jeu de données email](http://masedki.github.io/enseignements/sta212/email.csv)
