@@ -17,14 +17,16 @@ output:
 ### TP et codes R
 
 [Introduction : TP](http://masedki.github.io/enseignements/sta212/tp_intro.pdf)
-[Corrigé](http://masedki.github.io/enseignements/sta212/tp_intro.R)
+[Code : corrigé](http://masedki.github.io/enseignements/sta212/tp_intro.R)
 
-[Validation croisée avec caret et knn](http://masedki.github.io/enseignements/sta212/crossvalidation_knn.R)
+[Code : validation croisée avec caret et knn](http://masedki.github.io/enseignements/sta212/crossvalidation_knn.R)
 
-[Arbre de décision avec rpart en régression](http://masedki.github.io/enseignements/sta212/rpart_insurance.R)
+[Code : arbre de décision avec rpart en régression](http://masedki.github.io/enseignements/sta212/rpart_insurance.R)
 
 
 [TP1 : quelques aspects pratiques](http://masedki.github.io/enseignements/sta212/tp1.pdf)
+
+[Code : gradient boosting pour la régression](http://masedki.github.io/enseignements/sta212/gbm_assurance.R)
 
 <!-- [Code : arbres de décision  pour la régression](http://masedki.github.io/enseignements/rcode/rpart_insurance.R) -->
 
