@@ -13,4 +13,6 @@ output:
 
 [TP2](http://masedki.github.io/enseignements/pdfs/Ravance/TP2optimisationSimple.pdf)
 
+[TP2](http://masedki.github.io/enseignements/pdfs/Ravance/TP3-Parallelisation.pdf)
+
 
