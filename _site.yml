@@ -34,7 +34,11 @@ navbar:
         - text: "---------"  
         - text: "M1 santé publique"
         - text: "Introduction aux datascience"
-          href: enseignements/introDSM1.html  
+          href: enseignements/introDSM1.html 
+        - text: "---------"  
+        - text: "Formation"
+        - text: "R avancé"
+          href: enseignements/Ravance.html  
     - text: "Recherche"
       href: recherche/recherche.html
     - text: "Packages et logiciels"
