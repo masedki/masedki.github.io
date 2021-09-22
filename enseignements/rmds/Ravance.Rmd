@@ -9,10 +9,14 @@ output:
 
 [supports](http://masedki.github.io/enseignements/pdfs/Ravance/Ravance.pdf)
 
-[TP1](http://masedki.github.io/enseignements/pdfs/Ravance/TP1profilage.pdf)
+[TP1: profilage](http://masedki.github.io/enseignements/pdfs/Ravance/TP1profilage.pdf)
 
-[TP2](http://masedki.github.io/enseignements/pdfs/Ravance/TP2optimisationSimple.pdf)
+[TP2: estimation densité](http://masedki.github.io/enseignements/pdfs/Ravance/TP2optimisationSimple.pdf)
 
-[TP2](http://masedki.github.io/enseignements/pdfs/Ravance/TP3-Parallelisation.pdf)
+[TP3: parallélisation ](http://masedki.github.io/enseignements/pdfs/Ravance/TP3-Parallelisation.pdf)
 
+[correction de TP1](http://masedki.github.io/enseignements/rcode/Ravance/TP1profilage.zip)
 
+[correction de TP2](http://masedki.github.io/enseignements/rcode/Ravance/TP2Optimisation.zip)
+
+[correction de TP3](http://masedki.github.io/enseignements/rcode/Ravance/TP3parallelisation.zip)
