@@ -350,15 +350,15 @@ identical(C1,C2)</code></pre>
 <div id="un-petit-exemple-chaine-de-markov" class="section level2">
 <h2>Un petit exemple : chaine de Markov</h2>
 <p>Comme exemple d’application de la multiplication matricielle, considérons le comportement de vote. Supposons que les électeurs soient répartis entre trois partis démocrates (D), républicains (R) et libéraux (L).</p>
-<p>À chaque élection, chaque électeur peut voter le même parti qu’aux élections précédentes ou voter pour un autre parti. Ce processus peut être décrit par une matrice de transition <span class="math inline">\(\mathbf P\)</span> qui contient les probabilités de transitions particulières. Dans la matrice de transition, les entrées de chaque vecteur de colonne sont positives et leur somme est à <span class="math inline">\(1\)</span>. Supposons que la matrice de transition du vote des électeurs est donnée par</p>
+<p>À chaque élection, chaque électeur peut voter le même parti qu’aux élections précédentes ou voter pour un autre parti. Ce processus peut être décrit par une matrice de transition <span class="math inline">\(\mathbf P\)</span> qui contient les probabilités de transitions particulières. Dans la matrice de transition, les entrées de chaque vecteur (ligne) sont positives et leur somme est à <span class="math inline">\(1\)</span>. Supposons que la matrice de transition du vote des électeurs est donnée par</p>
 <p><span class="math display">\[\mathbf P  = \begin{bmatrix}
                0.7 &amp; 0.2 &amp; 0.1 \\
                0.1 &amp; 0.8 &amp; 0.1\\
                0.3 &amp; 0.3 &amp; 0.4
                \end{bmatrix}\]</span></p>
-<p>D - Dans la première colonne de la matrice de transition, nous pouvons lire que lors des prochaines élections, 70 % de ceux qui ont voté démocrates aux élections précédentes,voteront à nouveau démocrates, 20% voteront pour les républicains et 10% voteront pour les libéraux.</p>
-<p>R - La deuxième colonne indique les probabilités de transition pour ceux qui ont voté pour les républicains. Autrement dit, 10% de ceux qui ont voté pour les républicains aux élections précédentes, voteront pour les démocrates, 80% voteront à nouveau les républicains et 10% des votes pour les libéraux.</p>
-<p>L - De même, la troisième colonne de la matrice de transition contient les probabilités de transition pour ceux qui ont voté libéraux lors des élections précédentes.</p>
+<p>D - Sur la première ligne de la matrice de transition, nous pouvons lire que lors des prochaines élections, 70 % de ceux qui ont voté démocrates aux élections précédentes,voteront à nouveau démocrates, 20% voteront pour les républicains et 10% voteront pour les libéraux.</p>
+<p>R - La deuxième ligne indique les probabilités de transition pour ceux qui ont voté pour les républicains. Autrement dit, 10% de ceux qui ont voté pour les républicains aux élections précédentes, voteront pour les démocrates, 80% voteront à nouveau les républicains et 10% des votes pour les libéraux.</p>
+<p>L - De même, la troisième ligne de la matrice de transition contient les probabilités de transition pour ceux qui ont voté libéraux lors des élections précédentes.</p>
 <p>Supposons que lors des élections précédentes, les électeurs étaient répartis comme suit</p>
 <ul>
 <li><p>55% ont voté pour les démocrates</p></li>
