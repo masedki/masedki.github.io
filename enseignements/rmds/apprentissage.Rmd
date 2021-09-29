@@ -16,7 +16,7 @@ output:
 ### notebooks, TP et projets 
 [Introduction : TP](http://masedki.github.io/enseignements/pdfs/apprentissage/tp_intro.pdf) 
 
-<!-- [corrigé](http://masedki.github.io/enseignements/rcode/apprentissage/tp_intro.R) -->
+[corrigé](http://masedki.github.io/enseignements/rcode/apprentissage/tp_intro.R)
 <!-- [supports :  arbres et agrégation de modèles](http://masedki.github.io/enseignements/pdfs/apprentissage/arbres.pdf) -->
 
 <!-- [supports :  svm](http://masedki.github.io/enseignements/pdfs/apprentissage/svm.pdf) -->
