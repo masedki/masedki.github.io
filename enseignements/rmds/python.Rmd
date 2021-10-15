@@ -17,6 +17,9 @@ output:
 
 [Compilé versus interprété](http://masedki.github.io/enseignements/python/Compiled_and_interpreted.html)
 
+[Objectif: 100 exercices](http://masedki.github.io/enseignements/python/exercices.html)
+[(correction)](http://masedki.github.io/enseignements/python/exercices_correction.html)
+
 ## à traiter (à volonté) 
 
 [Trafic de données avec pandas](http://masedki.github.io/enseignements/python/Nb2-PythonPandas.html)
