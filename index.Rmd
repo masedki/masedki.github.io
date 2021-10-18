@@ -6,8 +6,8 @@ output:
     highlight: monochrome
     css: style.css
 ---
+
 Maître de conférence à l'université Paris-Sud
-<!-- Inserm U1181: Biostatistics, Biomathematics, Pharmacoepidemiology and Infectious diseases (B2PHI)  -->
 
 CESP-Inserm U1018: Pôle méthodologies et statistique 
 
