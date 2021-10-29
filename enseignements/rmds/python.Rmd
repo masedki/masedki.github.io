@@ -45,7 +45,7 @@ output:
 [Arbres de décision pour la régression](http://masedki.github.io/enseignements/python/decisiontree.html)
 
 
-<!-- [tp d'introduction à bootstrap](http://masedki.github.io/enseignements/python/bootstrap.html) -->
+[tp d'introduction à bootstrap](http://masedki.github.io/enseignements/python/bootstrap.html)
 
 <!-- [Apprentissage avec python : sklearn](http://masedki.github.io/enseignements/python/Apprentissage_sklearn.html) -->
 
