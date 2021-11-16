@@ -5,6 +5,16 @@ output:
   pdf_document: default
 ---
 
+* **Marbac, M., Sedki, M., Biernacki, C., and Vandewalle, V.** [Simultaneous semi-parametric estimation of clustering and regression](https://doi.org/10.1080/10618600.2021.2000872) *Journal of Computational and Graphical Statistics*, Accepted (2021), 
+
+* **Dumas, O., Bédard, A., Marbac, M., Sedki, M., Temam, S., Chanoine, S., Severi, G., Boutron-Ruault, M.-C., Garcia-Aymerich, J., Siroux, V., et al.** [Household cleaning and poor asthma control among elderly women](https://doi.org/10.1016/j.jaip.2021.02.022)  *The Journal of Allergy and Clinical Immunology: In Practice*, Volume 9, Issue 6  (2021), 2358–2365
+
+* **Saldanha-Gomes, C., Marbac, M., Sedki, M., Cornet, M., Plancoulaine, S., Charles, M.-A., Lioret, S., and Dargent-Molina, P** [Clusters of diet, physical activity, television exposure and sleep habits and their association with adiposity in preschool children: the eden mother-child cohort](https://doi.org/10.1186/s12966-020-00927-6)  *International Journal of Behavioral Nutrition and Physical Activity*, Volume 17, Issue (1) (2020), 1–13
+
+
+* **Marin, J-M and Pudlo, P and Sedki, M** [Consistency of Adaptive Importance Sampling and Recycling Schemes](https://projecteuclid.org/euclid.bj/1560326434) *Bernoulli*, Volume 25, Number 3 (2019), 1977-1998
+
+
 * **Marin, J-M and Pudlo, P and Sedki, M** [Consistency of Adaptive Importance Sampling and Recycling Schemes](https://projecteuclid.org/euclid.bj/1560326434) *Bernoulli*, Volume 25, Number 3 (2019), 1977-1998
 
 * **Marbac, M and Patin, E and Sedki, M** [Variable selection for mixed data clustering: Application in human population genomics](https://link.springer.com/article/10.1007/s00357-018-9301-y), *Journal of Classification* 
