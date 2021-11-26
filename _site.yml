@@ -28,8 +28,8 @@ navbar:
         - text: "Modèles de génétique des populations neutre"
           href: enseignements/genpops.html
         - text: "---------"
-        - text: "MOOC d'introduction à la statistique avec R"
-        - text: "Devoir ENS 2016-2017"
+        - text: "M2 MSR"
+        - text: "Introduction aux sciences de données"
           href: enseignements/devoir.html
         - text: "---------"  
         - text: "M1 santé publique"
