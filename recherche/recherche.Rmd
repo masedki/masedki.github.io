@@ -15,9 +15,7 @@ output:
 * **Marin, J-M and Pudlo, P and Sedki, M** [Consistency of Adaptive Importance Sampling and Recycling Schemes](https://projecteuclid.org/euclid.bj/1560326434) *Bernoulli*, Volume 25, Number 3 (2019), 1977-1998
 
 
-* **Marin, J-M and Pudlo, P and Sedki, M** [Consistency of Adaptive Importance Sampling and Recycling Schemes](https://projecteuclid.org/euclid.bj/1560326434) *Bernoulli*, Volume 25, Number 3 (2019), 1977-1998
-
-* **Marbac, M and Patin, E and Sedki, M** [Variable selection for mixed data clustering: Application in human population genomics](https://link.springer.com/article/10.1007/s00357-018-9301-y), *Journal of Classification* 
+* **Marbac, M and Patin, E and Sedki, M** [Variable selection for mixed data clustering: Application in human population genomics](https://link.springer.com/article/10.1007/s00357-018-9301-y), *Journal of Classification*, 37 (2020), 124–142 
 
 * **Pudlo, P and Sedki, M** [Simulation of stochastic models of structured
 population in population genetics under neutrality](http://journal-sfds.fr/article/view/707)  *Journal de la SFDS*, Special Issue on Models and Inference in Population Genetics, Vol. 159 No 3 (2018) 
