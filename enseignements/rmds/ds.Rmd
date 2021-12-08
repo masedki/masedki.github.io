@@ -9,7 +9,7 @@ output:
 
 [Slides de cours](http://masedki.github.io/enseignements/pdfs/ds/statistique.pdf)
 
-[Problème](http://masedki.github.io/enseignements/ds_pb.html) 
+<!-- [Problème](http://masedki.github.io/enseignements/ds_pb.html)  -->
 
 [Exercices](http://masedki.github.io/enseignements/pdfs/ds/exo_stat_2122.pdf) 
 
