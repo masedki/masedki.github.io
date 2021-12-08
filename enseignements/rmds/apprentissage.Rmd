@@ -99,4 +99,4 @@ output:
 
 <!-- [labels NCI60](http://masedki.github.io/enseignements/datasets/nci_label.txt) -->
 
-<!-- [dataset leukemia](https://web.stanford.edu/~hastie/CASI_files/DATA/leukemia.html) -->
+[dataset leukemia](https://web.stanford.edu/~hastie/CASI_files/DATA/leukemia.html)
