@@ -12,6 +12,7 @@ output:
 
 [Régression (linéaire ou logistique) pénalisée](http://masedki.github.io/enseignements/pdfs/apprentissage/reg_pen.pdf)
 
+[Réseaux de neurones](http://masedki.github.io/enseignements/pdfs/apprentissage/nn_intro.pdf) 
 
 ### notebooks, TP et projets 
 [Introduction : TP](http://masedki.github.io/enseignements/pdfs/apprentissage/tp_intro.pdf) 
@@ -100,3 +101,14 @@ output:
 <!-- [labels NCI60](http://masedki.github.io/enseignements/datasets/nci_label.txt) -->
 
 [dataset leukemia](https://web.stanford.edu/~hastie/CASI_files/DATA/leukemia.html)
+
+
+### notebooks PyTorch
+
+[Découverte des tenseurs avec PyTorch](http://masedki.github.io/enseignements/notebooks/premiers_contacts.html)
+
+[Régression par nn avec PyTorch + dataset Fashion-MNIST](http://masedki.github.io/enseignements/notebooks/nn_reg_dataset.html)
+
+[Classification par nn from scratch](http://masedki.github.io/enseignements/notebooks/nn_classif_from_scratch.html)
+
+[Classification par nn avec PyTorch](http://masedki.github.io/enseignements/notebooks/nn_classif_PyTorch.html)
