@@ -13998,7 +13998,7 @@ Si vous avez travaillé avec NumPy, le package de calcul scientifique le plus ut
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Un tenseur représente un tableau (éventuellement multidimensionnel) de valeurs numériques. Avec un seul axe (une dimension), un tenseur est appelé un vecteur. Avec deux axes, un tenseur est appelé matrice. Avec $k &gt; 2$ axes, nous abandonnons les noms spécialisés et désignons simplement l'objet comme un tenseur d'ordre $k$.
-PyTorch fournit une variété de fonctions pour créer de nouveaux tenseurs pré-remplis avec des valeurs numériques. Pour Par exemple, en utilisant $arange(n)$, nous pouvons créer un vecteur de valeurs uniformément espacées, commençant à $0$ (inclus) et finissant à $n$ (non inclus). Par défaut, la taille de l'intervalle est de $1$. Sauf indication contraire, les nouveaux tenseurs sont stockés en mémoire principale et prédisposés pour calcul par CPU.</p>
+PyTorch fournit une variété de fonctions pour créer de nouveaux tenseurs pré-remplis avec des valeurs numériques. Par exemple, en utilisant $arange(n)$, nous pouvons créer un vecteur de valeurs uniformément espacées, commençant à $0$ (inclus) et finissant à $n$ (non inclus). Par défaut, la taille de l'intervalle est de $1$. Sauf indication contraire, les nouveaux tenseurs sont stockés en mémoire principale et prédisposés pour calcul par CPU.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14293,7 +14293,7 @@ PyTorch fournit une variété de fonctions pour créer de nouveaux tenseurs pré
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Gestion-de-la-m%C3%A9moire">Gestion de la m&#233;moire<a class="anchor-link" href="#Gestion-de-la-m%C3%A9moire">&#182;</a></h3><p>L'exécution d'opérations peut entraîner l'allocation d'une nouvelle mémoire pour accueillir les résultats. Par exemple, si nous écrivons $Y = X + Y$, nous déréférencerons le tenseur vers lequel $Y$ pointait et pointerons $Y$ vers la nouvelle la mémoire nouvellement allouée. Dans l'exemple suivant, nous le démontrons avec la fonction <em>id()</em> de Python qui nous donne l'adresse exacte de l'objet référencé en mémoire. Après avoir exécuté $Y = Y + X$, nous constaterons que <em>id(Y)</em> pointe vers un emplacement différent. Cela est dû au fait que Python évalue d'abord $Y + X$, allouant une nouvelle mémoire pour le résultat, puis fait pointer $Y$ vers ce nouvel emplacement en mémoire.</p>
+<h3 id="Gestion-de-la-m%C3%A9moire">Gestion de la m&#233;moire<a class="anchor-link" href="#Gestion-de-la-m%C3%A9moire">&#182;</a></h3><p>L'exécution d'opérations peut entraîner l'allocation d'une nouvelle mémoire pour accueillir les résultats. Par exemple, si nous écrivons $Y = X + Y$, nous <em>déréférencerons</em> le tenseur vers lequel $Y$ pointait et pointerons $Y$ vers la nouvelle la mémoire nouvellement allouée. Dans l'exemple suivant, nous le démontrons avec la fonction <em>id()</em> de Python qui nous donne l'adresse exacte de l'objet référencé en mémoire. Après avoir exécuté $Y = Y + X$, nous constaterons que <em>id(Y)</em> pointe vers un emplacement différent. Cela est dû au fait que Python évalue d'abord $Y + X$, allouant une nouvelle mémoire pour le résultat, puis fait pointer $Y$ vers ce nouvel emplacement en mémoire.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14680,8 +14680,8 @@ PyTorch fournit une variété de fonctions pour créer de nouveaux tenseurs pré
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Same as `x = torch.arange(4.0, requires_grad=True)`</span>
-<span class="n">x</span><span class="o">.</span><span class="n">grad</span>  <span class="c1"># The default value is None</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># même instruction que `x = torch.arange(4.0, requires_grad=True)`</span>
+<span class="n">x</span><span class="o">.</span><span class="n">grad</span>  <span class="c1"># La valeur par défaut est un None</span>
 </pre></div>
 
      </div>
@@ -14734,7 +14734,7 @@ PyTorch fournit une variété de fonctions pour créer de nouveaux tenseurs pré
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Le gradient de la fonction $y = 2 x^\prime x$ par rapport à $x$ devrait être $2x$. Vérifions rapidement que notre gradient souhaité a été calculé correctement.</p>
+<p>Le gradient de la fonction $y = 2 x^\prime x$ par rapport à $x$ devrait être $4x$. Vérifions rapidement que notre gradient souhaité a été calculé correctement.</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14763,8 +14763,7 @@ PyTorch fournit une variété de fonctions pour créer de nouveaux tenseurs pré
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># PyTorch accumulates the gradient in default, we need to clear the previous</span>
-<span class="c1"># values</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># On doit remettre le gradient à 0</span>
 <span class="n">x</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">zero_</span><span class="p">()</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="n">y</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
