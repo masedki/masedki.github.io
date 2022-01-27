@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>nn_classif_PyTorch</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>nn_conv</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -13971,7 +13971,493 @@ a.anchor-link {
 
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Mise-en-%C5%93uvre-concise-de-la-r%C3%A9gression-Softmax">Mise en &#339;uvre concise de la r&#233;gression Softmax<a class="anchor-link" href="#Mise-en-%C5%93uvre-concise-de-la-r%C3%A9gression-Softmax">&#182;</a></h1><p>Implémentation à l'aide de PyTorch facilite la tâche par rapport à une implémentation from scratch</p>
+<h1 id="R%C3%A9seaux-de-neurones-convolutifs">R&#233;seaux de neurones convolutifs<a class="anchor-link" href="#R%C3%A9seaux-de-neurones-convolutifs">&#182;</a></h1><h3 id="Motivations">Motivations<a class="anchor-link" href="#Motivations">&#182;</a></h3><ul>
+<li><p>Données d'image : chaque variable explicative est une matrice de pixels</p>
+</li>
+<li><p>Nous avons simplement éliminé la structure spatiale de chaque image en l'aplatissant en vecteurs unidimensionnels.</p>
+</li>
+<li><p>Comme ces réseaux sont invariants par rapport à l'ordre des caractéristiques, nous pourrions obtenir des résultats similaires, que nous préservions un ordre correspondant à la structure spatiale des pixels ou que nous permutions les colonnes de notre matrice de pixels.</p>
+</li>
+<li><p>Il serait préférable de tirer parti de notre connaissance préalable du fait que les pixels proches sont généralement liés les uns aux autres, afin de construire des modèles efficaces pour l'apprentissage à partir de données images.</p>
+</li>
+</ul>
+<h3 id="Les-CNN">Les CNN<a class="anchor-link" href="#Les-CNN">&#182;</a></h3><ul>
+<li><p>Les réseaux neuronaux convolutifs (CNN) sont  une puissante famille de réseaux neuronaux conçus précisément dans ce but. Les architectures basées sur les CNN sont désormais omniprésentes dans le domaine de la vision par ordinateur.</p>
+</li>
+<li><p>Les CNN modernes, comme on les appelle familièrement, doivent leur conception à des inspirations issues de la biologie, de la théorie des groupes et d'une bonne dose de bricolage expérimental. Outre leur efficacité en matière d'échantillonnage pour obtenir des modèles précis, les CNN ont tendance à être efficaces sur le plan du calcul, à la fois parce qu'ils nécessitent moins de paramètres que les architectures entièrement connectées et parce que les convolutions sont faciles à paralléliser sur les cœurs des GPU.</p>
+</li>
+</ul>
+<ul>
+<li><p>Par conséquent, les praticiens appliquent souvent les CNN chaque fois que cela est possible et, de plus en plus, ils s'imposent comme des concurrents crédibles, même pour les tâches présentant une structure de séquence unidimensionnelle, comme l'analyse de l'audio, du texte et des séries temporelles, où les réseaux neuronaux récurrents sont traditionnellement utilisés. Certaines adaptations astucieuses des CNN ont également permis de les utiliser sur des données structurées par des graphes et dans des systèmes de recommandation.</p>
+</li>
+<li><p>Nous allons passer en revue les opérations de base de tous les réseaux convolutifs. Cela comprend les couches convolutives elles-mêmes, les détails de détail, y compris le padding et le stride, les couches de mise en commun utilisées pour agréger les informations dans les régions spatiales adjacentes, l'utilisation de plusieurs canaux à chaque couche, et une discussion approfondie de la structure des architectures modernes. Nous conclurons ce chapitre par un exemple fonctionnel complet de LeNet, le premier réseau convolutif déployé avec succès, bien avant l'essor de l'apprentissage profond moderne.</p>
+</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Des-couches-Fully-Connected-aux-couches--convolutives">Des couches Fully-Connected aux couches  convolutives<a class="anchor-link" href="#Des-couches-Fully-Connected-aux-couches--convolutives">&#182;</a></h2><p>Supposons qu'on s'intéresse à la distinction entre les chats et les chiens. Supposons que nous fassions un travail minutieux de collecte de données, en recueillant un ensemble de données annotées de photographies d'un mégapixel. Cela signifie que chaque entrée du réseau a un million de dimensions. Selon nos discussions sur le coût de paramétrage des couches entièrement connectées, même une réduction agressive à mille dimensions cachées nécessiterait une couche entièrement connectée caractérisée par $10^6 \times 10^3=10^9$ paramètres. À moins de disposer de nombreux GPU, d'un talent pour l'optimisation distribuée et d'une patience extraordinaire, l'apprentissage des paramètres de ce réseau peut s'avérer irréalisable.</p>
+<p>On peut penser que la résolution d'un mégapixel n'est pas nécessaire. Cependant, même si nous pouvons nous contenter de cent mille pixels, notre couche cachée de taille 1000 sous-estime largement le nombre d'unités cachées nécessaires pour apprendre de bonnes représentations d'images, de sorte qu'un système pratique nécessitera encore des milliards de paramètres. De plus, l'apprentissage d'un classificateur en ajustant autant de paramètres pourrait nécessiter la collecte d'un énorme ensemble de données. Pourtant, aujourd'hui, les humains et les ordinateurs sont capables de distinguer les chats des chiens, ce qui semble contredire ces intuitions. Cela est dû au fait que les images présentent une structure riche qui peut être exploitée par les humains et les modèles d'apprentissage automatique. Les réseaux de neurones convolutifs (CNN) sont un moyen créatif que l'apprentissage automatique a adopté pour exploiter une partie de la structure connue des images naturelles.</p>
+<h2 id="Invariance">Invariance<a class="anchor-link" href="#Invariance">&#182;</a></h2><p>Imaginez que vous souhaitiez détecter un objet dans une image. Il semble raisonnable que la méthode que nous utilisons pour reconnaître les objets ne soit pas pas trop sensible à l'emplacement précis de l'objet dans l'image. Idéalement, notre système devrait exploiter cette connaissance. Les cochons ne volent généralement pas et les avions ne nagent généralement pas. Néanmoins, nous devrions reconnaître un cochon s'il apparaissait en haut de l'image. Nous pouvons nous inspirer ici du jeu pour enfants "où est Charlie". Le jeu consiste en un certain nombre de scènes chaotiques débordant d'activités. Charlie apparaît quelque part dans chacune d'elles, généralement dans un endroit improbable. Le but du lecteur est de le localiser. Malgré sa tenue caractéristique, cela peut s'avérer étonnamment difficile, en raison du grand nombre de distractions. Cependant, l'apparence de Charlie ne dépend pas de l'endroit où il se trouve. Nous pourrions balayer l'image avec un détecteur de Charlie qui pourrait attribuer un score à chaque patch, indiquant la probabilité que le patch contienne Charlie. Les CNN systématisent cette idée d'invariance spatiale et l'exploitent pour apprendre des représentations utiles avec moins de paramètres.
+<img src="./img/where-wally-walker-books.jpg" width="400" height="400"></p>
+<p>Concrètement :</p>
+<ul>
+<li><p>Dans les premières couches, notre réseau doit répondre de manière similaire au même patch, quel que soit l'endroit où il apparaît dans l'image. Ce principe est appelé invariance par translation.</p>
+</li>
+<li><p>Les premières couches du réseau doivent se concentrer sur les régions locales, sans tenir compte du contenu de l'image dans les régions éloignées. C'est le principe de localité. Finalement, ces représentations locales peuvent être agrégées pour faire des prédictions au niveau de l'image entière.</p>
+</li>
+</ul>
+<p>Voyons comment cela se traduit en mathématiques.</p>
+<h3 id="Contraindre-le-r%C3%A9seau-de-neurones-multicouches-MLP">Contraindre le r&#233;seau de neurones multicouches MLP<a class="anchor-link" href="#Contraindre-le-r%C3%A9seau-de-neurones-multicouches-MLP">&#182;</a></h3><p>Pour commencer, nous pouvons considérer un MLP avec des images bidimensionnelles $\mathbf{X}$ comme entrées
+et leurs représentations cachées immédiates représentées de manière similaire comme des matrices en mathématiques et comme des tenseurs bidimensionnels en code, où les $\mathbf{X}$ et les $\mathbf{H}$ ont la même forme.
+Nous concevons maintenant non seulement les entrées mais aussi les représentations cachées comme possédant une structure spatiale.</p>
+<p>Que $[\mathbf{X}]_{i, j}$ et $[\mathbf{H}]_{i, j}$ désignent le pixel à l'emplacement ($i$, $j$) dans l'image d'entrée et la représentation cachée, respectivement. Par conséquent, pour que chacune des unités cachées
+reçoive une entrée de chacun des pixels d'entrée, nous passerions de l'utilisation de matrices de poids
+(comme nous l'avons fait précédemment dans les MLP) pour représenter nos paramètres
+sous forme de tenseurs de poids d'ordre 4 $\mathsf{W}$. Supposons que $\mathbf{U}$ contienne des biais,
+nous pourrions formellement exprimer la couche entièrement connectée comme suit .</p>
+$$\begin{aligned} \left[\mathbf{H}\right]_{i, j} &amp;= [\mathbf{U}]_{i, j} + \sum_k \sum_l[\mathsf{W}]_{i, j, k, l}  [\mathbf{X}]_{k, l}\\ &amp;= [\mathbf{U}]_{i, j} +
+\sum_a \sum_b [\mathsf{V}]_{i, j, a, b} [\mathbf{X}]_{i+a, j+b}. \end{aligned},$$<p>où le passage de $\mathsf{W}$ à $\mathsf{V}$ est entièrement cosmétique pour le moment puisqu'il existe une correspondance biunivoque entre les coefficients des deux tenseurs d'ordre 4. Nous réindexons simplement les indices $(k, l)$  de sorte que $k = i+a$ et $l = j+b$.
+En d'autres termes, nous définissons $[\mathsf{V}]_{i, j, a, b} = [\mathsf{W}]_{i, j, i+a, j+b}$.
+Les indices $a$ et $b$ couvrent les décalages positifs et négatifs, couvrant l'image entière.
+Pour tout emplacement donné ($i$, $j$) dans la représentation cachée $[\mathbf{H}]_{i, j}$, on calcule sa valeur en faisant la somme des pixels de $x$, centrés autour de $(i, j)$ et pondérés par $[\mathsf{V}]_{i, j, a, b}$.</p>
+<h3 id="Invariance-par-translation">Invariance par translation<a class="anchor-link" href="#Invariance-par-translation">&#182;</a></h3><p>Cela implique qu'un déplacement de l'entrée $\mathbf{X}$ devrait simplement conduire à un déplacement de la représentation cachée $\mathbf{H}$. Ceci n'est possible que si $\mathsf{V}$ et $\mathbf{U}$ ne dépendent pas réellement de $(i, j)$, c'est-à-dire que nous avons $[\mathsf{V}]_{i, j, a, b} = [\mathbf{V}]_{a, b}$ et $\mathbf{U}$ est une constante, disons $u$.
+Nous pouvons donc simplifier la définition pour $\mathbf{H}$ :
+$$[\mathbf{H}]_{i, j} = u + \sum_a\sum_b [\mathbf{V}]_{a, b} [\mathbf{X}]_{i+a, j+b}.$$</p>
+<p>Il s'agit d'une <em>convolution</em> !</p>
+<p>Nous pondérons effectivement les pixels à $(i+a, j+b)$. au voisinage de l'emplacement $(i, j)$ avec des coefficients $[\mathbf{V}]_{a, b}$. pour obtenir la valeur $[\mathbf{H}]_{i, j}$. Notez que $[\mathbf{V}]_{a, b}$ a besoin de beaucoup moins de coefficients que $[\mathsf{V}]_{i, j, a, b}$ puisqu'il ne dépend plus de l'emplacement dans l'image.</p>
+<h3 id="Principe-de-localisation">Principe de localisation<a class="anchor-link" href="#Principe-de-localisation">&#182;</a></h3><p>Comme nous l'avons motivé, nous pensons que nous ne devrions pas avoir à regarder très loin de l'emplacement $(i, j)$ afin de glaner des informations pertinentes pour évaluer ce qui se passe à $[\mathbf{H}]_{i, j}$. Cela signifie qu'en dehors d'un certain intervalle $|a|&gt; \Delta$ ou $|b| &gt; \Delta$, nous devons définir $[\mathbf{V}]_{a, b} = 0$. De manière équivalente, nous pouvons réécrire $[\mathbf{H}]_{i, j}$ comme suit</p>
+$$[\mathbf{H}]_{i, j} = u + \sum_{a = -\Delta}^\Delta \sum_{b = -\Delta}^\Delta [\mathbf{V}]_{a, b} [\mathbf{X}]_{i+a, j+b}.$$<p>En un mot, il s'agit d'une <em>couche de convolution</em>.
+<strong>Les réseaux neuronaux convolutifs (CNN) sont une famille particulière de réseaux neuronaux qui contiennent des couches convolutives</strong>. Dans la communauté de recherche sur l'apprentissage profond, $\mathbf{V}$ est appelé un <strong>noyau de convolution</strong>, un <strong>filtre</strong>, ou simplement les <strong>poids</strong> de la couche qui sont souvent des paramètres à calculer par apprentissage par minimisation d'une fonction de perte. Lorsque la région locale est petite, la différence par rapport à un réseau entièrement connecté peut être spectaculaire. Alors qu'auparavant, nous aurions pu avoir besoin de milliards de paramètres pour représenter une seule couche dans un réseau de traitement d'image, nous n'avons maintenant besoin que de quelques centaines, sans altérer la dimensionnalité des entrées ou des représentations cachées.</p>
+<h3 id="Origine-math%C3%A9matique-:-convolution">Origine math&#233;matique : convolution<a class="anchor-link" href="#Origine-math%C3%A9matique-:-convolution">&#182;</a></h3><p>Avant d'aller plus loin, nous devons revoir brièvement pourquoi l'opération ci-dessus est appelée une convolution. En mathématiques, la <em>convolution</em> entre deux fonctions,
+disons $f, g : \mathbb{R}^d \to \mathbb{R}$ est définie comme étant</p>
+$$(f * g)(\mathbf{x}) = \int f(\mathbf{z}) g(\mathbf{x}-\mathbf{z}) d\mathbf{z}.$$<p>Autrement dit, nous mesurons le chevauchement entre $f$ et $g$ lorsqu'une fonction est " retournée " et décalée de $\mathbf{x}$. Dès que nous avons des objets discrets, l'intégrale se transforme en une somme. Par exemple, pour les vecteurs de l'ensemble des vecteurs de dimension infinie sommables au carré dont l'indice s'étend sur $\mathbb{Z}$, nous obtenons la définition suivante :</p>
+$$(f * g)(i) = \sum_a f(a) g(i-a).$$<p>Pour les tenseurs à deux dimensions, nous avons une somme correspondante
+avec des indices $(a, b)$ pour $f$ et $(i-a, j-b)$ pour $g$, respectivement :</p>
+$$(f * g)(i, j) = \sum_a\sum_b f(a, b) g(i-a, j-b).$$<p>Une différence majeure. Plutôt que d'utiliser $(i+a, j+b)$, nous utilisons la différence à la place.</p>
+<h3 id="Gestion-des-images-en-couleurs-:-canaux-Rouge-Vert-Bleu">Gestion des images en couleurs : canaux Rouge-Vert-Bleu<a class="anchor-link" href="#Gestion-des-images-en-couleurs-:-canaux-Rouge-Vert-Bleu">&#182;</a></h3><p>Jusqu'à présent, nous avons ignoré que les images se composent de 3 canaux : rouge, vert et bleu. En réalité, les images ne sont pas des objets bidimensionnels mais plutôt des tenseurs 3D, caractérisés par une hauteur, une largeur et un canal, par exemple, de forme $1024 \times 1024 \times 3$ pixels. Alors que les deux premiers de ces axes concernent les relations spatiales, le troisième peut être considéré comme l'attribution d'une représentation multidimensionnelle à chaque emplacement de pixel. Nous indexons donc $\mathsf{X}$ comme $\mathsf{X}_{i, j, k}$. Le filtre convolutif doit s'adapter en conséquence. Au lieu de $\mathbf{V}_{a,b}$, nous avons maintenant $\mathsf{V}_{a,b,c}$.</p>
+<p>De plus, tout comme notre entrée consiste en un tenseur 3D, il s'avère être une bonne idée de formuler de la même manière nos représentations cachées comme des tenseurs 2D $\mathsf{H}$. En d'autres termes, plutôt que d'avoir une seule représentation cachée correspondant à chaque emplacement spatial, nous voulons un vecteur entier de représentations cachées correspondant à chaque emplacement spatial. Nous pouvons considérer que les représentations cachées comprennent un certain nombre de grilles bidimensionnelles empilées les unes sur les autres. Comme pour les entrées, on les appelle parfois des <em>canaux</em>. Elles sont aussi parfois appelées "cartes de caractéristiques", car chacune fournit un ensemble spatialisé de caractéristiques apprises à la couche suivante. Intuitivement, on peut imaginer que dans les couches inférieures, plus proches des entrées, certains canaux pourraient être spécialisés dans la reconnaissance des bords, tandis que d'autres pourraient reconnaître les textures.</p>
+<p>Pour prendre en charge plusieurs canaux à la fois dans les entrées ($\mathsf{X}$) et les représentations cachées ($\mathsf{H}$), nous pouvons ajouter une quatrième coordonnée à $\mathsf{V}$ : $[\mathsf{V}]_{a, b, c, d}$. En mettant tout ensemble, nous avons :</p>
+$$[\mathsf{H}]_{i, j, d} = \sum_{a = -\Delta}^{\Delta} \sum_{b = -\Delta}^{\Delta} \sum_c [\mathsf{V}]_{a, b, c, d} [\mathsf{X}]_{i+a, j+b, c},$$
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Convolution-en-pratique">Convolution en pratique<a class="anchor-link" href="#Convolution-en-pratique">&#182;</a></h2><p>Rappelons qu'à proprement parler, les couches convolutionnelles sont mal nommées, puisque les opérations qu'elles expriment sont plus précisément décrites comme des corrélations croisées.
+En se basant sur nos descriptions des couches convolutionnelles, dans une telle couche, un tenseur d'entrée
+et un tenseur de noyau sont combinés pour produire un tenseur de sortie par une (<strong>opération de corrélation croisée.</strong>)</p>
+<p>Ignorons les canaux pour l'instant et voyons comment cela fonctionne avec des données bidimensionnelles et des représentations cachées. Dans la figure ci-dessous, l'entrée est un tenseur bidimensionnel
+avec une hauteur de $3$ et une largeur de $3$. Nous marquons la forme du tenseur comme étant $3 \times 3$ ou ($3$, $3$). La hauteur et la largeur du noyau sont toutes deux de $2$. La forme de la <em>fenêtre du noyau</em> (ou <em>fenêtre de convolution</em>) est donnée par la hauteur et la largeur du noyau. (ici, elle est de $2 \times 2$).</p>
+<p><img src="./img/correlation.svg" alt="Opération de corrélation croisée en deux dimensions. Les parties ombragées sont le premier élément de sortie ainsi que les éléments tensoriels d&#39;entrée et du noyau utilisés pour le calcul de la sortie : $0\times0+1\times1+3\times2+4\times3=19$."></p>
+<p>Ici, le tenseur de sortie a une hauteur de 2 et une largeur de 2
+et les quatre éléments sont dérivés de
+l'opération de corrélation croisée bidimensionnelle :</p>
+$$
+0\times0+1\times1+3\times2+4\times3=19,\\
+1\times0+2\times1+4\times2+5\times3=25,\\
+3\times0+4\times1+6\times2+7\times3=37,\\
+4\times0+5\times1+7\times2+8\times3=43.
+$$<p>Nous avons besoin de suffisamment d'espace
+pour "décaler" le noyau de convolution dans l'image.
+Nous verrons plus tard comment garder la taille inchangée
+en remplissant l'image de zéros autour de sa limite
+de sorte qu'il y ait suffisamment d'espace pour déplacer le noyau.
+Ensuite, nous implémentons ce processus dans la fonction <code>corr2d</code>,
+qui accepte un tenseur d'entrée <code>X</code> et un tenseur de noyau <code>K</code>.
+et retourne un tenseur de sortie <code>Y</code>.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
+<span class="kn">from</span> <span class="nn">d2l</span> <span class="kn">import</span> <span class="n">torch</span> <span class="k">as</span> <span class="n">d2l</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">corr2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">K</span><span class="p">):</span>  <span class="c1">#@save</span>
+    <span class="sd">&quot;&quot;&quot;Compute 2D cross-correlation.&quot;&quot;&quot;</span>
+    <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">h</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">w</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">h</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span><span class="n">j</span> <span class="o">+</span> <span class="n">w</span><span class="p">]</span> <span class="o">*</span> <span class="n">K</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">Y</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">6.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">]])</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]])</span>
+<span class="n">corr2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Impl%C3%A9mentation-d'une-couche-de-convolution">Impl&#233;mentation d'une couche de convolution<a class="anchor-link" href="#Impl%C3%A9mentation-d'une-couche-de-convolution">&#182;</a></h3><p>Une couche de convolution calcule la corrélation croisée de l'entrée avec le noyau et ajoute un biais pour produire la sortie. Les deux paramètres d'une couche de convolution sont :</p>
+<ul>
+<li><strong>Le noyau</strong></li>
+<li><strong>Le biais</strong> </li>
+</ul>
+<p>Pour l'entraînement d'un réseau de neurone avec des couche de convolution, nous utilisons
+l'initialisation aléatoire comme nous l'avons fait précédemment.</p>
+<p>Nous sommes maintenant en mesure d'implémenter une couche de convoluton en 2D à l'aide de la fonction 
+<code>corr2d</code> déclarée ci-dessus.
+Dans le constructeur <code>__init__</code>, nous déclarons <code>weight</code> et <code>bias</code> comme les deux paramètres du modèle. La fonction de propagation forward va faire appel à la fonction <code>corr2d</code> et ajoute le biais.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Conv2D</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">kernel_size</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bias</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">corr2d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">bias</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>In $h \times w$ convolution or a $h \times w$ convolution kernel,
+the height and width of the convolution kernel are $h$ and $w$, respectively.
+Nous déclarons un noyau de convolution à l'aide des deux paramètres $h$ (height) et $w$ (width).
+On dit qu'on a une couche de convolution $h \times w$.</p>
+<h3 id="D%C3%A9tection-des-bords-d'objets">D&#233;tection des bords d'objets<a class="anchor-link" href="#D%C3%A9tection-des-bords-d'objets">&#182;</a></h3><p>Prenons un moment pour analyser <strong>une application simple d'une couche convolutive :
+détecter le bord d'un objet dans une image</strong> en trouvant l'emplacement du changement de pixel.
+Tout d'abord, nous construisons une "image" de $6\times 8$ pixels. Les quatre colonnes du milieu sont noires ($0$) et les autres sont blanches ($1$).</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">X</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">X</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Ensuite, nous construisons un noyau <code>K</code> avec une hauteur de $1$ et une largeur de $2$. Lorsque nous effectuons l'opération de corrélation croisée avec l'entrée, si les éléments horizontalement adjacents sont les mêmes, la sortie est $0$. Sinon, la sortie est non nulle.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">]])</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Nous pouvons maintenant mettre en place l'opération de corrélation croisée avec les arguments <code>X</code> (notre entrée) et <code>K</code> (notre noyau). Comme vous pouvez le voir, <strong>nous détectons $1$ pour le bord allant du blanc au noir et $-1$ pour le bord du noir au blanc</strong>. Toutes les autres sorties prennent la valeur $0$.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Y</span> <span class="o">=</span> <span class="n">corr2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
+<span class="n">Y</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Nous pouvons appliquer le noyau à l'image transposée. Comme prévu, il disparaît. <strong>Le noyau <code>K</code> ne détecte que les bords verticaux.</strong></p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">corr2d</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">t</span><span class="p">(),</span> <span class="n">K</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Apprentissage">Apprentissage<a class="anchor-link" href="#Apprentissage">&#182;</a></h2><p>Concevoir un détecteur de bords par différences finies <code>[1, -1]</code> est bien si nous savons que c'est précisément ce que nous recherchons. Cependant, si l'on considère des noyaux plus grands et des couches successives de convolutions, il peut être impossible de spécifier manuellement ce que chaque filtre doit faire.</p>
+<p>On souhaite <strong>apprendre le noyau qui a généré <code>Y</code> à partir de <code>X</code></strong> en regardant uniquement les paires d'entrée-sortie. Nous construisons d'abord une couche convolutionnelle et initialisons son noyau comme un tenseur aléatoire. Ensuite, à chaque itération, nous utiliserons l'erreur quadratique pour comparer <code>Y</code> avec la sortie de la couche convolutive. Nous pouvons alors calculer le gradient pour mettre à jour le noyau. Pour des raisons de simplicité, dans ce qui suit, nous utilisons la classe intégrée pour les couches convolutionnelles bidimensionnelles et ignorons le biais.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Construct a two-dimensional convolutional layer with 1 output channel and a</span>
+<span class="c1"># kernel of shape (1, 2). For the sake of simplicity, we ignore the bias here</span>
+<span class="n">conv2d</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># The two-dimensional convolutional layer uses four-dimensional input and</span>
+<span class="c1"># output in the format of (example, channel, height, width), where the batch</span>
+<span class="c1"># size (number of examples in the batch) and the number of channels are both 1</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">Y</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="mf">3e-2</span>  <span class="c1"># Learning rate</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">Y_hat</span> <span class="o">=</span> <span class="n">conv2d</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="p">(</span><span class="n">Y_hat</span> <span class="o">-</span> <span class="n">Y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">conv2d</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    <span class="n">l</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="c1"># Update the kernel</span>
+    <span class="n">conv2d</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="p">[:]</span> <span class="o">-=</span> <span class="n">lr</span> <span class="o">*</span> <span class="n">conv2d</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">grad</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;epoch </span><span class="si">{</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="si">}</span><span class="s1">, loss </span><span class="si">{</span><span class="n">l</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Notons que l'erreur est tombée à une faible valeur après 10 itérations.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conv2d</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Op%C3%A9rations--Padding-et-Stride">Op&#233;rations  <em>Padding</em> et <em>Stride</em><a class="anchor-link" href="#Op%C3%A9rations--Padding-et-Stride">&#182;</a></h2><p>Dans l'exemple illustré précédemment, on avait une entrée $3 \times 3$ et notre noyau de convolution $2 \times 2$, ce qui donnait une représentation de sortie $2\times2$. Comme nous l'avons généralisé, en supposant que la forme de l'entrée est $n_h\times n_w$ et que la forme du noyau de convolution est $k_h\times k_w$, alors la forme de la sortie sera $(n_h-k_h+1) \times (n_w-k_w+1)$. Par conséquent, la forme de la sortie de la couche convolutive est déterminée par la forme de l'entrée et de la forme du noyau de convolution.</p>
+<p>Dans plusieurs cas, nous incorporons des techniques, y compris le  <em>padding</em> et les convolutions dite (strided), qui affectent la taille de la sortie. En guise de motivation, notons que puisque les noyaux ont généralement une largeur et une hauteur supérieures à $1$, après avoir appliqué de nombreuses convolutions successives, nous avons tendance à nous retrouver avec des sorties considérablement plus petites que notre entrée. Si nous partons d'une image de $240 \times 240$ pixels, $10$ couches de $5 \times 5$ convolutions réduisent l'image à $200 \times 200$ pixels, coupant $30 \%$ de l'image et oblitérant ainsi toute information intéressante sur les limites de l'image originale. Le <em>padding</em> est l'outil le plus populaire pour traiter ce problème.</p>
+<p>Dans d'autres cas, nous pouvons vouloir réduire radicalement la dimensionnalité. La <em>convolution</em> strided est une technique populaire qui peut aider dans ces cas.</p>
+<h3 id="Padding"><em>Padding</em><a class="anchor-link" href="#Padding">&#182;</a></h3><p>Un problème délicat est que nous avons tendance à perdre des pixels sur le périmètre de notre image. Comme nous utilisons généralement de petits noyaux, pour une convolution donnée, nous pouvons ne perdre que quelques pixels, mais cela peut s'accumuler au fur et à mesure que nous appliquons de nombreuses couches convolutives successives. <strong>Une solution directe à ce problème est d'ajouter des pixels supplémentaires de remplissage autour de la limite de notre image d'entrée, augmentant ainsi la taille effective de l'image. Typiquement, nous fixons les valeurs des pixels supplémentaires à zéro</strong>. Sur l'image suivante, nous remplissons une image d'entrée de $3 \times 3$, ce qui augmente sa taille à $5 \times 5$. La sortie correspondante passe alors à une matrice de $4 \times 4$. Les parties ombrées sont le premier élément de sortie ainsi que les éléments tensoriels d'entrée et de noyau utilisés pour le calcul de la sortie : $0\times0+0\times1+0\times2+0\times3=0$.
+<img src="./img/conv-pad.svg" alt="Two-dimensional cross-correlation with padding."></p>
+<p>En général, si nous ajoutons un total de $p_h$ rangées de padding (à peu près la moitié en haut et la moitié en bas) et un total de $p_w$ colonnes de padding (environ la moitié à gauche et la moitié à droite), la forme de sortie sera</p>
+$$(n_h-k_h+p_h+1)\times(n_w-k_w+p_w+1).$$<p>Cela signifie que la hauteur et la largeur de la sortie augmentera respectivement de $p_h$ et $p_w$.</p>
+<p>Dans de nombreux cas, nous voudrons définir $p_h=k_h-1$ et $p_w=k_w-1$. pour que l'entrée et la sortie aient la même hauteur et la même largeur. Il sera ainsi plus facile de prévoir la forme de la sortie de chaque couche lors de la construction du réseau. lors de la construction du réseau. En supposant que $k_h$ est impair ici, nous ajouterons $p_h/2$ lignes de part et d'autre de la hauteur. Si $k_h$ est pair, une possibilité est de
+de remplir $\lceil p_h/2\rceil$ lignes sur le haut de l'entrée et $\lfloor p_h/2\rfloor$ lignes sur le bas. Nous remplirons les deux côtés de la largeur de la même manière.</p>
+<p>Les CNN utilisent généralement des noyaux de convolution avec des valeurs de hauteur et de largeur impaires, telles que $1$, $3$, $5$ ou $7$. Le choix de tailles de noyau impaires présente l'avantage que nous pouvons préserver la dimensionnalité spatiale tout en ayant le même nombre de lignes en haut et en bas, et le même nombre de colonnes à gauche et à droite.</p>
+<p>De plus, cette pratique consistant à utiliser des noyaux impairs et le padding pour préserver précisément la dimensionnalité offre un avantage. Pour tout tenseur bidimensionnel <code>X</code>, lorsque la taille du noyau est impaire et que le nombre de lignes et de colonnes de pdding sur tous les côtés sont les mêmes, produisant une sortie avec la même hauteur et largeur que l'entrée, on sait que la sortie <code>Y[i, j]</code> est calculée par corrélation-croisée de l'entrée et du noyau de convolution avec la fenêtre centrée sur <code>X[i, j]</code>.</p>
+<p>Dans l'exemple suivant, nous créons une couche convolutionnelle bidimensionnelle avec une hauteur et une largeur de $3$ et <strong>appliquer $1$ pixel de padding sur tous les côtés</strong>. Étant donné une entrée avec une hauteur et une largeur de $8$, nous constatons que la hauteur et la largeur de la sortie sont également de $8$.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
+<span class="c1"># We define a convenience function to calculate the convolutional layer. This</span>
+<span class="c1"># function initializes the convolutional layer weights and performs</span>
+<span class="c1"># corresponding dimensionality elevations and reductions on the input and</span>
+<span class="c1"># output</span>
+<span class="k">def</span> <span class="nf">comp_conv2d</span><span class="p">(</span><span class="n">conv2d</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+    <span class="c1"># Here (1, 1) indicates that the batch size and the number of channels</span>
+    <span class="c1"># are both 1</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">conv2d</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="c1"># Exclude the first two dimensions that do not interest us: examples and</span>
+    <span class="c1"># channels</span>
+    <span class="k">return</span> <span class="n">Y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">Y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
+<span class="c1"># Note that here 1 row or column is padded on either side, so a total of 2</span>
+<span class="c1"># rows or columns are added</span>
+<span class="n">conv2d</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">comp_conv2d</span><span class="p">(</span><span class="n">conv2d</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Lorsque la hauteur et la largeur du noyau de convolution sont différentes, nous pouvons faire en sorte que la sortie et l'entrée aient la même hauteur et la même largeur en <strong>réglant des nombres de remplissage différents pour la hauteur et la largeur</strong>.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Here, we use a convolution kernel with a height of 5 and a width of 3. The</span>
+<span class="c1"># padding numbers on either side of the height and width are 2 and 1,</span>
+<span class="c1"># respectively</span>
+<span class="n">conv2d</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">padding</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">comp_conv2d</span><span class="p">(</span><span class="n">conv2d</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Stride">Stride<a class="anchor-link" href="#Stride">&#182;</a></h3><p>Lors du calcul d'une convolution, nous commençons par la fenêtre au coin supérieur gauche du tenseur d'entrée, puis nous la faisons glisser sur tous les emplacements vers le bas et vers la droite. Dans les exemples précédents, nous avons choisi par défaut de faire glisser un élément à la fois. Cependant, parfois, soit pour des raisons d'efficacité informatique ou parce que nous souhaitons réduire l'échantillonnage, nous déplaçons notre fenêtre de plus d'un élément à la fois, en sautant les emplacements intermédiaires.</p>
+<p>Le nombre de lignes et de colonnes traversées par glissement est appelé "stride".
+Nous avons utilisé des strides de $1$, tant pour la hauteur que pour la largeur. Parfois, nous pouvons vouloir utiliser un stride plus grand. La figure montre une opération de convolution avec un stride de $3$ verticalement et $2$ horizontalement. Les parties dites <em>shaded</em> sont les éléments de sortie ainsi que les éléments tenseurs d'entrée et de noyau utilisés pour le calcul de la sortie : $0\times0+0\times1+1\times2+2\times3=8$, $0\times0+6\times1+0\times2+0\times3=6$. Nous pouvons voir que lorsque le deuxième élément de la première colonne est sorti, la fenêtre de convolution glisse de trois rangées vers le bas. La fenêtre de convolution glisse de deux colonnes vers la droite lorsque le deuxième élément de la première ligne est sorti. Lorsque la fenêtre de convolution continue à glisser de deux colonnes vers la droite sur l'entrée, il n'y a pas de sortie car l'élément d'entrée ne peut pas remplir la fenêtre (sauf si nous ajoutons une autre colonne par padding).
+<img src="./img/conv-stride.svg" alt=""></p>
+<p>En général, lorsque le pas de la hauteur est de $s_h$ et celui de la largeur de $s_w$.
+et le pas pour la largeur est $s_w$, la forme de sortie est</p>
+$$\lfloor(n_h-k_h+p_h+s_h)/s_h\rfloor \times \lfloor(n_w-k_w+p_w+s_w)/s_w\rfloor.$$<p>Si nous fixons $p_h=k_h-1$ et $p_w=k_w-1$,
+alors la forme de la sortie sera simplifiée en
+$\lfloor(n_h+s_h-1)/s_h\rfloor \times \lfloor(n_w+s_w-1)/s_w\rfloor$.</p>
+<p>En allant un peu plus loin, si la hauteur et la largeur d'entrée
+sont divisibles par les strides de la hauteur et de la largeur,
+alors la forme de sortie sera $(n_h/s_h) \times (n_w/s_w)$.</p>
+<p>Ci-dessous, nous <strong>établissons les pas sur la hauteur et la largeur à 2</strong>,
+ce qui divise par deux la hauteur et la largeur d'entrée.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conv2d</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">comp_conv2d</span><span class="p">(</span><span class="n">conv2d</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Ensuite, nous allons examiner <strong>un exemple légèrement plus compliqué</strong>.</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conv2d</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">padding</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">stride</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">comp_conv2d</span><span class="p">(</span><span class="n">conv2d</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Lorsque le nombre de padding des deux côtés de la hauteur et de la largeur d'entrée est respectivement de $p_h$ et $p_w$, nous appelons le padding $(p_h, p_w)$. Plus précisément, lorsque $p_h = p_w = p$, le padding est de $p$. Lorsque les strides sur la hauteur et la largeur sont $s_h$ et $s_w$, respectivement, nous appelons le stride $(s_h, s_w)$. Plus précisément, lorsque $s_h = s_w = s$, le stride est de $s$. Par défaut, le padding est égal à $0$ et le stride à $1$. En pratique, nous utilisons rarement des strides ou des padding inhomogènes, c'est-à-dire que nous avons généralement $p_h = p_w$ et $s_h = s_w$.</p>
+<h3 id="R%C3%A9sum%C3%A9">R&#233;sum&#233;<a class="anchor-link" href="#R%C3%A9sum%C3%A9">&#182;</a></h3><ul>
+<li><p>Le padding peut augmenter la hauteur et la largeur de la sortie. Il est souvent utilisé pour donner à la sortie la même hauteur et la même largeur que l'entrée.</p>
+</li>
+<li><p>Le stride peut réduire la résolution de la sortie, par exemple en réduisant la hauteur et la largeur de la sortie à seulement $1/n$ de la hauteur et de la largeur de l'entrée ($n$ est un entier supérieur à $1$).</p>
+</li>
+<li><p>Le padding et le stride peuvent être utilisés pour ajuster efficacement la dimensionnalité des données.</p>
+</li>
+</ul>
+
+</div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Pooling">Pooling<a class="anchor-link" href="#Pooling">&#182;</a></h2><p>Souvent, nous voulons progressivement réduire la résolution spatiale de nos représentations cachées, en agrégeant les informations de sorte que plus on monte dans le réseau.</p>
+<p>Souvent, notre tâche ultime pose une question globale sur l'image, par exemple : "Est-ce qu'elle contient un chat ?". Donc typiquement, les unités de notre couche finale devraient être sensibles à l'ensemble de l'entrée. En agrégeant progressivement les informations, nous accomplissons ce but d'apprendre finalement une représentation globale, tout en conservant tous les avantages des couches convolutionnelles dans les couches intermédiaires de traitement.</p>
+<p>De plus, lors de la détection de caractéristiques de plus bas niveau, telles que les bords, nous voulons souvent que nos représentations soient quelque peu invariantes à la translation. Par exemple, si nous prenons l'image <code>X</code> avec une délimitation nette entre le noir et le blanc et qu'on déplace l'image entière d'un pixel vers la droite, c'est-à-dire, <code>Z[i, j] = X[i, j + 1]</code>, alors le résultat de la nouvelle image <code>Z</code> sera très différent. Le bord se sera déplacé d'un pixel. En réalité, les objets ne se trouvent presque jamais exactement au même endroit.
+En fait, même avec un trépied et un objet stationnaire, les vibrations de l'appareil photo dues au mouvement du <em>shutter</em> peuvent tout décaler d'un pixel ou plus (les appareils photo haut de gamme sont dotés de fonctions spéciales pour résoudre ce problème).</p>
+<p>Nous présentons ici, les couches de <em>pooling</em>, qui ont le double objectif de d'atténuer la sensibilité des couches convolutionnelles à l'emplacement et de réduire l'échantillonnage spatial des représentations.</p>
+<h3 id="Pooling-par-maximum-ou-par-la-moyenne">Pooling par maximum ou par la moyenne<a class="anchor-link" href="#Pooling-par-maximum-ou-par-la-moyenne">&#182;</a></h3><p><img src="./img/pooling.svg" alt="Maximum pooling with a pooling window shape of $2\times 2$. The shaded portions are the first output element as well as the input tensor elements used for the output computation: $\max(0, 1, 3, 4)=4$."></p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -13984,88 +14470,16 @@ a.anchor-link {
 <span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
 <span class="kn">from</span> <span class="nn">d2l</span> <span class="kn">import</span> <span class="n">torch</span> <span class="k">as</span> <span class="n">d2l</span>
 
-<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">256</span>
-<span class="n">train_iter</span><span class="p">,</span> <span class="n">test_iter</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">load_data_fashion_mnist</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Initialisation-des-param%C3%A8tres-du-mod%C3%A8le,-perte-et-algorithme-d'optimisation">Initialisation des param&#232;tres du mod&#232;le, perte et algorithme d'optimisation<a class="anchor-link" href="#Initialisation-des-param%C3%A8tres-du-mod%C3%A8le,-perte-et-algorithme-d'optimisation">&#182;</a></h3><p>La couche de sortie de la régression softmax est une couche entièrement connectée. Par conséquent, pour mettre en œuvre notre modèle, il nous suffit d'ajouter une couche entièrement connectée avec $10$ sorties à notre séquence de couches. Ici encore, la déclaration en séquence n'est pas vraiment nécessaire, mais autant en prendre l'habitude puisqu'il sera omniprésent lors de la mise en œuvre de modèles de deep learning. Encore une fois, nous initialisons les poids au hasard avec une moyenne de $0$ et un écart type de $0.01$.</p>
-
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># PyTorch does not implicitly reshape the inputs. Thus we define the flatten</span>
-<span class="c1"># layer to reshape the inputs before the linear layer in our network</span>
-<span class="n">net</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(),</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">784</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-
-<span class="k">def</span> <span class="nf">init_weights</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
-    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">==</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">:</span>
-        <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
-
-<span class="n">net</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">init_weights</span><span class="p">);</span>
-
-<span class="n">loss</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
-
-<span class="n">trainer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Apprentissage">Apprentissage<a class="anchor-link" href="#Apprentissage">&#182;</a></h3>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">train_ch3</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">test_iter</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">,</span> <span class="n">trainer</span><span class="p">)</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Mise-en-%C5%93uvre-concise-des-perceptrons-multicouches">Mise en &#339;uvre concise des perceptrons multicouches<a class="anchor-link" href="#Mise-en-%C5%93uvre-concise-des-perceptrons-multicouches">&#182;</a></h2>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">net</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(),</span>
-                    <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">784</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
-                    <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
-                    <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-
-<span class="k">def</span> <span class="nf">init_weights</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
-    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">==</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">:</span>
-        <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
-
-<span class="n">net</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">init_weights</span><span class="p">);</span>
+<span class="k">def</span> <span class="nf">pool2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">pool_size</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">):</span>
+    <span class="n">p_h</span><span class="p">,</span> <span class="n">p_w</span> <span class="o">=</span> <span class="n">pool_size</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">p_h</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">p_w</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span>
+                <span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="n">p_h</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="n">j</span> <span class="o">+</span> <span class="n">p_w</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;avg&#39;</span><span class="p">:</span>
+                <span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="n">p_h</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="n">j</span> <span class="o">+</span> <span class="n">p_w</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">Y</span>
 </pre></div>
 
      </div>
@@ -14079,12 +14493,22 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">batch_size</span><span class="p">,</span> <span class="n">lr</span><span class="p">,</span> <span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">10</span>
-<span class="n">loss</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
-<span class="n">trainer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">net</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="n">lr</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">6.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">]])</span>
+<span class="n">pool2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
 
-<span class="n">train_iter</span><span class="p">,</span> <span class="n">test_iter</span> <span class="o">=</span> <span class="n">d2l</span><span class="o">.</span><span class="n">load_data_fashion_mnist</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span>
-<span class="n">d2l</span><span class="o">.</span><span class="n">train_ch3</span><span class="p">(</span><span class="n">net</span><span class="p">,</span> <span class="n">train_iter</span><span class="p">,</span> <span class="n">test_iter</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">num_epochs</span><span class="p">,</span> <span class="n">trainer</span><span class="p">)</span>
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pool2d</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;avg&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
