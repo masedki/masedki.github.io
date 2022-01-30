@@ -116,3 +116,9 @@ output:
 [Réseaux de neurones convolutifs CNN](http://masedki.github.io/enseignements/notebooks/nn_conv.html)
 
 [LeNet et AlexNet](http://masedki.github.io/enseignements/notebooks/LeNet_AlexNet.html)
+
+### Examen Python et apprentissage 
+
+[Projet à rendre le 27/02/2022](http://masedki.github.io/enseignements/notebooks/Examen_2122.html)
+
+
