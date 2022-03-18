@@ -7,6 +7,14 @@ output:
     css: style.css
 ---
 
-[Modèles de génétriques des populations neutres](http://masedki.github.io/enseignements/pdfs/articleGenPop.pdf)
+[Modèles de génétriques des populations neutres](http://masedki.github.io/enseignements/pdfs/genpops/articleGenPop.pdf)
 
-[Supports du cours](http://masedki.github.io/enseignements/pdfs/SlidesGenPop.pdf)
+[Supports du cours (années précédentes)](http://masedki.github.io/enseignements/pdfs/genpops/SlidesGenPop.pdf)
+
+[Méthodes non-supervisées](http://masedki.github.io/enseignements/pdfs/genpops/presentation.pdf)
+
+[Un petit TP](http://masedki.github.io/enseignements/pdfs/genpops/TP_genpop.pdf)
+
+[Article](http://masedki.github.io/enseignements/pdfs/genpops/aoasGenClust.pdf)
+
+[Code du TP](http://masedki.github.io/enseignements/pdfs/genpops/HumanGenMAP.R)
