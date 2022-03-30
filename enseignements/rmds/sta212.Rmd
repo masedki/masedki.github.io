@@ -11,7 +11,9 @@ output:
 
 [Introduction : supports](http://masedki.github.io/enseignements/sta212/intro_slides.pdf)
 
-[Arbres de décision uniques et agrégation de modèles](http://masedki.github.io/enseignements/sta212/arbres_agregation.pdf)
+[Arbres de décision et agrégation de modèles](http://masedki.github.io/enseignements/pdfs/apprentissage/apprentissage.pdf)
+
+
 
 
 ### TP et codes R
