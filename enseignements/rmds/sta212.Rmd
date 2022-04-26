@@ -50,3 +50,11 @@ output:
 [Jeu de données Orange Juice](http://masedki.github.io/enseignements/sta212/oj.csv)
 
 [Jeu de données email](http://masedki.github.io/enseignements/sta212/email.csv)
+
+### Examen TP : 
+
+[énoncé](http://masedki.github.io/enseignements/sta212/examtp22.pdf)
+
+[XYmodel](http://masedki.github.io/enseignements/sta212/XYmodel.rda)
+
+[XYnew](http://masedki.github.io/enseignements/sta212/XYnew.rda)
