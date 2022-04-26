@@ -58,3 +58,5 @@ output:
 [XYmodel](http://masedki.github.io/enseignements/sta212/XYmodel.rda)
 
 [XYnew](http://masedki.github.io/enseignements/sta212/XYnew.rda)
+
+[X_y](http://masedki.github.io/enseignements/sta212/X_y.rda)
