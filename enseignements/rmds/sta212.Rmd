@@ -30,6 +30,14 @@ output:
 
 [Code : gradient boosting pour la régression](http://masedki.github.io/enseignements/sta212/gbm_assurance.R)
 
+[TP2 : données textuelles](http://masedki.github.io/enseignements/sta212/tp2.pdf)
+
+[TP3 : bootstrap pour un graphe](http://masedki.github.io/enseignements/sta212/tp3.pdf)
+
+[Scan des exercices corrigés](http://masedki.github.io/enseignements/sta212/exercices_corriges.pdf)
+
+
+[Devoir écrit 2020](http://masedki.github.io/enseignements/sta212/devoir_2020.pdf)
 <!-- [Code : arbres de décision  pour la régression](http://masedki.github.io/enseignements/rcode/rpart_insurance.R) -->
 
 <!-- [Code : arbres de décision  pour la classification et fôrets aléatoires](http://masedki.github.io/enseignements/rcode/rpart_pima.R) -->
