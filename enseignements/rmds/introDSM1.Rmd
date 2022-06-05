@@ -110,7 +110,7 @@ elasticnet. Traiter les exemples autour du jeu de données du cancer de la prost
 <!-- [corrigé](http://masedki.github.io/enseignements/cc_correction.html) -->
 
 
-<!-- # [Examen  + corrigé](http://masedki.github.io/enseignements/pdfs/cs19.pdf) du 12 juin 2019 -->
+[Examen](http://masedki.github.io/enseignements/pdfs/s1_2021.pdf) du 08 juin 2021
 
 
 <!-- # [Projet pour la seconde session](http://masedki.github.io/enseignements/pdfs/cc2.pdf) à rendre au plus tard le 03/09/2019 à 23h.  -->
