@@ -1,5 +1,5 @@
 ---
-title: "Mise à niveau en calcul matriciel"
+title: "Mise à niveau : calcul matriciel"
 output:
   html_document:
     theme: journal
@@ -9,6 +9,6 @@ output:
 
 [slides de cours](http://masedki.github.io/enseignements/pdfs/MANmatrice.pdf)
 
-[exemple de diagonalisation](http://masedki.github.io/enseignements/pdfs/exemple_diag.pdf)
+<!-- [exemple de diagonalisation](http://masedki.github.io/enseignements/pdfs/exemple_diag.pdf) -->
 
 [notebook R](http://masedki.github.io/enseignements/manmatrice/rnb_matrices.html)
