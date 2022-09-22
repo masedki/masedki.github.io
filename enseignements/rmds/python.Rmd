@@ -7,7 +7,7 @@ output:
     css: style.css
 ---
 
-## séance du 23/09/2021
+## séances du 22 et 29/09/2022
 
 [Introduction](http://masedki.github.io/enseignements/python/Nb1-IntroPython.html)
 
@@ -17,7 +17,7 @@ output:
 
 [Compilé versus interprété](http://masedki.github.io/enseignements/python/Compiled_and_interpreted.html)
 
-[Objectif: 100 exercices](http://masedki.github.io/enseignements/python/exercices.html)
+[exercices](http://masedki.github.io/enseignements/python/exercices.html)
 [(correction)](http://masedki.github.io/enseignements/python/exercices_correction.html)
 
 ## à traiter (à volonté) 
