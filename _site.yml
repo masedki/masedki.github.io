@@ -10,6 +10,7 @@ navbar:
         - text: "M1 mathématiques appliquées Paris-Sud-ENSTA"
         - text: "STA212"
           href: enseignements/sta212.html
+        - text: "---------" 
         - text: "M2 SDS"
         - text: "Python"
           href: enseignements/python.html
@@ -39,6 +40,8 @@ navbar:
         - text: "Formation"
         - text: "R avancé"
           href: enseignements/Ravance.html  
+        - text: "RP newmed"
+          href: formations/newmed.html 
     - text: "Recherche"
       href: recherche/recherche.html
     - text: "Packages et logiciels"

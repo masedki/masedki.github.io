@@ -1,0 +1,10 @@
+---
+title: "RP newmed"
+output:
+  html_document:
+    theme: journal
+    highlight: monochrome
+    css: style.css
+---
+
+[database (heart disease)](http://masedki.github.io/datasets/database.rda)
