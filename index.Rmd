@@ -7,9 +7,9 @@ output:
     css: style.css
 ---
 
-Maître de conférence à l'université Paris-Sud
+Maître de conférence à l'université Paris-Saclay
 
-CESP-Inserm U1018: Pôle méthodologies et statistique 
+CESP-Inserm U1018: Pôle méthodologie et statistique 
 
 Bureau 123, étage 1 du bâtiment Inserm 15/16 hôpital Paul Brousse 
 
