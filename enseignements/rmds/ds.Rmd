@@ -9,6 +9,7 @@ output:
 
 [Slides de cours](http://masedki.github.io/enseignements/pdfs/ds/statistique.pdf)
 
+[Note du 12/01/2022 du M2SDS](http://masedki.github.io/enseignements/pdfs/ds/notes_121022_M2SDS.pdf)
 <!-- [Problème](http://masedki.github.io/enseignements/ds_pb.html)  -->
 
 <!-- [Exercices](http://masedki.github.io/enseignements/pdfs/ds/exo_stat_2122.pdf)[ (solutions des exercices 4 et 5)](http://masedki.github.io/enseignements/pdfs/ds/sols_exo_stat_4_5.pdf) -->
