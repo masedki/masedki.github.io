@@ -10,14 +10,17 @@ output:
 
 [Introduction, arbres de décision et agrégation de modèles](http://masedki.github.io/enseignements/pdfs/apprentissage/apprentissage.pdf)
 
-[Régression (linéaire ou logistique) pénalisée](http://masedki.github.io/enseignements/pdfs/apprentissage/reg_pen.pdf)
+<!-- [Régression (linéaire ou logistique) pénalisée](http://masedki.github.io/enseignements/pdfs/apprentissage/reg_pen.pdf) -->
 
-[Réseaux de neurones](http://masedki.github.io/enseignements/pdfs/apprentissage/nn_intro.pdf) 
+<!-- [Réseaux de neurones](http://masedki.github.io/enseignements/pdfs/apprentissage/nn_intro.pdf)  -->
 
 ### notebooks, TP et projets 
-[Introduction : TP](http://masedki.github.io/enseignements/pdfs/apprentissage/tp_intro.pdf) 
 
-[corrigé](http://masedki.github.io/enseignements/rcode/apprentissage/tp_intro.R)
+[Introduction : TP Python](https://masedki.github.io/enseignements/python/knn_mixture.html)
+<!-- [Introduction : TP](http://masedki.github.io/enseignements/pdfs/apprentissage/tp_intro.pdf)  -->
+
+<!-- [corrigé](http://masedki.github.io/enseignements/rcode/apprentissage/tp_intro.R) -->
+
 <!-- [supports :  arbres et agrégation de modèles](http://masedki.github.io/enseignements/pdfs/apprentissage/arbres.pdf) -->
 
 <!-- [supports :  svm](http://masedki.github.io/enseignements/pdfs/apprentissage/svm.pdf) -->
@@ -53,11 +56,11 @@ output:
 <!-- [notebook Génétique des populations](http://masedki.github.io/enseignements/apprentissage/GenPopTP.html) -->
 
 
-### scripts R 
+<!-- ### scripts R  -->
 
-[code R : rpart prostate](http://masedki.github.io/enseignements/rcode/apprentissage/rpart_prostate.R)
+<!-- [code R : rpart prostate](http://masedki.github.io/enseignements/rcode/apprentissage/rpart_prostate.R) -->
 
-[code R : rpart pima](http://masedki.github.io/enseignements/rcode/apprentissage/rpart_pima.R) 
+<!-- [code R : rpart pima](http://masedki.github.io/enseignements/rcode/apprentissage/rpart_pima.R)  -->
 
 <!-- [code R : rf prostate](http://masedki.github.io/enseignements/rcode/apprentissage/rf_reg.R) -->
 
@@ -80,45 +83,45 @@ output:
 
 <!-- [caret : modèles disponibles](https://topepo.github.io/caret/available-models.html) -->
 
-### Jeux de données 
+<!-- ### Jeux de données  -->
 
-[Jeu de données : mixture.example](http://masedki.github.io/enseignements/datasets/mixture_example.rda)
+<!-- [Jeu de données : mixture.example](http://masedki.github.io/enseignements/datasets/mixture_example.rda) -->
 
 <!-- [dataset mixture.txt](http://masedki.github.io/enseignements/datasets/mixture.txt) -->
 
-[dataset Prostate_Cancer.txt](http://masedki.github.io/enseignements/datasets/Prostate_Cancer.txt)
+<!-- [dataset Prostate_Cancer.txt](http://masedki.github.io/enseignements/datasets/Prostate_Cancer.txt) -->
 
 <!-- [dataset Framingham](http://masedki.github.io/enseignements/datasets/framingham.csv) -->
 
-[dataset assurance (si besoin)](http://masedki.github.io/enseignements/datasets/insurance.rda)
+<!-- [dataset assurance (si besoin)](http://masedki.github.io/enseignements/datasets/insurance.rda) -->
 
-[dataset Pima_tr](http://masedki.github.io/enseignements/datasets/Pima_tr.rda) 
+<!-- [dataset Pima_tr](http://masedki.github.io/enseignements/datasets/Pima_tr.rda)  -->
 
-[dataset Pima_te](http://masedki.github.io/enseignements/datasets/Pima_te.rda)
+<!-- [dataset Pima_te](http://masedki.github.io/enseignements/datasets/Pima_te.rda) -->
 
 <!-- [dataset NCI60](http://masedki.github.io/enseignements/datasets/nci_data.csv) -->
 
 <!-- [labels NCI60](http://masedki.github.io/enseignements/datasets/nci_label.txt) -->
 
-[dataset leukemia](https://web.stanford.edu/~hastie/CASI_files/DATA/leukemia.html)
+<!-- [dataset leukemia](https://web.stanford.edu/~hastie/CASI_files/DATA/leukemia.html) -->
 
 
-### notebooks PyTorch
+<!-- ### notebooks PyTorch -->
 
-[Découverte des tenseurs avec PyTorch](http://masedki.github.io/enseignements/notebooks/premiers_contacts.html)
+<!-- [Découverte des tenseurs avec PyTorch](http://masedki.github.io/enseignements/notebooks/premiers_contacts.html) -->
 
-[Régression par nn avec PyTorch + dataset Fashion-MNIST](http://masedki.github.io/enseignements/notebooks/nn_reg_dataset.html)
+<!-- [Régression par nn avec PyTorch + dataset Fashion-MNIST](http://masedki.github.io/enseignements/notebooks/nn_reg_dataset.html) -->
 
-[Classification par nn from scratch](http://masedki.github.io/enseignements/notebooks/nn_classif_from_scratch.html)
+<!-- [Classification par nn from scratch](http://masedki.github.io/enseignements/notebooks/nn_classif_from_scratch.html) -->
 
-[Classification par nn avec PyTorch](http://masedki.github.io/enseignements/notebooks/nn_classif_PyTorch.html)
+<!-- [Classification par nn avec PyTorch](http://masedki.github.io/enseignements/notebooks/nn_classif_PyTorch.html) -->
 
-[Réseaux de neurones convolutifs CNN](http://masedki.github.io/enseignements/notebooks/nn_conv.html)
+<!-- [Réseaux de neurones convolutifs CNN](http://masedki.github.io/enseignements/notebooks/nn_conv.html) -->
 
-[LeNet et AlexNet](http://masedki.github.io/enseignements/notebooks/LeNet_AlexNet.html)
+<!-- [LeNet et AlexNet](http://masedki.github.io/enseignements/notebooks/LeNet_AlexNet.html) -->
 
-### Examen Python et apprentissage 
+<!-- ### Examen Python et apprentissage  -->
 
-[Projet à rendre le 27/02/2022](http://masedki.github.io/enseignements/notebooks/Examen_2122.html)
+<!-- [Projet à rendre le 27/02/2022](http://masedki.github.io/enseignements/notebooks/Examen_2122.html) -->
 
 
