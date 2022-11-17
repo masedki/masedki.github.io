@@ -17,6 +17,9 @@ output:
 ### notebooks, TP et projets 
 
 [Introduction : TP Python](https://masedki.github.io/enseignements/python/knn_mixture.html)
+
+[Arbres de décision pour la régression](http://masedki.github.io/enseignements/python/decisiontree.html)
+
 <!-- [Introduction : TP](http://masedki.github.io/enseignements/pdfs/apprentissage/tp_intro.pdf)  -->
 
 <!-- [corrigé](http://masedki.github.io/enseignements/rcode/apprentissage/tp_intro.R) -->
@@ -93,7 +96,7 @@ output:
 
 <!-- [dataset Framingham](http://masedki.github.io/enseignements/datasets/framingham.csv) -->
 
-<!-- [dataset assurance (si besoin)](http://masedki.github.io/enseignements/datasets/insurance.rda) -->
+[dataset assurance (si besoin)](http://masedki.github.io/enseignements/datasets/insurance.rda)
 
 <!-- [dataset Pima_tr](http://masedki.github.io/enseignements/datasets/Pima_tr.rda)  -->
 
