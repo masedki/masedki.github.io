@@ -86,9 +86,9 @@ output:
 
 <!-- [caret : modèles disponibles](https://topepo.github.io/caret/available-models.html) -->
 
-<!-- ### Jeux de données  -->
+### Jeux de données
 
-<!-- [Jeu de données : mixture.example](http://masedki.github.io/enseignements/datasets/mixture_example.rda) -->
+[Jeu de données : mixture.example](http://masedki.github.io/enseignements/datasets/mixture_example.rda)
 
 <!-- [dataset mixture.txt](http://masedki.github.io/enseignements/datasets/mixture.txt) -->
 
