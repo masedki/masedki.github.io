@@ -36,7 +36,7 @@ output:
 
 [Probabilités et statistiques](http://masedki.github.io/enseignements/python/probasstats.html)
 
-<!-- [Projet 2021](http://masedki.github.io/enseignements/python/examen_ML_Python_2021.html) -->
+[Devoir 2022](http://masedki.github.io/enseignements/python/devoir_2022.pdf)
 
 ### Travaux pratiques 
 
