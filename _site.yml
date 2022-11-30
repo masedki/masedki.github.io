@@ -37,10 +37,10 @@ navbar:
         - text: "Introduction aux datascience"
           href: enseignements/introDSM1.html 
         - text: "---------"  
-        - text: "Formations et RP"
+        - text: "Formations"
         - text: "R avancé"
           href: enseignements/Ravance.html  
-        - text: "RP newmed"
+        - text: "newmed"
           href: formations/newmed.html 
     - text: "Recherche"
       href: recherche/recherche.html

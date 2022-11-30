@@ -14,7 +14,7 @@ output:
 
 <!-- [Exercices](http://masedki.github.io/enseignements/pdfs/ds/exo_stat_2122.pdf)[ (solutions des exercices 4 et 5)](http://masedki.github.io/enseignements/pdfs/ds/sols_exo_stat_4_5.pdf) -->
 
-[Examen de 21/22](http://masedki.github.io/enseignements/pdfs/examen2122.pdf)
+[Examen de 21/22](http://masedki.github.io/enseignements/pdfs/ds/examen2122.pdf)
 
 <!-- [vidéo de la séance 1 (partie 1 : vidéo du cours du master 2 SDS)](http://genostats.ovh/SDS/Stats4-1.webm) -->
 
