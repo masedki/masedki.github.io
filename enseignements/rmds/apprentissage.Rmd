@@ -98,9 +98,9 @@ output:
 
 [dataset assurance (si besoin)](http://masedki.github.io/enseignements/datasets/insurance.rda)
 
-<!-- [dataset Pima_tr](http://masedki.github.io/enseignements/datasets/Pima_tr.rda)  -->
+[dataset Pima_tr](http://masedki.github.io/enseignements/datasets/Pima_tr.rda)
 
-<!-- [dataset Pima_te](http://masedki.github.io/enseignements/datasets/Pima_te.rda) -->
+[dataset Pima_te](http://masedki.github.io/enseignements/datasets/Pima_te.rda)
 
 <!-- [dataset NCI60](http://masedki.github.io/enseignements/datasets/nci_data.csv) -->
 
