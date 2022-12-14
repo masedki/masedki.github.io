@@ -123,6 +123,13 @@ output:
 
 [LeNet et AlexNet](http://masedki.github.io/enseignements/notebooks/LeNet_AlexNet.html)
 
+[En orienté objets](http://masedki.github.io/enseignements/notebooks/oo.html)
+
+[LeNet en orienté objets](http://masedki.github.io/enseignements/notebooks/lenet_oo.html)
+
+[AlexNet en orienté objets](http://masedki.github.io/enseignements/notebooks/alexnet_oo.html)
+
+
 <!-- ### Examen Python et apprentissage  -->
 
 <!-- [Projet à rendre le 27/02/2022](http://masedki.github.io/enseignements/notebooks/Examen_2122.html) -->
