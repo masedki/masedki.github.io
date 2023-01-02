@@ -1,0 +1,14 @@
+---
+title: "Clustering et réduction de dimensions"
+output:
+  html_document:
+    theme: journal
+    highlight: monochrome
+    css: style.css
+---
+
+## Supports de cours 
+
+[Analyse en composantes principales](http://masedki.github.io/enseignements/pdfs/mspes/ACP.pdf)
+
+## Fiches de TP avec R
