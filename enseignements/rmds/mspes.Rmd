@@ -11,4 +11,20 @@ output:
 
 [Analyse en composantes principales](http://masedki.github.io/enseignements/pdfs/mspes/ACP.pdf)
 
+[Exemples](http://masedki.github.io/enseignements/pdfs/mspes/Exemples.pdf)
+
+
 ## Fiches de TP avec R
+
+
+
+## Jeux de données 
+
+[Dépenses des ménages](http://masedki.github.io/enseignements/datasets/mspes/base_conso_csv)
+
+[Reconstruction d'image](http://masedki.github.io/enseignements/datasets/mspes/Lena_soderberg.ppm)
+
+[Causes de mortalité](http://masedki.github.io/enseignements/datasets/mspes/deces.csv)
+
+[OGM](http://masedki.github.io/enseignements/datasets/mspes/ogm.csv)
+
