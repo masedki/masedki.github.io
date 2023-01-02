@@ -7,16 +7,13 @@ output:
     css: style.css
 ---
 
-## Supports de cours 
+## Supports de cours, fiches d'exemples et TP
 
 [Analyse en composantes principales](http://masedki.github.io/enseignements/pdfs/mspes/ACP.pdf)
 
 [Exemples](http://masedki.github.io/enseignements/pdfs/mspes/Exemples.pdf)
 
-
-## Fiches de TP avec R
-
-
+[Fiche TP](http://masedki.github.io/enseignements/pdfs/mspes/TP.pdf)
 
 ## Jeux de données 
 
@@ -27,4 +24,12 @@ output:
 [Causes de mortalité](http://masedki.github.io/enseignements/datasets/mspes/deces.csv)
 
 [OGM](http://masedki.github.io/enseignements/datasets/mspes/ogm.csv)
+
+[Données Crédits](http://masedki.github.io/enseignements/datasets/mspes/credit.csv)
+
+[Dogs](http://masedki.github.io/enseignements/datasets/mspes/dogs.txt)
+
+[Températures](http://masedki.github.io/enseignements/datasets/mspes/temperatures.csv)
+
+
 
