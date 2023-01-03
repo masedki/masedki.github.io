@@ -17,7 +17,7 @@ output:
 
 ## Jeux de données 
 
-[Dépenses des ménages](http://masedki.github.io/enseignements/datasets/mspes/base_conso_csv)
+[Dépenses des ménages](http://masedki.github.io/enseignements/datasets/mspes/base_conso.csv)
 
 [Reconstruction d'image](http://masedki.github.io/enseignements/datasets/mspes/Lena_soderberg.ppm)
 
