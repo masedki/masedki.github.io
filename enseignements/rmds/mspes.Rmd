@@ -9,7 +9,12 @@ output:
 
 ## Supports de cours, fiches d'exemples et TP
 
-[Analyse en composantes principales](http://masedki.github.io/enseignements/pdfs/mspes/ACP.pdf)
+[ACP](http://masedki.github.io/enseignements/pdfs/mspes/ACP.pdf)
+
+[AFC](http://masedki.github.io/enseignements/pdfs/mspes/AFC.pdf)
+
+[ACM](http://masedki.github.io/enseignements/pdfs/mspes/ACM.pdf)
+
 
 [Exemples](http://masedki.github.io/enseignements/pdfs/mspes/Exemples.pdf)
 
