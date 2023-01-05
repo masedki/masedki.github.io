@@ -13,8 +13,9 @@ output:
 
 [AFC](http://masedki.github.io/enseignements/pdfs/mspes/AFC.pdf)
 
-[ACM](http://masedki.github.io/enseignements/pdfs/mspes/ACM.pdf)
+<!-- [ACM](http://masedki.github.io/enseignements/pdfs/mspes/ACM.pdf) -->
 
+[Clustering Géométrique](http://masedki.github.io/enseignements/pdfs/mspes/clusteringGeo.pdf)
 
 [Exemples](http://masedki.github.io/enseignements/pdfs/mspes/Exemples.pdf)
 
