@@ -17,6 +17,9 @@ output:
 
 [Clustering Géométrique](http://masedki.github.io/enseignements/pdfs/mspes/clusteringGeo.pdf)
 
+
+[Clustering MM](http://masedki.github.io/enseignements/pdfs/mspes/clusteringMixture.pdf)
+
 [Exemples](http://masedki.github.io/enseignements/pdfs/mspes/Exemples.pdf)
 
 [Fiche TP](http://masedki.github.io/enseignements/pdfs/mspes/TP.pdf)
