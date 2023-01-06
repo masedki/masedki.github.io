@@ -5,6 +5,7 @@ output:
     theme: journal
     highlight: monochrome
     css: style.css
+  pdf_document: default
 ---
 
 ## Supports de cours, fiches d'exemples et TP
