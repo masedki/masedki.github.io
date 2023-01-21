@@ -42,4 +42,17 @@ output:
 [Températures](http://masedki.github.io/enseignements/datasets/mspes/temperatures.csv)
 
 
+### Codes R
 
+[ACP sur données températures](http://masedki.github.io/enseignements/rcode/mspes/Exercice1.R)
+
+[Clustering par méthodes géométriques](http://masedki.github.io/enseignements/rcode/mspes/Exercice4.R)
+
+[Mélange de lois et données manquantes en clustering](http://masedki.github.io/enseignements/rcode/mspes/Exercice8.R)
+
+[Divers exemples ](http://masedki.github.io/enseignements/rcode/mspes/Exemples.R)
+
+
+### Évaluations
+
+[Projet 2023](http://masedki.github.io/enseignements/pdfs/mspes/projet_2023.pdf)
