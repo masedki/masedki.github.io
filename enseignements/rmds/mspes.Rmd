@@ -50,6 +50,8 @@ output:
 
 [Mélange de lois et données manquantes en clustering](http://masedki.github.io/enseignements/rcode/mspes/Exercice8.R)
 
+[Clustering spectral pour image IRM](http://masedki.github.io/enseignements/rcode/mspes/Exercice7.R)
+
 [Divers exemples ](http://masedki.github.io/enseignements/rcode/mspes/Exemples.R)
 
 
