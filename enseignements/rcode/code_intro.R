@@ -1,10 +1,6 @@
-# lecture de la librairie qui permet de reproduire une grande partie des exemples du livre : Element of Statistical Learning
-# pour l'installer : install.packages("ElemStatLearn", dep=TRUE)
-require(ElemStatLearn)
-# lecture de la librairie  qui permet d'ajuster des modèles d'apprentissage par les knn
-require(class)
 # on charge le jeu de données mixture.example de la librairie ElemStatLearn
-data("mixture.example")
+load("mixture_example.rda")
+require(class)
 # 200 données de dimension 2 sous forme de matrice 200 x 2 
 x <- mixture.example$x
 dim(x)
