@@ -7,4 +7,4 @@ output:
     css: style.css
 ---
 
-[database (heart disease)](http://masedki.github.io/datasets/database.rda)
+[heart disease database](http://masedki.github.io/datasets/heart_disease.csv)
