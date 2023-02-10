@@ -7,4 +7,10 @@ output:
     css: style.css
 ---
 
+Si vous avez des questions, n'hésitez pas à m'écrire à mon adresse mail disponible sur la page principale. Parfois le navigateur bloque le téléchargement du code R, n'oubliez pas de confirmer le téléchargement. 
+
 [heart disease database](http://masedki.github.io/datasets/heart_disease.csv)
+
+[Code R de la session du 10/02/2023](http://masedki.github.io/formations/rcode/r_demo.R)
+
+
