@@ -50,3 +50,44 @@ stopCluster(cl)
 plot(RFmodel)
 pred.rf.caret <- predict(RFmodel, insurance.te)
 sqrt(mean((insurance.te$charges - pred.rf.caret)**2))
+
+
+
+
+
+
+
+
+
+
+
+
+## comparaison avec glmnet
+require(glmnet)
+y.train = insurance.tr[,7]
+y.test = insurance.te[,7]
+x.train = model.matrix( ~ .-1, insurance.tr[, -7]) ## permet de binariser les données catégorielles
+x.test  = model.matrix( ~ .-1, insurance.te[, -7]) ## permet de binariser les données catégorielles
+x.train = x.train[, -3] # suppression d'une variale inutile
+x.test = x.test[, -3] # suppression d'une variable inutile
+errcv = rep(NA, 11)
+for(i in 0:10)
+{ 
+  #set.seed(583)
+  cvfit=cv.glmnet(x.train, y.train, family="gaussian", nfolds=5, alpha = i/10) 
+  assign(paste("fit", i, sep="."), cvfit)  
+  errcv[i+1] = min(cvfit$cvm) 
+}
+
+## affichage du meilleur alpha
+print(paste("best alpha : ", (which.min(errcv) - 1)/10, sep="")) 
+#meilleur modèle qui correspond au meilleur alpha et et au meilleur lambda
+cvfitbest  = get(paste("fit", (which.min(errcv) - 1), sep="."))
+## affichage de la meilleur valeur de lambda
+print(paste(" best lambda = ", round(cvfitbest$lambda.min, 3), sep=""))
+## les coefficients de régression qui correspondent aux meilleures valeurs de lambda et alpha
+bestbetaenet = cvfitbest$glmnet.fit$beta[,which.min(cvfitbest$cvm)]
+print(bestbetaenet)
+
+pred.enet = predict(cvfitbest, x.test)
+sqrt(mean((y.test - pred.enet)**2))

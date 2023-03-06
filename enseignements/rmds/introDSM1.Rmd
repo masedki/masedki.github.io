@@ -40,16 +40,17 @@ output:
 # Introduction : régression, classification et phénomène de sur-apprentissage
 
 
-- **Séances : 06 et 20 février 2023:** traiter les exemples qu'on corrigera lors de la séance de cours. [Codes R](http://masedki.github.io/enseignements/rcode/code_intro.R) à traiter.
+**Séances : 06 et 20 février 2023:** traiter les exemples qu'on corrigera lors de la séance de cours. [Codes R](http://masedki.github.io/enseignements/rcode/code_intro.R) à traiter.
 
 - Indispensables à lire (livre ISLR) : chapitres 1 et 2. 
 
 Si besoin, le package R [ElemStatLearn](http://masedki.github.io/enseignements/rcode/ElemStatLearn_2015.6.26.2.tar.gz)
 
 
-- **Séance du lundi 06/03/2023:** Validation croisée sous R et introduction aux arbres de décision. [Slides de cours](http://masedki.github.io/enseignements/pdfs/arbres.pdf).
+**Séance du lundi 06/03/2023:** Validation croisée sous R et introduction aux arbres de décision. [Slides de cours](http://masedki.github.io/enseignements/pdfs/arbres.pdf).
 
 - Indispensables à lire (livre ISLR) : chapitre 5 (partie 1) pour la validation croisée et chapitre 8 (partie 1) pour une introduction aux arbres de décision. 
+- [Code R](http://masedki.github.io/enseignements/rcode/rpart_insurance.R): Code pour la régression par arbre de décision avant et après élagage.
 
 <!-- # Régression : moindres carrés pour l'estimation des paramètres et choix de modèles -->
 
