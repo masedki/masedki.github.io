@@ -40,7 +40,11 @@ output:
 # Introduction : régression, classification et phénomène de sur-apprentissage
 
 
-**Séances : 06 et 20 février 2023:** traiter les exemples qu'on corrigera lors de la séance de cours. [Codes R](http://masedki.github.io/enseignements/rcode/code_intro.R) à traiter.
+**Séances : 06 et 20 février 2023:** traiter les exemples qu'on corrigera lors de la séance de cours. 
+
+- [TP R](http://masedki.github.io/enseignements/rcode/code_intro.R) à traiter.
+
+- [Validation croisée avec Caret](http://masedki.github.io/enseignements/rcode/validation_croisee_knn.R) à traiter.
 
 - Indispensables à lire (livre ISLR) : chapitres 1 et 2. 
 
