@@ -11,33 +11,33 @@ output:
 
 [Introduction : supports](http://masedki.github.io/enseignements/sta212/intro_slides.pdf)
 
-[Arbres de décision et agrégation de modèles](http://masedki.github.io/enseignements/pdfs/apprentissage/apprentissage.pdf)
+<!-- [Arbres de décision et agrégation de modèles](http://masedki.github.io/enseignements/pdfs/apprentissage/apprentissage.pdf) -->
 
 
 
 
 ### TP et codes R
 
-[Introduction : TP](http://masedki.github.io/enseignements/sta212/tp_intro.pdf)
-[Code : corrigé](http://masedki.github.io/enseignements/sta212/tp_intro.R)
+[Introduction : TP](http://masedki.github.io/enseignements/sta212/tp1.pdf)
+<!-- [Code : corrigé](http://masedki.github.io/enseignements/sta212/tp_intro.R) -->
 
-[Code : validation croisée avec caret et knn](http://masedki.github.io/enseignements/sta212/crossvalidation_knn.R)
+<!-- [Code : validation croisée avec caret et knn](http://masedki.github.io/enseignements/sta212/crossvalidation_knn.R) -->
 
-[Code : arbre de décision avec rpart en régression](http://masedki.github.io/enseignements/sta212/rpart_insurance.R)
-
-
-[TP1 : quelques aspects pratiques](http://masedki.github.io/enseignements/sta212/tp1.pdf)
-
-[Code : gradient boosting pour la régression](http://masedki.github.io/enseignements/sta212/gbm_assurance.R)
-
-[TP2 : données textuelles](http://masedki.github.io/enseignements/sta212/tp2.pdf)
-
-[TP3 : bootstrap pour un graphe](http://masedki.github.io/enseignements/sta212/tp3.pdf)
-
-[Scan des exercices corrigés](http://masedki.github.io/enseignements/sta212/exercices_corriges.pdf)
+<!-- [Code : arbre de décision avec rpart en régression](http://masedki.github.io/enseignements/sta212/rpart_insurance.R) -->
 
 
-[Devoir écrit 2020](http://masedki.github.io/enseignements/sta212/devoir_2020.pdf)
+<!-- [TP1 : quelques aspects pratiques](http://masedki.github.io/enseignements/sta212/tp1.pdf) -->
+
+<!-- [Code : gradient boosting pour la régression](http://masedki.github.io/enseignements/sta212/gbm_assurance.R) -->
+
+<!-- [TP2 : données textuelles](http://masedki.github.io/enseignements/sta212/tp2.pdf) -->
+
+<!-- [TP3 : bootstrap pour un graphe](http://masedki.github.io/enseignements/sta212/tp3.pdf) -->
+
+<!-- [Scan des exercices corrigés](http://masedki.github.io/enseignements/sta212/exercices_corriges.pdf) -->
+
+
+<!-- [Devoir écrit 2020](http://masedki.github.io/enseignements/sta212/devoir_2020.pdf) -->
 <!-- [Code : arbres de décision  pour la régression](http://masedki.github.io/enseignements/rcode/rpart_insurance.R) -->
 
 <!-- [Code : arbres de décision  pour la classification et fôrets aléatoires](http://masedki.github.io/enseignements/rcode/rpart_pima.R) -->
@@ -55,16 +55,16 @@ output:
 
 [Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda) 
 
-[Jeu de données Orange Juice](http://masedki.github.io/enseignements/sta212/oj.csv)
+<!-- [Jeu de données Orange Juice](http://masedki.github.io/enseignements/sta212/oj.csv) -->
 
-[Jeu de données email](http://masedki.github.io/enseignements/sta212/email.csv)
+<!-- [Jeu de données email](http://masedki.github.io/enseignements/sta212/email.csv) -->
 
-### Examen TP : 
+<!-- ### Examen TP :  -->
 
-[énoncé](http://masedki.github.io/enseignements/sta212/examtp22.pdf)
+<!-- [énoncé](http://masedki.github.io/enseignements/sta212/examtp22.pdf) -->
 
-[XYmodel](http://masedki.github.io/enseignements/sta212/XYmodel.rda)
+<!-- [XYmodel](http://masedki.github.io/enseignements/sta212/XYmodel.rda) -->
 
-[XYnew](http://masedki.github.io/enseignements/sta212/XYnew.rda)
+<!-- [XYnew](http://masedki.github.io/enseignements/sta212/XYnew.rda) -->
 
-[X_y](http://masedki.github.io/enseignements/sta212/X_y.rda)
+<!-- [X_y](http://masedki.github.io/enseignements/sta212/X_y.rda) -->
