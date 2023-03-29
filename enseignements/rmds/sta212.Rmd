@@ -11,7 +11,7 @@ output:
 
 [Introduction : supports](http://masedki.github.io/enseignements/sta212/intro_slides.pdf)
 
-<!-- [Arbres de décision et agrégation de modèles](http://masedki.github.io/enseignements/pdfs/apprentissage/apprentissage.pdf) -->
+[Arbres de décision et agrégation de modèles](http://masedki.github.io/enseignements/pdfs/apprentissage/apprentissage.pdf)
 
 
 
@@ -19,7 +19,7 @@ output:
 ### TP et codes R
 
 [Introduction : TP](http://masedki.github.io/enseignements/sta212/tp1.pdf)
-<!-- [Code : corrigé](http://masedki.github.io/enseignements/sta212/tp_intro.R) -->
+[corrigé](http://masedki.github.io/enseignements/sta212/tp_intro.R)
 
 <!-- [Code : validation croisée avec caret et knn](http://masedki.github.io/enseignements/sta212/crossvalidation_knn.R) -->
 
