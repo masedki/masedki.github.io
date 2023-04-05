@@ -21,9 +21,11 @@ output:
 [Introduction : TP](http://masedki.github.io/enseignements/sta212/tp1.pdf)
 [corrigé](http://masedki.github.io/enseignements/sta212/tp_intro.R)
 
-<!-- [Code : validation croisée avec caret et knn](http://masedki.github.io/enseignements/sta212/crossvalidation_knn.R) -->
+[Code : validation croisée avec caret et knn](http://masedki.github.io/enseignements/sta212/crossvalidation_knn.R)
 
-<!-- [Code : arbre de décision avec rpart en régression](http://masedki.github.io/enseignements/sta212/rpart_insurance.R) -->
+[Code : arbre de décision avec rpart en régression](http://masedki.github.io/enseignements/sta212/rpart_insurance.R)
+
+[Code : arbres de décision  pour la classification et fôrets aléatoires](http://masedki.github.io/enseignements/rcode/rpart_pima.R)
 
 
 <!-- [TP1 : quelques aspects pratiques](http://masedki.github.io/enseignements/sta212/tp1.pdf) -->
@@ -40,7 +42,6 @@ output:
 <!-- [Devoir écrit 2020](http://masedki.github.io/enseignements/sta212/devoir_2020.pdf) -->
 <!-- [Code : arbres de décision  pour la régression](http://masedki.github.io/enseignements/rcode/rpart_insurance.R) -->
 
-<!-- [Code : arbres de décision  pour la classification et fôrets aléatoires](http://masedki.github.io/enseignements/rcode/rpart_pima.R) -->
 
 <!-- [Code de la séance du 27/04/2020](http://masedki.github.io/enseignements/rcode/xgboost.R) -->
 

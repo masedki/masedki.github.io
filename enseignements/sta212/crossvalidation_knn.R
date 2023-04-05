@@ -1,9 +1,10 @@
-setwd("~/codes/tp_R/")
+setwd("~/codes/TP_R/")
 require(caret)
-require(MASS)
-require(class)
+#require(MASS)
+#require(class)
 require(doParallel)
-load("mixture.example.rda")
+require(parallel)
+load("mixture_example.rda")
 # 200 données de dimension 2 sous forme de matrice 200 x 2 
 x <- data.frame(mixture.example$x)
 dim(x)
@@ -13,17 +14,19 @@ y <- as.factor(mixture.example$y)
 table(y)
 
 knn_ctrl = trainControl(method="repeatedcv", number = 5, repeats = 100)
-knn_grid = expand.grid(k=c(1,3,5,7,9,11,15,17,23,25,35,45,55,83,101,151))
 
+knn_grid = data.frame(k=1:70)
 
-cl <- makePSOCKcluster(7)
+cl <- makePSOCKcluster(detectCores()-1)
 registerDoParallel(cl)
-
+t0 = proc.time()
 knn_model = train(x = x, 
                   y = y, 
                   method="knn",
                   trControl = knn_ctrl,
                   tuneGrid = knn_grid)
+t1 = proc.time()
 stopCluster(cl)
+print(t1-t0)
 print(knn_model)
 plot(knn_model)
