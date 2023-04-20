@@ -28,6 +28,9 @@ output:
 [Code : arbres de décision  pour la classification et fôrets aléatoires](http://masedki.github.io/enseignements/rcode/rpart_pima.R)
 
 
+[Examen écrit 2022](http://masedki.github.io/enseignements/sta212/exam_2022.pdf)
+
+
 <!-- [TP1 : quelques aspects pratiques](http://masedki.github.io/enseignements/sta212/tp1.pdf) -->
 
 <!-- [Code : gradient boosting pour la régression](http://masedki.github.io/enseignements/sta212/gbm_assurance.R) -->
