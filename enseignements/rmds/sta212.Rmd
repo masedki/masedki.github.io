@@ -28,7 +28,7 @@ output:
 [Code : arbres de décision  pour la classification et fôrets aléatoires](http://masedki.github.io/enseignements/rcode/rpart_pima.R)
 
 
-[Examen écrit 2022](http://masedki.github.io/enseignements/sta212/exam_2022.pdf)
+[Devoir à rendre le 30/04/2023](http://masedki.github.io/enseignements/sta212/devoir2023.pdf)
 
 
 <!-- [TP1 : quelques aspects pratiques](http://masedki.github.io/enseignements/sta212/tp1.pdf) -->
@@ -55,9 +55,9 @@ output:
 
 ### Jeux de données
 
-[Jeu de données : mixture.example](http://masedki.github.io/enseignements/datasets/mixture_example.rda)
+<!-- [Jeu de données : mixture.example](http://masedki.github.io/enseignements/datasets/mixture_example.rda) -->
 
-[Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda) 
+<!-- [Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda)  -->
 
 <!-- [Jeu de données Orange Juice](http://masedki.github.io/enseignements/sta212/oj.csv) -->
 
@@ -71,4 +71,4 @@ output:
 
 <!-- [XYnew](http://masedki.github.io/enseignements/sta212/XYnew.rda) -->
 
-<!-- [X_y](http://masedki.github.io/enseignements/sta212/X_y.rda) -->
+[Jeu de données du devoir 2023 X_y.rda](http://masedki.github.io/enseignements/sta212/X_y.rda)
