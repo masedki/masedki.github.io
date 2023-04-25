@@ -28,4 +28,15 @@ Il est indispensable d'installer [R](cran.r-project.org) et [Rstudio](https://po
  - [Mine d'or](https://stackoverflow.com/) pour trouver des astuces et solutions R
  
  
+## Supports 
+
+- [StatMed 2](http://masedki.github.io/formations/pdfs/statmed2.pdf) 
+ 
+- [Livre : analyse de survie appliquée avec R](http://masedki.github.io/formations/pdfs/survival_analysis_book.pdf) 
+
+- [Mine d'or 1](stackoverflow.com) pour trouver des astuces et solutions de programmation avec R
+
+- [Mine d'or 2](stats.stackexchange.com) pour trouver des réponses à vos questions en stats 
+ 
+
 Si vous avez des questions, n'hésitez pas à m'écrire à mon adresse mail disponible sur la [page principale](masedki.github.io). Parfois le navigateur bloque le téléchargement du code R, n'oubliez pas de confirmer le téléchargement. 
