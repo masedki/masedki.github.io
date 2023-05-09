@@ -1,5 +1,5 @@
 ---
-title: "newmed"
+title: "Newmed"
 output:
   html_document:
     theme: journal
@@ -7,9 +7,9 @@ output:
     css: style.css
 ---
 
-## Installation 
+## Installation (à faire avant la séance pour gagner du temps) 
 
-Il est indispensable d'installer [R](cran.r-project.org) et [Rstudio](https://posit.co/download/rstudio-desktop/) dans l'ordre.
+Il est indispensable d'installer [R](cran.r-project.org) et [Rstudio](https://posit.co/download/rstudio-desktop/) dans cet ordre. Il est important de respecter l'ordre d'installation et n'utiliser que ces versions issues des plateformes officielles des contributeurs.
 
 ## Bases de données
 
@@ -25,7 +25,7 @@ Il est indispensable d'installer [R](cran.r-project.org) et [Rstudio](https://po
 
  - [Commandes R](http://masedki.github.io/formations/pdfs/commandes_r.pdf) mémoire du Dr Julien Chiquet (DR Inrae)
  
- - [Mine d'or](https://stackoverflow.com/) pour trouver des astuces et solutions R
+ <!-- - [Mine d'or](https://stackoverflow.com/) pour trouver des astuces et solutions R -->
  
  
 ## Supports 
