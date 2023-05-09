@@ -25,8 +25,6 @@ Il est indispensable d'installer [R](cran.r-project.org) et [Rstudio](https://po
 
  - [Commandes R](http://masedki.github.io/formations/pdfs/commandes_r.pdf) mémoire du Dr Julien Chiquet (DR Inrae)
  
- <!-- - [Mine d'or](https://stackoverflow.com/) pour trouver des astuces et solutions R -->
- 
  
 ## Supports 
 
