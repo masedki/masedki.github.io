@@ -11,7 +11,7 @@ output:
 
 Il est indispensable d'installer [R](https://cran.r-project.org/) et [Rstudio](https://posit.co/download/rstudio-desktop/) dans cet ordre. Il est important de respecter l'ordre d'installation et n'utiliser que ces versions issues des plateformes officielles des contributeurs.
 
-## Bases de données
+## Bases de données 
 
 [heart disease database](http://masedki.github.io/datasets/heart_disease.csv)
 
@@ -26,7 +26,7 @@ Il est indispensable d'installer [R](https://cran.r-project.org/) et [Rstudio](h
  - [Commandes R](http://masedki.github.io/formations/pdfs/commandes_r.pdf) mémoire du Dr Julien Chiquet (DR Inrae)
  
  
-## Supports 
+## Supports des présentations 
 
 - [StatMed](http://masedki.github.io/formations/pdfs/statmed.pdf) 
  
