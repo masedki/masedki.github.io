@@ -28,7 +28,7 @@ Il est indispensable d'installer [R](cran.r-project.org) et [Rstudio](https://po
  
 ## Supports 
 
-- [StatMed 2](http://masedki.github.io/formations/pdfs/statmed2.pdf) 
+- [StatMed](http://masedki.github.io/formations/pdfs/statmed.pdf) 
  
 - [Livre : analyse de survie appliquée avec R](http://masedki.github.io/formations/pdfs/survival_analysis_book.pdf) 
 
