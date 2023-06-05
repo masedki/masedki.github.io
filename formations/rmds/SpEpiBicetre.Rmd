@@ -58,9 +58,3 @@ Il est indispensable d'installer [R](https://cran.r-project.org/) et [Rstudio](h
 
 - [jeu de données d'assurance maladie](http://masedki.github.io/formations/datasets/insurance.rda) 
  
-<!-- - [Livre : analyse de survie appliquée avec R](http://masedki.github.io/formations/pdfs/survival_analysis_book.pdf)  -->
-
-
- 
-
-<!-- Si vous avez des questions, n'hésitez pas à m'écrire à mon adresse mail disponible sur la [page principale](masedki.github.io). Parfois le navigateur bloque le téléchargement du code R, n'oubliez pas de confirmer le téléchargement.  -->
