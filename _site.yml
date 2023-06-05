@@ -45,6 +45,8 @@ navbar:
           href: enseignements/Ravance.html  
         - text: "newmed"
           href: formations/newmed.html 
+        - text: "école d'été sp et épidémiologique"
+          href: formations/SpEpiBicetre.html   
     - text: "Recherche"
       href: recherche/recherche.html
     - text: "Packages et logiciels"
