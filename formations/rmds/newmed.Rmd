@@ -9,7 +9,7 @@ output:
 
 ## Installation (à faire avant la séance pour gagner du temps) 
 
-Il est indispensable d'installer [R](https://cran.r-project.org/) et [Rstudio](https://posit.co/download/rstudio-desktop/) dans cet ordre. Il est important de respecter l'ordre d'installation et n'utiliser que ces versions issues des plateformes officielles des contributeurs.
+Il est indispensable d'installer [R](https://cran.r-project.org/) et [Rstudio](https://dailies.rstudio.com/version/2023.03.2+454.pro2/) dans cet ordre. Il est important de respecter l'ordre d'installation et n'utiliser que ces versions issues des plateformes officielles des contributeurs.
 
 ## Bases de données 
 
