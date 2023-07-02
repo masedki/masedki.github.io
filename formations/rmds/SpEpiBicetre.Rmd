@@ -13,31 +13,30 @@ Il est indispensable d'installer [R](https://cran.r-project.org/) et [Rstudio](h
 
 ## Supports et slides des présentation 
 
- - Introduction à l'apprentissage, phénomène de surajustement. 
+ - [Introduction sur-apprentissage, validation croisée et choix de modèle](http://masedki.github.io/formations/pdfs/introduction.pdf) 
  
- - Validation croisée et choix de modèle 
-
- - Famille des arbres de décision 
- 
- - Bagging et forêts aléatoires
- 
- - Gradient boosting 
+ - [Arbres de décision, forêts aléatoires et gradient boosting](arbres_agregation.pdf) 
 
 ## TP R 
 
-- [Illustration sur la famille des k-plus proches voisins](http://masedki.github.io/formations/rcode/code_intro.R).
+- [Illustration sur la famille des k-plus proches voisins](http://masedki.github.io/formations/rcode/code_intro.R)
 
 - [Choix de modèle dans la famille des k-nn par validation croisée à l'aide de la librairie caret et parallélisation sous R](http://masedki.github.io/formations/rcode/cv_knn.R) 
   
-- [Arbres de régression avec et sans élagage](http://masedki.github.io/formations/rcode/rpart_reg.R). 
+- [Arbres de régression avec et sans élagage](http://masedki.github.io/formations/rcode/rpart_reg.R)
 
-- [Arbres de classification avec et sans élagage](http://masedki.github.io/formations/rcode/rpart_classif.R). 
+- [Arbres de classification avec et sans élagage](http://masedki.github.io/formations/rcode/rpart_classif.R) 
 
-- Choix d'une forêt aléatoire à l'aide de caret (régression et classification). 
+- [Choix d'une forêt aléatoire à l'aide de caret pour la régression](http://masedki.github.io/formations/rcode/rf_rpart_reg.R) 
 
-- Choix d'un modèle de gradient boosting à l'aide de caret (régression et classification). 
+- [Choix d'une forêt aléatoire à l'aide de caret pour la classification](http://masedki.github.io/formations/rcode/rf_rpart_classif.R) 
 
-- Si le temps le permet : modèles ensemblistes pour l'analyse de survie. 
+- [Choix d'un modèle de gradient boosting à l'aide de caret pour la régression](http://masedki.github.io/formations/rcode/gbm_reg.R) 
+
+- [Choix d'un modèle de gradient boosting à l'aide de caret pour la classification](http://masedki.github.io/formations/rcode/gbm_classif.R) 
+
+
+- Si le temps le permet : modèles ensemblistes pour l'analyse de survie 
 
 ## Bibliographie, aide et commandes R
 
