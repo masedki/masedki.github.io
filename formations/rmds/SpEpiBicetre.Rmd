@@ -15,7 +15,10 @@ Il est indispensable d'installer [R](https://cran.r-project.org/) et [Rstudio](h
 
  - [Introduction sur-apprentissage, validation croisée et choix de modèle](http://masedki.github.io/formations/pdfs/introduction.pdf) 
  
- - [Arbres de décision, forêts aléatoires et gradient boosting](http://masedki.github.io/formations/pdfs/arbres.pdf) 
+ - [Arbres de décision](http://masedki.github.io/formations/pdfs/arbres.pdf) 
+ 
+ - [Forêts aléatoires et gradient boosting](http://masedki.github.io/formations/pdfs/agregation_modeles.pdf) 
+
 
 ## TP R 
 
