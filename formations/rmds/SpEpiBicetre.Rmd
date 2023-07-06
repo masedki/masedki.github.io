@@ -19,6 +19,7 @@ Il est indispensable d'installer [R](https://cran.r-project.org/) et [Rstudio](h
  
  - [Forêts aléatoires et gradient boosting](http://masedki.github.io/formations/pdfs/agregation_modeles.pdf) 
 
+ - [Forêts aléatoires pour l'analyse de survie](https://www.randomforestsrc.org/articles/survival.html)
 
 ## TP R 
 
