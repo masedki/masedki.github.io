@@ -20,6 +20,14 @@ Il est indispensable d'installer [R](https://cran.r-project.org/) et [Rstudio](h
  - [Forêts aléatoires et gradient boosting](http://masedki.github.io/formations/pdfs/agregation_modeles.pdf) 
 
  - [Forêts aléatoires pour l'analyse de survie](https://www.randomforestsrc.org/articles/survival.html)
+ 
+ - [Clustering : méthodes géométriques](http://masedki.github.io/formations/pdfs/clusteringGeo.pdf)
+ 
+ - [Clustering : modèles de mélanges](http://masedki.github.io/formations/pdfs/clusteringMixture.pdf)
+ 
+ - [Clustering : TP](http://masedki.github.io/formations/pdfs/tp_clustering.pdf)
+
+ 
 
 ## TP R 
 
@@ -38,6 +46,10 @@ Il est indispensable d'installer [R](https://cran.r-project.org/) et [Rstudio](h
 - [Choix d'un modèle de gradient boosting à l'aide de caret pour la régression](http://masedki.github.io/formations/rcode/gbm_reg.R) 
 
 - [Choix d'un modèle de gradient boosting à l'aide de caret pour la classification](http://masedki.github.io/formations/rcode/gbm_classif.R) 
+
+- [Segmentation d'image par clustering spectral](http://masedki.github.io/formations/rcode/spectral_clustering.R) 
+
+- [Clustering par modèles de mélanges](http://masedki.github.io/formations/rcode/modeles_de_melanges.R) 
 
 
 - Si le temps le permet : modèles ensemblistes pour l'analyse de survie 
@@ -60,4 +72,5 @@ Il est indispensable d'installer [R](https://cran.r-project.org/) et [Rstudio](h
 
 
 - [jeu de données d'assurance maladie](http://masedki.github.io/formations/datasets/insurance.rda) 
- 
+
+- [Image](http://masedki.github.io/formations/datasets/irm_small.jpeg) 
