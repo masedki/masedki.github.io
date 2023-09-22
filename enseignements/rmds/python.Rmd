@@ -7,7 +7,7 @@ output:
     css: style.css
 ---
 
-## séances du 22 et 29/09/2022
+## séance d'introduction
 
 [Introduction](http://masedki.github.io/enseignements/python/Nb1-IntroPython.html)
 
@@ -36,16 +36,16 @@ output:
 
 [Probabilités et statistiques](http://masedki.github.io/enseignements/python/probasstats.html)
 
-[Devoir 2022](http://masedki.github.io/enseignements/python/devoir_2022.pdf)
+<!-- [Devoir 2022](http://masedki.github.io/enseignements/python/devoir_2022.pdf) -->
 
-### Travaux pratiques 
+<!-- ### Travaux pratiques  -->
 
-[classification par les knn (corrigé)](http://masedki.github.io/enseignements/python/knn_mixture.html)
+<!-- [classification par les knn (corrigé)](http://masedki.github.io/enseignements/python/knn_mixture.html) -->
 
-[Arbres de décision pour la régression](http://masedki.github.io/enseignements/python/decisiontree.html)
+<!-- [Arbres de décision pour la régression](http://masedki.github.io/enseignements/python/decisiontree.html) -->
 
 
-[tp d'introduction à bootstrap](http://masedki.github.io/enseignements/python/bootstrap.html)
+<!-- [tp d'introduction à bootstrap](http://masedki.github.io/enseignements/python/bootstrap.html) -->
 
 <!-- [Apprentissage avec python : sklearn](http://masedki.github.io/enseignements/python/Apprentissage_sklearn.html) -->
 
@@ -61,10 +61,10 @@ output:
 
 `python -m ipykernel install --user --name=myenv`
 
-### Jeux de données 
+<!-- ### Jeux de données  -->
 
-[jeu de données coronary](http://masedki.github.io/enseignements/datasets/coronary.csv)
+<!-- [jeu de données coronary](http://masedki.github.io/enseignements/datasets/coronary.csv) -->
 
-[jeu de données Titanic](http://masedki.github.io/enseignements/datasets/titanic-train.csv)
+<!-- [jeu de données Titanic](http://masedki.github.io/enseignements/datasets/titanic-train.csv) -->
 
-[jeu de données mixture](http://masedki.github.io/enseignements/datasets/mixture.txt)
+<!-- [jeu de données mixture](http://masedki.github.io/enseignements/datasets/mixture.txt) -->
