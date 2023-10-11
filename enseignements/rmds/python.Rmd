@@ -38,7 +38,7 @@ output:
 
 <!-- ### Travaux pratiques  -->
 
-<!-- [classification par les knn (corrigé)](http://masedki.github.io/enseignements/python/knn_mixture.html) -->
+[classification par les knn (corrigé)](http://masedki.github.io/enseignements/python/knn_mixture.html)
 
 <!-- [Arbres de décision pour la régression](http://masedki.github.io/enseignements/python/decisiontree.html) -->
 
