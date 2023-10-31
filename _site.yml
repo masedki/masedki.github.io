@@ -25,7 +25,7 @@ navbar:
           href: enseignements/MANmatrice.html
         - text: "Introduction à bootstrap"
           href: enseignements/bootstrap.html
-        - text: "Démarche Statistique"
+        - text: "Statistique"
           href: enseignements/ds.html
         - text: "---------"
         - text: "M2 MathSV"
