@@ -43,8 +43,8 @@ navbar:
         - text: "Formations"
         - text: "R avancé"
           href: enseignements/Ravance.html  
-        - text: "newmed"
-          href: formations/newmed.html 
+        - text: "Topo StatMed"
+          href: formations/TopoStatMed.html 
         - text: "école d'été sp et épidémiologique"
           href: formations/SpEpiBicetre.html   
     - text: "Recherche"
