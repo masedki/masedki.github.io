@@ -12,7 +12,7 @@ output:
 <!-- [Note du 12/01/2022 du M2SDS](http://masedki.github.io/enseignements/pdfs/ds/notes_121022_M2SDS.pdf) -->
 <!-- [Problème](http://masedki.github.io/enseignements/ds_pb.html)  -->
 
-[2 exercices](http://masedki.github.io/enseignements/pdfs/ds/exercices_2223.pdf)
+[exercices](http://masedki.github.io/enseignements/pdfs/ds/exos.pdf)
 
 <!-- [Examen de 21/22](http://masedki.github.io/enseignements/pdfs/ds/examen2122.pdf) -->
 
