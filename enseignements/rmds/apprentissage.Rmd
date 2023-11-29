@@ -10,6 +10,8 @@ output:
 
 [Introduction, arbres de décision et agrégation de modèles](http://masedki.github.io/enseignements/pdfs/apprentissage/apprentissage.pdf)
 
+[Arbres : quelques détails](http://masedki.github.io/enseignements/pdfs/apprentissage/trees.pdf)
+
 <!-- [Régression (linéaire ou logistique) pénalisée](http://masedki.github.io/enseignements/pdfs/apprentissage/reg_pen.pdf) -->
 
 [Réseaux de neurones](http://masedki.github.io/enseignements/pdfs/apprentissage/nn_intro.pdf)
