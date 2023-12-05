@@ -13,13 +13,13 @@ Il est indispensable d'installer [R](https://cran.r-project.org/) et [Rstudio](h
 
 ## Bases de données 
 
-[heart disease database](http://masedki.github.io/datasets/heart_disease.csv)
+[Framingham database](http://masedki.github.io/datasets/framingham_dataset.csv)
 
 [Jeu de données d'oncologie](http://masedki.github.io/formations/datasets/TroisCancers.rda)
 
 ## Code R utilisé en première session 
 
-[Code R à exécuter pour se familiariser avec les commandes R](http://masedki.github.io/formations/rcode/r_demo.R)
+[Code R à exécuter pour se familiariser avec les commandes R](http://masedki.github.io/formations/rcode/r_database_demo.R)
 
 ## Aide et commandes R
 

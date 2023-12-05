@@ -63,7 +63,12 @@ output:
 <!-- [notebook Génétique des populations](http://masedki.github.io/enseignements/apprentissage/GenPopTP.html) -->
 
 
-<!-- ### scripts R  -->
+
+### scripts R
+
+[Régression : arbres et random forest](http://masedki.github.io/enseignements/rcode/apprentissage/reg_trees.R)
+
+[Classification : arbres et random forest](http://masedki.github.io/enseignements/rcode/apprentissage/classif_trees.R)
 
 <!-- [code R : rpart prostate](http://masedki.github.io/enseignements/rcode/apprentissage/rpart_prostate.R) -->
 
