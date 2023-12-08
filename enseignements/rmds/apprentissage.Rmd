@@ -24,6 +24,8 @@ output:
 
 [Arbres de décision pour la classification](http://masedki.github.io/enseignements/apprentissage/decisiontree_classif.html)
 
+
+
 <!-- [Introduction : TP](http://masedki.github.io/enseignements/pdfs/apprentissage/tp_intro.pdf)  -->
 
 <!-- [corrigé](http://masedki.github.io/enseignements/rcode/apprentissage/tp_intro.R) -->
@@ -57,6 +59,9 @@ output:
 [notebook boost régression](http://masedki.github.io/enseignements/apprentissage/boost_reg.html)
 
 [notebook boost classif](http://masedki.github.io/enseignements/apprentissage/boost_classif.html)
+
+[notebook rf en analyse de survie](https://www.randomforestsrc.org/articles/survival.html)
+
 
 <!-- [notebook kmeans et CAH](http://masedki.github.io/enseignements/apprentissage/clustering.html) -->
 
