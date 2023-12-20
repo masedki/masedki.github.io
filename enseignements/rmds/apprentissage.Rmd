@@ -147,6 +147,7 @@ output:
 
 [AlexNet en orienté objets](http://masedki.github.io/enseignements/notebooks/alexnet_oo.html)
 
+[fonctions d2l](http://masedki.github.io/enseignements/python/d2l_functions.py)
 
 <!-- ### Examen Python et apprentissage  -->
 
