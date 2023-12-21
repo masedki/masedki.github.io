@@ -16,6 +16,8 @@ output:
 
 [Réseaux de neurones](http://masedki.github.io/enseignements/pdfs/apprentissage/nn.pdf)
 
+[Réseaux de neurones convolutifs](http://masedki.github.io/enseignements/pdfs/apprentissage/cnn.pdf)
+
 ### notebooks, TP et projets 
 
 [Introduction : TP Python](https://masedki.github.io/enseignements/python/knn_mixture.html)
