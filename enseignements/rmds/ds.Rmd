@@ -14,7 +14,7 @@ output:
 
 [exercices](http://masedki.github.io/enseignements/pdfs/ds/exos.pdf)
 
-<!-- [Examen de 21/22](http://masedki.github.io/enseignements/pdfs/ds/examen2122.pdf) -->
+[Examen 2023/2024](http://masedki.github.io/enseignements/pdfs/ds/devoir24.pdf)
 
 <!-- [vidéo de la séance 1 (partie 1 : vidéo du cours du master 2 SDS)](http://genostats.ovh/SDS/Stats4-1.webm) -->
 
