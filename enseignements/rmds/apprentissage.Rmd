@@ -151,8 +151,9 @@ output:
 
 [fonctions d2l](http://masedki.github.io/enseignements/python/d2l_functions.py)
 
-<!-- ### Examen Python et apprentissage  -->
 
-<!-- [Projet à rendre le 27/02/2022](http://masedki.github.io/enseignements/notebooks/Examen_2122.html) -->
+### Examen 2024
+
+[Projet à rendre le 11/02/2024](http://masedki.github.io/enseignements/pdfs/apprentissage/examen_2024.pdf)
 
 
