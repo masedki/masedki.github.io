@@ -1,4 +1,3 @@
-setwd("~/intro_ds")
 load("mixture_example.rda")
 require(class)
 require(caret)
