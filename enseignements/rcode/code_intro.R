@@ -9,7 +9,7 @@ table(y)
 
 plot(x, col=ifelse(y==1,"red", "green"), xlab="x1", ylab="x2")
 
-px1 = mixture.example$px1 # 
+px1 = mixture.example$px1  
 px2 = mixture.example$px2
 xnew = mixture.example$xnew
 dim(xnew)
@@ -39,6 +39,14 @@ contour(px1, px2, prob15, levels=0.5, labels="", xlab="x1", ylab="x2", main="fro
 points(x, col=ifelse(y==1, "red", "green"))
 
 
+## la regle de bayes
+prob_bayes = mixture.example$prob
+prob_bayes <- matrix(prob_bayes, length(px1), length(px2))
+contour(px1, px2, prob_bayes, levels=0.5, labels="", 
+        xlab="x1", ylab="x2", main="bayes", 
+        lwd=2, col="blue", add = TRUE)
+
+
 
 mod1 <- knn(x, xnew, k=1, cl=y, prob=TRUE)
 prob <- attr(mod1, "prob")
@@ -47,9 +55,16 @@ prob1 <- matrix(prob, length(px1), length(px2) )
 contour(px1, px2, prob1, level=0.5, labels="", xlab="x1", ylab="x2", main="frontière de classement du modèle 1-nn")
 points(x, col=ifelse(y==1, "red", "green"))
 
+## la regle de bayes
+prob_bayes = mixture.example$prob
+prob_bayes <- matrix(prob_bayes, length(px1), length(px2))
+contour(px1, px2, prob_bayes, levels=0.5, labels="", 
+        xlab="x1", ylab="x2", main="bayes", 
+        lwd=2, col="blue", add = TRUE)
 
 
 
+## simulation du jeu de donnees test
 require(MASS)
 set.seed(123)
 centers = c(sample(1:10, 5000, replace=TRUE), sample(11:20, 5000, replace=TRUE))
@@ -60,27 +75,24 @@ xtest = xtest + means
 ytest = c(rep(0, 5000), rep(1, 5000))
 
 
-
-K = c(1,3,5,7,9,11,15,17,23,25,35,45,55,83,101,151)
-
-nK = length(K)
-
-ErrTrain = rep(NA, length=nK)
-ErrTest  = rep(NA, length=nK)
-for (i in 1:nK) 
+K = 150
+ErrTrain = rep(NA, length=K)
+ErrTest  = rep(NA, length=K)
+for (k in 1:K) 
   {
-  k = K[i] 
-  modtrain = knn(x, x, k=k, cl=y)
-  ErrTrain[i] = mean(modtrain!=y)
-  modtest = knn(x, xtest, k=k, cl=y)
-  ErrTest[i] = mean(modtest!=ytest)
+   modtrain = knn(x, x, k=k, cl=y)
+   ErrTrain[k] = mean(modtrain!=y)
+   modtest = knn(x, xtest, k=k, cl=y)
+   ErrTest[k] = mean(modtest!=ytest)
 }
 
 
 
-plot(K, ErrTest, type="b", col="blue", xlab="nombre de voisins",ylab=" erreurs train et test", pch=20, 
+plot(1:K, ErrTest, type="b", col="blue", xlab="nombre de voisins",ylab=" erreurs train et test", pch=20, 
      ylim=range(c(ErrTest, ErrTrain)))
-lines(K, ErrTrain,type="b",col="red",pch=20)
+lines(1:K, ErrTrain,type="b",col="red",pch=20)
 legend("bottomright",lty=1,col=c("red","blue"),legend = c("train ", "test "))
 
+# meilleure valeur 
+which.min(ErrTest)
 
