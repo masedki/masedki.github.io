@@ -27,20 +27,14 @@ output:
 <!--     - Régression logistique et régularisation -->
 
 
-<!-- - La troisième partie des [slides](http://masedki.github.io/enseignements/pdfs/arbres.pdf) servent de supports des séances de cours sur les arbres de décision. Les slides couvrent -->
 
-<!--     - Arbre de décision unique pour la régression -->
-
-<!--     - Procédure d'élagage -->
-
-<!--     - Arbre de décision unique pour la classification -->
 
 - Le livre [*An Introduction to Statistical Learning*](http://masedki.github.io/enseignements/pdfs/ISLR.pdf) est indispensable. Ce livre a largement inspiré le contenu de ce cours !
 
 # Introduction : régression, classification et phénomène de sur-apprentissage
 
 
-**Séance du 05 février 2024** traiter les exemples qu'on corrigera lors de la séance de cours. 
+**Séances du 05 et 19 février 2024** traiter les exemples qu'on corrigera lors de la séance de cours. 
 
 - [TP R](http://masedki.github.io/enseignements/rcode/code_intro.R) à traiter.
 
@@ -48,7 +42,15 @@ output:
 
 - Indispensables à lire pour cette partie (livre ISLR) : chapitres 1 et 2. 
 
-Si besoin, le package R [ElemStatLearn](http://masedki.github.io/enseignements/rcode/ElemStatLearn_2015.6.26.2.tar.gz)
+
+
+**Séance du 04/03/2024 ** Nous allons aborder les arbres de décision (brique de base d'un grand nombre de familles de modèles)
+
+- Les [slides](http://masedki.github.io/enseignements/pdfs/m1sp/arbres.pdf)  et [notes](http://masedki.github.io/enseignements/pdfs/m1sp/trees.pdf) servent de supports des séances de cours sur les arbres de décision. 
+
+- ***À partir de cette séance, les scripts de TP doivent être codés en temps réel en séance de cours.*** 
+
+- Indispensable à lire pour cette partie (livre ISLR) : chapitre 8 (8.1 pour les arbres et 8.2 pour les forêts aléatoires). 
 
 
 <!-- **Séance du lundi 06/03/2023:** Validation croisée sous R et introduction aux arbres de décision. [Slides de cours](http://masedki.github.io/enseignements/pdfs/arbres.pdf). -->
@@ -128,6 +130,12 @@ Si besoin, le package R [ElemStatLearn](http://masedki.github.io/enseignements/r
 
 
 <!-- # [Projet pour la seconde session](http://masedki.github.io/enseignements/pdfs/cc2.pdf) à rendre au plus tard le 03/09/2019 à 23h.  -->
+
+
+Si besoin, le package R [ElemStatLearn](http://masedki.github.io/enseignements/rcode/ElemStatLearn_2015.6.26.2.tar.gz)
+
+
+
 
 [Jeu de données mixture example](https://masedki.github.io/enseignements/datasets/mixture_example.rda)
 <!-- [Jeu de données mnist aplati !](http://masedki.github.io/enseignements/datasets/mnist_flatten.rda) -->
