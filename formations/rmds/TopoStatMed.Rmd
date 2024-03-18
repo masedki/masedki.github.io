@@ -13,7 +13,7 @@ Il est indispensable d'installer [R](https://cran.r-project.org/) et [Rstudio](h
 
 ## Bases de données 
 
-[Framingham database](http://masedki.github.io/datasets/framingham_dataset.csv)
+[Heart disease database](http://masedki.github.io/datasets/heart_disease.csv)
 
 [Jeu de données d'oncologie](http://masedki.github.io/formations/datasets/TroisCancers.rda)
 
