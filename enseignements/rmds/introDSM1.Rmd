@@ -34,17 +34,19 @@ output:
 # Introduction : régression, classification et phénomène de sur-apprentissage
 
 
-**Séances du 05 et 19 février 2024** traiter les exemples qu'on corrigera lors de la séance de cours. 
+**Séances du 05 et 19 février 2024 : ** traiter les exemples qu'on corrigera lors de la séance de cours. 
 
-- [TP R](http://masedki.github.io/enseignements/rcode/code_intro.R) à traiter.
+- [Code : séance d'introduction](http://masedki.github.io/enseignements/rcode/m1/code_intro.R) à traiter.
 
-- [Validation croisée avec Caret](http://masedki.github.io/enseignements/rcode/validation_croisee_knn.R) à traiter.
+- [Code : validation croisée avec caret en classification](http://masedki.github.io/enseignements/rcode/m1/validation_croisee_knn_classif.R) à traiter.
+
+- [Code : validation croisée avec caret en régression](http://masedki.github.io/enseignements/rcode/m1/validation_croisee_knn_reg.R) à traiter.
 
 - Indispensables à lire pour cette partie (livre ISLR) : chapitres 1 et 2. 
 
 
 
-**Séance du 04/03/2024 ** Nous allons aborder les arbres de décision (brique de base d'un grand nombre de familles de modèles)
+**Séance du 04/03/2024 : ** Nous allons aborder les arbres de décision (brique de base d'un grand nombre de familles de modèles)
 
 - Les [slides](http://masedki.github.io/enseignements/pdfs/m1sp/arbres.pdf)  et [notes](http://masedki.github.io/enseignements/pdfs/m1sp/trees.pdf) servent de supports des séances de cours sur les arbres de décision. 
 
@@ -52,6 +54,11 @@ output:
 
 - Indispensable à lire pour cette partie (livre ISLR) : chapitre 8 (8.1 pour les arbres et 8.2 pour les forêts aléatoires). 
 
+
+
+**Séance du 25/03/2024 : ** Nous allons aborder les arbres de décision pour la classification + retour sur l'élagage
+
+- [Code : arbres de décision et élagage pour la régression (de la séance du 04/03/2023)](http://masedki.github.io/enseignements/rcode/m1/cart_reg.R) à traiter.
 
 <!-- **Séance du lundi 06/03/2023:** Validation croisée sous R et introduction aux arbres de décision. [Slides de cours](http://masedki.github.io/enseignements/pdfs/arbres.pdf). -->
 
