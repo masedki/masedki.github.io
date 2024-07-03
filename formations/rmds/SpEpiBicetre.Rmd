@@ -73,4 +73,7 @@ Il est indispensable d'installer [R](https://cran.r-project.org/) et [Rstudio](h
 
 - [jeu de données d'assurance maladie](http://masedki.github.io/formations/datasets/insurance.rda) 
 
+- [jeu de données HD](http://masedki.github.io/formations/datasets/hd.rda) 
+
+
 - [Image](http://masedki.github.io/formations/datasets/irm_small.jpeg) 
