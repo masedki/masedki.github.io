@@ -6,5 +6,6 @@
 # actually remove the files
 rmarkdown::clean_site()
 #render your sweet site. 
-rmarkdown::render_site()
+rmarkdown::render_site(encoding = "UTF-8")
+#rmarkdown::render_site()
 

@@ -5,6 +5,7 @@ insurance_bin = fastDummies::dummy_cols(insurance,
                                         select_columns = c("sex","smoker","region"),
                                         remove_first_dummy = TRUE,
                                         remove_selected_columns = TRUE)
+summary(insurance_bin)
 set.seed(500)
 insurance_bin
 apply(insurance_bin,2,function(x) sum(is.na(x)))

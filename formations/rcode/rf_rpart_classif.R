@@ -41,7 +41,7 @@ vip::vip(cart_pruned)
 
 
 ## random forest avec ranger 
-ctrl = trainControl(method="repeatedcv", number = 5, repeats=5)
+ctrl = trainControl(method="repeatedcv", number = 3, repeats=10)
 tgrid <- expand.grid(.mtry = 1:9, 
                      .splitrule = "gini", 
                      .min.node.size = 20) #on peut tester c(5, 10, 20)

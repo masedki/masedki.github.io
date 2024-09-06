@@ -9,18 +9,15 @@ output:
 
 Maître de conférence à l'université Paris-Saclay
 
-CESP-Inserm U1018: Pôle méthodologie et statistique 
+Gustave Roussy, équipe Oncostat
 
-Bureau 123, étage 1 du bâtiment Inserm 15/16 hôpital Paul Brousse 
+Bâtiment de médecine moléculaire 
 
-16, avenue Paul Vaillant-Couturier
+Niveau 0, bureau 26
 
-94807 Villejuif
 
-France
+Tél:+ 33 (0)1 42 11 50 94
 
-Tél: +33 1 45 59 52 14 
-
-Adresse mail : prénom.nomATuniversite-paris-saclay.fr 
+Adresse mail : prénom.nomATgustaveroussy.fr 
 
 ![](http://masedki.github.io/Under_Construction.jpg)
