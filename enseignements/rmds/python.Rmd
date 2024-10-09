@@ -9,7 +9,11 @@ output:
 
 ## séance d'introduction
 
-[Introduction](http://masedki.github.io/enseignements/python/Nb1-IntroPython.html)
+
+
+[Types de données de base](http://masedki.github.io/enseignements/python/typesdonnees.html)
+
+[Contrôle de flux et boucles](http://masedki.github.io/enseignements/python/loopflowcontrol.html)
 
 [Fonctions](http://masedki.github.io/enseignements/python/functions.html)
 
@@ -17,13 +21,12 @@ output:
 
 [Compilé versus interprété](http://masedki.github.io/enseignements/python/Compiled_and_interpreted.html)
 
-[Types de données de base](http://masedki.github.io/enseignements/python/typesdonnees.html)
-
 [Tableaux et matrices](http://masedki.github.io/enseignements/python/arraymatrix.html)
 
 [Module math de base](http://masedki.github.io/enseignements/python/basicmath.html)
 
-[Contrôle de flux et boucles](http://masedki.github.io/enseignements/python/loopflowcontrol.html)
+
+<!-- [Introduction](http://masedki.github.io/enseignements/python/Nb1-IntroPython.html) -->
 
 <!-- [(correction)](http://masedki.github.io/enseignements/python/exercices_correction.html) -->
 
@@ -68,7 +71,7 @@ output:
 [jeu de données mixture](http://masedki.github.io/enseignements/datasets/mixture.txt)
 
 
-## Devoir à rendre le 03 décembre 2023
+## Devoir de l'année dernière (2023)
 
 Il est indispensable de lire et comprendre la partie 9.3.3 voire tout le chapitre 9 du livre de Bishop disponible [ici](http://masedki.github.io/enseignements/pdfs/python/Bishop_PRML.pdf) pour la réalisation du devoir.  Le devoir est disponible [ici](http://masedki.github.io/enseignements/pdfs/python/examen_python_2023.pdf). Vous pouvez travailler en binôme ou individuellement. 
 
