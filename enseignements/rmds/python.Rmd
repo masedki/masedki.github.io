@@ -39,7 +39,11 @@ output:
 [exercices](http://masedki.github.io/enseignements/python/exercices.html)
 <!-- [Devoir 2022](http://masedki.github.io/enseignements/python/devoir_2022.pdf) -->
 
-<!-- ### Travaux pratiques  -->
+
+### Travaux pratiques
+
+[Création d'une classe ](http://masedki.github.io/enseignements/python/class_logisticregression.html)
+[ + document d'explication](http://masedki.github.io/enseignements/pdfs/python/tp_logistic.pdf)
 
 [classification par les knn (corrigé)](http://masedki.github.io/enseignements/python/knn_mixture.html)
 
