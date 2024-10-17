@@ -43,7 +43,8 @@ output:
 ### Travaux pratiques
 
 [Création d'une classe ](http://masedki.github.io/enseignements/python/class_logisticregression.html)
-[ + document d'explication](http://masedki.github.io/enseignements/pdfs/python/tp_logistic.pdf)
+[ + document d'explication](http://masedki.github.io/enseignements/pdfs/python/tp_logistic.pdf) 
+[ + correction](http://masedki.github.io/enseignements/python/class_logisticregression_sol.html)
 
 [classification par les knn (corrigé)](http://masedki.github.io/enseignements/python/knn_mixture.html)
 

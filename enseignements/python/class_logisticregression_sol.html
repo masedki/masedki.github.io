@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>graphics</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>class_logisticregression_sol</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7509,411 +7509,80 @@ a.anchor-link {
 </style>
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="7.-Les-graphiques">7. Les graphiques<a class="anchor-link" href="#7.-Les-graphiques">¶</a></h1><p>Matplotlib est une bibliothèque complète capable de générer des graphiques de haute qualité. Matplotlib contient à la fois des fonctions de haut niveau produisant des types de figures spécifiques, par exemple un simple tracé linéaire ou un graphique à barres, ainsi qu'une API de bas niveau permettant de créer des graphiques hautement personnalisés. Ce chapitre couvre les bases de la création de figures et ne fait qu'effleurer le champs des applications de matplotlib. Des informations complémentaires sont disponibles sur le <a href="http://matplotlib.org/">site Web</a> de matplotlib ou dans des livres consacrés à la production de graphiques de qualité d'impression à l'aide de matplotlib. Tout au long de cette partie, les modules suivants seront importés.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<main><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="7.1-seaborn">7.1 seaborn<a class="anchor-link" href="#7.1-seaborn">¶</a></h2><p>seaborn est un paquet Python qui fournit un certain nombre de figures avancées de visualisation de données. Il fournit également une amélioration générale de l'apparence par défaut des figures produites par matplotlib, et je recommande donc de l'utiliser c'est par défaut.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Toutes les figures de cette parties seront produites avec seaborn chargé, en utilisant les options par défaut. L'arrière-plan de la grille sombre peut être échangé contre une grille claire ou aucune grille à l'aide de <code>sns.set(style = 'whitegrid')</code> (grille légère) ou de <code>sns.set(style = 'blanc')</code> (pas de grille, très similaire à matplotlib).</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="7.2--Figures-en-2D">7.2  Figures en 2D<a class="anchor-link" href="#7.2--Figures-en-2D">¶</a></h2><h3 id="7.2.1-autoscale-et-tight_layout">7.2.1 autoscale et tight_layout<a class="anchor-link" href="#7.2.1-autoscale-et-tight_layout">¶</a></h3><p>Deux fonctions, <code>plt.autoscale</code> et <code>plt.tight_layout</code>, amélioreront généralement l'apparence des figures. <code>autoscale</code> peut être utilisée pour définir des limites serrées dans les axes d’une figure et <code>tight_layout</code> supprime l’espace perdu autour d’une figure. Celles-ci ont été utilisées dans les figures de cette partie. Elles seront utilisées par défaut et rarement mentionnées.</p>
-<h3 id="7.2.2-Trac%C3%A9s-lin%C3%A9aires">7.2.2 Tracés linéaires<a class="anchor-link" href="#7.2.2-Trac%C3%A9s-lin%C3%A9aires">¶</a></h3>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">autoscale</span><span class="p">(</span><span class="n">tight</span><span class="o">=</span><span class="s1">'x'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Une forme plus flexible ajoute une chaîne de format qui comporte 1 à 3 éléments: une couleur, représentée par une lettre (par exemple, <code>g</code> pour le vert), un symbole de marqueur qui est soit une lettre d'un symbole (par exemple, <code>s</code> pour carré, ^ pour triangle en haut ) et un style de ligne, qui est toujours un symbole ou une série de symboles. Dans l'exemple suivant, <code>'g--'</code> indique le vert (<code>g</code>) et la ligne pointillée (<code>-</code>).</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="s1">'g--'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h4 id="Les-couleurs-:">Les couleurs :<a class="anchor-link" href="#Les-couleurs-:">¶</a></h4><ul>
-<li>b : blue</li>
-<li>g : green</li>
-<li>r : red</li>
-<li>c : cyan</li>
-<li>m : magenta</li>
-<li>y : yellow</li>
-<li>k : black</li>
-<li>w : white</li>
-</ul>
-<p>Consulter l'aide la fonction <code>plt.plot</code> pour plus de détail.</p>
-<p>Le comportement par défaut consiste à utiliser une ligne bleue continue sans marqueur (sauf s’il y a plus d’une ligne, auquel cas les couleurs modifieront, dans l’ordre, celles de la colonne Couleurs, en ignorant le blanc). La chaîne de formatage contient 1 ou plus ou les trois catégories d’informations de formatage. Par exemple, <code>kx--</code> produirait une ligne pointillée noire avec des croix marquant les points, <code>*</code>: produirait une ligne pointillée avec la couleur par défaut en utilisant des étoiles pour marquer des points et <code>yH</code> produirait une ligne jaune continue avec un marqueur hexagonal.
-Lorsque <code>plot</code> est appelé avec un tableau, les valeurs par défaut de l'axe des abscisses <code>1,2,...</code> sont utilisés. <code>plot(x, y)</code> peut être utilisé pour tracer des valeurs <code>x</code> spécifiques versus des valeurs <code>y</code>.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">'r-'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Bien que les chaînes de format soient utiles pour ajouter rapidement des couleurs ou des styles de ligne significatifs à un tracé, elles n'exposent qu'une gamme limitée de personnalisations disponibles. L'exemple suivant montre comment les arguments sont utilisés pour ajouter des personnalisations à un tracé.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'#FF7F00'</span><span class="p">,</span> \
-<span class="o">...</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">'Line Label'</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">'-.'</span><span class="p">,</span> \
-<span class="o">...</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">'o'</span><span class="p">,</span> <span class="n">markeredgecolor</span> <span class="o">=</span> <span class="s1">'#000000'</span><span class="p">,</span> \
-<span class="o">...</span> <span class="n">markeredgewidth</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">markerfacecolor</span> <span class="o">=</span> <span class="s1">'#FF7F00'</span><span class="p">,</span> \
-<span class="o">...</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="7.2.3-Diagramme-en-baton">7.2.3 Diagramme en baton<a class="anchor-link" href="#7.2.3-Diagramme-en-baton">¶</a></h3><p><code>bar</code> produit des graphiques à barres utilisant deux tableaux à une dimension. Le premier spécifie le rebord gauche des barres et le second les hauteurs de barre.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Les graphiques à barres prennent des arguments de mots clés pour modifier les couleurs et la largeur des barres.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'#FF7F00'</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">'#000000'</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Enfin, <code>barh</code> peut être utilisé à la place de la barre pour produire un graphique à barres horizontales.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s1">'colorblind'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">,</span> <span class="n">edgecolor</span> <span class="o">=</span> <span class="s1">'#000000'</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="7.2.4-Pie-Charts-(c'est-mieux-en-anglais)">7.2.4 Pie Charts (c'est mieux en anglais)<a class="anchor-link" href="#7.2.4-Pie-Charts-(c'est-mieux-en-anglais)">¶</a></h3><p><code>pie</code> réduit les diagrammes à secteurs à l'aide d'un tableau de données à 1 dimension (les données peuvent avoir n'importe quelle valeur et il n'est pas nécessaire que leur somme soit égale à 1).</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="n">y</span><span class="p">[</span><span class="n">y</span><span class="o">&lt;</span><span class="mf">.05</span><span class="p">]</span> <span class="o">=</span> <span class="mf">.05</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Les pie charts peuvent être modifiés à l'aide d'un grand nombre d'arguments, notamment des étiquettes et des couleurs personnalisées. Dans cet exemple, les couleurs sont générées à l’aide du générateur de palette de <code>seaborn</code> avec 8 couleurs, bien que seules les 5 premières soient utilisées, de sorte que la couleur la plus sombre ne soit pas trop sombre pour que le texte puisse être lu. Des vues éclatées d'un pie chart peuvent être produites en fournissant un vecteur de distances à l'argument.
-Notez que <code>autopct = '% 2.0f'</code> utilise une ancienne chaîne de formatage pour formater les étiquettes numériques.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">explode</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">.1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">colors</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">dark_palette</span><span class="p">(</span><span class="s2">"skyblue"</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'One'</span><span class="p">,</span> <span class="s1">'Two'</span><span class="p">,</span> <span class="s1">'Three'</span><span class="p">,</span> <span class="s1">'Four'</span><span class="p">,</span> <span class="s1">'Five'</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">explode</span> <span class="o">=</span> <span class="n">explode</span><span class="p">,</span> <span class="n">colors</span> <span class="o">=</span> <span class="n">colors</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="p">,</span> <span class="n">autopct</span> <span class="o">=</span> <span class="s1">'</span><span class="si">%2.0f</span><span class="s1">'</span><span class="p">,</span> <span class="n">shadow</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="7.2.5-Les-histogrammes">7.2.5 Les histogrammes<a class="anchor-link" href="#7.2.5-Les-histogrammes">¶</a></h3><p>Les histogrammes peuvent être produits en utilisant la fonction <code>hist</code>. Cet exemple définit le nombre de classes à  utiliser  à l'aide du mot clé <code>bins</code>.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">30</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Les histogrammes peuvent être encore modifiés en utilisant des arguments de mots clés. Dans l'exemple suivant, <code>cumulative=True</code> génère l'histogramme cumulatif.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">cumulative</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'#FF7F00'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="7.3-Figures-2D-avanc%C3%A9es">7.3 Figures 2D avancées<a class="anchor-link" href="#7.3-Figures-2D-avanc%C3%A9es">¶</a></h2><h3 id="7.3.1-Plusieurs-figures">7.3.1 Plusieurs figures<a class="anchor-link" href="#7.3.1-Plusieurs-figures">¶</a></h3><p>Dans certains cas, il est avantageux d’avoir plusieurs graphiques ou courbes sur la même figure. La mise en œuvre est simple: utiliser <code>figure</code> pour initialiser la fenêtre de la figure, puis utiliser <code>add_subplot</code>. Des sous-graphes sont ajoutés à la figure en utilisant une grille avec $m$ lignes et $n$ colonnes où $1$ est le coin supérieur gauche, $2$ le droit de $1$ et ainsi de suite jusqu'à la fin d'une ligne, où l'élément suivant est en dessous de $1$. Par exemple , les figures d'un <em>subplot</em> $3 \times 2$ ont des indices
-$$
-\begin{align*}
-\begin{pmatrix}
-1 &amp; 2\\
-3 &amp; 4\\
-5 &amp; 6\\
-\end{pmatrix}
-\end{align*}
-$$
-<code>add_subplot</code> est appelé en utilisant la notation <code>add_subplot(mni)</code> ou <code>add_subplot(m,n,i)</code> où $m$ est le nombre de lignes, $n$ le nombre de colonnes et $i$ l’indice de la sous-parcelle.</p>
-<p>Noter que <code>add_subplot</code> doit être appelé comme une méthode de la figure. Noter que le bloc de code suivant est suffisamment long pour qu’il ne soit pas pratique pour l’exécuter de manière interactive. <code>draw()</code> est donc utilisé pour forcer la mise à jour de la fenêtre afin de garantir la visibilité de tous les tracés et graphiques.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">plot</span><span class="p">,</span> <span class="n">bar</span><span class="p">,</span> <span class="n">pie</span><span class="p">,</span> <span class="n">draw</span><span class="p">,</span> <span class="n">scatter</span>
-<span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">randn</span><span class="p">,</span> <span class="n">rand</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">arange</span>
-<span class="n">help</span><span class="p">(</span><span class="n">figure</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="k">class</span> <span class="nc">LogisticRegression</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">num_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">learning_rate</span> <span class="o">=</span> <span class="n">learning_rate</span>  <span class="c1"># learning_rate of the algorithm</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_iter</span> <span class="o">=</span> <span class="n">num_iter</span>  <span class="c1">#  number of iterations of the gradient descent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fit_intercept</span> <span class="o">=</span> <span class="n">fit_intercept</span>  <span class="c1"># boolean indicating whether we`re adding base X0 feature vector or not</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>  
+
+    <span class="k">def</span> <span class="nf">_add_intercept</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="n">intercept</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span>  <span class="c1">#  creating X0 features vector(M x 1)</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">intercept</span><span class="p">,</span> <span class="n">X</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># concatenating X0 features vector with our features making intercept</span>
+
+    <span class="k">def</span> <span class="nf">_logit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">'''Defines our "logit" function based on which we make predictions</span>
+<span class="sd">           parameters:</span>
+<span class="sd">              z - product of the our features with weights</span>
+<span class="sd">           return:</span>
+<span class="sd">              probability of the attachment to class</span>
+<span class="sd">        '''</span>
+
+        <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">'''</span>
+<span class="sd">        Functions have parameters or weights and we want to find the best values for them.</span>
+<span class="sd">        To start we pick random values and we need a way to measure how well the algorithm performs using those random weights.</span>
+<span class="sd">        That measure is computed using the loss function</span>
+<span class="sd">        '''</span>
+
+        <span class="k">return</span> <span class="p">(</span><span class="o">-</span><span class="n">y</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">g</span><span class="p">))</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">'''</span>
+<span class="sd">        Function for training the algorithm.</span>
+<span class="sd">            parameters:</span>
+<span class="sd">              X - input data matrix (all our features without target variable)</span>
+<span class="sd">              y - target variable vector (1/0)</span>
+<span class="sd">            </span>
+<span class="sd">            return:</span>
+<span class="sd">              None</span>
+<span class="sd">        '''</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit_intercept</span><span class="p">:</span>
+            <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_intercept</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>  <span class="c1"># X will get a result with "zero" feature</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1">#  inicializing our weights vector filled with zeros</span>
+        
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_iter</span><span class="p">):</span>  <span class="c1"># implementing Gradient Descent algorithm</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_weights</span><span class="p">)</span>  <span class="c1">#  calculate the product of the weights and predictor matrix</span>
+            <span class="n">g</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_logit</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+            <span class="n">gradient</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="p">(</span><span class="n">g</span> <span class="o">-</span> <span class="n">y</span><span class="p">))</span> <span class="o">/</span> <span class="n">y</span><span class="o">.</span><span class="n">size</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_weights</span> <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">_weights</span>  <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">learning_rate</span> <span class="o">*</span> <span class="n">gradient</span>
+            
+            <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">==</span> <span class="kc">True</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_weights</span><span class="p">)</span>
+                <span class="n">g</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_logit</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'loss: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_loss</span><span class="p">(</span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="si">}</span><span class="s1"> </span><span class="se">\t</span><span class="s1">'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">predict_prob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>  
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit_intercept</span><span class="p">:</span>
+            <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_intercept</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_logit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_weights</span><span class="p">))</span>
+    
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">threshold</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict_prob</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">threshold</span>
 </pre></div>
 </div>
 </div>
@@ -7924,52 +7593,23 @@ $$
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">figure</span><span class="p">(</span><span class="n">layout</span> <span class="o">=</span> <span class="s1">'constrained'</span><span class="p">)</span>
-<span class="c1"># Add the subplot to the figure</span>
-<span class="c1"># Panel 1</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'1'</span><span class="p">)</span>
-<span class="c1"># Panel</span>
-<span class="mi">2</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'2'</span><span class="p">)</span>
-<span class="c1"># Panel 3</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="n">y</span><span class="p">[</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mf">.05</span><span class="p">]</span> <span class="o">=</span> <span class="mf">.05</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">pie</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'3'</span><span class="p">)</span>
-<span class="c1"># Panel 4</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">z</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">z</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">z</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">z</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">z</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'4'</span><span class="p">)</span>
-<span class="n">draw</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_breast_cancer</span>
+
+
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">load_breast_cancer</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># load the dataset</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.20</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span><span class="p">)</span>  <span class="c1"># split the dataset</span>
+<span class="n">X_train_scaled</span> <span class="o">=</span> <span class="p">(</span><span class="n">X_train</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test_scaled</span> <span class="o">=</span> <span class="p">(</span><span class="n">X_test</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="c1">#print(X.shape)</span>
+<span class="c1">#print(X[:2])</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="7.3.2--ajout-d'un-titre-et-d'une-l%C3%A9gende">7.3.2  ajout d'un titre et d'une légende<a class="anchor-link" href="#7.3.2--ajout-d'un-titre-et-d'une-l%C3%A9gende">¶</a></h3><p>Les titres sont ajoutés avec <code>title</code> et les légendes sont ajoutés avec <code>legend</code>. La légende nécessite que les lignes aient des étiquettes. C'est pourquoi 3 appels pour <code>plot</code> - chaque série a sa propre étiquette.</p>
 </div>
 </div>
 </div>
@@ -7978,245 +7618,171 @@ $$
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="s1">'b-'</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s1">'Series 1'</span><span class="p">)</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s1">'g-.'</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s1">'Series 2'</span><span class="p">)</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span><span class="s1">'r:'</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s1">'Series 3'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Basic Legend'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create an instance of the LogisticRegression class</span>
+
+<span class="n">logit</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">num_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># you can play with hyperparameters to understand how learning rate works.</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><code>legend</code> prend des arguments mots-clés qui peuvent être utilisés pour changer d’emplacement (<code>loc</code> et un entier, voir la doc), supprimer le cadre (<code>frameon</code>) et ajouter un titre à la zone de légende(<code>title</code>).</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="s1">'b-'</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s1">'Series 1'</span><span class="p">)</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="s1">'g-.'</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s1">'Series 2'</span><span class="p">)</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span><span class="s1">'r:'</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s1">'Series 3'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">frameon</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s1">'The Legend'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Improved Legend'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Train the models</span>
+<span class="n">logit</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>loss: 0.6931471805599453 	
+loss: 0.3677875336279482 	
+loss: 0.30813972433579384 	
+loss: 0.2837383861675563 	
+loss: 0.2708270038151539 	
+loss: 0.2629761041263377 	
+loss: 0.2577488031548123 	
+loss: 0.254031390193723 	
+loss: 0.2512492230791035 	
+loss: 0.2490792779461498 	
+loss: 0.24732795803138768 	
+loss: 0.24587329028807284 	
+loss: 0.24463526792421764 	
+loss: 0.24355962978846127 	
+loss: 0.2426085185636089 	
+loss: 0.2417548662954826 	
+loss: 0.24097889707612913 	
+loss: 0.24026588103931001 	
+loss: 0.23960465347098578 	
+loss: 0.23898661568183166 	
+loss: 0.23840504709488353 	
+loss: 0.2378546229601606 	
+loss: 0.237331070677176 	
+loss: 0.23683092123562108 	
+loss: 0.23635132698966876 	
+loss: 0.23588992637268458 	
+loss: 0.23544474227493287 	
+loss: 0.23501410486043947 	
+loss: 0.23459659232931937 	
+loss: 0.23419098499773808 	
+loss: 0.2337962293600533 	
+loss: 0.23341140970389912 	
+loss: 0.23303572549166965 	
+loss: 0.2326684731824616 	
+loss: 0.2323090315018704 	
+loss: 0.23195684941047418 	
+loss: 0.2316114362011382 	
+loss: 0.23127235328840479 	
+loss: 0.23093920735282458 	
+loss: 0.2306116445781363 	
+loss: 0.23028934577614332 	
+loss: 0.2299720222376261 	
+loss: 0.22965941218105942 	
+loss: 0.22935127769675998 	
+loss: 0.22904740210421234 	
+loss: 0.2287475876560675 	
+loss: 0.22845165353471283 	
+loss: 0.22815943409713021 	
+loss: 0.22787077733158254 	
+loss: 0.22758554349593044 	
+loss: 0.2273036039124295 	
+loss: 0.22702483989794348 	
+loss: 0.22674914181183572 	
+loss: 0.22647640820652837 	
+loss: 0.22620654506796053 	
+loss: 0.22593946513503269 	
+loss: 0.2256750872886707 	
+loss: 0.22541333600243166 	
+loss: 0.2251541408476608 	
+loss: 0.2248974360471234 	
+loss: 0.22464316007181284 	
+loss: 0.22439125527629852 	
+loss: 0.22414166756854229 	
+loss: 0.22389434611060072 	
+loss: 0.2236492430470486 	
+loss: 0.2234063132583235 	
+loss: 0.22316551413650584 	
+loss: 0.22292680538132623 	
+loss: 0.22269014881442936 	
+loss: 0.2224555082101385 	
+loss: 0.22222284914114662 	
+loss: 0.2219921388377268 	
+loss: 0.22176334605919729 	
+loss: 0.22153644097650593 	
+loss: 0.22131139506491115 	
+loss: 0.22108818100583968 	
+loss: 0.22086677259708953 	
+loss: 0.22064714467062843 	
+loss: 0.22042927301730977 	
+loss: 0.22021313431789186 	
+loss: 0.2199987060798053 	
+loss: 0.2197859665791637 	
+loss: 0.21957489480756182 	
+loss: 0.21936547042324453 	
+loss: 0.2191576737062704 	
+loss: 0.21895148551732665 	
+loss: 0.2187468872598831 	
+loss: 0.2185438608454005 	
+loss: 0.2183423886613355 	
+loss: 0.21814245354170517 	
+loss: 0.21794403873999546 	
+loss: 0.21774712790421885 	
+loss: 0.21755170505393942 	
+loss: 0.21735775455910342 	
+loss: 0.21716526112052453 	
+loss: 0.21697420975188705 	
+loss: 0.2167845857631422 	
+loss: 0.21659637474518226 	
+loss: 0.21640956255568833 	
+loss: 0.21622413530605525 	
+</pre>
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="7.4-Figures-3D">7.4 Figures 3D<a class="anchor-link" href="#7.4-Figures-3D">¶</a></h2><p>La qualité des figures en 3D de matplotlib est nettement plus faible que celle des figures en 2D, mais elle est généralement suffisante pour la plupart des applications (d'autant plus que les graphiques 3D sont rarement nécessaires).</p>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="7.4.1-tra%C3%A7%C3%A9s-lin%C3%A9aires">7.4.1 traçés linéaires<a class="anchor-link" href="#7.4.1-tra%C3%A7%C3%A9s-lin%C3%A9aires">¶</a></h3><p>Le tracé en 3D est pratiquement identique au tracé en 2D, sauf que 3 vecteurs à une dimension sont nécessaires: $x$, $y$ et $z$ (hauteur). Cet exemple simple montre comment <code>plot</code> peut être utilisé avec l'argument mot-clé $zs$ pour construire un tracé d'une ligne en 3D.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span><span class="o">*</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">6</span><span class="o">*</span><span class="n">pi</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span> <span class="o">=</span> <span class="s2">"3d"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot3D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">zs</span><span class="o">=</span><span class="n">z</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Spiral'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">45</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Normalize output generated by sigmoid function</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">logit</span><span class="o">.</span><span class="n">predict_prob</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()]</span>  <span class="c1"># you can do it much sipler it`s just me</span>
+<span class="c1"># look at the score</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>  <span class="c1"># 0.956 -&gt; 95.6 %.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="7.4.2-Surface-et-maillage-(filaire)">7.4.2 Surface et maillage (filaire)<a class="anchor-link" href="#7.4.2-Surface-et-maillage-(filaire)">¶</a></h3><p>Les tracés de surfaces et maillage (filaire ou pas) sont parfois utiles pour visualiser les fonctions à 2 entrées (variables), telles que la densité de probabilité bivariée. Cet exemple produit les deux types de tracé pour un la densité d'une gaussienne bivariée avec une moyenne de 0, des variances d'unités et une corrélation de 50%. Le premier bloc de code génère les points à utiliser dans le graphique avec meshgrid et évalue la densité pour toutes les combinaisons de $x$ et $y$.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#numpy import linspace, meshgrid, zeros, shape, sqrt, matrix</span>
-<span class="kn">import</span> <span class="nn">numpy.linalg</span> <span class="k">as</span> <span class="nn">linalg</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-<span class="n">z</span> <span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mf">.5</span><span class="p">],[</span><span class="mf">.5</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">Rinv</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)):</span>
-        <span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
-        <span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
-        <span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="n">sqrt</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Rinv</span><span class="p">)</span><span class="o">*</span><span class="n">z</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Le bout de code suivant génère un tracé en maillage (filaire) à l'aide de <code>plot_wireframe</code>. La figure est dessinée à l'aide des tableaux à deux dimensions $x$, $y$ et $p$</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span> <span class="o">=</span> <span class="s2">"3d"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot_wireframe</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">rstride</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">cstride</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'#AD5300'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span><span class="mi">80</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="7.4.3-Contours">7.4.3 Contours<a class="anchor-link" href="#7.4.3-Contours">¶</a></h2><p>Les contours ne sont pas techniquement 3D, bien qu'ils soient utilisés comme représentation 2D de données 3D. Comme ils sont finalement en 2D, peu de configuration est nécessaire, mis à part un appel au contour utilisant les mêmes entrées que <code>plot_surface</code> et <code>plot_wireframe</code>.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="7.5-Fonctions-graphiques">7.5 Fonctions graphiques<a class="anchor-link" href="#7.5-Fonctions-graphiques">¶</a></h2><h4 id="figure">figure<a class="anchor-link" href="#figure">¶</a></h4><p><code>figure</code> est utilisé pour ouvrir une fenêtre de figure et peut être utilisé pour générer des axes. <code>fig = figure(n)</code> produit un objet figure avec id $n$ et affecte cet objet à la <code>fig</code>.</p>
-<h4 id="add_subplot">add_subplot<a class="anchor-link" href="#add_subplot">¶</a></h4><p><code>add_subplot</code> est utilisé pour ajouter des axes à la figure. <code>ax = fig.add_subplot(111)</code> peut être utilisé pour ajouter des axes basique à une figure. <code>ax = fig.add_subplot(m,n,i)</code> peut être utilisé pour ajouter des axes à une figure avec une grille $m$ par $n$.</p>
-<h4 id="close">close<a class="anchor-link" href="#close">¶</a></h4><p><code>close</code> sert à fermer une figure. <code>close(n)</code> ferme une figure avec un id $n$, et <code>close('all')</code> ferme toutes les figu#res.</p>
-<h4 id="show">show<a class="anchor-link" href="#show">¶</a></h4><p><code>show</code> est utilisé pour forcer la mise à jour d'une figure, et suspend l'exécution s'il n'est pas utilisé dans une console interactive (fermer la fenêtre de figure pour reprendre l'exécution). <code>show</code> ne doit pas être utilisé dans des programmes Python autonomes-<code>draw</code>doit être utilisé.</p>
-<h4 id="draw">draw<a class="anchor-link" href="#draw">¶</a></h4><p><code>draw</code> force la mise à jour d'une figure.</p>
-<h2 id="7.6-Exporter-des-figures">7.6 Exporter des figures<a class="anchor-link" href="#7.6-Exporter-des-figures">¶</a></h2><p>L'exportation des figures est simple à l'aide de <code>savefig('filename.ext')</code> où <code>ext</code> détermine le type de fichier exporté à produire. ext peut être png, pdf, ps, eps ou svg.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">'figure.pdf'</span><span class="p">)</span> <span class="c1"># PDF export</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">'figure.png'</span><span class="p">)</span> <span class="c1"># PNG export</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">'figure.svg'</span><span class="p">)</span> <span class="c1"># Scalable Vector Graphics export</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p><code>savefig</code> a un certain nombre d'arguments mots-clés utiles. En particulier, <code>dpi</code> est utile lors de l'exportation de fichiers png. Le <code>dpi</code> par défaut est $100$.</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">'figure.png'</span><span class="p">,</span> <span class="n">dpi</span> <span class="o">=</span> <span class="mi">600</span><span class="p">)</span> <span class="c1"># High resolution PNG export</span>
-</pre></div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>0.9473684210526315
+</pre>
 </div>
 </div>
 </div>
