@@ -36,7 +36,7 @@ output:
 
 [Probabilités et statistiques](http://masedki.github.io/enseignements/python/probasstats.html)
 
-[exercices](http://masedki.github.io/enseignements/python/exercices.html)
+[exercices](http://masedki.github.io/enseignements/python/exercices.html) [+solutions](http://masedki.github.io/enseignements/python/exercices_correction.html)
 <!-- [Devoir 2022](http://masedki.github.io/enseignements/python/devoir_2022.pdf) -->
 
 
@@ -48,18 +48,6 @@ output:
 
 [classification par les knn (corrigé)](http://masedki.github.io/enseignements/python/knn_mixture.html)
 
-<!-- [Arbres de décision pour la régression](http://masedki.github.io/enseignements/python/decisiontree.html) -->
-
-
-<!-- [tp d'introduction à bootstrap](http://masedki.github.io/enseignements/python/bootstrap.html) -->
-
-<!-- [Apprentissage avec python : sklearn](http://masedki.github.io/enseignements/python/Apprentissage_sklearn.html) -->
-
-<!-- [Brève introduction aux réseaux de neurones](http://masedki.github.io/enseignements/pdfs/apprentissage/nn_intro.pdf) -->
-
-<!-- [Réseaux de neurones convolutifs](http://masedki.github.io/enseignements/python/nn_conv.html) -->
-
-<!-- [Le fichier .ipynb : à utiliser avec google colab](http://masedki.github.io/enseignements/python/nn_conv.ipynb) -->
 
 
 ### Instruction pour lancer jupyter notebook sur un environnement virtuel en ligne de commande
@@ -73,7 +61,11 @@ output:
 
 <!-- [jeu de données Titanic](http://masedki.github.io/enseignements/datasets/titanic-train.csv) -->
 
-[jeu de données mixture](http://masedki.github.io/enseignements/datasets/mixture.txt)
+<!-- [jeu de données mixture](http://masedki.github.io/enseignements/datasets/mixture.txt) -->
+
+## Examen année précédente 
+
+[Examen janvier 2024](http://masedki.github.io/enseignements/pdfs/python/examen_2024.pdf)[+ correction+solutions des exercices racine carrée et jour de naissance](http://masedki.github.io/enseignements/python/proposition_de_correction_2024.html)
 
 
 ## Devoir de l'année dernière (2023)
