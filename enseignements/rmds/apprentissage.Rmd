@@ -6,7 +6,7 @@ output:
     highlight: monochrome
     css: style.css
 ---
-### supports
+### supports (évolutifs)
 
 [Introduction, arbres de décision et agrégation de modèles](http://masedki.github.io/enseignements/pdfs/apprentissage/apprentissage.pdf)
 
@@ -62,7 +62,7 @@ output:
 
 [notebook boost classif](http://masedki.github.io/enseignements/apprentissage/boost_classif.html)
 
-[notebook rf en analyse de survie](https://www.randomforestsrc.org/articles/survival.html)
+<!-- [notebook rf en analyse de survie](https://www.randomforestsrc.org/articles/survival.html) -->
 
 
 <!-- [notebook kmeans et CAH](http://masedki.github.io/enseignements/apprentissage/clustering.html) -->
@@ -71,7 +71,7 @@ output:
 
 
 
-### scripts R
+### scripts R si besoin 
 
 [Régression : arbres et random forest](http://masedki.github.io/enseignements/rcode/apprentissage/reg_trees.R)
 
@@ -152,8 +152,8 @@ output:
 [fonctions d2l](http://masedki.github.io/enseignements/python/d2l_functions.py)
 
 
-### Examen 2024
+<!-- ### Examen 2024 -->
 
-[Projet à rendre le 11/02/2024](http://masedki.github.io/enseignements/pdfs/apprentissage/examen_2024.pdf)
+<!-- [Projet à rendre le 11/02/2024](http://masedki.github.io/enseignements/pdfs/apprentissage/examen_2024.pdf) -->
 
 
