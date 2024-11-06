@@ -104,9 +104,9 @@ output:
 
 ### Jeux de données
 
-[Jeu de données : mixture.example](http://masedki.github.io/enseignements/datasets/mixture_example.rda)
+<!-- [Jeu de données : mixture_example.rda](http://masedki.github.io/enseignements/datasets/mixture_example.rda) -->
 
-<!-- [dataset mixture.txt](http://masedki.github.io/enseignements/datasets/mixture.txt) -->
+[dataset mixture.txt](http://masedki.github.io/enseignements/datasets/mixture.txt)
 
 <!-- [dataset Prostate_Cancer.txt](http://masedki.github.io/enseignements/datasets/Prostate_Cancer.txt) -->
 
