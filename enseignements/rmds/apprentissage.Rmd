@@ -54,13 +54,13 @@ output:
 
 <!-- [notebook régression logistique](http://masedki.github.io/enseignements/apprentissage/logistique.html) -->
 
-[notebook rf régression](http://masedki.github.io/enseignements/apprentissage/rf_reg.html)
+[notebook rf régression](http://masedki.github.io/enseignements/apprentissage/random_forest_assurance.html)
 
-[notebook rf classif](http://masedki.github.io/enseignements/apprentissage/rf_classif.html)
+<!-- [notebook rf classif](http://masedki.github.io/enseignements/apprentissage/rf_classif.html) -->
 
-[notebook boost régression](http://masedki.github.io/enseignements/apprentissage/boost_reg.html)
+<!-- [notebook boost régression](http://masedki.github.io/enseignements/apprentissage/boost_reg.html) -->
 
-[notebook boost classif](http://masedki.github.io/enseignements/apprentissage/boost_classif.html)
+<!-- [notebook boost classif](http://masedki.github.io/enseignements/apprentissage/boost_classif.html) -->
 
 <!-- [notebook rf en analyse de survie](https://www.randomforestsrc.org/articles/survival.html) -->
 
