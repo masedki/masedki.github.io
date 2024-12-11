@@ -14,9 +14,9 @@ output:
 
 <!-- [Régression (linéaire ou logistique) pénalisée](http://masedki.github.io/enseignements/pdfs/apprentissage/reg_pen.pdf) -->
 
-<!-- [Réseaux de neurones](http://masedki.github.io/enseignements/pdfs/apprentissage/nn.pdf) -->
+[Réseaux de neurones](http://masedki.github.io/enseignements/pdfs/apprentissage/nn.pdf)
 
-<!-- [Réseaux de neurones convolutifs](http://masedki.github.io/enseignements/pdfs/apprentissage/cnn.pdf) -->
+[Réseaux de neurones convolutifs](http://masedki.github.io/enseignements/pdfs/apprentissage/cnn.pdf)
 
 ### notebooks, TP et projets 
 
