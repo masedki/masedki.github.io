@@ -139,7 +139,7 @@ output:
 
 [Classification par nn avec PyTorch](http://masedki.github.io/enseignements/notebooks/nn_classif_PyTorch.html)
 
-[Réseaux de neurones convolutifs CNN](http://masedki.github.io/enseignements/notebooks/nn_conv.html)
+<!-- [Réseaux de neurones convolutifs CNN](http://masedki.github.io/enseignements/notebooks/nn_conv.html) -->
 
 [LeNet et AlexNet](http://masedki.github.io/enseignements/notebooks/LeNet_AlexNet.html)
 
