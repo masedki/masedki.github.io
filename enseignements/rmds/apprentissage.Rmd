@@ -163,3 +163,9 @@ output:
 
 [examen 2024](http://masedki.github.io/enseignements/pdfs/apprentissage/examen_2024.pdf)
 
+### Séminaire autour des LLM et applications 
+
+[TP BERT embeddings](http://masedki.github.io/enseignements/apprentissage/TP_BERT_Embeddings.html)
+
+[GPT+BERT+PedoPsy](http://masedki.github.io/enseignements/pdfs/apprentissage/pres_llm.pdf)
+
