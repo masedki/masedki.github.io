@@ -34,7 +34,7 @@ output:
 # Introduction : régression, classification et phénomène de sur-apprentissage
 
 
-**Séances du 05 et 19 février 2024 : ** traiter les exemples qu'on corrigera lors de la séance de cours. 
+**Séances du 10 et 17 février 2025 : ** traiter les exemples qu'on corrigera lors de la séance de cours. 
 
 - [Code : séance d'introduction](http://masedki.github.io/enseignements/rcode/m1/code_intro.R) à traiter.
 
@@ -46,24 +46,24 @@ output:
 
 
 
-**Séance du 04/03/2024 : ** Nous allons aborder les arbres de décision (brique de base d'un grand nombre de familles de modèles)
+<!-- **Séance du 04/03/2024 : ** Nous allons aborder les arbres de décision (brique de base d'un grand nombre de familles de modèles) -->
 
-- Les [slides](http://masedki.github.io/enseignements/pdfs/m1sp/arbres.pdf)  et [notes](http://masedki.github.io/enseignements/pdfs/m1sp/trees.pdf) servent de supports des séances de cours sur les arbres de décision. 
+<!-- - Les [slides](http://masedki.github.io/enseignements/pdfs/m1sp/arbres.pdf)  et [notes](http://masedki.github.io/enseignements/pdfs/m1sp/trees.pdf) servent de supports des séances de cours sur les arbres de décision.  -->
 
-- ***À partir de cette séance, les scripts de TP doivent être codés en temps réel en séance de cours.*** 
+<!-- - ***À partir de cette séance, les scripts de TP doivent être codés en temps réel en séance de cours.***  -->
 
-- Indispensable à lire pour cette partie (livre ISLR) : chapitre 8 (8.1 pour les arbres et 8.2 pour les forêts aléatoires). 
-
-
-
-**Séance du 25/03/2024 : ** Nous allons aborder les arbres de décision pour la classification + retour sur l'élagage
-
-- [Code : arbres de décision et élagage pour la régression (de la séance du 04/03/2023)](http://masedki.github.io/enseignements/rcode/m1/cart_reg.R) à traiter.
+<!-- - Indispensable à lire pour cette partie (livre ISLR) : chapitre 8 (8.1 pour les arbres et 8.2 pour les forêts aléatoires).  -->
 
 
-**Séance du 06/05/2024 : ** Nous allons l'idée d'agrégation séquentielle d'arbre (boosting)
 
-- Les [slides](http://masedki.github.io/enseignements/pdfs/m1sp/boosting_M1.pdf)
+<!-- **Séance du 25/03/2024 : ** Nous allons aborder les arbres de décision pour la classification + retour sur l'élagage -->
+
+<!-- - [Code : arbres de décision et élagage pour la régression (de la séance du 04/03/2023)](http://masedki.github.io/enseignements/rcode/m1/cart_reg.R) à traiter. -->
+
+
+<!-- **Séance du 06/05/2024 : ** Nous allons l'idée d'agrégation séquentielle d'arbre (boosting) -->
+
+<!-- - Les [slides](http://masedki.github.io/enseignements/pdfs/m1sp/boosting_M1.pdf) -->
 
 <!-- **Séance du lundi 06/03/2023:** Validation croisée sous R et introduction aux arbres de décision. [Slides de cours](http://masedki.github.io/enseignements/pdfs/arbres.pdf). -->
 
