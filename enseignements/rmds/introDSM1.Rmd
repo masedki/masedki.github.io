@@ -146,7 +146,7 @@ output:
 
 [Examen 2021](http://masedki.github.io/enseignements/pdfs/s1_2021.pdf) juin 2021
 
-[Examen 2024 (vous n'avez pas vu adaboost cette année)](http://masedki.github.io/enseignements/pdfs/exmamen_M1_24.pdf) juin 2024
+[Examen 2024 (vous n'avez pas vu adaboost cette année)](http://masedki.github.io/enseignements/pdfs/exmen_M1_24.pdf) juin 2024
 
 <!-- # [Projet pour la seconde session](http://masedki.github.io/enseignements/pdfs/cc2.pdf) à rendre au plus tard le 03/09/2019 à 23h.  -->
 
