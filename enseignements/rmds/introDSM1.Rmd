@@ -143,18 +143,19 @@ output:
 <!-- dans votre script. Les affichages des résultats me permettront de comprendre les conclusions et les réponses. -->
 <!-- [corrigé](http://masedki.github.io/enseignements/cc_correction.html) -->
 
+## Exemples d'examens pour préparer la session de juin 2025
 
 [Examen 2021](http://masedki.github.io/enseignements/pdfs/s1_2021.pdf) juin 2021
 
-[Examen 2024 (vous n'avez pas vu adaboost cette année)](http://masedki.github.io/enseignements/pdfs/exmen_M1_24.pdf) juin 2024
+[Examen 2024 (vous n'avez pas vu adaboost cette année)](http://masedki.github.io/enseignements/pdfs/examen_M1_24.pdf) juin 2024
 
 <!-- # [Projet pour la seconde session](http://masedki.github.io/enseignements/pdfs/cc2.pdf) à rendre au plus tard le 03/09/2019 à 23h.  -->
 
 
+
+
+## Jeux de données et packages 
 Si besoin, le package R [ElemStatLearn](http://masedki.github.io/enseignements/rcode/ElemStatLearn_2015.6.26.2.tar.gz)
-
-
-
 
 [Jeu de données mixture example](https://masedki.github.io/enseignements/datasets/mixture_example.rda)
 <!-- [Jeu de données mnist aplati !](http://masedki.github.io/enseignements/datasets/mnist_flatten.rda) -->
