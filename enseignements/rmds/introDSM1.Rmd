@@ -149,21 +149,13 @@ output:
 
 [Examen 2024 (vous n'avez pas vu adaboost cette année)](http://masedki.github.io/enseignements/pdfs/examen_M1_24.pdf) juin 2024
 
-<!-- # [Projet pour la seconde session](http://masedki.github.io/enseignements/pdfs/cc2.pdf) à rendre au plus tard le 03/09/2019 à 23h.  -->
-
-
-
 
 ## Jeux de données et packages 
 Si besoin, le package R [ElemStatLearn](http://masedki.github.io/enseignements/rcode/ElemStatLearn_2015.6.26.2.tar.gz)
 
 [Jeu de données mixture example](https://masedki.github.io/enseignements/datasets/mixture_example.rda)
-<!-- [Jeu de données mnist aplati !](http://masedki.github.io/enseignements/datasets/mnist_flatten.rda) -->
 
 [Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda)
 
-<!-- [Jeu de données crédit](http://masedki.github.io/enseignements/datasets/credit.rda) -->
 
-<!-- [Jeu de données spams](http://masedki.github.io/enseignements/datasets/dataspam.rda) -->
-
-<!-- [Projet pour le parcours MSP/ES](http://masedki.github.io/enseignements/pdfs/mspes.pdf) -->
+# Annonce : L'évaluation va reposer uniquement sur l'examen de session 1 (juin 2025) et 2 (septembre 2025). Aucun devoir à rendre. 
