@@ -13,71 +13,71 @@ Il est indispensable d'installer [R](https://cran.r-project.org/) et [Rstudio](h
 
 ## Supports et slides des présentation 
 
- <!-- - [Introduction sur-apprentissage, validation croisée et choix de modèle](http://masedki.github.io/formations/pdfs/introduction.pdf)  -->
+ - [Introduction sur-apprentissage, validation croisée et choix de modèle](http://masedki.github.io/formations/pdfs/introduction.pdf)
 
- <!-- - [Arbres de décision](http://masedki.github.io/formations/pdfs/arbres.pdf)  -->
+ - [Arbres de décision](http://masedki.github.io/formations/pdfs/arbres.pdf)
 
- <!-- - [Forêts aléatoires et gradient boosting](http://masedki.github.io/formations/pdfs/agregation_modeles.pdf)  -->
+ - [Forêts aléatoires et gradient boosting](http://masedki.github.io/formations/pdfs/agregation_modeles.pdf)
 
- <!-- - [Forêts aléatoires pour l'analyse de survie](https://www.randomforestsrc.org/articles/survival.html) -->
+ - [Forêts aléatoires pour l'analyse de survie](https://www.randomforestsrc.org/articles/survival.html)
 
- <!-- - [Clustering : méthodes géométriques](http://masedki.github.io/formations/pdfs/clusteringGeo.pdf) -->
+ - [Clustering : méthodes géométriques](http://masedki.github.io/formations/pdfs/clusteringGeo.pdf)
 
- <!-- - [Clustering : modèles de mélanges](http://masedki.github.io/formations/pdfs/clusteringMixture.pdf) -->
+ - [Clustering : modèles de mélanges](http://masedki.github.io/formations/pdfs/clusteringMixture.pdf)
 
- <!-- - [Clustering : TP](http://masedki.github.io/formations/pdfs/tp_clustering.pdf) -->
+ - [Clustering : TP](http://masedki.github.io/formations/pdfs/tp_clustering.pdf)
 
- <!-- - [Réseaux de neurones](http://masedki.github.io/formations/pdfs/nn.pdf) -->
+ - [Réseaux de neurones](http://masedki.github.io/formations/pdfs/nn.pdf)
 
 
 ## TP R 
 
-<!-- - [Illustration sur la famille des k-plus proches voisins](http://masedki.github.io/formations/rcode/code_intro.R) -->
+- [Illustration sur la famille des k-plus proches voisins](http://masedki.github.io/formations/rcode/code_intro.R)
 
-<!-- - [Choix de modèle dans la famille des k-nn par validation croisée à l'aide de la librairie caret et parallélisation sous R](http://masedki.github.io/formations/rcode/cv_knn.R)  -->
+- [Choix de modèle dans la famille des k-nn par validation croisée à l'aide de la librairie caret et parallélisation sous R](http://masedki.github.io/formations/rcode/cv_knn.R)
 
-<!-- - [Arbres de régression avec et sans élagage](http://masedki.github.io/formations/rcode/rpart_reg.R) -->
+- [Arbres de régression avec et sans élagage](http://masedki.github.io/formations/rcode/rpart_reg.R)
 
-<!-- - [Arbres de classification avec et sans élagage](http://masedki.github.io/formations/rcode/rpart_classif.R)  -->
+- [Arbres de classification avec et sans élagage](http://masedki.github.io/formations/rcode/rpart_classif.R)
 
-<!-- - [Choix d'une forêt aléatoire à l'aide de caret pour la régression](http://masedki.github.io/formations/rcode/rf_rpart_reg.R)  -->
+- [Choix d'une forêt aléatoire à l'aide de caret pour la régression](http://masedki.github.io/formations/rcode/rf_rpart_reg.R)
 
-<!-- - [Choix d'une forêt aléatoire à l'aide de caret pour la classification](http://masedki.github.io/formations/rcode/rf_rpart_classif.R)  -->
+- [Choix d'une forêt aléatoire à l'aide de caret pour la classification](http://masedki.github.io/formations/rcode/rf_rpart_classif.R)
 
-<!-- - [Choix d'un modèle de gradient boosting à l'aide de caret pour la régression](http://masedki.github.io/formations/rcode/gbm_reg.R)  -->
+- [Choix d'un modèle de gradient boosting à l'aide de caret pour la régression](http://masedki.github.io/formations/rcode/gbm_reg.R)
 
-<!-- - [Choix d'un modèle de gradient boosting à l'aide de caret pour la classification](http://masedki.github.io/formations/rcode/gbm_classif.R)  -->
+- [Choix d'un modèle de gradient boosting à l'aide de caret pour la classification](http://masedki.github.io/formations/rcode/gbm_classif.R)
 
-<!-- - [Segmentation d'image par clustering spectral](http://masedki.github.io/formations/rcode/spectral_clustering.R)  -->
+- [Segmentation d'image par clustering spectral](http://masedki.github.io/formations/rcode/spectral_clustering.R)
 
-<!-- - [Clustering par modèles de mélanges](http://masedki.github.io/formations/rcode/modeles_de_melanges.R)  -->
+- [Clustering par modèles de mélanges](http://masedki.github.io/formations/rcode/modeles_de_melanges.R)
 
 
-<!-- - [NN pour la régression](http://masedki.github.io/formations/rcode/test_neuralnet.R)  -->
+- [NN pour la régression](http://masedki.github.io/formations/rcode/test_neuralnet.R)
 
 
 ## Bibliographie, aide et commandes R
 
- <!-- - [Commandes R](http://masedki.github.io/formations/pdfs/commandes_r.pdf) mémoire du Dr Julien Chiquet (DR Inrae). -->
+ - [Commandes R](http://masedki.github.io/formations/pdfs/commandes_r.pdf) mémoire du Dr Julien Chiquet (DR Inrae).
 
- <!-- - [Mine d'or 1](https://stackoverflow.com/) pour trouver des astuces et solutions de programmation avec \textsf{R}. -->
+ - [Mine d'or 1](https://stackoverflow.com/) pour trouver des astuces et solutions de programmation avec \textsf{R}.
 
- <!-- - [Mine d'or 2](https://stats.stackexchange.com/) pour trouver des réponses à vos questions en statistique.   -->
+ - [Mine d'or 2](https://stats.stackexchange.com/) pour trouver des réponses à vos questions en statistique.
 
- <!-- - [Livre : The Elements of Statistical Learning](https://hastie.su.domains/Papers/ESLII.pdf) -->
+ - [Livre : The Elements of Statistical Learning](https://hastie.su.domains/Papers/ESLII.pdf)
 
- <!-- - [Le petit frère du livre précédent](https://hastie.su.domains/ISLR2/ISLRv2_website.pdf) -->
+ - [Le petit frère du livre précédent](https://hastie.su.domains/ISLR2/ISLRv2_website.pdf)
 
- <!-- - [Analyse de survie avec R](http://masedki.github.io/formations/pdfs/survival_analysis_book.pdf) -->
+ - [Analyse de survie avec R](http://masedki.github.io/formations/pdfs/survival_analysis_book.pdf)
 
 ## Jeux de données à utiliser 
 
-<!-- - [jeu de données mixture](http://masedki.github.io/formations/datasets/mixture_example.rda)  -->
+- [jeu de données mixture](http://masedki.github.io/formations/datasets/mixture_example.rda)
 
 
-<!-- - [jeu de données d'assurance maladie](http://masedki.github.io/formations/datasets/insurance.rda)  -->
+- [jeu de données d'assurance maladie](http://masedki.github.io/formations/datasets/insurance.rda)
 
-<!-- - [jeu de données HD](http://masedki.github.io/formations/datasets/hd.rda)  -->
+- [jeu de données HD](http://masedki.github.io/formations/datasets/hd.rda)
 
 
-<!-- - [Image](http://masedki.github.io/formations/datasets/irm_small.jpeg)  -->
+- [Image](http://masedki.github.io/formations/datasets/irm_small.jpeg)
