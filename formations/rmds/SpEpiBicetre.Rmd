@@ -15,9 +15,9 @@ Il est indispensable d'installer [R](https://cran.r-project.org/) et [Rstudio](h
 
  - [Introduction sur-apprentissage, validation croisée et choix de modèle](http://masedki.github.io/formations/pdfs/introduction.pdf)
 
- - [Arbres de décision](http://masedki.github.io/formations/pdfs/arbres.pdf)
+ <!-- - [Arbres de décision](http://masedki.github.io/formations/pdfs/arbres.pdf) -->
 
- - [Forêts aléatoires et gradient boosting](http://masedki.github.io/formations/pdfs/agregation_modeles.pdf)
+ - [Arbres, forêts aléatoires et gradient boosting](http://masedki.github.io/formations/pdfs/arbres_agregation.pdf)
 
  - [Forêts aléatoires pour l'analyse de survie](https://www.randomforestsrc.org/articles/survival.html)
 
@@ -29,6 +29,9 @@ Il est indispensable d'installer [R](https://cran.r-project.org/) et [Rstudio](h
 
  - [Réseaux de neurones](http://masedki.github.io/formations/pdfs/nn.pdf)
 
+ - [Réseaux de neurones pour la classification d'images](http://masedki.github.io/formations/pdfs/cnn.pdf)
+ 
+ - [Réseaux de neurones pour données textuelles](http://masedki.github.io/formations/pdfs/llm_two_usecases.pdf)
 
 ## TP R 
 
