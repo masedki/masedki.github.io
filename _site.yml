@@ -8,8 +8,8 @@ navbar:
       icon: ion-easel
       menu:
         - text: "ENSAI : MSP/ES"
-        - text: "Clustering et réduction de dimensions"
-          href: enseignements/mspes.html
+        - text: "Régression Pénalisée"
+          href: enseignements/regpen.html
         - text: "M1 mathématiques appliquées Paris-Sud-ENSTA"
         - text: "STA212"
           href: enseignements/sta212.html

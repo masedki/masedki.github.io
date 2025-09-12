@@ -1,0 +1,27 @@
+---
+title: "Régression pénalisée"
+output:
+  html_document:
+    theme: journal
+    highlight: monochrome
+    css: style.css
+  pdf_document: default
+---
+
+## Supports de cours, fiches de TP (j'espère pouvoir ajouter la fiche d'exercices)
+
+[Ridge](http://masedki.github.io/enseignements/pdfs/regpen/ridge.pdf)
+
+[Sparsité](http://masedki.github.io/enseignements/pdfs/regpen/sparsite.pdf)
+
+[Stabilité](http://masedki.github.io/enseignements/pdfs/regpen/stabilite.pdf)
+
+
+[TP1](http://masedki.github.io/enseignements/pdfs/regpen/TP1.pdf)
+
+[TP2](http://masedki.github.io/enseignements/pdfs/regpen/TP2.pdf)
+
+
+## Jeux de données 
+
+[Breast Cancer](http://masedki.github.io/enseignements/datasets/regpen/breast_cancer.txt)
