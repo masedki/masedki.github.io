@@ -8,13 +8,16 @@ output:
   pdf_document: default
 ---
 
-## Supports de cours, fiches de TP (j'espère pouvoir ajouter la fiche d'exercices)
+## Supports de cours, fiche d'exercices et fiches de TP
 
 [Ridge](http://masedki.github.io/enseignements/pdfs/regpen/ridge.pdf)
 
 [Sparsité](http://masedki.github.io/enseignements/pdfs/regpen/sparsite.pdf)
 
 [Stabilité](http://masedki.github.io/enseignements/pdfs/regpen/stabilite.pdf)
+
+
+[Exercices](http://masedki.github.io/enseignements/pdfs/regpen/exercices.pdf)
 
 
 [TP1](http://masedki.github.io/enseignements/pdfs/regpen/TP1.pdf)
