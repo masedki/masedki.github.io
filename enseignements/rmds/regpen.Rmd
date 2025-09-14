@@ -19,12 +19,27 @@ output:
 
 [Exercices](http://masedki.github.io/enseignements/pdfs/regpen/exercices.pdf)
 
+[Solutions des exercices](http://masedki.github.io/enseignements/pdfs/regpen/exercices_sols.pdf)
+
 
 [TP1](http://masedki.github.io/enseignements/pdfs/regpen/TP1.pdf)
 
 [TP2](http://masedki.github.io/enseignements/pdfs/regpen/TP2.pdf)
 
+[TP3](http://masedki.github.io/enseignements/pdfs/regpen/TP3.pdf)
+
+
+## Code R 
+
+[Approximation solution Lasso](http://masedki.github.io/enseignements/rcode/regpen/demo_sol_lasso.pdf)
+
 
 ## Jeux de données 
 
 [Breast Cancer](http://masedki.github.io/enseignements/datasets/regpen/breast_cancer.txt)
+
+[Achats](http://masedki.github.io/enseignements/datasets/regpen/achat.txt)
+
+[Télé](http://masedki.github.io/enseignements/datasets/regpen/tele.txt)
+
+[Télé pour régression logistique](http://masedki.github.io/enseignements/datasets/regpen/telelogit.txt)
