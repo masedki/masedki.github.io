@@ -24,6 +24,8 @@ output:
 
 [TP1](http://masedki.github.io/enseignements/pdfs/regpen/TP1.pdf)
 
+[TP1 corrigé](http://masedki.github.io/enseignements/rcode/regpen/TP1.pdf)
+
 [TP2](http://masedki.github.io/enseignements/pdfs/regpen/TP2.pdf)
 
 [TP3](http://masedki.github.io/enseignements/pdfs/regpen/TP3.pdf)
@@ -43,3 +45,5 @@ output:
 [Télé](http://masedki.github.io/enseignements/datasets/regpen/tele.txt)
 
 [Télé pour régression logistique](http://masedki.github.io/enseignements/datasets/regpen/telelogit.txt)
+
+[Jeu de données concrete](http://masedki.github.io/enseignements/datasets/regpen/concrete_data.rda)
