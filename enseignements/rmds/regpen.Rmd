@@ -29,6 +29,11 @@ output:
 [TP3](http://masedki.github.io/enseignements/pdfs/regpen/TP3.pdf)
 
 
+## Examen 2025
+
+[Examen 2025](http://masedki.github.io/enseignements/pdfs/regpen/examen_2025.pdf)
+
+
 ## Code R 
 
 [Approximation solution Lasso](http://masedki.github.io/enseignements/rcode/regpen/demo_sol_lasso.pdf)
