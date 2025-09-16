@@ -22,9 +22,7 @@ output:
 [Solutions des exercices](http://masedki.github.io/enseignements/pdfs/regpen/exercices_sols.pdf)
 
 
-[TP1](http://masedki.github.io/enseignements/pdfs/regpen/TP1.pdf)
-
-[TP1 corrigé](http://masedki.github.io/enseignements/rcode/regpen/TP1.pdf)
+[TP1](http://masedki.github.io/enseignements/pdfs/regpen/TP1.pdf) [ corrigé](http://masedki.github.io/enseignements/rcode/regpen/TP1.R)
 
 [TP2](http://masedki.github.io/enseignements/pdfs/regpen/TP2.pdf)
 
