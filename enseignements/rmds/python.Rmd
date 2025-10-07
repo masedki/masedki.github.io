@@ -7,9 +7,12 @@ output:
     css: style.css
 ---
 
+
+## à installer 
+
+Télécharger et installer anaconda [ici](https://www.anaconda.com/) 
+
 ## séance d'introduction
-
-
 
 [Types de données de base](http://masedki.github.io/enseignements/python/typesdonnees.html)
 
@@ -36,7 +39,9 @@ output:
 
 [Probabilités et statistiques](http://masedki.github.io/enseignements/python/probasstats.html)
 
-[exercices](http://masedki.github.io/enseignements/python/exercices.html) [+solutions](http://masedki.github.io/enseignements/python/exercices_correction.html)
+[exercices](http://masedki.github.io/enseignements/python/exercices.html) 
+
+<!-- [+solutions](http://masedki.github.io/enseignements/python/exercices_correction.html) -->
 <!-- [Devoir 2022](http://masedki.github.io/enseignements/python/devoir_2022.pdf) -->
 
 
@@ -75,13 +80,15 @@ Le format à rendre est sous forme d'un pdf (```prenom_nom.pdf```) généré à 
 
 ## Examen année précédente 
 
-[Examen janvier 2024](http://masedki.github.io/enseignements/pdfs/python/examen_2024.pdf)[+ correction+solutions des exercices racine carrée et jour de naissance](http://masedki.github.io/enseignements/python/proposition_de_correction_2024.html)
+à ajouter 
+
+<!-- [Examen janvier 2024](http://masedki.github.io/enseignements/pdfs/python/examen_2024.pdf)[+ correction+solutions des exercices racine carrée et jour de naissance](http://masedki.github.io/enseignements/python/proposition_de_correction_2024.html) -->
 
 
 
 
-## Devoir de l'année dernière (2023)
+<!-- ## Devoir de l'année dernière (2023) -->
 
-Il est indispensable de lire et comprendre la partie 9.3.3 voire tout le chapitre 9 du livre de Bishop disponible [ici](http://masedki.github.io/enseignements/pdfs/python/Bishop_PRML.pdf) pour la réalisation du devoir.  Le devoir est disponible [ici](http://masedki.github.io/enseignements/pdfs/python/examen_python_2023.pdf). Vous pouvez travailler en binôme ou individuellement. 
+<!-- Il est indispensable de lire et comprendre la partie 9.3.3 voire tout le chapitre 9 du livre de Bishop disponible [ici](http://masedki.github.io/enseignements/pdfs/python/Bishop_PRML.pdf) pour la réalisation du devoir.  Le devoir est disponible [ici](http://masedki.github.io/enseignements/pdfs/python/examen_python_2023.pdf). Vous pouvez travailler en binôme ou individuellement.  -->
 
-Le format à rendre est sous forme d'un pdf (```prenom_nom.pdf``` ou ```prenom1_nom1_prenom2_nom2.pdf``` pour un binôme) généré à partir d'un jupyter notebook avec les sorties des calculs. Sans les sorties des différentes cellules du notebook, la réponse ne sera pas prise en compte. 
+<!-- Le format à rendre est sous forme d'un pdf (```prenom_nom.pdf``` ou ```prenom1_nom1_prenom2_nom2.pdf``` pour un binôme) généré à partir d'un jupyter notebook avec les sorties des calculs. Sans les sorties des différentes cellules du notebook, la réponse ne sera pas prise en compte.  -->
