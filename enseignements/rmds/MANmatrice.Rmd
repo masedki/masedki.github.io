@@ -7,7 +7,7 @@ output:
     css: style.css
 ---
 
-[slides de cours](http://masedki.github.io/enseignements/pdfs/MANmatrice.pdf)
+[slides de cours](http://masedki.github.io/enseignements/pdfs/matrice/lecture-slides.pdf)
 
 <!-- [exemple de diagonalisation](http://masedki.github.io/enseignements/pdfs/exemple_diag.pdf) -->
 
