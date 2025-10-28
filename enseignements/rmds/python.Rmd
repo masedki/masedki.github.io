@@ -68,7 +68,7 @@ Télécharger et installer Visual Studio Code [ici](https://code.visualstudio.co
 
 <!-- [jeu de données Titanic](http://masedki.github.io/enseignements/datasets/titanic-train.csv) -->
 
-<!-- [jeu de données mixture](http://masedki.github.io/enseignements/datasets/mixture.txt) -->
+[jeu de données mixture](http://masedki.github.io/enseignements/datasets/mixture.txt)
 
 
 
