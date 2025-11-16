@@ -94,8 +94,8 @@ Télécharger et installer Visual Studio Code [ici](https://code.visualstudio.co
 
 
 
-<!-- ## Devoir de l'année dernière (2023) -->
+## Devoir 2025
 
-<!-- Il est indispensable de lire et comprendre la partie 9.3.3 voire tout le chapitre 9 du livre de Bishop disponible [ici](http://masedki.github.io/enseignements/pdfs/python/Bishop_PRML.pdf) pour la réalisation du devoir.  Le devoir est disponible [ici](http://masedki.github.io/enseignements/pdfs/python/examen_python_2023.pdf). Vous pouvez travailler en binôme ou individuellement.  -->
+Il est indispensable de lire et comprendre la partie 9.3.3 voire tout le chapitre 9 du livre de Bishop disponible [ici](http://masedki.github.io/enseignements/pdfs/python/Bishop_PRML.pdf) pour la réalisation du devoir.  Le devoir est disponible [ici](http://masedki.github.io/enseignements/pdfs/python/devoir_python_2526.pdf). Vous pouvez travailler en binôme ou individuellement.
 
-<!-- Le format à rendre est sous forme d'un pdf (```prenom_nom.pdf``` ou ```prenom1_nom1_prenom2_nom2.pdf``` pour un binôme) généré à partir d'un jupyter notebook avec les sorties des calculs. Sans les sorties des différentes cellules du notebook, la réponse ne sera pas prise en compte.  -->
+Le format à rendre est sous forme d'un pdf (```prenom_nom.pdf``` ou ```prenom1_nom1_prenom2_nom2.pdf``` pour un binôme) généré à partir d'un jupyter notebook avec les sorties des calculs. Sans les sorties des différentes cellules du notebook, la réponse ne sera pas prise en compte.
