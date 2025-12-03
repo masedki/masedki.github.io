@@ -8,7 +8,12 @@ output:
 ---
 ### supports (évolutifs)
 
-[Introduction, arbres de décision et agrégation de modèles](http://masedki.github.io/enseignements/pdfs/apprentissage/apprentissage.pdf)
+[Introduction](http://masedki.github.io/enseignements/pdfs/apprentissage/apprentissage.pdf)
+
+
+[Partie 1](http://masedki.github.io/enseignements/pdfs/apprentissage/partie1.pdf)
+
+[Partie 2](http://masedki.github.io/enseignements/pdfs/apprentissage/partie2.pdf)
 
 [Arbres : quelques détails](http://masedki.github.io/enseignements/pdfs/apprentissage/trees.pdf)
 
