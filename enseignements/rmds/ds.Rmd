@@ -40,7 +40,9 @@ output:
 <!-- [Indications](http://masedki.github.io/enseignements/pdfs/indications_ds.pdf) -->
 <!-- [article 1985](http://masedki.github.io/enseignements/pdfs/article1985.pdf) [article 1986](http://masedki.github.io/enseignements/pdfs/article1986.pdf) [article 1989](http://masedki.github.io/enseignements/pdfs/article1989.pdf) [article 1995](http://masedki.github.io/enseignements/pdfs/article1995.pdf) -->
 
-[devoir de l'année précédente 2024/2025](http://masedki.github.io/enseignements/pdfs/ds/ds2425.pdf)
+[devoir 2025/2026 à rendre le 11/01/2025](http://masedki.github.io/enseignements/pdfs/ds/examen_2526.pdf)
+
+Pour toute question autour du devoir, n'hésitez pas à me contacter par mail.  
 
 
-[Quelques indications pour le début du  devoir](http://masedki.github.io/enseignements/pdfs/ds/indications_ds.pdf)
+<!-- [Quelques indications pour le début du  devoir](http://masedki.github.io/enseignements/pdfs/ds/indications_ds.pdf) -->
