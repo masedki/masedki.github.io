@@ -82,6 +82,9 @@ output:
 
 [Classification : arbres et random forest](http://masedki.github.io/enseignements/rcode/apprentissage/classif_trees.R)
 
+
+[Adaboost pour la classification](http://masedki.github.io/enseignements/rcode/apprentissage/adaboost_classif.R)
+
 <!-- [code R : rpart prostate](http://masedki.github.io/enseignements/rcode/apprentissage/rpart_prostate.R) -->
 
 <!-- [code R : rpart pima](http://masedki.github.io/enseignements/rcode/apprentissage/rpart_pima.R)  -->
