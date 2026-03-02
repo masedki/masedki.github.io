@@ -7,6 +7,38 @@ output:
     css: style.css
 ---
 
+
+# Programme prévisionnel 
+
+- Introduction à l'apprentissage supervisé  : 
+  
+   - caractérisation d'une famille de modèles de régression ou clasification 
+   
+   - erreur d'apprentissage vs erreur de test 
+   
+   - choix de modèle par validation croisée
+   
+   - exemple des k-plus proches voisins 
+   
+- Arbres de décision pour la classification et la régression
+   
+  - construction d'un arbre de décision via l'algorithme CART
+  
+  - caractériser la complexité d'un arbre 
+  
+  - choix du meilleur arbre par élagage 
+  
+  - exemples en régression et classification 
+  
+- Agrégation d'arbres de décision 
+
+  - agrégation d'arbres via l'algorithme de bagging 
+  
+  - réduire la corrélation des arbres agrégés : forêt aléatoire 
+  
+  - si le temps le permet : agrégation séquentielle par boosting 
+
+
 # Logiciel R et livre
 
 
@@ -34,7 +66,7 @@ output:
 # Introduction : régression, classification et phénomène de sur-apprentissage
 
 
-**Séances du 10 et 17 février 2025 : ** traiter les exemples qu'on corrigera lors de la séance de cours. 
+**Séances du 03 et 06 mars 2026 : ** traiter les exemples qu'on corrigera lors de la séance de cours. 
 
 - [Code : séance d'introduction](http://masedki.github.io/enseignements/rcode/m1/code_intro.R) à traiter.
 
@@ -46,7 +78,7 @@ output:
 
 
 
-**Séance du 25/02/2025 : ** Nous allons aborder les arbres de décision (brique de base d'un grand nombre de familles de modèles)
+**Séance du 23 mars 2026 : ** Nous allons aborder les arbres de décision (brique de base d'un grand nombre de familles de modèles)
 
 - Les [slides](http://masedki.github.io/enseignements/pdfs/m1sp/arbres.pdf)  et [notes](http://masedki.github.io/enseignements/pdfs/m1sp/trees.pdf) servent de supports des séances de cours sur les arbres de décision.
 
@@ -56,7 +88,7 @@ output:
 
 
 
-**Séance du 03/03/2025 : ** Nous allons aborder les arbres de décision pour la classification + retour sur l'élagage
+**Séance du 06 mai 2026 : ** Nous allons aborder les arbres de décision pour la classification + retour sur l'élagage
 
 - [Code : arbres de décision et élagage pour la régression](http://masedki.github.io/enseignements/rcode/m1/reg_trees.R) à traiter.
 
@@ -64,7 +96,7 @@ output:
 - [Code : arbres de décision et élagage pour la classification](http://masedki.github.io/enseignements/rcode/m1/classif_trees.R) à traiter.
 
 
-**Séance du 10/03/2025 : ** Indice de Gini en classification + nous allons aborder les forêts aléatoires 
+**Séance du 13 mai 2026 : ** Indice de Gini en classification + nous allons aborder les forêts aléatoires 
 
 
 **Séance (si le temps le permet) : ** Nous allons aborder l'agrégation séquentielle d'arbre (boosting)
@@ -143,7 +175,7 @@ output:
 <!-- dans votre script. Les affichages des résultats me permettront de comprendre les conclusions et les réponses. -->
 <!-- [corrigé](http://masedki.github.io/enseignements/cc_correction.html) -->
 
-## Exemples d'examens pour préparer la session de juin 2025
+## Exemples d'examens pour préparer la session de juin 2026
 
 [Examen 2021](http://masedki.github.io/enseignements/pdfs/s1_2021.pdf) juin 2021
 
@@ -158,4 +190,4 @@ Si besoin, le package R [ElemStatLearn](http://masedki.github.io/enseignements/r
 [Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda)
 
 
-# Annonce : L'évaluation va reposer uniquement sur l'examen de session 1 (juin 2025) et 2 (septembre 2025). Aucun devoir à rendre. 
+# Annonce : L'évaluation va reposer uniquement sur l'examen de session 1 (juin 2026) et 2 (septembre 2026). Aucun devoir à rendre. 
