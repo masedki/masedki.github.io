@@ -193,5 +193,7 @@ Si besoin, le package R [ElemStatLearn](http://masedki.github.io/enseignements/r
 
 [Jeu de données coûts de soins](http://masedki.github.io/enseignements/datasets/insurance.rda)
 
+[Jeu de données espérance de vie](http://masedki.github.io/enseignements/datasets/Life_Expectancy_Data.csv)
+
 
 # Annonce : L'évaluation va reposer uniquement sur l'examen de session 1 (juin 2026) et 2 (septembre 2026). Aucun devoir à rendre. 
