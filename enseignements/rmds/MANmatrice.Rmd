@@ -9,6 +9,9 @@ output:
 
 [slides de cours](http://masedki.github.io/enseignements/pdfs/matrice/lecture-slides.pdf)
 
+
+[Un petit jeu de données](http://masedki.github.io/enseignements/datasets/matrice/donnees_survie_oncologie_large.csv)
+
 <!-- [exemple de diagonalisation](http://masedki.github.io/enseignements/pdfs/exemple_diag.pdf) -->
 
-[notebook R](http://masedki.github.io/enseignements/manmatrice/rnb_matrices.html)
+[notebook R (si on a le temps)](http://masedki.github.io/enseignements/manmatrice/rnb_matrices.html)
