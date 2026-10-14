@@ -55,11 +55,11 @@ Télécharger et installer Visual Studio Code [ici](https://code.visualstudio.co
 
 ### Séances d'exercices 
 
-[Examen 2024](http://masedki.github.io/enseignements/python/examen_2024.pdf)
+[Examen 2024](http://masedki.github.io/enseignements/pdfs/python/examen_2024.pdf)
 
-[Examen 2025](http://masedki.github.io/enseignements/python/examen_2025.pdf)
+[Examen 2025](http://masedki.github.io/enseignements/pdfs/python/examen_2025.pdf)
 
-[Examen 2026](http://masedki.github.io/enseignements/python/examen_2026.pdf)
+[Examen 2026](http://masedki.github.io/enseignements/pdfs/python/examen_2026.pdf)
 
 
 
