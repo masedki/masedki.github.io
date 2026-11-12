@@ -45,4 +45,15 @@ output:
 Pour toute question autour du devoir, n'hésitez pas à me contacter par mail.  
 
 
+### Codes R  
+
+
+[code  : ré-échantillonnage](http://masedki.github.io/enseignements/rcode/ds/reechantillonnage.R)
+
+[code  : petite animation](http://masedki.github.io/enseignements/rcode/ds/gganimate.R)
+
+[code  : un petit résumé visuel du cours](http://masedki.github.io/enseignements/rcode/ds/emv.R)
+
+
+
 <!-- [Quelques indications pour le début du  devoir](http://masedki.github.io/enseignements/pdfs/ds/indications_ds.pdf) -->
