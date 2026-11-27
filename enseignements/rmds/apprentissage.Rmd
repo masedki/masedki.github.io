@@ -8,8 +8,9 @@ output:
 ---
 ### supports (évolutifs)
 
-[Introduction](http://masedki.github.io/enseignements/pdfs/apprentissage/apprentissage_supervise.pdf)
+[Introduction](http://masedki.github.io/enseignements/pdfs/apprentissage/apprentissage_supervise_chap1.pdf)
 
+[Arbres](http://masedki.github.io/enseignements/pdfs/apprentissage/apprentissage_supervise_chap2.pdf)
 
 
 
