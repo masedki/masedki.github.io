@@ -14,7 +14,7 @@ output:
 
 
 ### notebooks
-[notebook intro](http://masedki.github.io/enseignements/notebooks/apprentissage/TP_kppv_corrige.ipynb)
+[notebook intro](http://masedki.github.io/enseignements/notebooks/apprentissage/TP_kppv_enonce.ipynb)
 
 <!-- [Partie 1](http://masedki.github.io/enseignements/pdfs/apprentissage/partie1.pdf) -->
 
